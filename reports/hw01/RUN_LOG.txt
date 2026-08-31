@@ -120,3 +120,7 @@ linux/amd64
 192.168.65.1 - - [31/Aug/2026:01:17:27 +0000] "GET /styles.css HTTP/1.1" 304 0 "http://localhost:8486/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36" "-"
 192.168.65.1 - - [31/Aug/2026:01:17:27 +0000] "GET /script.js HTTP/1.1" 304 0 "http://localhost:8486/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36" "-"
 192.168.65.1 - - [31/Aug/2026:01:17:54 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.16.0" "-"
+2026-08-31T03:07:29Z — AWS CLI authentication verified for profile data260 in us-east-1
+2026-08-31T04:45:17Z — ECS Fargate deployment verified successfully with one running task
+2026-08-31T04:53:31Z — ECS service scaled to zero after deployment verification
+2026-08-31T05:01:36Z — AWS ECS, ECR, security group, and CloudWatch homework resources deleted

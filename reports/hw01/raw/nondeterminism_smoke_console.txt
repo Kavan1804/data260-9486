@@ -1,0 +1,44 @@
+Running temperature=0.0, run=1
+Completed in 124611.70 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.7, run=1
+Completed in 76248.31 ms: ['furnished two-bedroom', 'secure parking', 'convenient access']
+{
+  "0.0": {
+    "runs": 1,
+    "distinct_tag_sets": 1,
+    "tags_in_all_runs": [
+      "furnished two-bedroom",
+      "secure parking",
+      "two-bedroom apartment near sjsu"
+    ],
+    "tags_in_exactly_one_run": [
+      "furnished two-bedroom",
+      "secure parking",
+      "two-bedroom apartment near sjsu"
+    ],
+    "latency_ms": {
+      "p50": 124611.7,
+      "p95": 124611.7,
+      "p99": 124611.7
+    }
+  },
+  "0.7": {
+    "runs": 1,
+    "distinct_tag_sets": 1,
+    "tags_in_all_runs": [
+      "convenient access",
+      "furnished two-bedroom",
+      "secure parking"
+    ],
+    "tags_in_exactly_one_run": [
+      "convenient access",
+      "furnished two-bedroom",
+      "secure parking"
+    ],
+    "latency_ms": {
+      "p50": 76248.31,
+      "p95": 76248.31,
+      "p99": 76248.31
+    }
+  }
+}

@@ -1,0 +1,110 @@
+Skipping completed run: temperature=0.0, run=1
+Running temperature=0.0, run=2
+Completed in 83773.54 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=3
+Completed in 75367.47 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=4
+Completed in 75456.98 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=5
+Completed in 73531.77 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=6
+Completed in 79012.91 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=7
+Completed in 78956.30 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=8
+Completed in 72173.54 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=9
+Completed in 85344.74 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=10
+Completed in 73139.73 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=11
+Completed in 72522.67 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=12
+Completed in 74202.35 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=13
+Completed in 73314.10 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=14
+Completed in 73390.30 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=15
+Completed in 72281.50 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=16
+Completed in 68528.10 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=17
+Completed in 70107.75 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=18
+Completed in 102881.50 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=19
+Completed in 81554.24 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.0, run=20
+Completed in 74845.11 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Skipping completed run: temperature=0.7, run=1
+Running temperature=0.7, run=2
+Completed in 90976.42 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=3
+Completed in 81838.54 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=4
+Completed in 82292.29 ms: ['furnished two-bedroom', 'in-unit laundry', 'two-bedroom apartment near sjsu']
+Running temperature=0.7, run=5
+Completed in 79440.27 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.7, run=6
+Completed in 71812.18 ms: ['two-bedroom apartment near sjsu', 'secure parking', 'furnished two-bedroom']
+Running temperature=0.7, run=7
+Completed in 74880.05 ms: ['furnished two-bedroom', 'in-unit laundry', 'two-bedroom apartment near sjsu']
+Running temperature=0.7, run=8
+Completed in 89189.75 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=9
+Completed in 84529.24 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=10
+Completed in 74065.82 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=11
+Completed in 80116.27 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=12
+Completed in 83634.64 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.7, run=13
+Completed in 73240.58 ms: ['furnished two-bedroom', 'in-unit laundry', 'two-bedroom apartment near sjsu']
+Running temperature=0.7, run=14
+Completed in 76277.35 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.7, run=15
+Completed in 97186.06 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=16
+Completed in 82134.68 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.7, run=17
+Completed in 80115.09 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=18
+Completed in 75918.54 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+Running temperature=0.7, run=19
+Completed in 81898.50 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'secure parking']
+Running temperature=0.7, run=20
+Completed in 79544.94 ms: ['two-bedroom apartment near sjsu', 'furnished two-bedroom', 'in-unit laundry']
+{
+  "0.0": {
+    "runs": 20,
+    "distinct_tag_sets": 1,
+    "tags_in_all_runs": [
+      "furnished two-bedroom",
+      "secure parking",
+      "two-bedroom apartment near sjsu"
+    ],
+    "tags_in_exactly_one_run": [],
+    "latency_ms": {
+      "p50": 74523.73,
+      "p95": 103968.01,
+      "p99": 120482.96
+    }
+  },
+  "0.7": {
+    "runs": 20,
+    "distinct_tag_sets": 3,
+    "tags_in_all_runs": [
+      "furnished two-bedroom"
+    ],
+    "tags_in_exactly_one_run": [
+      "convenient access"
+    ],
+    "latency_ms": {
+      "p50": 80115.68,
+      "p95": 91286.9,
+      "p99": 96006.23
+    }
+  }
+}

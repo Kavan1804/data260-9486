@@ -124,3 +124,6 @@ linux/amd64
 2026-08-31T04:45:17Z — ECS Fargate deployment verified successfully with one running task
 2026-08-31T04:53:31Z — ECS service scaled to zero after deployment verification
 2026-08-31T05:01:36Z — AWS ECS, ECR, security group, and CloudWatch homework resources deleted
+2026-08-31T05:19:19Z — Ollama qwen3:4b installed and tested successfully
+2026-08-31T09:18:59Z — Rendered reports/hw01/report.md into reports/hw01/report.pdf with locally rendered page previews
+2026-08-31T09:18:59Z — scripts/verify_hw01.py passed with overall_pass=true

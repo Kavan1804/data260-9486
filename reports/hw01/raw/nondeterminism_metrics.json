@@ -1,0 +1,32 @@
+{
+  "0.0": {
+    "runs": 20,
+    "distinct_tag_sets": 1,
+    "tags_in_all_runs": [
+      "furnished two-bedroom",
+      "secure parking",
+      "two-bedroom apartment near sjsu"
+    ],
+    "tags_in_exactly_one_run": [],
+    "latency_ms": {
+      "p50": 74523.73,
+      "p95": 103968.01,
+      "p99": 120482.96
+    }
+  },
+  "0.7": {
+    "runs": 20,
+    "distinct_tag_sets": 3,
+    "tags_in_all_runs": [
+      "furnished two-bedroom"
+    ],
+    "tags_in_exactly_one_run": [
+      "convenient access"
+    ],
+    "latency_ms": {
+      "p50": 80115.68,
+      "p95": 91286.9,
+      "p99": 96006.23
+    }
+  }
+}

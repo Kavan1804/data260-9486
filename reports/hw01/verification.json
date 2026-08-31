@@ -1,0 +1,55 @@
+{
+  "overall_pass": true,
+  "checks": [
+    {
+      "name": "required_files",
+      "passed": true,
+      "details": "All required files exist."
+    },
+    {
+      "name": "agent_prompt",
+      "passed": true,
+      "details": "AGENT.md requires bullet-only review responses."
+    },
+    {
+      "name": "adapter_interface",
+      "passed": true,
+      "details": "Adapter interface and client import look correct."
+    },
+    {
+      "name": "fixed_input",
+      "passed": true,
+      "details": "Fixed nondeterminism input matches the expected case."
+    },
+    {
+      "name": "raw_runs",
+      "passed": true,
+      "details": "Raw nondeterminism results contain 40 records split 20/20."
+    },
+    {
+      "name": "metrics",
+      "passed": true,
+      "details": "Nondeterminism metrics match the expected values."
+    },
+    {
+      "name": "part2_evidence",
+      "passed": true,
+      "details": "Part 2 evidence contains three tags and a <=25 word summary."
+    },
+    {
+      "name": "screenshots",
+      "passed": true,
+      "details": "Required screenshots are present and renamed."
+    },
+    {
+      "name": "py_compile",
+      "passed": true,
+      "details": "Python compilation succeeded."
+    },
+    {
+      "name": "report_artifacts",
+      "passed": true,
+      "details": "Report source and PDF both exist."
+    }
+  ]
+}

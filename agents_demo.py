@@ -5,9 +5,7 @@ from collections import Counter
 from dataclasses import dataclass
 from typing import List, Dict, Any, Iterable, Tuple
 
-from langchain_ollama import ChatOllama
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
+from src.model_client import ModelClient
 
 
 # Optional: students can expand/modify this
@@ -228,49 +226,57 @@ class SimpleAgent:
     model: Any  # LangChain ChatModel
 
     def respond(
-    self,
-    conversation: List[Dict[str, str]],
-    task: str,
-    title: str,
-    content: str,
-    strict: bool,
+        self,
+        conversation: List[Dict[str, str]],
+        task: str,
+        title: str,
+        content: str,
+        strict: bool,
     ) -> Dict[str, Any]:
-        prompt = ChatPromptTemplate.from_messages([
-            ("system", self.system),
-            (
-            "human",
-            "Task:\n{task}\n\n"
-            "Title:\n{title}\n\n"
-            "Content:\n{content}\n\n"
-            "Conversation so far:\n{history}\n\n"
-            "Allowed tag candidates:\n{candidates}\n\n"
-            "Strict mode: {strict}\n\n"
-            "Return only one JSON object. Do not use markdown or code fences. "
-            "Include thought, message, and data. "
-            "Data must contain exactly three tags, a summary of at most "
-            "25 words, and an issues array. Select tags only from the allowed "
-            "candidates. Keep message at or below 60 words."
-        ),
-    ])
-
         history_text = "\n".join(
             f'{message["role"]}: {message["content"]}'
             for message in conversation
-            ) or "(empty)"
+        ) or "(empty)"
 
-        chain = prompt | self.model | StrOutputParser()
+        instruction = (
+            f"Task:\n{task}\n\n"
+            f"Title:\n{title}\n\n"
+            f"Content:\n{content}\n\n"
+            f"Conversation so far:\n{history_text}\n\n"
+            "Allowed tag candidates:\n"
+            f"{', '.join(phrase_candidates(title, content))}\n\n"
+            f"Strict mode: {strict}\n\n"
+            "Return only one JSON object. Do not use markdown or code fences. "
+            "Include thought, message, and data. Data must contain exactly "
+            "three tags, a summary of at most 25 words, and an issues array. "
+            "Select tags only from the allowed candidates. "
+            "Keep message at or below 60 words."
+        )
 
-        raw = chain.invoke({
-            "task": task,
-            "title": title,
-            "content": content,
-            "history": history_text,
-            "candidates": ", ".join(phrase_candidates(title, content)),
-            "strict": strict,
-        })
+        result = self.model.complete([
+            {
+                "role": "system",
+                "content": self.system,
+            },
+            {
+                "role": "user",
+                "content": instruction,
+            },
+        ])
 
-        return parse_and_coerce(raw, title, content, strict)
+        print(
+            f"Token usage [{self.name}]: "
+            f"input={result.input_tokens}, "
+            f"output={result.output_tokens}, "
+            f"total={result.total_tokens}"
+        )
 
+        return parse_and_coerce(
+            result.content,
+            title,
+            content,
+            strict,
+        )
 
 # -------------------------
 # CLI entrypoint
@@ -285,18 +291,16 @@ def main():
     ap.add_argument("--base_url", default=os.environ.get("OLLAMA_URL", "http://localhost:11434"))
     ap.add_argument("--turns", type=int, default=1)
     ap.add_argument("--strict", action="store_true")
+    ap.add_argument("--temperature", type=float, default=0.0)
     args = ap.parse_args()
 
     # Initialize Ollama chat model (students can adjust params)
     try:
-        llm = ChatOllama(
-            model=args.model,
-            temperature=0.0,
-            base_url=args.base_url,
-            reasoning=False,
-            num_predict=256,
-            num_ctx=2048,
-            format="json",  # asks Ollama to produce JSON when supported
+        llm = ModelClient(
+        model=args.model,
+        base_url=args.base_url,
+        temperature=args.temperature,
+        response_format="json",
         )
     except Exception:
         print(
@@ -363,6 +367,13 @@ def main():
         "submissionDate": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
     print(f"\n Publish Package \n{json.dumps(package, indent=2)}")
+    usage = llm.stats(transcript)
+
+    print("\n Agent Pipeline Token Totals")
+    print(f"Turns: {usage['turn_count']}")
+    print(f"Input tokens: {usage['cumulative_input_tokens']}")
+    print(f"Output tokens: {usage['cumulative_output_tokens']}")
+    print(f"Total tokens: {usage['cumulative_total_tokens']}")
 
 
 if __name__ == "__main__":

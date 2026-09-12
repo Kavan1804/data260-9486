@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Management</title><link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero"><p class="eyebrow">DATA-260 · HOMEWORK 2</p><h1>User Management</h1><p>Search, add, update, and remove users.</p></header>
+    <section class="panel"><div class="toolbar"><label for="searchInput">Search users</label><div class="search-row"><input id="searchInput" type="search" placeholder="Name or email"><button id="searchButton">Search</button><button id="clearButton" class="secondary">Clear</button></div></div><p id="status" class="status" role="status" aria-live="polite"></p>
+      <div class="table-wrap"><table class="user-table"><thead><tr><th>ID</th><th>Name</th><th>Email</th></tr></thead><tbody id="userTableBody"></tbody></table></div>
+      <div id="emptyState" class="state hidden">No matching users found.</div><div id="errorState" class="state error hidden"></div>
+    </section>
+    <section class="forms"><form class="panel form-card" id="createForm"><h2>Add user</h2><label>Name<input id="createName" required maxlength="100"></label><label>Email<input id="createEmail" type="email" required maxlength="200"></label><button>Add user</button></form>
+      <form class="panel form-card" id="updateForm"><h2>Update user ID 1</h2><label>Name<input id="updateName" required maxlength="100"></label><label>Email<input id="updateEmail" type="email" required maxlength="200"></label><button>Update ID 1</button></form>
+      <form class="panel form-card" id="deleteForm"><h2>Delete highest ID</h2><p class="hint">The record with the highest ID will be removed.</p><button class="danger">Delete highest ID</button></form></section>
+  </main><script src="/static/js/app.js"></script>
+</body></html>

@@ -1,0 +1,35 @@
+{
+  "homework": 2,
+  "SID4": 9486,
+  "commit_hash": "local-uncommitted",
+  "model": "qwen3:8b via src/model_client.py",
+  "SEED": 9486,
+  "VERIFY_SEED": 269486,
+  "checks": [
+    {
+      "check": "GET / responds",
+      "passed": true
+    },
+    {
+      "check": "API returns two users",
+      "passed": true
+    },
+    {
+      "check": "Search matches email",
+      "passed": true
+    },
+    {
+      "check": "Create and update ID 1",
+      "passed": true
+    },
+    {
+      "check": "Delete highest ID",
+      "passed": true
+    },
+    {
+      "check": "Graph completes with valid proposal",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

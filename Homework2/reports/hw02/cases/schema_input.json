@@ -1,0 +1,6 @@
+{
+  "title": "User management",
+  "content": "Add a user with name and email",
+  "email": "student@example.com",
+  "task": "Generate three useful tags and a concise summary."
+}

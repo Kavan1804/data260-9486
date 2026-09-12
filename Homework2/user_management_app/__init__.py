@@ -1,0 +1,1 @@
+"""FastAPI user-management application."""

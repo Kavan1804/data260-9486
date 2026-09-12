@@ -1,0 +1,246 @@
+{
+  "2": [
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.904
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.54
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.942
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.674
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.845
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.675
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.997
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.611
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.628
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.542
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.472
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.258
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.647
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.885
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.984
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.404
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.081
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.671
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.103
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 5.323
+    }
+  ],
+  "10": [
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.049
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.813
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.981
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.76
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.945
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.092
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.287
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.792
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.701
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.625
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.291
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.655
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.054
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.712
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.979
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.106
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.666
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 3.735
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.086
+    },
+    {
+      "valid": true,
+      "attempts": 1,
+      "turn_count": 2,
+      "latency_ms": 4.852
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "valid": false,
+    "attempts": 1,
+    "turn_count": 2,
+    "latency_ms": 5.187
+  },
+  {
+    "valid": false,
+    "attempts": 1,
+    "turn_count": 2,
+    "latency_ms": 3.88
+  },
+  {
+    "valid": false,
+    "attempts": 1,
+    "turn_count": 2,
+    "latency_ms": 3.845
+  },
+  {
+    "valid": false,
+    "attempts": 1,
+    "turn_count": 2,
+    "latency_ms": 4.469
+  },
+  {
+    "valid": false,
+    "attempts": 1,
+    "turn_count": 2,
+    "latency_ms": 3.691
+  }
+]

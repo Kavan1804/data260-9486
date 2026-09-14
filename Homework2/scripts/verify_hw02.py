@@ -24,7 +24,7 @@ def main():
         check("Graph completes with valid proposal", lambda: (_ for _ in ()).throw(AssertionError()) if not build_workflow().invoke(initialize_state("t", "c", "e", "task", SmokeModel())).get("reviewer_feedback", {}).get("approved") else None),
     ]
     out = Path(__file__).resolve().parents[1] / "reports" / "hw02"; out.mkdir(parents=True, exist_ok=True)
-    payload = {"homework": 2, "SID4": 9486, "commit_hash": os.getenv("COMMIT_HASH", "local-uncommitted"), "model": "qwen3:8b via src/model_client.py", "SEED": 9486, "VERIFY_SEED": 269486, "checks": results, "passed": all(x["passed"] for x in results)}
+    payload = {"homework": 2, "SID4": 9486, "commit_hash": os.getenv("COMMIT_HASH", "local-uncommitted"), "model": "qwen3:4b via src/model_client.py (documented substitute for qwen3:8b)", "SEED": 9486, "VERIFY_SEED": 269486, "checks": results, "passed": all(x["passed"] for x in results)}
     (out / "verification.json").write_text(json.dumps(payload, indent=2) + "\n"); print(json.dumps(payload, indent=2)); raise SystemExit(0 if payload["passed"] else 1)
 
 if __name__ == "__main__": main()

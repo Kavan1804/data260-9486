@@ -3,30 +3,30 @@
     "valid": false,
     "attempts": 1,
     "turn_count": 2,
-    "latency_ms": 5.187
+    "latency_ms": 19401.592
   },
   {
     "valid": false,
     "attempts": 1,
     "turn_count": 2,
-    "latency_ms": 3.88
+    "latency_ms": 6724.63
   },
   {
     "valid": false,
     "attempts": 1,
     "turn_count": 2,
-    "latency_ms": 3.845
+    "latency_ms": 18494.296
   },
   {
     "valid": false,
     "attempts": 1,
     "turn_count": 2,
-    "latency_ms": 4.469
+    "latency_ms": 19503.718
   },
   {
     "valid": false,
     "attempts": 1,
     "turn_count": 2,
-    "latency_ms": 3.691
+    "latency_ms": 20362.366
   }
 ]

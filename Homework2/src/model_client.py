@@ -16,7 +16,7 @@ class LocalModelClient:
     def generate_json(self, prompt: str) -> dict[str, Any]:
         response = requests.post(
             f"{self.base_url}/api/generate",
-            json={"model": self.model, "prompt": prompt, "stream": False, "format": "json"},
+            json={"model": self.model, "prompt": prompt, "stream": False, "format": "json", "think": False},
             timeout=float(os.getenv("OLLAMA_TIMEOUT_SECONDS", "120")),
         )
         response.raise_for_status()

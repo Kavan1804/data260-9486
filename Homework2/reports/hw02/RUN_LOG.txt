@@ -1,2 +1,71 @@
 HW2 run log
-Run commands after setup; append the real timestamped console output here.
+All commands were run from the Homework2/ directory with the venv activated
+(source .venv/bin/activate) and LOCAL_MODEL=qwen3:4b via Ollama on localhost:11434.
+Timestamps are real UTC times from this run, taken from command output and file
+modification times captured during the session.
+
+=== 2026-09-14T15:41:17Z — model_client.py bug found and fixed ===
+qwen3:4b is a thinking-capable model. Calling Ollama's /api/generate with
+format=json but without think=False put the JSON answer in the unused
+"thinking" response field, leaving "response" empty and json.loads() failing.
+Fixed by adding "think": False to the request payload in
+src/model_client.py:LocalModelClient.generate_json, matching the "think": False
+setting already used in Homework1/src/model_client.py.
+Verified with one real call after the fix: latency ~5.5s, valid JSON:
+{'tags': ['user_add', 'email_validation', 'name_entry'],
+ 'summary': 'User added successfully with email validation passed.'}
+
+=== 2026-09-14T15:42:32Z to 2026-09-14T15:49:16Z — Part 4 experiments (real qwen3:4b) ===
+$ python scripts/run_graph_experiments.py
+schema run 1/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 5437.536, 'outcome': 'valid first attempt'}
+schema run 2/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4110.42, 'outcome': 'valid first attempt'}
+... (30 schema runs total; full per-run output preserved verbatim in
+reports/hw02/raw/graph_experiments_console.log)
+ceiling=10 run 16/20: {'valid': True, 'attempts': 2, 'turn_count': 3, 'latency_ms': 12555.376}
+adversarial run 1/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 19401.592}
+adversarial run 5/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 20362.366}
+Wrote HW2 experiment artifacts to reports/hw02
+Result: 30/30 schema runs valid (29 valid first attempt, 1 valid after 1 retry).
+Ceiling=2: 20/20 completed, all valid first attempt.
+Ceiling=10: 20/20 completed (19 valid first attempt, 1 valid after 1 retry).
+Adversarial: 5/5 runs hit the turn ceiling (all invalid).
+
+=== 2026-09-14T15:44:55Z — Part 2 smoke test (FastAPI on PORT_BASE=8986) ===
+$ PORT_BASE=8986 python -m user_management_app.main
+INFO:     Uvicorn running on http://0.0.0.0:8986
+$ curl -s -o /dev/null -w "GET / -> %{http_code}\n" http://localhost:8986/
+GET / -> 200
+$ curl -s http://localhost:8986/api/users
+[{"id":1,"name":"Alice","email":"alice@example.com"},{"id":2,"name":"Bob","email":"bob@example.com"}]
+$ curl -s -X POST http://localhost:8986/api/users -H "Content-Type: application/json" -d '{"name":"Kavan","email":"kavan@example.com"}'
+{"id":3,"name":"Kavan","email":"kavan@example.com"}
+$ curl -s -X PUT http://localhost:8986/api/users/1 -H "Content-Type: application/json" -d '{"name":"Alicia","email":"alicia@example.com"}'
+{"id":1,"name":"Alicia","email":"alicia@example.com"}
+$ curl -s -X DELETE http://localhost:8986/api/users/highest
+{"id":3,"name":"Kavan","email":"kavan@example.com"}
+$ curl -s "http://localhost:8986/api/users?search=alicia"
+[{"id":1,"name":"Alicia","email":"alicia@example.com"}]
+$ curl -s "http://localhost:8986/api/users?search=bob@"
+[{"id":2,"name":"Bob","email":"bob@example.com"}]
+$ curl -s http://localhost:8986/api/users
+[{"id":1,"name":"Alicia","email":"alicia@example.com"},{"id":2,"name":"Bob","email":"bob@example.com"}]
+
+=== 2026-09-14T15:55:00Z — Part 3 graph execution capture (real qwen3:4b, frozen case, turn_ceiling=10) ===
+$ python -c "... graph.stream(state) ..." | tee reports/hw02/raw/part3_stream_output.txt
+--- NODE: supervisor --- {"turn_count": 1}
+--- NODE: planner --- {"planner_proposal": {"tags": [...], "summary": "..."}, "validation_error": ""}
+--- NODE: reviewer --- {"reviewer_feedback": {"approved": true, "issues": []}, "outcome": "valid"}
+--- NODE: supervisor --- {"turn_count": 2}
+(approved on first attempt; router_logic returned END)
+
+=== 2026-09-14T15:56:18Z — Part 3 correction-loop capture (real qwen3:4b, adversarial task, turn_ceiling=2) ===
+$ python -c "... adversarial task ..." | tee reports/hw02/raw/part3_correction_loop_output.txt
+--- NODE: supervisor --- {"turn_count": 1}
+--- NODE: planner --- {"planner_proposal": {}, "validation_error": "1 validation error for PlannerProposal ..."}
+--- NODE: reviewer --- {"reviewer_feedback": {"approved": false, "issues": [...]}}
+--- NODE: supervisor --- {"turn_count": 2}
+(turn_count reached turn_ceiling=2; router_logic returned END instead of looping further)
+
+=== Self-check ===
+$ COMMIT_HASH=$(git rev-parse HEAD) python scripts/verify_hw02.py
+All 6 checks passed (see reports/hw02/verification.json).

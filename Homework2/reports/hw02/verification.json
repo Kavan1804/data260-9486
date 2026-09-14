@@ -1,8 +1,8 @@
 {
   "homework": 2,
   "SID4": 9486,
-  "commit_hash": "local-uncommitted",
-  "model": "qwen3:8b via src/model_client.py",
+  "commit_hash": "3e8becd3d7bfb06ec8518d3b1ab7f4f904c8e825",
+  "model": "qwen3:4b via src/model_client.py (documented substitute for qwen3:8b)",
   "SEED": 9486,
   "VERIFY_SEED": 269486,
   "checks": [

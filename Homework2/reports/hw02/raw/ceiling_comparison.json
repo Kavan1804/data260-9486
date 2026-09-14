@@ -4,121 +4,121 @@
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.904
+      "latency_ms": 4312.328
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.54
+      "latency_ms": 4577.594
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.942
+      "latency_ms": 4033.508
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.674
+      "latency_ms": 4167.862
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.845
+      "latency_ms": 4517.598
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.675
+      "latency_ms": 6014.558
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.997
+      "latency_ms": 6324.059
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.611
+      "latency_ms": 5136.584
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.628
+      "latency_ms": 4289.05
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.542
+      "latency_ms": 4310.953
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.472
+      "latency_ms": 3767.871
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.258
+      "latency_ms": 3908.126
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.647
+      "latency_ms": 4329.522
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.885
+      "latency_ms": 4222.781
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.984
+      "latency_ms": 4686.692
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.404
+      "latency_ms": 4649.196
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.081
+      "latency_ms": 4707.628
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.671
+      "latency_ms": 3882.538
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.103
+      "latency_ms": 4571.987
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 5.323
+      "latency_ms": 4876.79
     }
   ],
   "10": [
@@ -126,121 +126,121 @@
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.049
+      "latency_ms": 4088.142
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.813
+      "latency_ms": 4112.357
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.981
+      "latency_ms": 4003.273
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.76
+      "latency_ms": 3640.083
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.945
+      "latency_ms": 3918.905
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.092
+      "latency_ms": 3943.821
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.287
+      "latency_ms": 4295.275
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.792
+      "latency_ms": 3986.269
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.701
+      "latency_ms": 3509.101
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.625
+      "latency_ms": 3863.854
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.291
+      "latency_ms": 3952.726
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.655
+      "latency_ms": 3761.54
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.054
+      "latency_ms": 3900.275
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.712
+      "latency_ms": 4045.042
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.979
+      "latency_ms": 4787.794
+    },
+    {
+      "valid": true,
+      "attempts": 2,
+      "turn_count": 3,
+      "latency_ms": 12555.376
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.106
+      "latency_ms": 4188.12
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.666
+      "latency_ms": 4178.707
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 3.735
+      "latency_ms": 3835.872
     },
     {
       "valid": true,
       "attempts": 1,
       "turn_count": 2,
-      "latency_ms": 4.086
-    },
-    {
-      "valid": true,
-      "attempts": 1,
-      "turn_count": 2,
-      "latency_ms": 4.852
+      "latency_ms": 3830.395
     }
   ]
 }

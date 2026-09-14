@@ -1,0 +1,78 @@
+=== HW2 Part 4 experiment run started: 2026-09-14T15:42:32Z ===
+schema run 1/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 5437.536, 'outcome': 'valid first attempt'}
+schema run 2/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4110.42, 'outcome': 'valid first attempt'}
+schema run 3/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4214.479, 'outcome': 'valid first attempt'}
+schema run 4/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4017.093, 'outcome': 'valid first attempt'}
+schema run 5/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 9060.357, 'outcome': 'valid first attempt'}
+schema run 6/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4083.218, 'outcome': 'valid first attempt'}
+schema run 7/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3956.6, 'outcome': 'valid first attempt'}
+schema run 8/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4354.727, 'outcome': 'valid first attempt'}
+schema run 9/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 5126.797, 'outcome': 'valid first attempt'}
+schema run 10/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4346.891, 'outcome': 'valid first attempt'}
+schema run 11/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4612.959, 'outcome': 'valid first attempt'}
+schema run 12/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 5261.053, 'outcome': 'valid first attempt'}
+schema run 13/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4290.978, 'outcome': 'valid first attempt'}
+schema run 14/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4001.435, 'outcome': 'valid first attempt'}
+schema run 15/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4375.746, 'outcome': 'valid first attempt'}
+schema run 16/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4816.563, 'outcome': 'valid first attempt'}
+schema run 17/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4111.751, 'outcome': 'valid first attempt'}
+schema run 18/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3880.738, 'outcome': 'valid first attempt'}
+schema run 19/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4441.544, 'outcome': 'valid first attempt'}
+schema run 20/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4869.361, 'outcome': 'valid first attempt'}
+schema run 21/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4407.082, 'outcome': 'valid first attempt'}
+schema run 22/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4822.517, 'outcome': 'valid first attempt'}
+schema run 23/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4746.562, 'outcome': 'valid first attempt'}
+schema run 24/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4472.424, 'outcome': 'valid first attempt'}
+schema run 25/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3784.969, 'outcome': 'valid first attempt'}
+schema run 26/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4074.081, 'outcome': 'valid first attempt'}
+schema run 27/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4008.273, 'outcome': 'valid first attempt'}
+schema run 28/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4480.775, 'outcome': 'valid first attempt'}
+schema run 29/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 5298.329, 'outcome': 'valid first attempt'}
+schema run 30/30: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4559.848, 'outcome': 'valid first attempt'}
+ceiling=2 run 1/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4312.328}
+ceiling=2 run 2/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4577.594}
+ceiling=2 run 3/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4033.508}
+ceiling=2 run 4/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4167.862}
+ceiling=2 run 5/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4517.598}
+ceiling=2 run 6/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 6014.558}
+ceiling=2 run 7/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 6324.059}
+ceiling=2 run 8/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 5136.584}
+ceiling=2 run 9/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4289.05}
+ceiling=2 run 10/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4310.953}
+ceiling=2 run 11/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3767.871}
+ceiling=2 run 12/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3908.126}
+ceiling=2 run 13/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4329.522}
+ceiling=2 run 14/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4222.781}
+ceiling=2 run 15/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4686.692}
+ceiling=2 run 16/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4649.196}
+ceiling=2 run 17/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4707.628}
+ceiling=2 run 18/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3882.538}
+ceiling=2 run 19/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4571.987}
+ceiling=2 run 20/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4876.79}
+ceiling=10 run 1/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4088.142}
+ceiling=10 run 2/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4112.357}
+ceiling=10 run 3/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4003.273}
+ceiling=10 run 4/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3640.083}
+ceiling=10 run 5/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3918.905}
+ceiling=10 run 6/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3943.821}
+ceiling=10 run 7/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4295.275}
+ceiling=10 run 8/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3986.269}
+ceiling=10 run 9/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3509.101}
+ceiling=10 run 10/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3863.854}
+ceiling=10 run 11/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3952.726}
+ceiling=10 run 12/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3761.54}
+ceiling=10 run 13/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3900.275}
+ceiling=10 run 14/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4045.042}
+ceiling=10 run 15/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4787.794}
+ceiling=10 run 16/20: {'valid': True, 'attempts': 2, 'turn_count': 3, 'latency_ms': 12555.376}
+ceiling=10 run 17/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4188.12}
+ceiling=10 run 18/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 4178.707}
+ceiling=10 run 19/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3835.872}
+ceiling=10 run 20/20: {'valid': True, 'attempts': 1, 'turn_count': 2, 'latency_ms': 3830.395}
+adversarial run 1/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 19401.592}
+adversarial run 2/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 6724.63}
+adversarial run 3/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 18494.296}
+adversarial run 4/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 19503.718}
+adversarial run 5/5: {'valid': False, 'attempts': 1, 'turn_count': 2, 'latency_ms': 20362.366}
+Wrote HW2 experiment artifacts to /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework2/reports/hw02
+=== HW2 Part 4 experiment run finished: 2026-09-14T15:49:16Z ===

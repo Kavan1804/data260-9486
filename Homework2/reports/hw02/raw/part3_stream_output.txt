@@ -1,0 +1,28 @@
+--- NODE: supervisor ---
+{
+  "turn_count": 1
+}
+--- NODE: planner ---
+{
+  "planner_proposal": {
+    "tags": [
+      "user_management",
+      "email_validation",
+      "user_addition"
+    ],
+    "summary": "User added successfully with email validation."
+  },
+  "validation_error": ""
+}
+--- NODE: reviewer ---
+{
+  "reviewer_feedback": {
+    "approved": true,
+    "issues": []
+  },
+  "outcome": "valid"
+}
+--- NODE: supervisor ---
+{
+  "turn_count": 2
+}

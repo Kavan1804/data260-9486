@@ -1,0 +1,21 @@
+DATA 260 HW3 - Run Log
+
+TODO_RUN_MANUALLY: this file should contain the real, timestamped console
+output from the runs that produced your reported results. rag/run_experiments.py
+appends a short summary line here automatically each time it runs; paste the
+full terminal transcript (including `python3 scripts/verify_hw03.py` output)
+below that as well before submitting.
+
+Expected sequence of manual steps:
+  1. pip install -r requirements.txt
+  2. python rag/corpus_prep.py            (after filling in real source URLs)
+  3. python rag/build_manifest.py
+  4. Confirm reports/hw03/questions.yaml is finalized and committed
+  5. python -m rag.run_experiments        (appends a summary below)
+  6. python -m rag.compute_metrics
+  7. python3 scripts/verify_hw03.py       (writes reports/hw03/verification.json)
+  8. python3 main.py                      (manual route-by-route auth check)
+HW3 retrieval experiment run - 2026-09-20 22:25:02
+token: wrote 5 query records to reports/hw03/raw/token.jsonl
+semantic: wrote 5 query records to reports/hw03/raw/semantic.jsonl
+sentence_window: wrote 5 query records to reports/hw03/raw/sentence_window.jsonl

@@ -1,0 +1,16 @@
+# Part 1: FastAPI auth app
+fastapi
+uvicorn
+jinja2
+python-multipart
+bcrypt
+itsdangerous
+
+# Part 2: LlamaIndex retrieval-only pipelines
+llama-index
+llama-index-embeddings-huggingface
+sentence-transformers
+faiss-cpu
+numpy
+pandas
+pyyaml

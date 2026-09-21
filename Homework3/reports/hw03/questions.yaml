@@ -1,0 +1,45 @@
+# DATA 260 HW3 Part 2 - Five domain questions (Domain: Rental housing listings).
+#
+# MANUAL STEP REQUIRED: these questions and expected answers were written
+# from general public knowledge before any corpus was downloaded or any
+# retrieval was run, per the assignment's requirement to commit this file
+# first. Before running rag/run_experiments.py:
+#   1. Finalize rag/corpus/ with your real, >=200 KB domain corpus.
+#   2. Update expected_source_file below to match the exact filenames you
+#      actually saved (see rag/corpus_prep.py and SOURCES.md).
+#   3. Spot-check each expected_answer against the real source text, and
+#      correct wording only if the source disagrees - do not change an
+#      answer after looking at retrieval output.
+# Do not edit expected_answer or expected_source_file after running the
+# graded retrieval comparison.
+
+questions:
+  - id: q1
+    question: "What is the maximum security deposit a California landlord can charge for an unfurnished unit?"
+    expected_answer: "One month's rent"
+    expected_source_file: "ca_civil_code_1950_5_security_deposit.txt"
+    single_source: false
+
+  - id: q2
+    question: "Under California's Tenant Protection Act (AB 1482), what is the general annual cap on rent increases for a covered unit?"
+    expected_answer: "5% plus local CPI, capped at 10% total"
+    expected_source_file: "ca_tenant_protection_act_ab1482.txt"
+    single_source: false
+
+  - id: q3
+    question: "Which federal law prohibits housing discrimination based on race, color, religion, sex, national origin, familial status, and disability?"
+    expected_answer: "The Fair Housing Act of 1968"
+    expected_source_file: "fair_housing_act.txt"
+    single_source: true
+
+  - id: q4
+    question: "What is HUD's Fair Market Rent (FMR) figure used to set?"
+    expected_answer: "The payment standard for Housing Choice Voucher (Section 8) rent subsidies"
+    expected_source_file: "hud_fair_market_rents.txt"
+    single_source: true
+
+  - id: q5
+    question: "In California, how many days' written notice must a landlord give to end a month-to-month tenancy after the tenant has lived there for one year or more?"
+    expected_answer: "60 days"
+    expected_source_file: "ca_tenant_notice_requirements.txt"
+    single_source: false

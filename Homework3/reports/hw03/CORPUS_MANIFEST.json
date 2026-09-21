@@ -1,0 +1,30 @@
+{
+  "total_bytes": 649786,
+  "files": [
+    {
+      "filename": "ca_civil_code_1950_5_security_deposit.txt",
+      "byte_size": 192916,
+      "sha256": "5521f50bf093923ab9842666196059b50a4d538e8753bc56667888c464595f81"
+    },
+    {
+      "filename": "ca_tenant_notice_requirements.txt",
+      "byte_size": 165130,
+      "sha256": "1cd5c88a53d7fb20d0e9c1ee9c0f14971a39e3c1bb6d4d647c6806e4361abded"
+    },
+    {
+      "filename": "ca_tenant_protection_act_ab1482.txt",
+      "byte_size": 192922,
+      "sha256": "109ed3ed6fd75436fe45517fe7417e27efc0d7da06eb590039c3f7f922e6bc0d"
+    },
+    {
+      "filename": "fair_housing_act.txt",
+      "byte_size": 98818,
+      "sha256": "ad8d7724724adc5662ddaecaee8971f9ba85bab95d67b5fd74697051f1d61d0a"
+    },
+    {
+      "filename": "hud_fair_market_rents.txt",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

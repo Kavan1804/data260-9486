@@ -1,0 +1,61 @@
+{
+  "table_markdown": "| Technique | Chunks | Avg chunk length | Top-1 cosine | Mean@k cosine | Recall@k | Mean retrieval latency (ms) |\n|---|---:|---:|---:|---:|---:|---:|\n| Token | 2365 | 307.1 | 0.5949 | 0.5158 | 1.00 | 53.91 |\n| Semantic | 18 | 36072.1 | 0.3344 | 0.1951 | 1.00 | 15.33 |\n| Sentence window | 236 | 2751.3 | 0.5819 | 0.4867 | 0.80 | 14.03 |",
+  "confident_misses": [
+    {
+      "technique": "token",
+      "query_id": "q1",
+      "query": "What is the maximum security deposit a California landlord can charge for an unfurnished unit?",
+      "cosine_sim": 0.5242845762867607,
+      "preview": "the landlord shall provide the tenant with a written statement, on or before the date the lease is signed, of the amount of the higher security and an explanati",
+      "expected_answer": "One month's rent"
+    },
+    {
+      "technique": "token",
+      "query_id": "q2",
+      "query": "Under California's Tenant Protection Act (AB 1482), what is the general annual cap on rent increases for a covered unit?",
+      "cosine_sim": 0.5803090368176448,
+      "preview": "existing prior to July 1, 2022, by written notice to the tenant no later than August 1, 2022, or as an addendum to the lease or rental agreement.</p><p style=\"m",
+      "expected_answer": "5% plus local CPI, capped at 10% total"
+    },
+    {
+      "technique": "token",
+      "query_id": "q3",
+      "query": "Which federal law prohibits housing discrimination based on race, color, religion, sex, national origin, familial status, and disability?",
+      "cosine_sim": 0.6439787308769069,
+      "preview": "Credit Opportunity Act</a> have alleged discrimination based on race or color. Some of the Department's cases have also alleged that municipalities and other lo",
+      "expected_answer": "The Fair Housing Act of 1968"
+    },
+    {
+      "technique": "token",
+      "query_id": "q5",
+      "query": "In California, how many days' written notice must a landlord give to end a month-to-month tenancy after the tenant has lived there for one year or more?",
+      "cosine_sim": 0.7835026172216681,
+      "preview": "existing prior to July 1, 2022, by written notice to the tenant no later than August 1, 2022, or as an addendum to the lease or rental agreement.</p><p style=\"m",
+      "expected_answer": "60 days"
+    },
+    {
+      "technique": "semantic",
+      "query_id": "q3",
+      "query": "Which federal law prohibits housing discrimination based on race, color, religion, sex, national origin, familial status, and disability?",
+      "cosine_sim": 0.6254711945786787,
+      "preview": "Where force or threat of force is used to deny or interfere with fair housing rights, the Department of Justice may institute <a href=\"http://www.justice.gov/cr",
+      "expected_answer": "The Fair Housing Act of 1968"
+    },
+    {
+      "technique": "sentence_window",
+      "query_id": "q3",
+      "query": "Which federal law prohibits housing discrimination based on race, color, religion, sex, national origin, familial status, and disability?",
+      "cosine_sim": 0.5331177935455332,
+      "preview": "Such discrimination can be based either upon the country of an individual's birth or where his or her ancestors originated. ",
+      "expected_answer": "The Fair Housing Act of 1968"
+    },
+    {
+      "technique": "sentence_window",
+      "query_id": "q5",
+      "query": "In California, how many days' written notice must a landlord give to end a month-to-month tenancy after the tenant has lived there for one year or more?",
+      "cosine_sim": 0.7871258930518512,
+      "preview": "California law also provides that after all of the tenants have continuously and lawfully occupied the property for 12 months or more or at least one of the ten",
+      "expected_answer": "60 days"
+    }
+  ]
+}

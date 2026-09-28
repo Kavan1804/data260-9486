@@ -844,3 +844,26 @@ Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework4/verifi
 [PASS] rag_raw_outputs_present: all RAG outputs present
 
 Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework4/verification.json: 19 passed, 0 failed
+
+===== 2026-09-28 14:21:03 verify-hw04 =====
+[PASS] required_files: all required files present
+[PASS] python_compiles: 17 files compiled
+[PASS] config_values: PORT_BASE=8486, DB_NAME=s9486_rel, DOMAIN_ID=6
+[PASS] db_session_variable_name: SessionLocal defined in database.py
+[PASS] backend_responds_on_port_base: GET http://localhost:8486/health -> 200
+[PASS] create_temp_user: temporary user verify-269486@example.com
+[PASS] unauthenticated_requests_rejected: status codes without cookie: [401, 401, 401, 401, 401]
+[PASS] wrong_password_rejected: -> 401
+[PASS] login_works: -> 200
+[PASS] session_cookie_http_only_and_opaque: HttpOnly=True, token is 64 hex chars=True
+[PASS] session_stored_server_side: token found in sessions table
+[PASS] authenticated_requests_work: /auth/me -> 200, /listings -> 200
+[PASS] crud_create_read_update_delete: POST 201, GET 200, PUT 200, DELETE 200, GET after delete 404, invalid POST 422
+[PASS] naive_endpoint_returns_data: items=10, includes inquiries=True, X-SQL-Count=11
+[PASS] fixed_endpoint_returns_data: items=10, includes inquiries=True, X-SQL-Count=2
+[PASS] naive_and_fixed_return_same_data: identical items for page 1, size 10
+[PASS] logout_invalidates_session: /auth/me with the old token after logout -> 401
+[PASS] n1_raw_data_180_requests: 180 recorded requests
+[PASS] rag_raw_outputs_present: all RAG outputs present
+
+Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework4/verification.json: 19 passed, 0 failed

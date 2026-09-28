@@ -1,0 +1,84 @@
+{
+  "run_at": "2026-09-28T12:15:36",
+  "index_ddl": "CREATE INDEX ix_listing_inquiries_listing_id ON listing_inquiries (listing_id)",
+  "before": {
+    "naive_per_listing": {
+      "sql": "SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id = 7 ORDER BY id",
+      "plan": [
+        {
+          "id": 1,
+          "select_type": "SIMPLE",
+          "table": "listing_inquiries",
+          "partitions": null,
+          "type": "index",
+          "possible_keys": null,
+          "key": "PRIMARY",
+          "key_len": "4",
+          "ref": null,
+          "rows": 200,
+          "filtered": 10.0,
+          "Extra": "Using where"
+        }
+      ]
+    },
+    "fixed_selectin_page10": {
+      "sql": "SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id IN (1,2,3,4,5,6,7,8,9,10) ORDER BY id",
+      "plan": [
+        {
+          "id": 1,
+          "select_type": "SIMPLE",
+          "table": "listing_inquiries",
+          "partitions": null,
+          "type": "index",
+          "possible_keys": null,
+          "key": "PRIMARY",
+          "key_len": "4",
+          "ref": null,
+          "rows": 200,
+          "filtered": 50.0,
+          "Extra": "Using where"
+        }
+      ]
+    }
+  },
+  "after": {
+    "naive_per_listing": {
+      "sql": "SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id = 7 ORDER BY id",
+      "plan": [
+        {
+          "id": 1,
+          "select_type": "SIMPLE",
+          "table": "listing_inquiries",
+          "partitions": null,
+          "type": "ref",
+          "possible_keys": "ix_listing_inquiries_listing_id",
+          "key": "ix_listing_inquiries_listing_id",
+          "key_len": "4",
+          "ref": "const",
+          "rows": 1,
+          "filtered": 100.0,
+          "Extra": null
+        }
+      ]
+    },
+    "fixed_selectin_page10": {
+      "sql": "SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id IN (1,2,3,4,5,6,7,8,9,10) ORDER BY id",
+      "plan": [
+        {
+          "id": 1,
+          "select_type": "SIMPLE",
+          "table": "listing_inquiries",
+          "partitions": null,
+          "type": "range",
+          "possible_keys": "ix_listing_inquiries_listing_id",
+          "key": "ix_listing_inquiries_listing_id",
+          "key_len": "4",
+          "ref": null,
+          "rows": 11,
+          "filtered": 100.0,
+          "Extra": "Using index condition; Using filesort"
+        }
+      ]
+    }
+  }
+}

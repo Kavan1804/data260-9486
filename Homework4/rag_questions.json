@@ -1,0 +1,66 @@
+{
+  "_note": "Expected answers were written from the corpus text before running rag.py. Keywords are used for the automatic checks; review Q4 manually because it is ambiguous by design.",
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "answer in one chunk",
+      "question": "Under California Civil Code 1950.5, how many days after the tenant moves out does the landlord have to return the remaining security deposit with an itemized statement?",
+      "expected_answer": "No later than 21 calendar days after the tenant has vacated the premises.",
+      "expected_sources": ["ca_civil_code_1950_5_security_deposit.txt"],
+      "evidence_keywords": ["21 calendar days"],
+      "answer_keywords": ["21"],
+      "should_refuse": false
+    },
+    {
+      "id": "Q2",
+      "type": "answer needs two chunks",
+      "question": "Under Civil Code 1946.2, how long must a tenant have lived in the unit before the owner needs just cause to end the tenancy, and how much relocation assistance is owed for a no-fault just cause termination?",
+      "expected_answer": "12 months of continuous and lawful occupancy; relocation assistance (or a rent waiver) equal to one month of the tenant's rent.",
+      "expected_sources": ["ca_tenant_protection_act_ab1482.txt"],
+      "evidence_keywords": ["12 months", "one month"],
+      "answer_keywords": ["12 months", "one month"],
+      "should_refuse": false
+    },
+    {
+      "id": "Q3",
+      "type": "similar information across documents",
+      "question": "How many days of written notice are required to end a month-to-month tenancy?",
+      "expected_answer": "At least 30 days' written notice (Civil Code 1946). The habitability document also mentions 30 days' written notice, but for returning a tenant-owned refrigerator, not for ending a tenancy.",
+      "expected_sources": ["ca_tenant_notice_requirements.txt"],
+      "evidence_keywords": ["month to month", "30 days"],
+      "answer_keywords": ["30"],
+      "should_refuse": false
+    },
+    {
+      "id": "Q4",
+      "type": "ambiguous",
+      "question": "How much can the landlord charge?",
+      "expected_answer": "Ambiguous. A good answer asks what kind of charge is meant or states its assumption; the clearest match is the security deposit cap of one month's rent in Civil Code 1950.5(c).",
+      "expected_sources": ["ca_civil_code_1950_5_security_deposit.txt"],
+      "evidence_keywords": ["one month"],
+      "answer_keywords": ["one month"],
+      "should_refuse": false
+    },
+    {
+      "id": "Q5",
+      "type": "answer not in the documents",
+      "question": "What is the maximum late fee a California landlord can charge when rent is paid late?",
+      "expected_answer": "I cannot answer this question from the provided documents",
+      "expected_sources": [],
+      "evidence_keywords": [],
+      "answer_keywords": [],
+      "should_refuse": true
+    },
+    {
+      "id": "Q6",
+      "type": "unrelated",
+      "question": "What is the capital city of Australia?",
+      "expected_answer": "I cannot answer this question from the provided documents",
+      "expected_sources": [],
+      "evidence_keywords": [],
+      "answer_keywords": [],
+      "should_refuse": true
+    }
+  ],
+  "k_sweep_questions": ["Q1", "Q2", "Q3"]
+}

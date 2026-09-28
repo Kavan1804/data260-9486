@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "run_at": "2026-09-28T12:15:53",
+    "base_url": "http://localhost:8486",
+    "seed": 9486,
+    "hardware": "Apple Mac with M1 chip and 8 GB unified memory",
+    "python": "3.13.5",
+    "page": 1,
+    "warmup_requests_per_config": 3,
+    "recorded_requests": 180,
+    "percentile_method": "nearest-rank"
+  },
+  "summary": [
+    {
+      "page_size": 10,
+      "version": "naive",
+      "requests": 30,
+      "sql_statements_per_request": 11,
+      "p50_ms": 7.9,
+      "p95_ms": 8.83,
+      "p99_ms": 8.95,
+      "mean_ms": 7.85
+    },
+    {
+      "page_size": 10,
+      "version": "fixed",
+      "requests": 30,
+      "sql_statements_per_request": 2,
+      "p50_ms": 4.02,
+      "p95_ms": 4.46,
+      "p99_ms": 4.6,
+      "mean_ms": 4.05
+    },
+    {
+      "page_size": 50,
+      "version": "naive",
+      "requests": 30,
+      "sql_statements_per_request": 51,
+      "p50_ms": 25.73,
+      "p95_ms": 27.04,
+      "p99_ms": 28.16,
+      "mean_ms": 25.81
+    },
+    {
+      "page_size": 50,
+      "version": "fixed",
+      "requests": 30,
+      "sql_statements_per_request": 2,
+      "p50_ms": 5.43,
+      "p95_ms": 5.94,
+      "p99_ms": 6.08,
+      "mean_ms": 5.47
+    },
+    {
+      "page_size": 200,
+      "version": "naive",
+      "requests": 30,
+      "sql_statements_per_request": 201,
+      "p50_ms": 92.9,
+      "p95_ms": 96.75,
+      "p99_ms": 117.97,
+      "mean_ms": 93.41
+    },
+    {
+      "page_size": 200,
+      "version": "fixed",
+      "requests": 30,
+      "sql_statements_per_request": 2,
+      "p50_ms": 9.75,
+      "p95_ms": 10.41,
+      "p99_ms": 10.56,
+      "mean_ms": 9.85
+    }
+  ]
+}

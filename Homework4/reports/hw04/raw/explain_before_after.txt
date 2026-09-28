@@ -1,0 +1,36 @@
+EXPLAIN before/after - run at 2026-09-28T12:15:36
+
+===== BEFORE (no index on listing_inquiries.listing_id) =====
+-- naive_per_listing
+EXPLAIN SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id = 7 ORDER BY id;
+table | type | possible_keys | key | key_len | ref | rows | filtered | Extra
+listing_inquiries | index | None | PRIMARY | 4 | None | 200 | 10.0 | Using where
+
+-- fixed_selectin_page10
+EXPLAIN SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id IN (1,2,3,4,5,6,7,8,9,10) ORDER BY id;
+table | type | possible_keys | key | key_len | ref | rows | filtered | Extra
+listing_inquiries | index | None | PRIMARY | 4 | None | 200 | 50.0 | Using where
+
+===== INDEX ADDED =====
+CREATE INDEX ix_listing_inquiries_listing_id ON listing_inquiries (listing_id);
+
+===== AFTER =====
+-- naive_per_listing
+EXPLAIN SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id = 7 ORDER BY id;
+table | type | possible_keys | key | key_len | ref | rows | filtered | Extra
+listing_inquiries | ref | ix_listing_inquiries_listing_id | ix_listing_inquiries_listing_id | 4 | const | 1 | 100.0 | None
+
+-- fixed_selectin_page10
+EXPLAIN SELECT id, listing_id, renter_name, message FROM listing_inquiries WHERE listing_id IN (1,2,3,4,5,6,7,8,9,10) ORDER BY id;
+table | type | possible_keys | key | key_len | ref | rows | filtered | Extra
+listing_inquiries | range | ix_listing_inquiries_listing_id | ix_listing_inquiries_listing_id | 4 | None | 11 | 100.0 | Using index condition; Using filesort
+
+===== SHOW CREATE TABLE listing_inquiries =====
+CREATE TABLE `listing_inquiries` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `listing_id` int NOT NULL,
+  `renter_name` varchar(120) NOT NULL,
+  `message` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ix_listing_inquiries_listing_id` (`listing_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

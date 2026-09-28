@@ -1,0 +1,23 @@
+{
+  "run_at": "2026-09-28T12:44:14",
+  "llm_model": "llama3.2:3b",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "chunk_size_chars": 500,
+  "chunk_overlap_chars": 50,
+  "top_k": 3,
+  "k_sweep": [
+    1,
+    3,
+    5
+  ],
+  "relevance_threshold": 0.35,
+  "n_chunks": 165,
+  "sources": [
+    "ca_civil_code_1941_1_habitability.txt",
+    "ca_civil_code_1950_5_security_deposit.txt",
+    "ca_tenant_notice_requirements.txt",
+    "ca_tenant_protection_act_ab1482.txt",
+    "fair_housing_act.txt"
+  ],
+  "seed": 9486
+}

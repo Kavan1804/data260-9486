@@ -1,0 +1,121 @@
+{
+  "homework": 4,
+  "sid4": 9486,
+  "commit_hash": "PENDING - tag hw4 not created yet",
+  "run_at": "2026-09-28T13:32:45",
+  "configuration": {
+    "port_base": 8486,
+    "prefix": "s9486",
+    "domain_id": 6,
+    "domain": "Rental housing listings",
+    "database": "s9486_rel",
+    "hardware": "Apple Mac with M1 chip and 8 GB unified memory",
+    "llm_model": "llama3.2:3b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "top_k": 3
+  },
+  "seed": 9486,
+  "verify_seed": 269486,
+  "checks": [
+    {
+      "check": "required_files",
+      "passed": true,
+      "details": "all required files present"
+    },
+    {
+      "check": "python_compiles",
+      "passed": true,
+      "details": "17 files compiled"
+    },
+    {
+      "check": "config_values",
+      "passed": true,
+      "details": "PORT_BASE=8486, DB_NAME=s9486_rel, DOMAIN_ID=6"
+    },
+    {
+      "check": "db_session_variable_name",
+      "passed": true,
+      "details": "SessionLocal defined in database.py"
+    },
+    {
+      "check": "backend_responds_on_port_base",
+      "passed": true,
+      "details": "GET http://localhost:8486/health -> 200"
+    },
+    {
+      "check": "create_temp_user",
+      "passed": true,
+      "details": "temporary user verify-269486@example.com"
+    },
+    {
+      "check": "unauthenticated_requests_rejected",
+      "passed": true,
+      "details": "status codes without cookie: [401, 401, 401, 401, 401]"
+    },
+    {
+      "check": "wrong_password_rejected",
+      "passed": true,
+      "details": "-> 401"
+    },
+    {
+      "check": "login_works",
+      "passed": true,
+      "details": "-> 200"
+    },
+    {
+      "check": "session_cookie_http_only_and_opaque",
+      "passed": true,
+      "details": "HttpOnly=True, token is 64 hex chars=True"
+    },
+    {
+      "check": "session_stored_server_side",
+      "passed": true,
+      "details": "token found in sessions table"
+    },
+    {
+      "check": "authenticated_requests_work",
+      "passed": true,
+      "details": "/auth/me -> 200, /listings -> 200"
+    },
+    {
+      "check": "crud_create_read_update_delete",
+      "passed": true,
+      "details": "POST 201, GET 200, PUT 200, DELETE 200, GET after delete 404, invalid POST 422"
+    },
+    {
+      "check": "naive_endpoint_returns_data",
+      "passed": true,
+      "details": "items=10, includes inquiries=True, X-SQL-Count=11"
+    },
+    {
+      "check": "fixed_endpoint_returns_data",
+      "passed": true,
+      "details": "items=10, includes inquiries=True, X-SQL-Count=2"
+    },
+    {
+      "check": "naive_and_fixed_return_same_data",
+      "passed": true,
+      "details": "identical items for page 1, size 10"
+    },
+    {
+      "check": "logout_invalidates_session",
+      "passed": true,
+      "details": "/auth/me with the old token after logout -> 401"
+    },
+    {
+      "check": "n1_raw_data_180_requests",
+      "passed": true,
+      "details": "180 recorded requests"
+    },
+    {
+      "check": "rag_raw_outputs_present",
+      "passed": true,
+      "details": "all RAG outputs present"
+    }
+  ],
+  "passed": 19,
+  "failed": 0,
+  "all_passed": true
+}

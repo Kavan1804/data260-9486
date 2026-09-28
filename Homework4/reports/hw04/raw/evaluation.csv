@@ -1,0 +1,19 @@
+qid,config,correct_retrieval,correct_answer,grounded,refused,refused_when_needed,format_ok
+Q1,no_rag,n/a,False,n/a,False,True,n/a
+Q1,basic_rag,True,True,True,False,True,n/a
+Q1,context_rag,True,True,True,False,True,True
+Q2,no_rag,n/a,False,n/a,False,True,n/a
+Q2,basic_rag,False,False,False,False,True,n/a
+Q2,context_rag,False,False,True,True,False,True
+Q3,no_rag,n/a,True,n/a,False,True,n/a
+Q3,basic_rag,False,True,True,False,True,n/a
+Q3,context_rag,False,True,True,False,True,True
+Q4,no_rag,n/a,False,n/a,False,True,n/a
+Q4,basic_rag,False,False,False,False,True,n/a
+Q4,context_rag,False,False,False,False,True,True
+Q5,no_rag,n/a,False,n/a,False,False,n/a
+Q5,basic_rag,n/a (no relevant chunk exists),False,False,False,False,n/a
+Q5,context_rag,n/a (no relevant chunk exists),True,True,True,True,True
+Q6,no_rag,n/a,False,n/a,False,False,n/a
+Q6,basic_rag,n/a (no relevant chunk exists),False,False,False,False,n/a
+Q6,context_rag,n/a (no relevant chunk exists),True,True,True,True,True

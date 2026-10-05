@@ -1,0 +1,410 @@
+/* =========================
+   BIG UI - User Management
+   Light modern dashboard
+   ========================= */
+
+:root{
+  --bg1:#f7f8fc;
+  --bg2:#eef2ff;
+
+  --panel:#ffffff;
+  --border:#e7eaf3;
+
+  --text:#111827;
+  --muted:#6b7280;
+
+  --primary:#2563eb;      /* blue */
+  --primary2:#7c3aed;     /* purple */
+  --danger:#ef4444;
+
+  --radius:22px;
+  --radius2:16px;
+
+  --shadow: 0 18px 50px rgba(17, 24, 39, 0.10);
+  --shadow2: 0 10px 26px rgba(17, 24, 39, 0.10);
+}
+
+*{ box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background:
+    radial-gradient(1100px 600px at 12% 8%, rgba(37,99,235,0.18), transparent 58%),
+    radial-gradient(1100px 600px at 88% 8%, rgba(124,58,237,0.16), transparent 58%),
+    linear-gradient(180deg, var(--bg2), var(--bg1));
+}
+
+/* =========================
+   Layout (make it BIG)
+   ========================= */
+.container{
+  width: min(1400px, 95%);
+  margin: 0 auto;
+  padding: 40px 24px 70px;
+}
+
+/* =========================
+   Typography
+   ========================= */
+.page-title{
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: -0.03em;
+}
+
+.subtitle{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Navbar (bigger)
+   ========================= */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+
+  padding: 20px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.brand-badge{
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  box-shadow: 0 14px 34px rgba(37,99,235,0.22);
+}
+
+.navlinks{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.navlinks a{
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 16px;
+
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  transition: 160ms ease;
+}
+
+.navlinks a:hover{
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(37,99,235,0.06);
+}
+
+.navlinks .active{
+  color: var(--primary);
+  background: rgba(37,99,235,0.10);
+  border-color: rgba(37,99,235,0.22);
+}
+
+/* =========================
+   LoginBar (session demo UI)
+   ========================= */
+.loginbar{
+  margin-top: 18px;
+  padding: 18px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.85);
+  box-shadow: var(--shadow2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.loginbar-form{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.loginbar-text{
+  font-size: 16px;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.loginbar-input{
+  min-width: 260px;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+}
+
+/* =========================
+   Card (bigger)
+   ========================= */
+.card{
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-header{
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: rgba(37,99,235,0.03);
+}
+
+.card-body{
+  padding: 28px 30px; /* ✅ consistent padding for Create/Update/Delete/Home */
+}
+
+/* =========================
+   Form (bigger)
+   ========================= */
+.form{
+  display: grid;
+  gap: 18px;
+  max-width: 700px;
+}
+
+label{
+  display: grid;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+input{
+  width: 100%;
+  padding: 16px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  font-size: 16px;
+  transition: 160ms ease;
+}
+
+input::placeholder{
+  color: rgba(107,114,128,0.6);
+}
+
+input:focus{
+  border-color: rgba(37,99,235,0.45);
+  box-shadow: 0 0 0 5px rgba(37,99,235,0.14);
+}
+
+/* =========================
+   Buttons (bigger)
+   ========================= */
+.btn{
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+
+  padding: 12px 18px;
+  border-radius: 16px;
+
+  font-weight: 900;
+  font-size: 16px;
+
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  transition: 160ms ease;
+  box-shadow: none;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow2);
+}
+
+.btn.primary{
+  border-color: rgba(37,99,235,0.28);
+  background: linear-gradient(135deg, rgba(37,99,235,1), rgba(124,58,237,1));
+  color: #fff;
+}
+
+.btn.danger{
+  border-color: rgba(239,68,68,0.30);
+  background: rgba(239,68,68,0.09);
+  color: #991b1b;
+}
+
+/* =========================
+   Table (much bigger)
+   ========================= */
+.table-wrap{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead th{
+  text-align: left;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+
+  padding: 18px 20px;
+  background: rgba(37,99,235,0.07);
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody td{
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 17px;
+}
+
+.table tbody tr{
+  height: 70px;
+}
+
+.table tbody tr:hover{
+  background: rgba(17,24,39,0.03);
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   Notice
+   ========================= */
+.notice{
+  padding: 16px 18px;
+  border-radius: var(--radius2);
+  border: 1px dashed rgba(17,24,39,0.18);
+  color: var(--muted);
+  background: rgba(255,255,255,0.75);
+  font-size: 16px;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+@media (max-width: 640px){
+  .container{
+    width: 96%;
+    padding: 22px 12px 40px;
+  }
+
+  .page-title{ font-size: 28px; }
+
+  .navbar{
+    padding: 14px 14px;
+  }
+
+  .brand{
+    font-size: 18px;
+  }
+
+  .btn{
+    width: 100%;
+  }
+
+  .form{
+    max-width: 100%;
+  }
+
+  .loginbar-input{
+    min-width: 100%;
+  }
+}
+.disabled-link{
+  pointer-events: none;
+  opacity: 0.45;
+}
+.error-text{
+  color: #991b1b;
+  font-weight: 700;
+}
+
+/* HW5 Redux client additions */
+.success-text{
+  color: #166534;
+  font-weight: 700;
+  border-color: rgba(22,101,52,0.35);
+}
+.pager{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+.btn:disabled{
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.form select{
+  width: 100%;
+  padding: 16px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-size: 16px;
+}
+.id-picker{
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  margin-bottom: 18px;
+}
+.nowrap{
+  white-space: nowrap;
+}

@@ -1,0 +1,303 @@
+{
+  "server": "meals_server.py",
+  "started_at": "2026-10-05T13:20:29",
+  "tools": [
+    {
+      "name": "search_meals_by_name",
+      "input_schema": {
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "limit": {
+            "default": 5,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "search_meals_by_nameArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "meals_by_ingredient",
+      "input_schema": {
+        "properties": {
+          "ingredient": {
+            "title": "Ingredient",
+            "type": "string"
+          },
+          "limit": {
+            "default": 12,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ingredient"
+        ],
+        "title": "meals_by_ingredientArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "random_meal",
+      "input_schema": {
+        "properties": {},
+        "title": "random_mealArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "meal_details",
+      "input_schema": {
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "meal_detailsArguments",
+        "type": "object"
+      }
+    }
+  ],
+  "calls": [
+    {
+      "tool": "search_meals_by_name",
+      "arguments": {
+        "query": "Arrabiata",
+        "limit": 5
+      },
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "count": 1,
+        "results": [
+          {
+            "id": "52771",
+            "name": "Spicy Arrabiata Penne",
+            "area": "Italian",
+            "category": "Vegetarian",
+            "thumb": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg"
+          }
+        ],
+        "message": "1 meal(s) found"
+      },
+      "latency_ms": 296.5
+    },
+    {
+      "tool": "meals_by_ingredient",
+      "arguments": {
+        "ingredient": "chicken",
+        "limit": 12
+      },
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "count": 12,
+        "results": [
+          {
+            "id": "52940",
+            "name": "Brown Stew Chicken",
+            "thumb": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg"
+          },
+          {
+            "id": "53161",
+            "name": "Chicken & chorizo rice pot",
+            "thumb": "https://www.themealdb.com/images/media/meals/fk80jp1763280767.jpg"
+          },
+          {
+            "id": "52846",
+            "name": "Chicken & mushroom Hotpot",
+            "thumb": "https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg"
+          },
+          {
+            "id": "52796",
+            "name": "Chicken Alfredo Primavera",
+            "thumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg"
+          },
+          {
+            "id": "52934",
+            "name": "Chicken Basquaise",
+            "thumb": "https://www.themealdb.com/images/media/meals/wruvqv1511880994.jpg"
+          },
+          {
+            "id": "52956",
+            "name": "Chicken Congee",
+            "thumb": "https://www.themealdb.com/images/media/meals/1529446352.jpg"
+          },
+          {
+            "id": "52795",
+            "name": "Chicken Handi",
+            "thumb": "https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg"
+          },
+          {
+            "id": "52831",
+            "name": "Chicken Karaage",
+            "thumb": "https://www.themealdb.com/images/media/meals/tyywsw1505930373.jpg"
+          },
+          {
+            "id": "53358",
+            "name": "Chicken Mandi",
+            "thumb": "https://www.themealdb.com/images/media/meals/er4d081765186828.jpg"
+          },
+          {
+            "id": "53186",
+            "name": "Chicken with saffron, raisins & pine nuts",
+            "thumb": "https://www.themealdb.com/images/media/meals/4mhr3u1763481087.jpg"
+          },
+          {
+            "id": "53220",
+            "name": "kabse",
+            "thumb": "https://www.themealdb.com/images/media/meals/utqnjv1763598650.jpg"
+          },
+          {
+            "id": "52813",
+            "name": "Kentucky Fried Chicken",
+            "thumb": "https://www.themealdb.com/images/media/meals/40r49m1763197022.jpg"
+          }
+        ],
+        "message": "12 meal(s) found"
+      },
+      "latency_ms": 259.6
+    },
+    {
+      "tool": "random_meal",
+      "arguments": {},
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "id": "52860",
+        "name": "Chocolate Raspberry Brownies",
+        "category": "Dessert",
+        "area": "United States",
+        "instructions": "Heat oven to 180C/160C fan/gas 4. Line a 20 x 30cm baking tray tin with baking parchment. Put the chocolate, butter and sugar in a pan and gently melt, stirring occasionally with a wooden spoon. Remove from the heat.\r\nStir the eggs, one by one, into the melted chocolate mixture. Sieve over the flour and cocoa, and stir in. Stir in half the raspberries, scrape into the tray, then scatter over the remaining raspberries. Bake on the middle shelf for 30 mins or, if you prefer a firmer texture, for 5 mins more. Cool before slicing into squares. Store in an airtight container for up to 3 days.",
+        "image": "https://www.themealdb.com/images/media/meals/yypvst1511386427.jpg",
+        "source": "https://www.bbcgoodfood.com/recipes/2121648/bestever-chocolate-raspberry-brownies",
+        "youtube": "https://www.youtube.com/watch?v=Pi89PqsAaAg",
+        "ingredients": [
+          {
+            "name": "Dark Chocolate",
+            "measure": "200g"
+          },
+          {
+            "name": "Milk Chocolate",
+            "measure": "100g"
+          },
+          {
+            "name": "Salted Butter",
+            "measure": "250g"
+          },
+          {
+            "name": "Light Brown Soft Sugar",
+            "measure": "400g"
+          },
+          {
+            "name": "Eggs",
+            "measure": "4 large"
+          },
+          {
+            "name": "Plain Flour",
+            "measure": "140g"
+          },
+          {
+            "name": "Cocoa",
+            "measure": "50g"
+          },
+          {
+            "name": "Raspberries",
+            "measure": "200g"
+          }
+        ]
+      },
+      "latency_ms": 384.3
+    },
+    {
+      "tool": "meal_details",
+      "arguments": {
+        "id": "52771"
+      },
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "id": "52771",
+        "name": "Spicy Arrabiata Penne",
+        "category": "Vegetarian",
+        "area": "Italian",
+        "instructions": "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.",
+        "image": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+        "source": null,
+        "youtube": "https://www.youtube.com/watch?v=1IszT_guI08",
+        "ingredients": [
+          {
+            "name": "penne rigate",
+            "measure": "1 pound"
+          },
+          {
+            "name": "olive oil",
+            "measure": "1/4 cup"
+          },
+          {
+            "name": "garlic",
+            "measure": "3 cloves"
+          },
+          {
+            "name": "chopped tomatoes",
+            "measure": "1 tin"
+          },
+          {
+            "name": "red chilli flakes",
+            "measure": "1/2 teaspoon"
+          },
+          {
+            "name": "italian seasoning",
+            "measure": "1/2 teaspoon"
+          },
+          {
+            "name": "basil",
+            "measure": "6 leaves"
+          },
+          {
+            "name": "Parmigiano-Reggiano",
+            "measure": "sprinkling"
+          }
+        ]
+      },
+      "latency_ms": 386.1
+    },
+    {
+      "tool": "search_meals_by_name",
+      "arguments": {
+        "query": "zzzxqq",
+        "limit": 5
+      },
+      "kind": "no match",
+      "is_error": false,
+      "result": {
+        "count": 0,
+        "results": [],
+        "message": "no matches for 'zzzxqq'"
+      },
+      "latency_ms": 246.0
+    },
+    {
+      "tool": "meal_details",
+      "arguments": {
+        "id": "abc"
+      },
+      "kind": "invalid",
+      "is_error": true,
+      "result": "Error executing tool meal_details: id must be a numeric TheMealDB id such as 52771 (got 'abc')",
+      "latency_ms": 3.5
+    }
+  ],
+  "server_name": "meals"
+}

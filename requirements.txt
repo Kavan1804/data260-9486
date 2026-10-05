@@ -1,0 +1,20 @@
+# Root-level application (HW5 onward). HW4's RAG extras stay in Homework4/requirements.txt.
+
+# FastAPI + MySQL backend
+fastapi
+uvicorn[standard]
+sqlalchemy
+pymysql
+cryptography
+python-dotenv
+pydantic
+email-validator
+bcrypt
+requests
+
+# MCP servers (Part 2) and HTTP client with timeouts
+mcp[cli]>=1.9,<2   # FastMCP API used by the course; v2 renamed it to MCPServer
+httpx
+
+# Report rendering (screenshot sizing)
+pillow

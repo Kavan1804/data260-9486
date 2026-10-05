@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.append(str(ROOT.parent))  # HW5 moved backend/ to the repo root
 
 from sqlalchemy import create_engine, inspect, text  # noqa: E402
 from sqlalchemy.engine import make_url  # noqa: E402

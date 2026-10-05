@@ -1,0 +1,245 @@
+{
+  "server": "domain_server.py",
+  "started_at": "2026-10-05T13:20:31",
+  "tools": [
+    {
+      "name": "search_listings",
+      "input_schema": {
+        "properties": {
+          "query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Query"
+          },
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Limit"
+          },
+          "min_units": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Min Units"
+          }
+        },
+        "title": "search_listingsArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_listing",
+      "input_schema": {
+        "properties": {
+          "listing_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Listing Code"
+          }
+        },
+        "title": "get_listingArguments",
+        "type": "object"
+      }
+    },
+    {
+      "name": "landlord_portfolio_stats",
+      "input_schema": {
+        "properties": {
+          "landlord_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Landlord Id"
+          }
+        },
+        "title": "landlord_portfolio_statsArguments",
+        "type": "object"
+      }
+    }
+  ],
+  "calls": [
+    {
+      "tool": "search_listings",
+      "arguments": {
+        "query": "Campbell",
+        "limit": 3
+      },
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "ok": true,
+        "data": {
+          "query": "Campbell",
+          "min_units": 0,
+          "count": 3,
+          "listings": [
+            {
+              "listing_code": "LST-00017",
+              "title": "Quiet Studio with yard",
+              "address": "2900 Santa Clara St, Campbell, CA",
+              "available_units": 1,
+              "landlord_id": 12,
+              "landlord_name": "Oscar Tran"
+            },
+            {
+              "listing_code": "LST-00023",
+              "title": "Sunny 3BR House with in-unit laundry",
+              "address": "1110 Willow St, Campbell, CA",
+              "available_units": 1,
+              "landlord_id": 19,
+              "landlord_name": "Kevin Dang"
+            },
+            {
+              "listing_code": "LST-00027",
+              "title": "Spacious 1BR Condo near light rail",
+              "address": "6788 Alameda, Campbell, CA",
+              "available_units": 1,
+              "landlord_id": 3,
+              "landlord_name": "Tariq Gupta"
+            }
+          ]
+        },
+        "error": null
+      },
+      "latency_ms": 195.2
+    },
+    {
+      "tool": "search_listings",
+      "arguments": {
+        "query": "a",
+        "limit": 50
+      },
+      "kind": "invalid",
+      "is_error": false,
+      "result": {
+        "ok": false,
+        "data": null,
+        "error": "Invalid input for search_listings: query must be 2-80 characters after trimming (got 1)"
+      },
+      "latency_ms": 1.5
+    },
+    {
+      "tool": "get_listing",
+      "arguments": {
+        "listing_code": "LST-00042"
+      },
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "ok": true,
+        "data": {
+          "id": 42,
+          "listing_code": "LST-00042",
+          "title": "Updated 1BR Apartment pet friendly",
+          "address": "5239 Almaden Blvd, Sunnyvale, CA",
+          "available_units": 1,
+          "landlord_id": 20,
+          "landlord_name": "Isaac Alvarez",
+          "landlord_company": "Silicon Valley Property Mgmt"
+        },
+        "error": null
+      },
+      "latency_ms": 2.3
+    },
+    {
+      "tool": "get_listing",
+      "arguments": {
+        "listing_code": "42"
+      },
+      "kind": "invalid",
+      "is_error": false,
+      "result": {
+        "ok": false,
+        "data": null,
+        "error": "Invalid input for get_listing: listing_code must match LST- followed by 5 digits, e.g. LST-00042 (got '42')"
+      },
+      "latency_ms": 1.0
+    },
+    {
+      "tool": "landlord_portfolio_stats",
+      "arguments": {
+        "landlord_id": 3
+      },
+      "kind": "valid",
+      "is_error": false,
+      "result": {
+        "ok": true,
+        "data": {
+          "landlord_id": 3,
+          "full_name": "Tariq Gupta",
+          "company": "Bay Area Rentals LLC",
+          "listing_count": 233,
+          "total_available_units": 233,
+          "avg_units_per_listing": 1.0,
+          "min_units": 1,
+          "max_units": 1
+        },
+        "error": null
+      },
+      "latency_ms": 3.3
+    },
+    {
+      "tool": "landlord_portfolio_stats",
+      "arguments": {
+        "landlord_id": -5
+      },
+      "kind": "invalid",
+      "is_error": false,
+      "result": {
+        "ok": false,
+        "data": null,
+        "error": "Invalid input for landlord_portfolio_stats: landlord_id must be between 1 and 2147483647 (got -5)"
+      },
+      "latency_ms": 1.1
+    }
+  ],
+  "server_name": "s9486_listings"
+}

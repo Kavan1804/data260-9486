@@ -1,5 +1,9 @@
 # DATA 260 - Homework 4
 
+> **Note (HW5):** `backend/` and `frontend/` were moved to the repository root with `git mv` so later
+> homework extends one shared application. Tag `hw4` keeps the original `Homework4/` layout; the HW4
+> scripts and `make backend` here now add the repo root to the Python path.
+
 ## Configuration
 
 | Value | Configuration |

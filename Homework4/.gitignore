@@ -10,3 +10,6 @@ dist/
 # into backend/ and frontend/, and its .env files contain local credentials.
 DATA236_demo4/
 claude_hw4_prompt.md
+
+# Screenshots are only used to build the report PDF; not committed.
+reports/hw04/screenshots/

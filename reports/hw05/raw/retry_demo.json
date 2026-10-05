@@ -1,0 +1,104 @@
+[
+  {
+    "case": "1. success on first attempt",
+    "fault_script": [
+      false
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "delay_before_s": 0.0,
+        "outcome": "success",
+        "error": null,
+        "latency_ms": 0.928
+      }
+    ],
+    "result": {
+      "ok": true,
+      "data": {
+        "id": 42,
+        "listing_code": "LST-00042",
+        "title": "Updated 1BR Apartment pet friendly",
+        "address": "5239 Almaden Blvd, Sunnyvale, CA",
+        "available_units": 1,
+        "landlord_id": 20,
+        "landlord_name": "Isaac Alvarez",
+        "landlord_company": "Silicon Valley Property Mgmt"
+      },
+      "error": null
+    }
+  },
+  {
+    "case": "2. fail, then retry succeeds",
+    "fault_script": [
+      true,
+      false
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "delay_before_s": 0.0,
+        "outcome": "transient_failure",
+        "error": "TransientError: scripted storage fault",
+        "latency_ms": 0.046
+      },
+      {
+        "attempt": 2,
+        "delay_before_s": 0.05,
+        "outcome": "success",
+        "error": null,
+        "latency_ms": 1.229
+      }
+    ],
+    "result": {
+      "ok": true,
+      "data": {
+        "id": 42,
+        "listing_code": "LST-00042",
+        "title": "Updated 1BR Apartment pet friendly",
+        "address": "5239 Almaden Blvd, Sunnyvale, CA",
+        "available_units": 1,
+        "landlord_id": 20,
+        "landlord_name": "Isaac Alvarez",
+        "landlord_company": "Silicon Valley Property Mgmt"
+      },
+      "error": null
+    }
+  },
+  {
+    "case": "3. all retries fail",
+    "fault_script": [
+      true,
+      true,
+      true
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "delay_before_s": 0.0,
+        "outcome": "transient_failure",
+        "error": "TransientError: scripted storage fault",
+        "latency_ms": 0.036
+      },
+      {
+        "attempt": 2,
+        "delay_before_s": 0.05,
+        "outcome": "transient_failure",
+        "error": "TransientError: scripted storage fault",
+        "latency_ms": 0.085
+      },
+      {
+        "attempt": 3,
+        "delay_before_s": 0.1,
+        "outcome": "transient_failure",
+        "error": "TransientError: scripted storage fault",
+        "latency_ms": 0.302
+      }
+    ],
+    "result": {
+      "ok": false,
+      "data": null,
+      "error": "Storage unavailable: get_listing failed after 3 attempts (last error: TransientError: scripted storage fault)"
+    }
+  }
+]

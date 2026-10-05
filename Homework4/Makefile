@@ -13,7 +13,7 @@ create-user:
 	$(PYTHON) scripts/init_db.py --create-user
 
 backend:
-	$(PYTHON) -m uvicorn backend.app.main:app --port 8486 --reload
+	PYTHONPATH=.:.. $(PYTHON) -m uvicorn backend.app.main:app --port 8486 --reload  # backend/ lives at the repo root since HW5
 
 seed:
 	@$(STAMP); $(PYTHON) scripts/seed_n1.py --reset 2>&1 | tee -a $(LOG)

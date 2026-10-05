@@ -1,0 +1,58 @@
+[
+  {
+    "case": "ALLOWED",
+    "tool": "search_listings",
+    "inputs": {
+      "query": "San Jose",
+      "limit": 3
+    },
+    "result": {
+      "ok": true,
+      "data": {
+        "query": "San Jose",
+        "min_units": 0,
+        "count": 3,
+        "listings": [
+          {
+            "listing_code": "LST-00006",
+            "title": "Renovated 4BR House with yard",
+            "address": "7172 Willow St, San Jose, CA",
+            "available_units": 1,
+            "landlord_id": 10,
+            "landlord_name": "Alicia Vasquez"
+          },
+          {
+            "listing_code": "LST-00010",
+            "title": "Modern 1BR Condo near light rail",
+            "address": "2953 Market St, San Jose, CA",
+            "available_units": 1,
+            "landlord_id": 12,
+            "landlord_name": "Oscar Tran"
+          },
+          {
+            "listing_code": "LST-00013",
+            "title": "Updated Studio pet friendly",
+            "address": "6545 4th St, San Jose, CA",
+            "available_units": 1,
+            "landlord_id": 14,
+            "landlord_name": "Deepak Shah"
+          }
+        ]
+      },
+      "error": null
+    }
+  },
+  {
+    "case": "BLOCKED",
+    "tool": "search_listings",
+    "inputs": {
+      "query": "San Jose no kids",
+      "limit": 3
+    },
+    "result": {
+      "ok": false,
+      "data": null,
+      "error": "Blocked by fair-housing safety rule: listing searches cannot filter on a protected characteristic (familial status: 'no kids'). Search by location, title words, or available units instead."
+    }
+  }
+]

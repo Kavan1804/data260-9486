@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "run_at": "2026-10-05T13:22:18",
+    "seed": 269486,
+    "policy": {
+      "max_attempts": 3,
+      "base_delay_s": 0.05,
+      "max_delay_s": 0.4,
+      "timeout_s": 2.0
+    },
+    "storage": "MySQL s9486_rel via MySQLListingRepository",
+    "p99_method": "nearest rank, ceil(0.99 * n)",
+    "latency": "wall clock of execute_tool, including backoff waits"
+  },
+  "rates": [
+    {
+      "failure_rate": 0.0,
+      "calls": 50,
+      "successes": 50,
+      "success_rate": 1.0,
+      "total_attempts": 50,
+      "injected_failures": 0,
+      "calls_with_retry": 0,
+      "mean_latency_ms": 0.85,
+      "p99_latency_ms": 2.24,
+      "decision_sha1": "6c5e42666ed5"
+    },
+    {
+      "failure_rate": 0.2,
+      "calls": 50,
+      "successes": 50,
+      "success_rate": 1.0,
+      "total_attempts": 62,
+      "injected_failures": 12,
+      "calls_with_retry": 12,
+      "mean_latency_ms": 15.34,
+      "p99_latency_ms": 77.19,
+      "decision_sha1": "b66750a3fdde"
+    },
+    {
+      "failure_rate": 0.5,
+      "calls": 50,
+      "successes": 44,
+      "success_rate": 0.88,
+      "total_attempts": 84,
+      "injected_failures": 40,
+      "calls_with_retry": 24,
+      "mean_latency_ms": 48.22,
+      "p99_latency_ms": 165.03,
+      "decision_sha1": "2541868cf8ca"
+    }
+  ]
+}

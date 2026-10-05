@@ -1,0 +1,22 @@
+# Python / Node build output
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.DS_Store
+
+# Local secrets
+.env
+frontend/.env
+
+# Professor starters kept locally for reference only (contain local .env credentials)
+Homework5/DATA236_Demo5/
+Homework5/*.pdf
+
+# Database dumps
+*.sql
+*.sql.gz
+
+# Screenshots are only used to build the report PDF; not committed (same as HW4).
+reports/hw05/screenshots/

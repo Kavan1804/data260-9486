@@ -1,0 +1,190 @@
+DATA 260 HW5 - run log (SID4 9486, Kavan Siddesh). Real console output, newest sections appended at the bottom.
+
+===== 2026-10-05 10:15:06 migrate-hw05 =====
+[migrate_hw05] create_all: new tables ['landlords']
+[migrate_hw05] added listings.listing_code
+[migrate_hw05] added listings.available_units
+[migrate_hw05] added listings.landlord_id
+[migrate_hw05] added listings.created_at
+[migrate_hw05] added listings.updated_at
+[migrate_hw05] seeded 20 landlords with SEED=9486
+[migrate_hw05] backfilled listing_code on 5000 listings
+[migrate_hw05] assigned landlord_id on 5000 listings
+[migrate_hw05] added UNIQUE uq_listings_listing_code
+[migrate_hw05] added FOREIGN KEY fk_listings_landlord (ON DELETE RESTRICT)
+[migrate_hw05] added CHECK ck_listings_available_units
+[migrate_hw05] listings=5000, distinct landlords used=20, null codes=0
+[migrate_hw05] tables: landlords, listing_inquiries, listings, sessions, users
+
+===== 2026-10-05 11:17:41 migrate (Kavan Siddesh) =====
+[migrate_hw05] create_all: new tables none
+[migrate_hw05] landlords already has 20 rows - left unchanged
+[migrate_hw05] backfilled listing_code on 0 listings
+[migrate_hw05] assigned landlord_id on 0 listings
+[migrate_hw05] listings=5000, distinct landlords used=20, null codes=0
+[migrate_hw05] tables: landlords, listing_inquiries, listings, sessions, users
+
+===== 2026-10-05 13:20:28 mcp-calls (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 2 - MCP servers over STDIO
+run at 2026-10-05T13:20:29 | VERIFY_SEED 269486
+==============================================================================
+
+[meals] tools: search_meals_by_name, meals_by_ingredient, random_meal, meal_details
+  valid    search_meals_by_name({"query": "Arrabiata", "limit": 5}) isError=False -> 1 meal(s) found
+  valid    meals_by_ingredient({"ingredient": "chicken", "limit": 12}) isError=False -> 12 meal(s) found
+  valid    random_meal({}) isError=False -> keys=['id', 'name', 'category', 'area', 'instructions', 'image', 'source', 'youtube', 'ingredients']
+  valid    meal_details({"id": "52771"}) isError=False -> keys=['id', 'name', 'category', 'area', 'instructions', 'image', 'source', 'youtube', 'ingredients']
+  no match search_meals_by_name({"query": "zzzxqq", "limit": 5}) isError=False -> no matches for 'zzzxqq'
+  invalid  meal_details({"id": "abc"}) isError=True -> Error executing tool meal_details: id must be a numeric TheMealDB id such as 52771 (got 'abc')
+  saved reports/hw05/raw/mcp_meals_calls.json
+
+[s9486_listings] tools: search_listings, get_listing, landlord_portfolio_stats
+  valid    search_listings({"query": "Campbell", "limit": 3}) isError=False -> ok=True data keys=['query', 'min_units', 'count', 'listings']
+  invalid  search_listings({"query": "a", "limit": 50}) isError=False -> ok=False error='Invalid input for search_listings: query must be 2-80 characters after trimming (got 1)'
+  valid    get_listing({"listing_code": "LST-00042"}) isError=False -> ok=True data keys=['id', 'listing_code', 'title', 'address', 'available_units', 'landlord_id', 'landlord_name', 'landlord_company']
+  invalid  get_listing({"listing_code": "42"}) isError=False -> ok=False error="Invalid input for get_listing: listing_code must match LST- followed by 5 digits, e.g. LST-00042 (got '42')"
+  valid    landlord_portfolio_stats({"landlord_id": 3}) isError=False -> ok=True data keys=['landlord_id', 'full_name', 'company', 'listing_count', 'total_available_units', 'avg_units_per_listing', 'min_units', 'max_units']
+  invalid  landlord_portfolio_stats({"landlord_id": -5}) isError=False -> ok=False error='Invalid input for landlord_portfolio_stats: landlord_id must be between 1 and 2147483647 (got -5)'
+  saved reports/hw05/raw/mcp_domain_calls.json
+
+===== 2026-10-05 13:21:14 contracts (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 3 - tool contracts
+run at 2026-10-05T13:21:14 | VERIFY_SEED 269486
+==============================================================================
+wrote reports/hw05/TOOL_CONTRACTS.md for 3 tools
+
+===== 2026-10-05 13:21:40 retry-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 3 - retry demonstration
+run at 2026-10-05T13:21:40 | VERIFY_SEED 269486
+==============================================================================
+policy: max_attempts=3, backoff=50 ms x2 (cap 400 ms), timeout=2.0 s per attempt
+call: execute_tool('get_listing', {"listing_code": "LST-00042"})
+
+1. success on first attempt
+   attempt 1: wait     0 ms -> success              0.93 ms  
+   result: {"ok": true, "data": {"listing_code": "LST-00042"}, "error": null}
+
+2. fail, then retry succeeds
+   attempt 1: wait     0 ms -> transient_failure    0.05 ms  TransientError: scripted storage fault
+   attempt 2: wait    50 ms -> success              1.23 ms  
+   result: {"ok": true, "data": {"listing_code": "LST-00042"}, "error": null}
+
+3. all retries fail
+   attempt 1: wait     0 ms -> transient_failure    0.04 ms  TransientError: scripted storage fault
+   attempt 2: wait    50 ms -> transient_failure    0.09 ms  TransientError: scripted storage fault
+   attempt 3: wait   100 ms -> transient_failure    0.30 ms  TransientError: scripted storage fault
+   result: {"ok": false, "data": null, "error": "Storage unavailable: get_listing failed after 3 attempts (last error: TransientError: scripted storage fault)"}
+
+saved reports/hw05/raw/retry_demo.json
+
+===== 2026-10-05 13:22:14 retry-experiment (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 3 - fault injection: 3 rates x 50 calls
+run at 2026-10-05T13:22:14 | VERIFY_SEED 269486
+==============================================================================
+policy: max_attempts=3, backoff 50 ms x2 (cap 400 ms), timeout 2.0 s/attempt; seed=269486
+rate   0%: success 50/50 (100%), attempts 50, injected failures 0, calls retried 0, mean 0.85 ms, p99 2.24 ms, decisions sha1 6c5e42666ed5
+rate  20%: success 50/50 (100%), attempts 62, injected failures 12, calls retried 12, mean 15.34 ms, p99 77.19 ms, decisions sha1 b66750a3fdde
+rate  50%: success 44/50 (88%), attempts 84, injected failures 40, calls retried 24, mean 48.22 ms, p99 165.03 ms, decisions sha1 2541868cf8ca
+
+saved reports/hw05/raw/retry_calls.csv, retry_calls.json, retry_summary.json; updated METRICS.md
+
+===== 2026-10-05 13:22:35 test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 4 + 5 offline tests (no DB, no LLM, no network)
+run at 2026-10-05T13:22:35 | VERIFY_SEED 269486
+==============================================================================
+PASS   1. test_search_listings_valid
+PASS   2. test_search_listings_rejected_input
+PASS   3. test_get_listing_valid
+PASS   4. test_get_listing_rejected_input
+PASS   5. test_landlord_portfolio_stats_valid
+PASS   6. test_landlord_portfolio_stats_rejected_input
+PASS   7. test_not_found_is_clean_error
+PASS   8. test_execute_tool_bad_name_and_inputs_do_not_crash
+PASS   9. test_retry_first_attempt_success
+PASS  10. test_retry_fail_then_success
+PASS  11. test_retry_exhausted_returns_clean_error
+PASS  12. test_backoff_delays_are_bounded_exponential
+PASS  13. test_fault_injection_is_reproducible
+PASS  14. test_safety_rule_blocks_violating_call
+PASS  15. test_run_agent_mock_model_stops_at_max_steps
+PASS  16. test_agent_rejects_fabricated_tool_result
+
+16/16 tests passed
+
+===== 2026-10-05 13:23:02 safety-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 5 - fair-housing safety rule in execute_tool
+run at 2026-10-05T13:23:02 | VERIFY_SEED 269486
+==============================================================================
+ALLOWED: execute_tool('search_listings', {"query": "San Jose", "limit": 3})
+  -> ok=true, error=null, 3 listings: ['LST-00006', 'LST-00010', 'LST-00013']
+
+BLOCKED: execute_tool('search_listings', {"query": "San Jose no kids", "limit": 3})
+  -> {"ok": false, "data": null, "error": "Blocked by fair-housing safety rule: listing searches cannot filter on a protected characteristic (familial status: 'no kids'). Search by location, title words, or available units instead."}
+
+saved reports/hw05/raw/safety_demo.json
+
+===== 2026-10-05 13:23:19 agent-scenarios (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 5 - agent scenarios with llama3.2:3b (Ollama)
+run at 2026-10-05T13:23:19 | VERIFY_SEED 269486
+==============================================================================
+
+[search] Find up to 3 rental listings in Campbell.  (max_steps=6)
+  run_id 38b6186388d4: steps=2 tool_calls=1 stop_reason=completed (23.02 s)
+  answer: Here are 3 rental listings in Campbell:
+
+1. Quiet Studio with yard - 2900 Santa Clara St, Campbell, CA (LST-00017)
+2. Sunny 3BR House with in-unit laundry - 1110 Willow St, Campbell, CA (LST-00023)
+3. Spacious 1BR Condo near light rail - 6788 Alameda, Campbell, CA (LST-00027)
+
+[detail lookup] Give me the details for listing LST-00042.  (max_steps=6)
+  run_id 082c7036c0be: steps=2 tool_calls=1 stop_reason=completed (7.62 s)
+  answer: Listing LST-00042 is a 1-bedroom apartment available for rent. It is located at 5239 Almaden Blvd, Sunnyvale, CA, and is pet-friendly. The landlord's name is Isaac Alvarez and the property management company is Silicon Valley Property Mgmt.
+
+[aggregate] How many listings does landlord 3 manage, and how many units are available in total?  (max_steps=6)
+  run_id 9bf0a8e13fc0: steps=2 tool_calls=1 stop_reason=completed (5.35 s)
+  answer: Landlord 3, Tariq Gupta, manages 233 listings. There are a total of 233 units available in his portfolio.
+
+[safety rule] Find apartments in San Jose with no kids allowed.  (max_steps=6)
+  run_id 4c80739baffd: steps=1 tool_calls=1 stop_reason=safety_block (3.84 s)
+  answer: I can't run that search. Blocked by fair-housing safety rule: listing searches cannot filter on a protected characteristic (familial status: 'no kids'). Search by location, title words, or available units instead.
+
+[step ceiling] Compare landlords 1, 2, 3, 4 and 5. Call landlord_portfolio_stats separately for each of the five landlords, and only answer after you have all five results: which one manages the most listings?  (max_steps=3)
+  run_id e96c59eb9802: steps=3 tool_calls=2 stop_reason=max_steps (18.59 s)
+  answer: 
+
+saved reports/hw05/raw/agent_runs.jsonl, agent_scenarios.json; updated METRICS.md
+
+===== 2026-10-05 13:28:08 verify-hw05 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW5 self-check (verify_hw05)
+run at 2026-10-05T13:28:08 | VERIFY_SEED 269486
+==============================================================================
+[PASS] required_files: 31 files present
+[PASS] python_compiles: 34 files compiled
+[PASS] config_values: {"SID4": 9486, "PORT_BASE": 8486, "PREFIX": "s9486", "SEED": 9486, "VERIFY_SEED": 269486, "DOMAIN_ID": 6, "DB_NAME": "s9486_rel"}
+[PASS] fastapi_responds_on_port_base: GET http://localhost:8486/health -> 200 (started by script: False)
+[PASS] mysql_schema_constraints: fk_listings_landlord ON DELETE RESTRICT; unique: ['uq_landlords_email', 'uq_listings_listing_code']
+[PASS] temp_user_and_login: login -> 200
+[PASS] landlord_crud_and_errors: POST 201, list total=22, GET 200, PUT 200, dup email 409, bad email 422, missing 404
+[PASS] listing_crud_relationship_and_errors: POST 201 (default units 1), GET 200, PUT 200, relationship ids [5011], dup code 409, bad code 422, bad landlord_id 422, delete landlord with listing 409
+[PASS] delete_listing_then_landlord: DELETE listing 200, GET after 404, DELETE landlord 200
+[PASS] unauthenticated_requests_rejected: without cookie: [401, 401, 401]
+[PASS] mcp_meals_server_starts_and_responds: server 'meals', tools ['meal_details', 'meals_by_ingredient', 'random_meal', 'search_meals_by_name'], search_meals_by_name -> count=1
+[PASS] mcp_domain_server_starts_and_responds: server 's9486_listings', tools ['get_listing', 'landlord_portfolio_stats', 'search_listings'], valid calls ok=True, invalid calls clean envelope=True
+[PASS] safety_rule_blocks_without_exception: Blocked by fair-housing safety rule: listing searches cannot filter on a protected charact
+[PASS] offline_tests_pass: 16/16 tests passed
+[PASS] retry_raw_data_150_calls_reproducible: 150 calls {'0%': 50, '20%': 50, '50%': 50}; failure decisions replay from VERIFY_SEED: True
+[PASS] agent_runs_logged: 5 runs with llama3.2:3b, stop reasons ['completed', 'max_steps', 'safety_block']
+[PASS] mcp_raw_outputs_present: both MCP call recordings present
+[FAIL] metrics_and_reflection_filled: METRICS pending sections: 0; REFLECTION words: 17
+[PASS] ollama_model_available: llama3.2:3b in ollama list: True
+
+commit f89f411bbfa51017bc7ae585d06c10bb986bd556 (tag hw5: False, HEAD is tagged commit: False)
+Wrote reports/hw05/verification.json: 18 passed, 1 failed

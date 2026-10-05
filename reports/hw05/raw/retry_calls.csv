@@ -1,0 +1,151 @@
+failure_rate,call_no,tool,inputs,attempts,retries,draws,injected_failures,attempt_outcomes,success,latency_ms,error,result
+0.0,1,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.339885,-,success,True,1.651,,5 listings
+0.0,2,get_listing,"{""listing_code"": ""LST-00195""}",1,0,0.675495,-,success,True,0.771,,LST-00195
+0.0,3,landlord_portfolio_stats,"{""landlord_id"": 4}",1,0,0.617951,-,success,True,2.046,,landlord 4: 247 listings
+0.0,4,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.973052,-,success,True,0.805,,5 listings
+0.0,5,get_listing,"{""listing_code"": ""LST-00486""}",1,0,0.773735,-,success,True,0.638,,LST-00486
+0.0,6,landlord_portfolio_stats,"{""landlord_id"": 7}",1,0,0.182617,-,success,True,1.336,,landlord 7: 261 listings
+0.0,7,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.915130,-,success,True,1.062,,5 listings
+0.0,8,get_listing,"{""listing_code"": ""LST-00777""}",1,0,0.207781,-,success,True,0.596,,LST-00777
+0.0,9,landlord_portfolio_stats,"{""landlord_id"": 10}",1,0,0.358711,-,success,True,1.644,,landlord 10: 246 listings
+0.0,10,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.900315,-,success,True,0.847,,5 listings
+0.0,11,get_listing,"{""listing_code"": ""LST-01068""}",1,0,0.690535,-,success,True,1.423,,LST-01068
+0.0,12,landlord_portfolio_stats,"{""landlord_id"": 13}",1,0,0.049224,-,success,True,1.546,,landlord 13: 244 listings
+0.0,13,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.914167,-,success,True,0.634,,5 listings
+0.0,14,get_listing,"{""listing_code"": ""LST-01359""}",1,0,0.435137,-,success,True,0.687,,LST-01359
+0.0,15,landlord_portfolio_stats,"{""landlord_id"": 16}",1,0,0.448098,-,success,True,0.958,,landlord 16: 265 listings
+0.0,16,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.087348,-,success,True,0.577,,5 listings
+0.0,17,get_listing,"{""listing_code"": ""LST-01650""}",1,0,0.669787,-,success,True,0.468,,LST-01650
+0.0,18,landlord_portfolio_stats,"{""landlord_id"": 19}",1,0,0.777627,-,success,True,0.755,,landlord 19: 240 listings
+0.0,19,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.197012,-,success,True,0.66,,5 listings
+0.0,20,get_listing,"{""listing_code"": ""LST-01941""}",1,0,0.667371,-,success,True,0.647,,LST-01941
+0.0,21,landlord_portfolio_stats,"{""landlord_id"": 2}",1,0,0.838175,-,success,True,0.875,,landlord 2: 279 listings
+0.0,22,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.601143,-,success,True,0.657,,5 listings
+0.0,23,get_listing,"{""listing_code"": ""LST-02232""}",1,0,0.799504,-,success,True,0.997,,LST-02232
+0.0,24,landlord_portfolio_stats,"{""landlord_id"": 5}",1,0,0.685562,-,success,True,0.821,,landlord 5: 231 listings
+0.0,25,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.180070,-,success,True,0.704,,5 listings
+0.0,26,get_listing,"{""listing_code"": ""LST-02523""}",1,0,0.986719,-,success,True,0.538,,LST-02523
+0.0,27,landlord_portfolio_stats,"{""landlord_id"": 8}",1,0,0.247257,-,success,True,0.825,,landlord 8: 257 listings
+0.0,28,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.925778,-,success,True,0.643,,5 listings
+0.0,29,get_listing,"{""listing_code"": ""LST-02814""}",1,0,0.960006,-,success,True,0.552,,LST-02814
+0.0,30,landlord_portfolio_stats,"{""landlord_id"": 11}",1,0,0.093747,-,success,True,0.805,,landlord 11: 221 listings
+0.0,31,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.383878,-,success,True,0.651,,5 listings
+0.0,32,get_listing,"{""listing_code"": ""LST-03105""}",1,0,0.298105,-,success,True,0.819,,LST-03105
+0.0,33,landlord_portfolio_stats,"{""landlord_id"": 14}",1,0,0.346597,-,success,True,0.798,,landlord 14: 226 listings
+0.0,34,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.396906,-,success,True,0.641,,5 listings
+0.0,35,get_listing,"{""listing_code"": ""LST-03396""}",1,0,0.104104,-,success,True,0.557,,LST-03396
+0.0,36,landlord_portfolio_stats,"{""landlord_id"": 17}",1,0,0.432662,-,success,True,0.784,,landlord 17: 240 listings
+0.0,37,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.144245,-,success,True,0.598,,5 listings
+0.0,38,get_listing,"{""listing_code"": ""LST-03687""}",1,0,0.512696,-,success,True,0.889,,LST-03687
+0.0,39,landlord_portfolio_stats,"{""landlord_id"": 20}",1,0,0.164761,-,success,True,2.237,,landlord 20: 252 listings
+0.0,40,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.352786,-,success,True,0.694,,5 listings
+0.0,41,get_listing,"{""listing_code"": ""LST-03978""}",1,0,0.487183,-,success,True,0.756,,LST-03978
+0.0,42,landlord_portfolio_stats,"{""landlord_id"": 3}",1,0,0.192508,-,success,True,0.814,,landlord 3: 233 listings
+0.0,43,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.914299,-,success,True,0.652,,5 listings
+0.0,44,get_listing,"{""listing_code"": ""LST-04269""}",1,0,0.112717,-,success,True,0.542,,LST-04269
+0.0,45,landlord_portfolio_stats,"{""landlord_id"": 6}",1,0,0.675141,-,success,True,0.812,,landlord 6: 251 listings
+0.0,46,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.512797,-,success,True,0.629,,5 listings
+0.0,47,get_listing,"{""listing_code"": ""LST-04560""}",1,0,0.711407,-,success,True,0.546,,LST-04560
+0.0,48,landlord_portfolio_stats,"{""landlord_id"": 9}",1,0,0.963891,-,success,True,0.823,,landlord 9: 265 listings
+0.0,49,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.511627,-,success,True,0.644,,5 listings
+0.0,50,get_listing,"{""listing_code"": ""LST-04851""}",1,0,0.993181,-,success,True,0.555,,LST-04851
+0.2,1,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.339885,-,success,True,0.656,,5 listings
+0.2,2,get_listing,"{""listing_code"": ""LST-00195""}",1,0,0.675495,-,success,True,0.561,,LST-00195
+0.2,3,landlord_portfolio_stats,"{""landlord_id"": 4}",1,0,0.617951,-,success,True,0.812,,landlord 4: 247 listings
+0.2,4,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.973052,-,success,True,0.641,,5 listings
+0.2,5,get_listing,"{""listing_code"": ""LST-00486""}",1,0,0.773735,-,success,True,0.559,,LST-00486
+0.2,6,landlord_portfolio_stats,"{""landlord_id"": 7}",2,1,0.182617;0.915130,F;-,transient_failure;success,True,56.614,,landlord 7: 261 listings
+0.2,7,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.207781,-,success,True,0.881,,5 listings
+0.2,8,get_listing,"{""listing_code"": ""LST-00777""}",1,0,0.358711,-,success,True,0.683,,LST-00777
+0.2,9,landlord_portfolio_stats,"{""landlord_id"": 10}",1,0,0.900315,-,success,True,1.726,,landlord 10: 246 listings
+0.2,10,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.690535,-,success,True,0.798,,5 listings
+0.2,11,get_listing,"{""listing_code"": ""LST-01068""}",2,1,0.049224;0.914167,F;-,transient_failure;success,True,52.61,,LST-01068
+0.2,12,landlord_portfolio_stats,"{""landlord_id"": 13}",1,0,0.435137,-,success,True,2.844,,landlord 13: 244 listings
+0.2,13,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.448098,-,success,True,1.406,,5 listings
+0.2,14,get_listing,"{""listing_code"": ""LST-01359""}",2,1,0.087348;0.669787,F;-,transient_failure;success,True,52.653,,LST-01359
+0.2,15,landlord_portfolio_stats,"{""landlord_id"": 16}",1,0,0.777627,-,success,True,2.712,,landlord 16: 265 listings
+0.2,16,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",2,1,0.197012;0.667371,F;-,transient_failure;success,True,57.605,,5 listings
+0.2,17,get_listing,"{""listing_code"": ""LST-01650""}",1,0,0.838175,-,success,True,1.329,,LST-01650
+0.2,18,landlord_portfolio_stats,"{""landlord_id"": 19}",1,0,0.601143,-,success,True,4.21,,landlord 19: 240 listings
+0.2,19,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.799504,-,success,True,1.65,,5 listings
+0.2,20,get_listing,"{""listing_code"": ""LST-01941""}",1,0,0.685562,-,success,True,1.482,,LST-01941
+0.2,21,landlord_portfolio_stats,"{""landlord_id"": 2}",2,1,0.180070;0.986719,F;-,transient_failure;success,True,55.054,,landlord 2: 279 listings
+0.2,22,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.247257,-,success,True,2.092,,5 listings
+0.2,23,get_listing,"{""listing_code"": ""LST-02232""}",1,0,0.925778,-,success,True,0.974,,LST-02232
+0.2,24,landlord_portfolio_stats,"{""landlord_id"": 5}",1,0,0.960006,-,success,True,2.196,,landlord 5: 231 listings
+0.2,25,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",2,1,0.093747;0.383878,F;-,transient_failure;success,True,56.168,,5 listings
+0.2,26,get_listing,"{""listing_code"": ""LST-02523""}",1,0,0.298105,-,success,True,1.154,,LST-02523
+0.2,27,landlord_portfolio_stats,"{""landlord_id"": 8}",1,0,0.346597,-,success,True,2.613,,landlord 8: 257 listings
+0.2,28,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.396906,-,success,True,1.301,,5 listings
+0.2,29,get_listing,"{""listing_code"": ""LST-02814""}",2,1,0.104104;0.432662,F;-,transient_failure;success,True,57.405,,LST-02814
+0.2,30,landlord_portfolio_stats,"{""landlord_id"": 11}",2,1,0.144245;0.512696,F;-,transient_failure;success,True,59.554,,landlord 11: 221 listings
+0.2,31,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",2,1,0.164761;0.352786,F;-,transient_failure;success,True,77.185,,5 listings
+0.2,32,get_listing,"{""listing_code"": ""LST-03105""}",1,0,0.487183,-,success,True,22.715,,LST-03105
+0.2,33,landlord_portfolio_stats,"{""landlord_id"": 14}",2,1,0.192508;0.914299,F;-,transient_failure;success,True,56.353,,landlord 14: 226 listings
+0.2,34,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",2,1,0.112717;0.675141,F;-,transient_failure;success,True,55.406,,5 listings
+0.2,35,get_listing,"{""listing_code"": ""LST-03396""}",1,0,0.512797,-,success,True,1.066,,LST-03396
+0.2,36,landlord_portfolio_stats,"{""landlord_id"": 17}",1,0,0.711407,-,success,True,2.299,,landlord 17: 240 listings
+0.2,37,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.963891,-,success,True,2.329,,5 listings
+0.2,38,get_listing,"{""listing_code"": ""LST-03687""}",1,0,0.511627,-,success,True,0.916,,LST-03687
+0.2,39,landlord_portfolio_stats,"{""landlord_id"": 20}",1,0,0.993181,-,success,True,1.358,,landlord 20: 252 listings
+0.2,40,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.925875,-,success,True,0.91,,5 listings
+0.2,41,get_listing,"{""listing_code"": ""LST-03978""}",1,0,0.641513,-,success,True,0.727,,LST-03978
+0.2,42,landlord_portfolio_stats,"{""landlord_id"": 3}",1,0,0.332280,-,success,True,1.503,,landlord 3: 233 listings
+0.2,43,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.235636,-,success,True,0.751,,5 listings
+0.2,44,get_listing,"{""listing_code"": ""LST-04269""}",1,0,0.291633,-,success,True,0.746,,LST-04269
+0.2,45,landlord_portfolio_stats,"{""landlord_id"": 6}",2,1,0.172312;0.627006,F;-,transient_failure;success,True,56.727,,landlord 6: 251 listings
+0.2,46,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.649305,-,success,True,0.92,,5 listings
+0.2,47,get_listing,"{""listing_code"": ""LST-04560""}",1,0,0.251457,-,success,True,0.828,,LST-04560
+0.2,48,landlord_portfolio_stats,"{""landlord_id"": 9}",1,0,0.707345,-,success,True,1.736,,landlord 9: 265 listings
+0.2,49,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.465710,-,success,True,0.902,,5 listings
+0.2,50,get_listing,"{""listing_code"": ""LST-04851""}",1,0,0.477969,-,success,True,0.654,,LST-04851
+0.5,1,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",2,1,0.339885;0.675495,F;-,transient_failure;success,True,54.811,,5 listings
+0.5,2,get_listing,"{""listing_code"": ""LST-00195""}",1,0,0.617951,-,success,True,0.806,,LST-00195
+0.5,3,landlord_portfolio_stats,"{""landlord_id"": 4}",1,0,0.973052,-,success,True,2.595,,landlord 4: 247 listings
+0.5,4,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.773735,-,success,True,1.135,,5 listings
+0.5,5,get_listing,"{""listing_code"": ""LST-00486""}",2,1,0.182617;0.915130,F;-,transient_failure;success,True,56.664,,LST-00486
+0.5,6,landlord_portfolio_stats,"{""landlord_id"": 7}",3,2,0.207781;0.358711;0.900315,F;F;-,transient_failure;transient_failure;success,True,157.798,,landlord 7: 261 listings
+0.5,7,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.690535,-,success,True,1.19,,5 listings
+0.5,8,get_listing,"{""listing_code"": ""LST-00777""}",2,1,0.049224;0.914167,F;-,transient_failure;success,True,57.208,,LST-00777
+0.5,9,landlord_portfolio_stats,"{""landlord_id"": 10}",3,2,0.435137;0.448098;0.087348,F;F;F,transient_failure;transient_failure;transient_failure,False,159.646,Storage unavailable: landlord_portfolio_stats failed after 3 attempts (last error: TransientError: injected storage fault (draw 0.0873 < rate 0.50)),
+0.5,10,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.669787,-,success,True,1.386,,5 listings
+0.5,11,get_listing,"{""listing_code"": ""LST-01068""}",1,0,0.777627,-,success,True,0.691,,LST-01068
+0.5,12,landlord_portfolio_stats,"{""landlord_id"": 13}",2,1,0.197012;0.667371,F;-,transient_failure;success,True,58.937,,landlord 13: 244 listings
+0.5,13,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.838175,-,success,True,2.381,,5 listings
+0.5,14,get_listing,"{""listing_code"": ""LST-01359""}",1,0,0.601143,-,success,True,1.22,,LST-01359
+0.5,15,landlord_portfolio_stats,"{""landlord_id"": 16}",1,0,0.799504,-,success,True,1.8,,landlord 16: 265 listings
+0.5,16,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.685562,-,success,True,1.428,,5 listings
+0.5,17,get_listing,"{""listing_code"": ""LST-01650""}",2,1,0.180070;0.986719,F;-,transient_failure;success,True,54.435,,LST-01650
+0.5,18,landlord_portfolio_stats,"{""landlord_id"": 19}",2,1,0.247257;0.925778,F;-,transient_failure;success,True,53.858,,landlord 19: 240 listings
+0.5,19,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.960006,-,success,True,2.074,,5 listings
+0.5,20,get_listing,"{""listing_code"": ""LST-01941""}",3,2,0.093747;0.383878;0.298105,F;F;F,transient_failure;transient_failure;transient_failure,False,152.943,Storage unavailable: get_listing failed after 3 attempts (last error: TransientError: injected storage fault (draw 0.2981 < rate 0.50)),
+0.5,21,landlord_portfolio_stats,"{""landlord_id"": 2}",3,2,0.346597;0.396906;0.104104,F;F;F,transient_failure;transient_failure;transient_failure,False,159.037,Storage unavailable: landlord_portfolio_stats failed after 3 attempts (last error: TransientError: injected storage fault (draw 0.1041 < rate 0.50)),
+0.5,22,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",3,2,0.432662;0.144245;0.512696,F;F;-,transient_failure;transient_failure;success,True,155.815,,5 listings
+0.5,23,get_listing,"{""listing_code"": ""LST-02232""}",3,2,0.164761;0.352786;0.487183,F;F;F,transient_failure;transient_failure;transient_failure,False,158.08,Storage unavailable: get_listing failed after 3 attempts (last error: TransientError: injected storage fault (draw 0.4872 < rate 0.50)),
+0.5,24,landlord_portfolio_stats,"{""landlord_id"": 5}",2,1,0.192508;0.914299,F;-,transient_failure;success,True,54.514,,landlord 5: 231 listings
+0.5,25,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",2,1,0.112717;0.675141,F;-,transient_failure;success,True,59.133,,5 listings
+0.5,26,get_listing,"{""listing_code"": ""LST-02523""}",1,0,0.512797,-,success,True,1.828,,LST-02523
+0.5,27,landlord_portfolio_stats,"{""landlord_id"": 8}",1,0,0.711407,-,success,True,3.056,,landlord 8: 257 listings
+0.5,28,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",1,0,0.963891,-,success,True,1.879,,5 listings
+0.5,29,get_listing,"{""listing_code"": ""LST-02814""}",1,0,0.511627,-,success,True,1.579,,LST-02814
+0.5,30,landlord_portfolio_stats,"{""landlord_id"": 11}",1,0,0.993181,-,success,True,2.734,,landlord 11: 221 listings
+0.5,31,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.925875,-,success,True,1.895,,5 listings
+0.5,32,get_listing,"{""listing_code"": ""LST-03105""}",1,0,0.641513,-,success,True,1.527,,LST-03105
+0.5,33,landlord_portfolio_stats,"{""landlord_id"": 14}",3,2,0.332280;0.235636;0.291633,F;F;F,transient_failure;transient_failure;transient_failure,False,157.717,Storage unavailable: landlord_portfolio_stats failed after 3 attempts (last error: TransientError: injected storage fault (draw 0.2916 < rate 0.50)),
+0.5,34,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",2,1,0.172312;0.627006,F;-,transient_failure;success,True,56.634,,5 listings
+0.5,35,get_listing,"{""listing_code"": ""LST-03396""}",1,0,0.649305,-,success,True,1.084,,LST-03396
+0.5,36,landlord_portfolio_stats,"{""landlord_id"": 17}",2,1,0.251457;0.707345,F;-,transient_failure;success,True,58.013,,landlord 17: 240 listings
+0.5,37,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",3,2,0.465710;0.477969;0.118501,F;F;F,transient_failure;transient_failure;transient_failure,False,158.853,Storage unavailable: search_listings failed after 3 attempts (last error: TransientError: injected storage fault (draw 0.1185 < rate 0.50)),
+0.5,38,get_listing,"{""listing_code"": ""LST-03687""}",1,0,0.665277,-,success,True,2.343,,LST-03687
+0.5,39,landlord_portfolio_stats,"{""landlord_id"": 20}",2,1,0.196754;0.752078,F;-,transient_failure;success,True,54.337,,landlord 20: 252 listings
+0.5,40,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",2,1,0.430170;0.693882,F;-,transient_failure;success,True,54.582,,5 listings
+0.5,41,get_listing,"{""listing_code"": ""LST-03978""}",1,0,0.894874,-,success,True,2.731,,LST-03978
+0.5,42,landlord_portfolio_stats,"{""landlord_id"": 3}",1,0,0.683798,-,success,True,2.378,,landlord 3: 233 listings
+0.5,43,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",2,1,0.036453;0.825076,F;-,transient_failure;success,True,56.292,,5 listings
+0.5,44,get_listing,"{""listing_code"": ""LST-04269""}",1,0,0.863106,-,success,True,1.062,,LST-04269
+0.5,45,landlord_portfolio_stats,"{""landlord_id"": 6}",2,1,0.450668;0.749038,F;-,transient_failure;success,True,55.675,,landlord 6: 251 listings
+0.5,46,search_listings,"{""query"": ""Milpitas"", ""limit"": 5}",3,2,0.218887;0.496811;0.947276,F;F;-,transient_failure;transient_failure;success,True,165.026,,5 listings
+0.5,47,get_listing,"{""listing_code"": ""LST-04560""}",3,2,0.254370;0.210305;0.533607,F;F;-,transient_failure;transient_failure;success,True,156.868,,LST-04560
+0.5,48,landlord_portfolio_stats,"{""landlord_id"": 9}",1,0,0.699363,-,success,True,1.568,,landlord 9: 265 listings
+0.5,49,search_listings,"{""query"": ""Campbell"", ""limit"": 5}",1,0,0.948242,-,success,True,0.95,,5 listings
+0.5,50,get_listing,"{""listing_code"": ""LST-04851""}",1,0,0.508698,-,success,True,0.672,,LST-04851

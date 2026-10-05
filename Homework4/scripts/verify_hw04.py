@@ -26,6 +26,7 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.path.append(str(ROOT.parent))  # HW5 moved backend/ to the repo root
 
 import config  # noqa: E402
 
@@ -117,6 +118,7 @@ def main() -> int:
         started = subprocess.Popen(
             [sys.executable, "-m", "uvicorn", "backend.app.main:app", "--port", str(config.PORT_BASE)],
             cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            env={**os.environ, "PYTHONPATH": f"{ROOT}{os.pathsep}{ROOT.parent}"},
         )
         for _ in range(40):
             if backend_up():

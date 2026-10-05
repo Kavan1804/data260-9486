@@ -6,7 +6,7 @@ I used an AI assistant mainly to understand how to extend my HW4 project for HW5
 
 I also used AI for help with Markdown documentation, report organization, explanations, and describing my implementation clearly. When I encountered code errors, I used it to understand the error messages and consider possible solutions. It also helped me go through the execution process, understand the terminal outputs, and determine which screenshots were needed for the submission.
 
-I wrote and implemented the project code myself. I ran the migration, servers, tests, and scripts from my own terminal. I tested the API endpoints and React application, used the MCP Inspector, captured the required screenshots, and verified the reported results against the raw output files.
+I ran the migration, servers, tests, and scripts from my own terminal. I tested the API endpoints and React application, used the MCP Inspector, captured the required screenshots, and verified the reported results against the raw output files.
 
 **2. One AI-produced output that was wrong or unsuitable.**
 

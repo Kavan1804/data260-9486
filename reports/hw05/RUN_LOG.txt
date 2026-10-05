@@ -188,3 +188,31 @@ run at 2026-10-05T13:28:08 | VERIFY_SEED 269486
 
 commit f89f411bbfa51017bc7ae585d06c10bb986bd556 (tag hw5: False, HEAD is tagged commit: False)
 Wrote reports/hw05/verification.json: 18 passed, 1 failed
+
+===== 2026-10-05 14:06:47 verify-hw05 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW5 self-check (verify_hw05)
+run at 2026-10-05T14:06:48 | VERIFY_SEED 269486
+==============================================================================
+[PASS] required_files: 31 files present
+[PASS] python_compiles: 35 files compiled
+[PASS] config_values: {"SID4": 9486, "PORT_BASE": 8486, "PREFIX": "s9486", "SEED": 9486, "VERIFY_SEED": 269486, "DOMAIN_ID": 6, "DB_NAME": "s9486_rel"}
+[PASS] fastapi_responds_on_port_base: GET http://localhost:8486/health -> 200 (started by script: True)
+[PASS] mysql_schema_constraints: fk_listings_landlord ON DELETE RESTRICT; unique: ['uq_landlords_email', 'uq_listings_listing_code']
+[PASS] temp_user_and_login: login -> 200
+[PASS] landlord_crud_and_errors: POST 201, list total=22, GET 200, PUT 200, dup email 409, bad email 422, missing 404
+[PASS] listing_crud_relationship_and_errors: POST 201 (default units 1), GET 200, PUT 200, relationship ids [5013], dup code 409, bad code 422, bad landlord_id 422, delete landlord with listing 409
+[PASS] delete_listing_then_landlord: DELETE listing 200, GET after 404, DELETE landlord 200
+[PASS] unauthenticated_requests_rejected: without cookie: [401, 401, 401]
+[PASS] mcp_meals_server_starts_and_responds: server 'meals', tools ['meal_details', 'meals_by_ingredient', 'random_meal', 'search_meals_by_name'], search_meals_by_name -> count=1
+[PASS] mcp_domain_server_starts_and_responds: server 's9486_listings', tools ['get_listing', 'landlord_portfolio_stats', 'search_listings'], valid calls ok=True, invalid calls clean envelope=True
+[PASS] safety_rule_blocks_without_exception: Blocked by fair-housing safety rule: listing searches cannot filter on a protected charact
+[PASS] offline_tests_pass: 16/16 tests passed
+[PASS] retry_raw_data_150_calls_reproducible: 150 calls {'0%': 50, '20%': 50, '50%': 50}; failure decisions replay from VERIFY_SEED: True
+[PASS] agent_runs_logged: 5 runs with llama3.2:3b, stop reasons ['completed', 'max_steps', 'safety_block']
+[PASS] mcp_raw_outputs_present: both MCP call recordings present
+[PASS] metrics_and_reflection_filled: METRICS pending sections: 0; REFLECTION words: 300
+[PASS] ollama_model_available: llama3.2:3b in ollama list: True
+
+commit 6c953745963b0351f744fee37eacab2b162bf46a (tag hw5: False, HEAD is tagged commit: False)
+Wrote reports/hw05/verification.json: 19 passed, 0 failed

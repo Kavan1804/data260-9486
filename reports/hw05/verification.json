@@ -1,0 +1,134 @@
+{
+  "homework": 5,
+  "sid4": 9486,
+  "commit_hash": "6c953745963b0351f744fee37eacab2b162bf46a",
+  "tag": null,
+  "head_commit": "6c953745963b0351f744fee37eacab2b162bf46a",
+  "head_is_tagged_commit": false,
+  "working_tree_clean": false,
+  "run_at": "2026-10-05T14:06:56",
+  "configuration": {
+    "port_base": 8486,
+    "prefix": "s9486",
+    "domain_id": 6,
+    "domain": "Rental housing listings",
+    "database": "s9486_rel",
+    "hardware": "Apple Mac with M1 chip and 8 GB unified memory",
+    "llm_model": "llama3.2:3b",
+    "agent_max_steps": 6,
+    "retry": {
+      "max_attempts": 3,
+      "base_delay_s": 0.05,
+      "max_delay_s": 0.4,
+      "timeout_s": 2.0
+    },
+    "failure_rates": [
+      0.0,
+      0.2,
+      0.5
+    ],
+    "calls_per_rate": 50
+  },
+  "seed": 9486,
+  "verify_seed": 269486,
+  "checks": [
+    {
+      "check": "required_files",
+      "passed": true,
+      "details": "31 files present"
+    },
+    {
+      "check": "python_compiles",
+      "passed": true,
+      "details": "35 files compiled"
+    },
+    {
+      "check": "config_values",
+      "passed": true,
+      "details": "{\"SID4\": 9486, \"PORT_BASE\": 8486, \"PREFIX\": \"s9486\", \"SEED\": 9486, \"VERIFY_SEED\": 269486, \"DOMAIN_ID\": 6, \"DB_NAME\": \"s9486_rel\"}"
+    },
+    {
+      "check": "fastapi_responds_on_port_base",
+      "passed": true,
+      "details": "GET http://localhost:8486/health -> 200 (started by script: True)"
+    },
+    {
+      "check": "mysql_schema_constraints",
+      "passed": true,
+      "details": "fk_listings_landlord ON DELETE RESTRICT; unique: ['uq_landlords_email', 'uq_listings_listing_code']"
+    },
+    {
+      "check": "temp_user_and_login",
+      "passed": true,
+      "details": "login -> 200"
+    },
+    {
+      "check": "landlord_crud_and_errors",
+      "passed": true,
+      "details": "POST 201, list total=22, GET 200, PUT 200, dup email 409, bad email 422, missing 404"
+    },
+    {
+      "check": "listing_crud_relationship_and_errors",
+      "passed": true,
+      "details": "POST 201 (default units 1), GET 200, PUT 200, relationship ids [5013], dup code 409, bad code 422, bad landlord_id 422, delete landlord with listing 409"
+    },
+    {
+      "check": "delete_listing_then_landlord",
+      "passed": true,
+      "details": "DELETE listing 200, GET after 404, DELETE landlord 200"
+    },
+    {
+      "check": "unauthenticated_requests_rejected",
+      "passed": true,
+      "details": "without cookie: [401, 401, 401]"
+    },
+    {
+      "check": "mcp_meals_server_starts_and_responds",
+      "passed": true,
+      "details": "server 'meals', tools ['meal_details', 'meals_by_ingredient', 'random_meal', 'search_meals_by_name'], search_meals_by_name -> count=1"
+    },
+    {
+      "check": "mcp_domain_server_starts_and_responds",
+      "passed": true,
+      "details": "server 's9486_listings', tools ['get_listing', 'landlord_portfolio_stats', 'search_listings'], valid calls ok=True, invalid calls clean envelope=True"
+    },
+    {
+      "check": "safety_rule_blocks_without_exception",
+      "passed": true,
+      "details": "Blocked by fair-housing safety rule: listing searches cannot filter on a protected charact"
+    },
+    {
+      "check": "offline_tests_pass",
+      "passed": true,
+      "details": "16/16 tests passed"
+    },
+    {
+      "check": "retry_raw_data_150_calls_reproducible",
+      "passed": true,
+      "details": "150 calls {'0%': 50, '20%': 50, '50%': 50}; failure decisions replay from VERIFY_SEED: True"
+    },
+    {
+      "check": "agent_runs_logged",
+      "passed": true,
+      "details": "5 runs with llama3.2:3b, stop reasons ['completed', 'max_steps', 'safety_block']"
+    },
+    {
+      "check": "mcp_raw_outputs_present",
+      "passed": true,
+      "details": "both MCP call recordings present"
+    },
+    {
+      "check": "metrics_and_reflection_filled",
+      "passed": true,
+      "details": "METRICS pending sections: 0; REFLECTION words: 300"
+    },
+    {
+      "check": "ollama_model_available",
+      "passed": true,
+      "details": "llama3.2:3b in ollama list: True"
+    }
+  ],
+  "passed": 19,
+  "failed": 0,
+  "all_passed": true
+}

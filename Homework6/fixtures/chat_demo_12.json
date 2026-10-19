@@ -1,0 +1,19 @@
+{
+  "description": "12-message session for the HW6 Part 2 demo (>= 10 messages so the short-term window, a session summary at messages 5 and 10, the lifetime summary, and episodic retrieval are all visible). The persona is fictional test data.",
+  "user_id": "demo-user",
+  "session_id": "session-1",
+  "messages": [
+    "Hi, my name is Sam and I'm looking for an apartment in Santa Clara.",
+    "My budget is at most $2,300 a month.",
+    "I have a cat named Pixel, so I need a pet-friendly place.",
+    "I'd like to move in on March 1, 2027.",
+    "I commute to SJSU by light rail, so being near a station matters.",
+    "What areas of Santa Clara are close to a light rail station?",
+    "Do pet-friendly buildings usually charge pet rent for cats?",
+    "I also need one covered parking spot.",
+    "What security deposit should I expect for a one-bedroom?",
+    "Which of my requirements is hardest to meet on my budget?",
+    "Can you remind me what my cat is called and my move-in date?",
+    "Summarize everything you know about my apartment search."
+  ]
+}

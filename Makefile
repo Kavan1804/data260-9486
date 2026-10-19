@@ -59,3 +59,67 @@ verify-hw05:
 
 report:
 	$(PYTHON) scripts/render_report_hw05.py
+
+# ---------- HW6 (MongoDB document API, chat memory, memory cost, file memory) ----------
+LOG6 := reports/hw06/RUN_LOG.txt
+STAMP6 = mkdir -p reports/hw06/raw; echo -e "\n===== $$(date '+%Y-%m-%d %H:%M:%S') $@ (Kavan Siddesh) =====" | tee -a $(LOG6)
+# Professor's compose file (container study_assistant_mongo, port 27017). Not modified.
+MONGO_COMPOSE := Homework6/long-term-memory/docker-compose.yml
+HW6 := Homework6/scripts
+
+.PHONY: mongo-up mongo-down mongo-shell test-hw6 test-hw6-live chat-demo experiments experiments-sweep \
+        experiments-compress score-probes memory-cost consolidation-demo agent-md-check agent-md-generate \
+        file-memory-chat verify-hw06 report-hw06
+
+mongo-up:
+	docker compose -f $(MONGO_COMPOSE) up -d
+	docker compose -f $(MONGO_COMPOSE) ps
+
+mongo-down:
+	docker compose -f $(MONGO_COMPOSE) down
+
+mongo-shell:
+	docker exec -it study_assistant_mongo mongosh s9486_doc
+
+test-hw6:
+	@$(STAMP6); $(PYTHON) Homework6/tests/run_hw6_tests.py 2>/dev/null | tee -a $(LOG6)
+
+test-hw6-live:
+	@$(STAMP6); $(PYTHON) Homework6/tests/run_hw6_tests.py --live 2>/dev/null | tee -a $(LOG6)
+
+chat-demo:
+	@$(STAMP6); $(PYTHON) $(HW6)/chat_demo.py 2>&1 | tee -a $(LOG6)
+
+experiments:
+	@$(STAMP6); $(PYTHON) $(HW6)/run_memory_experiments.py 2>&1 | tee -a $(LOG6)
+
+experiments-sweep:
+	@$(STAMP6); $(PYTHON) $(HW6)/run_memory_experiments.py --settings n4 n12 n30 2>&1 | tee -a $(LOG6)
+
+experiments-compress:
+	@$(STAMP6); $(PYTHON) $(HW6)/run_memory_experiments.py --settings compress 2>&1 | tee -a $(LOG6)
+
+score-probes:
+	@$(STAMP6); $(PYTHON) $(HW6)/score_probes.py 2>&1 | tee -a $(LOG6)
+
+memory-cost:
+	@$(STAMP6); $(PYTHON) $(HW6)/memory_cost.py 2>&1 | tee -a $(LOG6)
+
+consolidation-demo:
+	@$(STAMP6); $(PYTHON) $(HW6)/consolidation_demo.py 2>&1 | tee -a $(LOG6)
+
+agent-md-check:
+	@$(STAMP6); $(PYTHON) $(HW6)/agent_md_check.py 2>&1 | tee -a $(LOG6)
+
+agent-md-generate:
+	@$(STAMP6); $(PYTHON) $(HW6)/agent_md_check.py --generate 2>&1 | tee -a $(LOG6)
+
+# Interactive, so not logged; use the --script form in README_HW6.md for logged evidence.
+file-memory-chat:
+	$(PYTHON) $(HW6)/file_memory_chat.py
+
+verify-hw06:
+	@$(STAMP6); $(PYTHON) $(HW6)/verify_hw06.py 2>/dev/null | tee -a $(LOG6)
+
+report-hw06:
+	$(PYTHON) $(HW6)/render_report_hw06.py

@@ -1,0 +1,226 @@
+{
+  "per_answer": [
+    {
+      "setting": "n4",
+      "run_id": "20261019-012637",
+      "probe_id": "p1_identity",
+      "score": 3,
+      "reason": "1/2 criteria met",
+      "expected": "Priya; San Jose",
+      "answer": "I don't have that information. You didn't mention your name, and you only mentioned that you're relocating to San Jose in January 2027 for a job at a battery startup."
+    },
+    {
+      "setting": "n4",
+      "run_id": "20261019-012637",
+      "probe_id": "p2_budget_update",
+      "score": 5,
+      "reason": "1/1 criteria met",
+      "expected": "$2,900 per month (updated at turn 14 from $2,600)",
+      "answer": "Your maximum monthly rent budget is $2,900, but you mentioned earlier that you had mentioned a maximum budget of $2,600 per month. I apologize for the inconsistency. To confirm, your maximum monthly rent budget is indeed $2,900, utilities not included."
+    },
+    {
+      "setting": "n4",
+      "run_id": "20261019-012637",
+      "probe_id": "p3_pet",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Biscuit; a dog (30-pound beagle)",
+      "answer": "Your pet's name is Biscuit, and it's a 30-pound beagle."
+    },
+    {
+      "setting": "n4",
+      "run_id": "20261019-012637",
+      "probe_id": "p4_move_in",
+      "score": 5,
+      "reason": "3/3 criteria met",
+      "expected": "January 15, 2027",
+      "answer": "Your ideal move-in date is January 15, 2027."
+    },
+    {
+      "setting": "n4",
+      "run_id": "20261019-012637",
+      "probe_id": "p5_flooring",
+      "score": 3,
+      "reason": "1/2 criteria met",
+      "expected": "Hardwood or vinyl, no carpet, because of a carpet-dust allergy",
+      "answer": "You're looking for hardwood or vinyl floors in your new apartment. You're prioritizing these types of flooring because they are more likely to be found in newer buildings or those that have been renovated in recent years, which you prefer."
+    },
+    {
+      "setting": "n12",
+      "run_id": "20261019-012637",
+      "probe_id": "p1_identity",
+      "score": 3,
+      "reason": "1/2 criteria met",
+      "expected": "Priya; San Jose",
+      "answer": "I don't have any information about your name, and you mentioned earlier that you're relocating to San Jose, California."
+    },
+    {
+      "setting": "n12",
+      "run_id": "20261019-012637",
+      "probe_id": "p2_budget_update",
+      "score": 5,
+      "reason": "1/1 criteria met",
+      "expected": "$2,900 per month (updated at turn 14 from $2,600)",
+      "answer": "You mentioned earlier that your maximum monthly rent budget is $2,900."
+    },
+    {
+      "setting": "n12",
+      "run_id": "20261019-012637",
+      "probe_id": "p3_pet",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Biscuit; a dog (30-pound beagle)",
+      "answer": "You mentioned earlier that your pet's name is Biscuit, and it's a 30-pound beagle."
+    },
+    {
+      "setting": "n12",
+      "run_id": "20261019-012637",
+      "probe_id": "p4_move_in",
+      "score": 5,
+      "reason": "3/3 criteria met",
+      "expected": "January 15, 2027",
+      "answer": "You mentioned earlier that you'd like to move in on January 15, 2027."
+    },
+    {
+      "setting": "n12",
+      "run_id": "20261019-012637",
+      "probe_id": "p5_flooring",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Hardwood or vinyl, no carpet, because of a carpet-dust allergy",
+      "answer": "You mentioned earlier that you prefer hardwood or vinyl floors, and it's because of allergy concerns."
+    },
+    {
+      "setting": "n30",
+      "run_id": "20261019-012637",
+      "probe_id": "p1_identity",
+      "score": 3,
+      "reason": "1/2 criteria met",
+      "expected": "Priya; San Jose",
+      "answer": "I don't have any information about your name or the city you're relocating to. Our conversation started with your request to help you find an apartment in San Jose, but I didn't learn your name or any other personal details."
+    },
+    {
+      "setting": "n30",
+      "run_id": "20261019-012637",
+      "probe_id": "p2_budget_update",
+      "score": 5,
+      "reason": "1/1 criteria met",
+      "expected": "$2,900 per month (updated at turn 14 from $2,600)",
+      "answer": "Your maximum monthly rent budget is $2,900."
+    },
+    {
+      "setting": "n30",
+      "run_id": "20261019-012637",
+      "probe_id": "p3_pet",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Biscuit; a dog (30-pound beagle)",
+      "answer": "Your pet's name is Biscuit, and it's a 30-pound beagle."
+    },
+    {
+      "setting": "n30",
+      "run_id": "20261019-012637",
+      "probe_id": "p4_move_in",
+      "score": 4,
+      "reason": "2/3 criteria met",
+      "expected": "January 15, 2027",
+      "answer": "You want to move in by mid-January 2027."
+    },
+    {
+      "setting": "n30",
+      "run_id": "20261019-012637",
+      "probe_id": "p5_flooring",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Hardwood or vinyl, no carpet, because of a carpet-dust allergy",
+      "answer": "You prefer hardwood or vinyl flooring, and you need it because of allergy concerns."
+    },
+    {
+      "setting": "compress",
+      "run_id": "20261019-031555",
+      "probe_id": "p1_identity",
+      "score": 3,
+      "reason": "1/2 criteria met",
+      "expected": "Priya; San Jose",
+      "answer": "I don't have any information about your name, and you didn't mention it during our conversation. You mentioned that you're relocating to San Jose, CA for a job at a battery startup in 2027."
+    },
+    {
+      "setting": "compress",
+      "run_id": "20261019-031555",
+      "probe_id": "p2_budget_update",
+      "score": 2,
+      "reason": "0/1 criteria met; outdated value ['2600'] recalled",
+      "expected": "$2,900 per month (updated at turn 14 from $2,600)",
+      "answer": "According to our earlier conversation, your maximum monthly rent budget is $2,600."
+    },
+    {
+      "setting": "compress",
+      "run_id": "20261019-031555",
+      "probe_id": "p3_pet",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Biscuit; a dog (30-pound beagle)",
+      "answer": "Your pet's name is Biscuit, and it's a 30-pound beagle."
+    },
+    {
+      "setting": "compress",
+      "run_id": "20261019-031555",
+      "probe_id": "p4_move_in",
+      "score": 5,
+      "reason": "3/3 criteria met",
+      "expected": "January 15, 2027",
+      "answer": "You want to move in on January 15, 2027."
+    },
+    {
+      "setting": "compress",
+      "run_id": "20261019-031555",
+      "probe_id": "p5_flooring",
+      "score": 5,
+      "reason": "2/2 criteria met",
+      "expected": "Hardwood or vinyl, no carpet, because of a carpet-dust allergy",
+      "answer": "You're looking for hardwood or vinyl flooring, and you need it due to allergy concerns."
+    }
+  ],
+  "per_setting": {
+    "n4": {
+      "scores": [
+        3,
+        5,
+        5,
+        5,
+        3
+      ],
+      "mean": 4.2
+    },
+    "n12": {
+      "scores": [
+        3,
+        5,
+        5,
+        5,
+        5
+      ],
+      "mean": 4.6
+    },
+    "n30": {
+      "scores": [
+        3,
+        5,
+        5,
+        4,
+        5
+      ],
+      "mean": 4.4
+    },
+    "compress": {
+      "scores": [
+        3,
+        2,
+        5,
+        5,
+        5
+      ],
+      "mean": 4.0
+    }
+  }
+}

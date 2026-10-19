@@ -1,0 +1,135 @@
+{
+  "agent_md": {
+    "instructions_per_section": {
+      "Project description": 2,
+      "Technology stack": 3,
+      "Coding conventions": 5,
+      "Testing approach": 2,
+      "Prohibited actions": 4,
+      "Code review (from HW1 AGENT.md)": 2
+    },
+    "total_instructions": 18,
+    "required_categories_covered": [
+      "Project description",
+      "Technology stack",
+      "Coding conventions",
+      "Testing approach",
+      "Prohibited actions"
+    ],
+    "passed": true
+  },
+  "implemented_function": {
+    "target": "backend/app/file_memory.py::count_memory_lines",
+    "rules": [
+      {
+        "rule": "R6_type_hints",
+        "passed": true,
+        "details": "unannotated params: []; return annotated: True"
+      },
+      {
+        "rule": "R7_docstring",
+        "passed": true,
+        "details": "docstring: 'Count the non-empty, non-comment lines of MEMORY.md.'"
+      },
+      {
+        "rule": "R8_line_length",
+        "passed": true,
+        "details": "lines > 120 chars: []"
+      },
+      {
+        "rule": "R9_no_hardcoded_config",
+        "passed": true,
+        "details": "suspicious strings: []"
+      },
+      {
+        "rule": "R10_no_print",
+        "passed": true,
+        "details": "print() at lines: []"
+      },
+      {
+        "rule": "R13_no_banned_imports",
+        "passed": true,
+        "details": "banned imports: []"
+      }
+    ]
+  },
+  "generated_function": {
+    "model": "llama3.2:3b",
+    "file": "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/generated_function.py",
+    "code": "from datetime import datetime, date\n\ndef days_until_available(available_from, today):\n    if available_from.date() == today:\n        return 0\n    elif available_from.date() < today:\n        return 0\n    else:\n        return (available_from - today).days\n",
+    "rules": [
+      {
+        "rule": "R6_type_hints",
+        "passed": false,
+        "details": "unannotated params: ['available_from', 'today']; return annotated: False"
+      },
+      {
+        "rule": "R7_docstring",
+        "passed": false,
+        "details": "docstring: None"
+      },
+      {
+        "rule": "R8_line_length",
+        "passed": true,
+        "details": "lines > 120 chars: []"
+      },
+      {
+        "rule": "R9_no_hardcoded_config",
+        "passed": true,
+        "details": "suspicious strings: []"
+      },
+      {
+        "rule": "R10_no_print",
+        "passed": true,
+        "details": "print() at lines: []"
+      },
+      {
+        "rule": "R13_no_banned_imports",
+        "passed": true,
+        "details": "banned imports: []"
+      }
+    ],
+    "safe_to_run": {
+      "passed": true,
+      "details": "datetime only"
+    },
+    "behavior": [
+      {
+        "args": [
+          "2026-11-01 09:00:00",
+          "2026-10-18"
+        ],
+        "expected": 14,
+        "got": "TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'datetime.date'",
+        "passed": false
+      },
+      {
+        "args": [
+          "2026-10-18 23:00:00",
+          "2026-10-18"
+        ],
+        "expected": 0,
+        "got": 0,
+        "passed": true
+      },
+      {
+        "args": [
+          "2026-09-01 00:00:00",
+          "2026-10-18"
+        ],
+        "expected": 0,
+        "got": 0,
+        "passed": true
+      },
+      {
+        "args": [
+          "2027-01-15 00:00:00",
+          "2026-12-31"
+        ],
+        "expected": 15,
+        "got": "TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'datetime.date'",
+        "passed": false
+      }
+    ]
+  }
+}

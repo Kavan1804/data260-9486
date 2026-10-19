@@ -1,0 +1,31 @@
+{
+  "user_id": "demo-user",
+  "daily_message_counts": [
+    {
+      "date": "2026-10-19",
+      "messages": 24,
+      "user_messages": 12,
+      "assistant_messages": 12
+    }
+  ],
+  "recent_summaries": [
+    {
+      "scope": "user",
+      "session_id": null,
+      "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Pet rent for cats is usually waived or reduced, but may be a one-time fee",
+      "created_at": "2026-10-19T08:12:51.604000+00:00"
+    },
+    {
+      "scope": "session",
+      "session_id": "session-1",
+      "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Confirming move-in date and proximity to light rail station with landlord\n- - Pet rent for cats is usually waived or reduced, but may be a one-time fee",
+      "created_at": "2026-10-19T08:12:35.976000+00:00"
+    },
+    {
+      "scope": "session",
+      "session_id": "session-1",
+      "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Confirming move-in date and proximity to light rail station with landlord",
+      "created_at": "2026-10-19T08:10:17.930000+00:00"
+    }
+  ]
+}

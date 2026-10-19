@@ -17,9 +17,15 @@ from config import (
 from . import crud, models, schema
 from .database import get_db
 from .query_counter import count_queries
+from .routers import listing_docs, memory
 from .session_crud import create_session, delete_session, get_session, verify_password
 
 app = FastAPI(title=f"DATA 260 - {DOMAIN_NAME}")
+
+# HW6: MongoDB routes under /api (listing documents, chat memory). They do not use the
+# MySQL session cookie so they can be exercised from cURL/Postman as the HW6 PDF describes.
+app.include_router(listing_docs.router)
+app.include_router(memory.router)
 
 app.add_middleware(
     CORSMiddleware,

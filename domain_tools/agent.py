@@ -46,33 +46,44 @@ class Model(Protocol):
     name: str
 
     def chat(self, messages: list[dict], tools: list[dict]) -> dict:
-        """Return {"content": str, "tool_calls": [{"name": str, "arguments": dict}]}."""
+        """Return {"content": str, "tool_calls": [{"name": str, "arguments": dict}]}.
+        OllamaModel also adds "prompt_tokens" / "completion_tokens" (HW6 memory cost)."""
 
 
 class OllamaModel:
-    def __init__(self, model: str = config.LLM_MODEL, url: str = config.OLLAMA_URL, timeout_s: float = 180.0):
+    def __init__(self, model: str = config.LLM_MODEL, url: str = config.OLLAMA_URL, timeout_s: float = 180.0,
+                 num_ctx: int | None = None):
         self.name = model
         self.url = url.rstrip("/") + "/api/chat"
         self.timeout_s = timeout_s
+        self.num_ctx = num_ctx  # HW6: None keeps the Ollama default (HW5 behavior)
 
-    def chat(self, messages: list[dict], tools: list[dict]) -> dict:
+    def chat(self, messages: list[dict], tools: list[dict], fmt: str | None = None) -> dict:
         import httpx
 
+        options = {"temperature": 0, "seed": config.SEED}
+        if self.num_ctx:
+            options["num_ctx"] = self.num_ctx
         body = {
             "model": self.name,
             "messages": messages,
             "tools": tools,
             "stream": False,
-            "options": {"temperature": 0, "seed": config.SEED},
+            "options": options,
         }
+        if fmt:
+            body["format"] = fmt  # HW6: "json" for fact extraction
         resp = httpx.post(self.url, json=body, timeout=self.timeout_s)
         resp.raise_for_status()
-        msg = resp.json().get("message", {})
+        data = resp.json()
+        msg = data.get("message", {})
         calls = []
         for c in msg.get("tool_calls") or []:
             fn = c.get("function", {})
             calls.append({"name": fn.get("name"), "arguments": fn.get("arguments", {})})
-        return {"content": msg.get("content", ""), "tool_calls": calls}
+        # Real token counts reported by Ollama (None if the server leaves them out).
+        return {"content": msg.get("content", ""), "tool_calls": calls,
+                "prompt_tokens": data.get("prompt_eval_count"), "completion_tokens": data.get("eval_count")}
 
 
 class MockModel:

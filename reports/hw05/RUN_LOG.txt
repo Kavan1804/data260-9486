@@ -216,3 +216,27 @@ run at 2026-10-05T14:06:48 | VERIFY_SEED 269486
 
 commit 6c953745963b0351f744fee37eacab2b162bf46a (tag hw5: False, HEAD is tagged commit: False)
 Wrote reports/hw05/verification.json: 19 passed, 0 failed
+
+===== 2026-10-18 21:22:06 test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | Part 4 + 5 offline tests (no DB, no LLM, no network)
+run at 2026-10-18T21:22:06 | VERIFY_SEED 269486
+==============================================================================
+PASS   1. test_search_listings_valid
+PASS   2. test_search_listings_rejected_input
+PASS   3. test_get_listing_valid
+PASS   4. test_get_listing_rejected_input
+PASS   5. test_landlord_portfolio_stats_valid
+PASS   6. test_landlord_portfolio_stats_rejected_input
+PASS   7. test_not_found_is_clean_error
+PASS   8. test_execute_tool_bad_name_and_inputs_do_not_crash
+PASS   9. test_retry_first_attempt_success
+PASS  10. test_retry_fail_then_success
+PASS  11. test_retry_exhausted_returns_clean_error
+PASS  12. test_backoff_delays_are_bounded_exponential
+PASS  13. test_fault_injection_is_reproducible
+PASS  14. test_safety_rule_blocks_violating_call
+PASS  15. test_run_agent_mock_model_stops_at_max_steps
+PASS  16. test_agent_rejects_fabricated_tool_result
+
+16/16 tests passed

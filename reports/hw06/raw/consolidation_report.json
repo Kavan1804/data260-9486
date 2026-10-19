@@ -1,0 +1,238 @@
+{
+  "original": "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework6/fixtures/MEMORY_original_55.md",
+  "consolidated": "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/MEMORY_consolidated.md",
+  "compact_reply": "/compact: before 55 lines (52 content lines, 50 facts) -> after 38 lines (33 content lines, 22 facts); 23 duplicates merged, 5 contradictions resolved, 2 flagged for review",
+  "report": {
+    "before_total_lines": 55,
+    "before_content_lines": 52,
+    "before_facts": 50,
+    "after_total_lines": 38,
+    "after_content_lines": 33,
+    "after_facts": 22,
+    "duplicates_merged": [
+      {
+        "key": "project.domain",
+        "value": "The app manages rental housing listings",
+        "line": 11
+      },
+      {
+        "key": "project.port",
+        "value": "The backend runs on port 8486",
+        "line": 15
+      },
+      {
+        "key": "user.budget",
+        "value": "Monthly budget is $2,400",
+        "line": 23
+      },
+      {
+        "key": "project.mongo_db",
+        "value": "The MongoDB database is s9486_doc",
+        "line": 24
+      },
+      {
+        "key": "user.parking",
+        "value": "Needs one parking spot",
+        "line": 25
+      },
+      {
+        "key": "project.mysql_db",
+        "value": "The MySQL database is s9486_rel",
+        "line": 26
+      },
+      {
+        "key": "user.bedrooms",
+        "value": "Needs 2 bedrooms",
+        "line": 27
+      },
+      {
+        "key": "project.model",
+        "value": "The local model is served by Ollama",
+        "line": 28
+      },
+      {
+        "key": "user.contact",
+        "value": "Prefers email over phone calls",
+        "line": 29
+      },
+      {
+        "key": "project.frontend",
+        "value": "The frontend is React with Redux Toolkit",
+        "line": 30
+      },
+      {
+        "key": "user.lease",
+        "value": "Wants a 12-month lease",
+        "line": 31
+      },
+      {
+        "key": "project.tests",
+        "value": "Offline tests use fake models and in-memory stores",
+        "line": 32
+      },
+      {
+        "key": "user.city",
+        "value": "Wants listings in San Jose",
+        "line": 33
+      },
+      {
+        "key": "project.short_term_n",
+        "value": "The default SHORT_TERM_N is 12",
+        "line": 34
+      },
+      {
+        "key": "user.move_in",
+        "value": "Plans to move in on 2026-12-01",
+        "line": 35
+      },
+      {
+        "key": "project.summary_every",
+        "value": "A session summary is written every 5 user messages",
+        "line": 36
+      },
+      {
+        "key": "project.embedding",
+        "value": "Episodes store embeddings as arrays of floats",
+        "line": 37
+      },
+      {
+        "key": "user.laundry",
+        "value": "Wants in-unit laundry",
+        "line": 38
+      },
+      {
+        "key": "project.verify",
+        "value": "verify_hw06.py writes verification.json",
+        "line": 39
+      },
+      {
+        "key": "project.no_hosted",
+        "value": "No paid hosted model is used",
+        "line": 40
+      },
+      {
+        "key": "project.domain",
+        "value": "The app manages rental housing listings",
+        "line": 41
+      },
+      {
+        "key": "project.port",
+        "value": "The backend runs on port 8486",
+        "line": 42
+      },
+      {
+        "key": "project.no_hosted",
+        "value": "No paid hosted model is used",
+        "line": 43
+      }
+    ],
+    "contradictions_resolved": [
+      {
+        "key": "user.city",
+        "kept": "Wants listings in Santa Clara",
+        "kept_seen": "2026-10-10",
+        "kept_source": "user",
+        "dropped": "Wants listings in San Jose",
+        "dropped_seen": "2026-09-20",
+        "dropped_source": "user",
+        "rule": "newest seen date wins"
+      },
+      {
+        "key": "user.budget",
+        "kept": "Monthly budget is $2,800",
+        "kept_seen": "2026-10-05",
+        "kept_source": "user",
+        "dropped": "Monthly budget is $2,400",
+        "dropped_seen": "2026-09-12",
+        "dropped_source": "user",
+        "rule": "newest seen date wins"
+      },
+      {
+        "key": "user.bedrooms",
+        "kept": "Needs 1 bedroom",
+        "kept_seen": "2026-10-12",
+        "kept_source": "inferred",
+        "dropped": "Needs 2 bedrooms",
+        "dropped_seen": "2026-09-15",
+        "dropped_source": "user",
+        "rule": "newest seen date wins"
+      },
+      {
+        "key": "user.lease",
+        "kept": "Wants a 6-month lease",
+        "kept_seen": "2026-10-08",
+        "kept_source": "user",
+        "dropped": "Wants a 12-month lease",
+        "dropped_seen": "2026-09-17",
+        "dropped_source": "user",
+        "rule": "newest seen date wins"
+      },
+      {
+        "key": "user.pets",
+        "kept": "Has no pets",
+        "kept_seen": "2026-10-01",
+        "kept_source": "user",
+        "dropped": "Has a cat",
+        "dropped_seen": "2026-10-01",
+        "dropped_source": "user",
+        "rule": "newest seen date wins"
+      }
+    ],
+    "needs_review": [
+      {
+        "key": "user.bedrooms",
+        "kept": "Needs 1 bedroom",
+        "kept_seen": "2026-10-12",
+        "kept_source": "inferred",
+        "dropped": "Needs 2 bedrooms",
+        "dropped_seen": "2026-09-15",
+        "dropped_source": "user",
+        "rule": "newest seen date wins",
+        "why": "a user-stated fact lost to a inferred fact; newest-wins ignored where the fact came from"
+      },
+      {
+        "key": "user.pets",
+        "kept": "Has no pets",
+        "kept_seen": "2026-10-01",
+        "kept_source": "user",
+        "dropped": "Has a cat",
+        "dropped_seen": "2026-10-01",
+        "dropped_source": "user",
+        "rule": "newest seen date wins",
+        "why": "same seen date, so file order decided"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "check": "fewer_than_40_lines",
+      "passed": true,
+      "details": "38 lines"
+    },
+    {
+      "check": "duplicates_merged",
+      "passed": true,
+      "details": "23 duplicate lines merged"
+    },
+    {
+      "check": "contradictions_resolved_explicitly",
+      "passed": true,
+      "details": "5 resolved"
+    },
+    {
+      "check": "no_silent_deletion",
+      "passed": true,
+      "details": "dropped values missing from file: []"
+    },
+    {
+      "check": "incorrect_resolutions_flagged",
+      "passed": true,
+      "details": "2 flagged"
+    },
+    {
+      "check": "timestamp_recorded",
+      "passed": true,
+      "details": "last_consolidated set"
+    }
+  ]
+}

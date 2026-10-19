@@ -1,0 +1,57 @@
+# HW6 Part 3 - five fixed memory probes, asked in the same session right after the
+# 30-message conversation in fixtures/conversation_30.json (same probes for every setting).
+#
+# Automatic scoring (Homework6/scripts/score_probes.py): each probe lists criteria; a
+# criterion is met when ANY of its keywords appears in the reply (lower-case, commas
+# removed). The fraction of criteria met maps to the 1-5 rubric below. "stale" lists
+# outdated values: if a stale value appears and the current value does not, the score
+# is capped at 2.
+
+rubric:
+  5: "All criteria met - every expected detail is present and current."
+  4: "Most criteria met (at least 2/3) - one minor detail missing."
+  3: "About half of the criteria met (at least 1/3)."
+  2: "Some relevant detail, or only an outdated value was recalled."
+  1: "Nothing relevant recalled, or the model says it does not know."
+
+probes:
+  - id: p1_identity
+    question: "Quick check: what is my name, and which city am I relocating to?"
+    expected: "Priya; San Jose"
+    source_turns: [1]
+    criteria:
+      - [priya]
+      - [san jose]
+
+  - id: p2_budget_update
+    question: "What is my maximum monthly rent budget right now?"
+    expected: "$2,900 per month (updated at turn 14 from $2,600)"
+    source_turns: [2, 14]
+    criteria:
+      - ["2900", "2.9k"]
+    stale: ["2600"]
+
+  - id: p3_pet
+    question: "What is my pet's name, and what kind of animal is it?"
+    expected: "Biscuit; a dog (30-pound beagle)"
+    source_turns: [3]
+    criteria:
+      - [biscuit]
+      - [dog, beagle]
+
+  - id: p4_move_in
+    question: "On what date do I want to move in?"
+    expected: "January 15, 2027"
+    source_turns: [4]
+    criteria:
+      - [january, "jan ", "01/15", "1/15", "2027-01-15"]
+      - ["15"]
+      - ["2027"]
+
+  - id: p5_flooring
+    question: "What kind of flooring do I need, and why?"
+    expected: "Hardwood or vinyl, no carpet, because of a carpet-dust allergy"
+    source_turns: [19]
+    criteria:
+      - [hardwood, vinyl]
+      - [allerg]

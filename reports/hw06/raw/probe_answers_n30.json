@@ -1,0 +1,65 @@
+[
+  {
+    "setting": "n30",
+    "run_id": "20261019-012637",
+    "probe_id": "p1_identity",
+    "question": "Quick check: what is my name, and which city am I relocating to?",
+    "expected": "Priya; San Jose",
+    "answer": "I don't have any information about your name or the city you're relocating to. Our conversation started with your request to help you find an apartment in San Jose, but I didn't learn your name or any other personal details.",
+    "episodic_facts": [
+      "Moving planned for January 15, 2027",
+      "Verify the condition and age of appliances",
+      "Check for signs of pest or rodent infestation"
+    ]
+  },
+  {
+    "setting": "n30",
+    "run_id": "20261019-012637",
+    "probe_id": "p2_budget_update",
+    "question": "What is my maximum monthly rent budget right now?",
+    "expected": "$2,900 per month (updated at turn 14 from $2,600)",
+    "answer": "Your maximum monthly rent budget is $2,900.",
+    "episodic_facts": [
+      "Maximum rent budget is $2,900 per month",
+      "Maximum budget for rent is $2,600 per month",
+      "Rent prices may be higher with management companies."
+    ]
+  },
+  {
+    "setting": "n30",
+    "run_id": "20261019-012637",
+    "probe_id": "p3_pet",
+    "question": "What is my pet's name, and what kind of animal is it?",
+    "expected": "Biscuit; a dog (30-pound beagle)",
+    "answer": "Your pet's name is Biscuit, and it's a 30-pound beagle.",
+    "episodic_facts": [
+      "Verify the property's existence",
+      "Moving planned for January 15, 2027",
+      "Pet-friendly place, 30-pound beagle, Biscuit"
+    ]
+  },
+  {
+    "setting": "n30",
+    "run_id": "20261019-012637",
+    "probe_id": "p4_move_in",
+    "question": "On what date do I want to move in?",
+    "expected": "January 15, 2027",
+    "answer": "You want to move in by mid-January 2027.",
+    "episodic_facts": [
+      "Start looking at least 2-3 months before desired move date",
+      "Moving planned for January 15, 2027"
+    ]
+  },
+  {
+    "setting": "n30",
+    "run_id": "20261019-012637",
+    "probe_id": "p5_flooring",
+    "question": "What kind of flooring do I need, and why?",
+    "expected": "Hardwood or vinyl, no carpet, because of a carpet-dust allergy",
+    "answer": "You prefer hardwood or vinyl flooring, and you need it because of allergy concerns.",
+    "episodic_facts": [
+      "Needs two bedrooms for office space",
+      "budget may be too low for a two-bedroom near Japantown"
+    ]
+  }
+]

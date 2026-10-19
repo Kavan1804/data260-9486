@@ -32,6 +32,10 @@ the original `Homework4/` layout).
 | `tests/run_offline_tests.py` | offline assert-based tests (no DB, LLM, or network) |
 | `scripts/` | migration, experiments, MCP call recorder, self-check, report renderer |
 | `reports/hw05/` | RUN_LOG.txt, raw/, METRICS.md, TOOL_CONTRACTS.md, AI_USE.md, REFLECTION.md, report, verification.json |
+| `backend/app/mongo.py`, `doc_schema.py`, `routers/`, `memory_logic.py`, `file_memory.py` | HW6: MongoDB `s9486_doc` document API (`/api/listings`), chat memory (`/api/chat`, `/api/memory`, `/api/aggregate`), file memory |
+| `AGENT.md`, `MEMORY.md` | HW6 file-based memory |
+| `Homework6/` | HW6 scripts, tests, fixtures, `memory_probes.yaml`; run guide in `Homework6/README_HW6.md` |
+| `reports/hw06/` | HW6 RUN_LOG.txt, raw/, METRICS.md, AI_USE.md, verification.json |
 | `Homework1/` - `Homework4/` | earlier homework reports and HW-specific scripts |
 
 ## Data model (HW5)

@@ -1,0 +1,846 @@
+
+===== 2026-10-18 21:22:15 test-hw6 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 tests (offline: no DB, no LLM, no network)
+run at 2026-10-18T21:22:15 | VERIFY_SEED 269486
+==============================================================================
+PASS   1. test_config_values
+PASS   2. test_placeholder_env_values_are_ignored
+PASS   3. test_mongo_validators_match_pydantic_rules
+PASS   4. test_listing_schema_valid_and_default_status
+PASS   5. test_listing_schema_missing_required_field
+PASS   6. test_listing_schema_invalid_enum
+PASS   7. test_listing_schema_invalid_date
+PASS   8. test_listing_schema_title_longer_than_100
+PASS   9. test_listing_schema_wrong_type
+PASS  10. test_listing_update_rules
+PASS  11. test_malformed_object_id_is_400
+PASS  12. test_hash_embedder_and_cosine
+PASS  13. test_select_window_and_compress_policy
+PASS  14. test_parse_facts_limits_and_clamps
+PASS  15. test_build_prompt_contains_all_parts
+PASS  16. test_chat_turn_memory_flow
+PASS  17. test_episodic_retrieval_ranks_relevant_fact
+PASS  18. test_usage_row_has_part3_fields
+PASS  19. test_aggregate_and_memory_reads_in_memory_store
+PASS  20. test_file_memory_load_and_system_prompt
+PASS  21. test_count_lines_and_needs_consolidation
+PASS  22. test_consolidation_of_55_line_fixture
+PASS  23. test_memory_commands
+PASS  24. test_agent_md_instructions_and_function_rules
+PASS  25. test_score_probe_rubric
+PASS  26. test_cost_formula
+PASS  27. test_verification_payload_shape
+
+27/27 tests passed
+
+===== 2026-10-18 21:22:52 test-hw6-live (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 tests (offline + live MongoDB s9486_doc_test)
+run at 2026-10-18T21:22:53 | VERIFY_SEED 269486
+==============================================================================
+PASS   1. test_config_values
+PASS   2. test_placeholder_env_values_are_ignored
+PASS   3. test_mongo_validators_match_pydantic_rules
+PASS   4. test_listing_schema_valid_and_default_status
+PASS   5. test_listing_schema_missing_required_field
+PASS   6. test_listing_schema_invalid_enum
+PASS   7. test_listing_schema_invalid_date
+PASS   8. test_listing_schema_title_longer_than_100
+PASS   9. test_listing_schema_wrong_type
+PASS  10. test_listing_update_rules
+PASS  11. test_malformed_object_id_is_400
+PASS  12. test_hash_embedder_and_cosine
+PASS  13. test_select_window_and_compress_policy
+PASS  14. test_parse_facts_limits_and_clamps
+PASS  15. test_build_prompt_contains_all_parts
+PASS  16. test_chat_turn_memory_flow
+PASS  17. test_episodic_retrieval_ranks_relevant_fact
+PASS  18. test_usage_row_has_part3_fields
+PASS  19. test_aggregate_and_memory_reads_in_memory_store
+PASS  20. test_file_memory_load_and_system_prompt
+PASS  21. test_count_lines_and_needs_consolidation
+PASS  22. test_consolidation_of_55_line_fixture
+PASS  23. test_memory_commands
+PASS  24. test_agent_md_instructions_and_function_rules
+PASS  25. test_score_probe_rubric
+PASS  26. test_cost_formula
+PASS  27. test_verification_payload_shape
+PASS  28. test_live_mongo_connection_and_validators
+PASS  29. test_live_crud_cycle
+PASS  30. test_live_validation_errors
+PASS  31. test_live_db_validator_rejects_bad_document
+PASS  32. test_live_chat_memory_endpoints
+(dropped test database s9486_doc_test)
+
+32/32 tests passed
+
+===== 2026-10-19 01:08:31 chat-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 2 chat demo: 12 messages -> POST /api/chat
+run at 2026-10-19T01:08:31 | VERIFY_SEED 269486
+==============================================================================
+user_id=demo-user session_id=session-1
+
+--- turn 1 ---
+USER:      Hi, my name is Sam and I'm looking for an apartment in Santa Clara.
+ASSISTANT: Hi Sam, welcome to the DATA 260 listings app! I'd be happy to help you find an apartment in Santa Clara. Can you please tell me what type of apartment you're looking for (e.g. 1-bedroom, 2-bedroom, etc.) and what your budget is for rent?
+  short-term window: 0 msgs | session summary: no | lifetime summary: no
+  facts stored: ['Santa Clara, California', 'Sam'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 102/62 | latency 21665.1 ms
+
+--- turn 2 ---
+USER:      My budget is at most $2,300 a month.
+ASSISTANT: With a budget of $2,300 a month, I can start searching for apartments in Santa Clara that fit your criteria. Let me check the listings... (checking the database) Okay, I have a few options for you. Would you like me to show you some apartments that are currently available and within your budget?
+  short-term window: 2 msgs | session summary: no | lifetime summary: no
+  facts stored: ['Budget is at most $2,300 a month'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 185/65 | latency 10162.4 ms
+
+--- turn 3 ---
+USER:      I have a cat named Pixel, so I need a pet-friendly place.
+ASSISTANT: I've found a few pet-friendly apartments in Santa Clara that fit your budget and have a cat-friendly policy. One option is a 1-bedroom apartment at 123 Main St, Santa Clara, CA, with a rent of $2,250 a month. The apartment complex has a pet park and allows cats under 25 pounds. Would you like me to show you more options or provide more information about this apartment?
+  short-term window: 4 msgs | session summary: no | lifetime summary: no
+  facts stored: ['Pixel is a cat'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 274/85 | latency 12157.2 ms
+
+--- turn 4 ---
+USER:      I'd like to move in on March 1, 2027.
+ASSISTANT: I've checked the move-in dates for the apartment at 123 Main St, Santa Clara, CA, and it appears that the landlord is open to having you move in on March 1, 2027. However, I do need to confirm with the landlord to ensure that the move-in date is feasible. Can I please check with the landlord to confirm the move-in date?
+  short-term window: 6 msgs | session summary: no | lifetime summary: no
+  facts stored: ['March 1, 2027, moving date'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 383/78 | latency 28764.6 ms
+
+--- turn 5 ---
+USER:      I commute to SJSU by light rail, so being near a station matters.
+ASSISTANT: I've checked the location of the apartment at 123 Main St, Santa Clara, CA, and it appears that it's within walking distance to the Santa Clara Caltrain Station, which is a convenient option for commuting to SJSU. However, I couldn't find any information on the proximity to the light rail station. Can I please check with the landlord to confirm if the apartment is indeed near a light rail station?
+  short-term window: 8 msgs | session summary: no | lifetime summary: no
+  facts stored: ['being near a light rail station is a preference'] | session summary created: True | lifetime summary created: False
+  tokens prompt/completion: 487/86 | latency 32122.8 ms
+
+--- turn 6 ---
+USER:      What areas of Santa Clara are close to a light rail station?
+ASSISTANT: The light rail station in Santa Clara is the Great America Station, which is located in the downtown area of Santa Clara. The Great America Station is a major light rail hub that serves the VTA (Valley Transportation Authority) light rail system, and it's also a short walk from the Santa Clara Caltrain Station. If you're looking for an apartment near a light rail station, the downtown area of Santa Clara might be a good option for you.
+  short-term window: 10 msgs | session summary: yes | lifetime summary: no
+  episodic fact (cosine 0.4629): being near a light rail station is a preference
+  episodic fact (cosine 0.4364): Santa Clara, California
+  facts stored: ['areas close to light rail station in Santa Clara'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 705/92 | latency 20658.1 ms
+
+--- turn 7 ---
+USER:      Do pet-friendly buildings usually charge pet rent for cats?
+ASSISTANT: Typically, pet-friendly buildings do charge a pet rent, but it's usually more common for larger breeds or dogs. For cats, the pet rent is often waived or reduced, or it might be a one-time fee. I'll need to confirm with the landlord of the 123 Main St apartment to see if they have any specific pet-related fees or requirements.
+  short-term window: 12 msgs | session summary: yes | lifetime summary: no
+  episodic fact (cosine 0.2132): Pixel is a cat
+  episodic fact (cosine 0.1231): being near a light rail station is a preference
+  episodic fact (cosine 0.114): areas close to light rail station in Santa Clara
+  facts stored: ['No specific information on pet rent for cats'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 828/74 | latency 21983.3 ms
+
+--- turn 8 ---
+USER:      I also need one covered parking spot.
+ASSISTANT: I've checked the parking options for the apartment at 123 Main St, Santa Clara, CA, and it appears that one of the units has a covered parking spot assigned to it. However, I'll need to confirm with the landlord to ensure that this is a guaranteed feature and not just a possibility. Can I please check with the landlord to confirm the parking arrangement?
+  short-term window: 12 msgs | session summary: yes | lifetime summary: no
+  facts stored: ['one covered parking spot'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 796/75 | latency 22492.3 ms
+
+--- turn 9 ---
+USER:      What security deposit should I expect for a one-bedroom?
+ASSISTANT: Typically, for a one-bedroom apartment, the security deposit is around 1-2 months' worth of rent. For the 123 Main St apartment, which has a rent of $2,250 a month, I would expect a security deposit of $2,250 to $4,500. However, I'll need to confirm with the landlord to confirm their specific security deposit policy.
+  short-term window: 12 msgs | session summary: yes | lifetime summary: no
+  episodic fact (cosine 0.2041): one covered parking spot
+  facts stored: ['security deposit for a one-bedroom can vary'] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 818/80 | latency 23584.9 ms
+
+--- turn 10 ---
+USER:      Which of my requirements is hardest to meet on my budget?
+ASSISTANT: Based on the information I have, it appears that the pet-friendly requirement is the hardest to meet on your budget. Many pet-friendly apartments charge a pet rent, which can add to the overall cost of the rent. Additionally, some landlords may have breed or size restrictions for pets, which could limit your options. I'll need to confirm with the landlord of the 123 Main St apartment to see if they have any specific pet-related fees or restrictions.
+  short-term window: 12 msgs | session summary: yes | lifetime summary: no
+  episodic fact (cosine 0.2236): Budget is at most $2,300 a month
+  facts stored: ['Meeting all requirements on budget is challenging'] | session summary created: True | lifetime summary created: True
+  tokens prompt/completion: 816/91 | latency 63880.3 ms
+
+--- turn 11 ---
+USER:      Can you remind me what my cat is called and my move-in date?
+ASSISTANT: Your cat's name is Pixel, and your move-in date is March 1, 2027.
+  short-term window: 12 msgs | session summary: yes | lifetime summary: yes
+  episodic fact (cosine 0.2887): Pixel is a cat
+  episodic fact (cosine 0.1826): March 1, 2027, moving date
+  episodic fact (cosine 0.1667): No specific information on pet rent for cats
+  facts stored: [] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 950/22 | latency 38145.6 ms
+
+--- turn 12 ---
+USER:      Summarize everything you know about my apartment search.
+ASSISTANT: Here's a summary of what I know about your apartment search:
+
+* You're looking for a pet-friendly apartment in Santa Clara, CA.
+* Your budget is $2,300 per month.
+* You need to move in by March 1, 2027.
+* You're currently viewing an apartment at 123 Main St, Santa Clara, CA.
+* You're looking for an apartment with a covered parking spot.
+* You have a cat, and pet rent for cats is usually waived or reduced, but may be a one-time fee.
+* You're trying to confirm the move-in date and proximity to a light rail station with the landlord.
+* You're also trying to confirm the security deposit and any specific pet-related fees or restrictions with the landlord.
+
+Let me know if there's anything else I can help you with!
+  short-term window: 12 msgs | session summary: yes | lifetime summary: yes
+  facts stored: [] | session summary created: False | lifetime summary created: False
+  tokens prompt/completion: 845/168 | latency 30338.5 ms
+
+===== GET /api/memory/demo-user -> 200 =====
+{
+  "user_id": "demo-user",
+  "messages": [
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "I commute to SJSU by light rail, so being near a station matters.",
+      "created_at": "2026-10-19T08:09:45.841000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "I've checked the location of the apartment at 123 Main St, Santa Clara, CA, and it appears that it's within walking distance to the Santa Clara Caltrain Station, which is a convenient option for commuting to SJSU. However, I couldn't find any information on the proximity to the light rail station. Can I please check with the landlord to confirm if the apartment is indeed near a light rail station?",
+      "created_at": "2026-10-19T08:09:59.115000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "What areas of Santa Clara are close to a light rail station?",
+      "created_at": "2026-10-19T08:10:18.068000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "The light rail station in Santa Clara is the Great America Station, which is located in the downtown area of Santa Clara. The Great America Station is a major light rail hub that serves the VTA (Valley Transportation Authority) light rail system, and it's also a short walk from the Santa Clara Caltrain Station. If you're looking for an apartment near a light rail station, the downtown area of Santa Clara might be a good option for you.",
+      "created_at": "2026-10-19T08:10:35.762000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "Do pet-friendly buildings usually charge pet rent for cats?",
+      "created_at": "2026-10-19T08:10:38.759000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "Typically, pet-friendly buildings do charge a pet rent, but it's usually more common for larger breeds or dogs. For cats, the pet rent is often waived or reduced, or it might be a one-time fee. I'll need to confirm with the landlord of the 123 Main St apartment to see if they have any specific pet-related fees or requirements.",
+      "created_at": "2026-10-19T08:10:57.632000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "I also need one covered parking spot.",
+      "created_at": "2026-10-19T08:11:01.062000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "I've checked the parking options for the apartment at 123 Main St, Santa Clara, CA, and it appears that one of the units has a covered parking spot assigned to it. However, I'll need to confirm with the landlord to ensure that this is a guaranteed feature and not just a possibility. Can I please check with the landlord to confirm the parking arrangement?",
+      "created_at": "2026-10-19T08:11:20.188000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "What security deposit should I expect for a one-bedroom?",
+      "created_at": "2026-10-19T08:11:23.976000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "Typically, for a one-bedroom apartment, the security deposit is around 1-2 months' worth of rent. For the 123 Main St apartment, which has a rent of $2,250 a month, I would expect a security deposit of $2,250 to $4,500. However, I'll need to confirm with the landlord to confirm their specific security deposit policy.",
+      "created_at": "2026-10-19T08:11:42.547000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "Which of my requirements is hardest to meet on my budget?",
+      "created_at": "2026-10-19T08:11:47.798000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "Based on the information I have, it appears that the pet-friendly requirement is the hardest to meet on your budget. Many pet-friendly apartments charge a pet rent, which can add to the overall cost of the rent. Additionally, some landlords may have breed or size restrictions for pets, which could limit your options. I'll need to confirm with the landlord of the 123 Main St apartment to see if they have any specific pet-related fees or restrictions.",
+      "created_at": "2026-10-19T08:12:11.704000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "Can you remind me what my cat is called and my move-in date?",
+      "created_at": "2026-10-19T08:12:52.033000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "Your cat's name is Pixel, and your move-in date is March 1, 2027.",
+      "created_at": "2026-10-19T08:13:13.438000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "user",
+      "content": "Summarize everything you know about my apartment search.",
+      "created_at": "2026-10-19T08:13:30.408000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "role": "assistant",
+      "content": "Here's a summary of what I know about your apartment search:\n\n* You're looking for a pet-friendly apartment in Santa Clara, CA.\n* Your budget is $2,300 per month.\n* You need to move in by March 1, 2027.\n* You're currently viewing an apartment at 123 Main St, Santa Clara, CA.\n* You're looking for an apartment with a covered parking spot.\n* You have a cat, and pet rent for cats is usually waived or reduced, but may be a one-time fee.\n* You're trying to confirm the move-in date and proximity to a light rail station with the landlord.\n* You're also trying to confirm the security deposit and any specific pet-related fees or restrictions with the landlord.\n\nLet me know if there's anything else I can help you with!",
+      "created_at": "2026-10-19T08:13:59.411000+00:00"
+    }
+  ],
+  "latest_session_summary": {
+    "scope": "session",
+    "session_id": "session-1",
+    "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Confirming move-in date and proximity to light rail station with landlord\n- - Pet rent for cats is usually waived or reduced, but may be a one-time fee",
+    "created_at": "2026-10-19T08:12:35.976000+00:00"
+  },
+  "latest_lifetime_summary": {
+    "scope": "user",
+    "session_id": null,
+    "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Pet rent for cats is usually waived or reduced, but may be a one-time fee",
+    "created_at": "2026-10-19T08:12:51.604000+00:00"
+  },
+  "episodes": [
+    {
+      "session_id": "session-1",
+      "fact": "Meeting all requirements on budget is challenging",
+      "importance": 0.8,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:12:15.759000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "security deposit for a one-bedroom can vary",
+      "importance": 0.3,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:11:47.478000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "one covered parking spot",
+      "importance": 0.8,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:11:23.529000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "No specific information on pet rent for cats",
+      "importance": 0.5,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:11:00.715000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "areas close to light rail station in Santa Clara",
+      "importance": 0.8,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.378
+      ],
+      "created_at": "2026-10-19T08:10:38.714000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "being near a light rail station is a preference",
+      "importance": 0.8,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.4082
+      ],
+      "created_at": "2026-10-19T08:10:02.557000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "March 1, 2027, moving date",
+      "importance": 0.8,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:09:44.994000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "Pixel is a cat",
+      "importance": 0.5,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:09:16.132000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "Budget is at most $2,300 a month",
+      "importance": 0.5,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:09:03.899000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "Sam",
+      "importance": 0.2,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:08:53.678000+00:00"
+    },
+    {
+      "session_id": "session-1",
+      "fact": "Santa Clara, California",
+      "importance": 0.8,
+      "embedding_model": "hash-bow-256",
+      "embedding_dim": 256,
+      "embedding_preview": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "created_at": "2026-10-19T08:08:53.666000+00:00"
+    }
+  ]
+}
+===== GET /api/aggregate/demo-user -> 200 =====
+{
+  "user_id": "demo-user",
+  "daily_message_counts": [
+    {
+      "date": "2026-10-19",
+      "messages": 24,
+      "user_messages": 12,
+      "assistant_messages": 12
+    }
+  ],
+  "recent_summaries": [
+    {
+      "scope": "user",
+      "session_id": null,
+      "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Pet rent for cats is usually waived or reduced, but may be a one-time fee",
+      "created_at": "2026-10-19T08:12:51.604000+00:00"
+    },
+    {
+      "scope": "session",
+      "session_id": "session-1",
+      "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Confirming move-in date and proximity to light rail station with landlord\n- - Pet rent for cats is usually waived or reduced, but may be a one-time fee",
+      "created_at": "2026-10-19T08:12:35.976000+00:00"
+    },
+    {
+      "scope": "session",
+      "session_id": "session-1",
+      "text": "- - Budget: $2,300/month\n- - Pet-friendly apartment needed\n- - Move-in date: March 1, 2027\n- - Commute to SJSU by light rail\n- - Currently viewing apartment at 123 Main St, Santa Clara, CA\n- - Confirming move-in date and proximity to light rail station with landlord",
+      "created_at": "2026-10-19T08:10:17.930000+00:00"
+    }
+  ]
+}
+
+Saved transcript, memory and aggregate JSON under /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw
+
+===== 2026-10-19 01:26:36 experiments-sweep (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 3 memory experiments run_id=20261019-012637 settings=['n4', 'n12', 'n30']
+run at 2026-10-19T01:26:37 | VERIFY_SEED 269486
+==============================================================================
+
+### SHORT_TERM_N=4  (user_id=exp-20261019-012637-n4)
+  turn  1: prompt_tokens=109 (est 85) window=0 episodes=0 latency=111018.2 ms
+  turn  2: prompt_tokens=196 (est 166) window=2 episodes=0 latency=74789.8 ms
+  turn  3: prompt_tokens=301 (est 266) window=4 episodes=0 latency=51793.5 ms
+  turn  4: prompt_tokens=324 (est 296) window=4 episodes=0 latency=21005.9 ms
+  turn  5: prompt_tokens=342 (est 330) window=4 episodes=0 latency=101933.9 ms
+  turn  6: prompt_tokens=481 (est 496) window=4 episodes=1 latency=60582.3 ms
+  turn  7: prompt_tokens=502 (est 547) window=4 episodes=2 latency=28423.8 ms
+  turn  8: prompt_tokens=496 (est 544) window=4 episodes=3 latency=18571.9 ms
+  turn  9: prompt_tokens=454 (est 481) window=4 episodes=1 latency=17928.4 ms
+  turn 10: prompt_tokens=505 (est 548) window=4 episodes=3 latency=55162.0 ms
+  turn 11: prompt_tokens=580 (est 593) window=4 episodes=1 latency=20744.5 ms
+  turn 12: prompt_tokens=608 (est 622) window=4 episodes=2 latency=20691.5 ms
+  turn 13: prompt_tokens=677 (est 708) window=4 episodes=3 latency=16298.7 ms
+  turn 14: prompt_tokens=649 (est 673) window=4 episodes=3 latency=12996.3 ms
+  turn 15: prompt_tokens=561 (est 567) window=4 episodes=3 latency=42525.2 ms
+  turn 16: prompt_tokens=563 (est 563) window=4 episodes=1 latency=26065.4 ms
+  turn 17: prompt_tokens=599 (est 592) window=4 episodes=3 latency=37557.3 ms
+  turn 18: prompt_tokens=618 (est 640) window=4 episodes=1 latency=68352.4 ms
+  turn 19: prompt_tokens=836 (est 912) window=4 episodes=3 latency=26902.6 ms
+  turn 20: prompt_tokens=789 (est 856) window=4 episodes=3 latency=86138.1 ms
+  turn 21: prompt_tokens=697 (est 757) window=4 episodes=3 latency=34114.4 ms
+  turn 22: prompt_tokens=712 (est 781) window=4 episodes=3 latency=33329.6 ms
+  turn 23: prompt_tokens=707 (est 754) window=4 episodes=3 latency=37725.1 ms
+  turn 24: prompt_tokens=739 (est 781) window=4 episodes=3 latency=46203.3 ms
+  turn 25: prompt_tokens=757 (est 808) window=4 episodes=2 latency=94563.5 ms
+  turn 26: prompt_tokens=904 (est 991) window=4 episodes=3 latency=41857.6 ms
+  turn 27: prompt_tokens=938 (est 1026) window=4 episodes=3 latency=46291.5 ms
+  turn 28: prompt_tokens=1015 (est 1143) window=4 episodes=3 latency=38476.6 ms
+  turn 29: prompt_tokens=1069 (est 1229) window=4 episodes=3 latency=37722.3 ms
+  turn 30: prompt_tokens=1008 (est 1150) window=4 episodes=3 latency=108532.4 ms
+  probe p1_identity: "I don't have that information. You didn't mention your name, and you only mentioned that you're relocating to San Jose in January 2027 for a job at a battery st"
+  probe p2_budget_update: 'Your maximum monthly rent budget is $2,900, but you mentioned earlier that you had mentioned a maximum budget of $2,600 per month. I apologize for the inconsist'
+  probe p3_pet: "Your pet's name is Biscuit, and it's a 30-pound beagle."
+  probe p4_move_in: 'Your ideal move-in date is January 15, 2027.'
+  probe p5_flooring: "You're looking for hardwood or vinyl floors in your new apartment. You're prioritizing these types of flooring because they are more likely to be found in newer"
+  -> /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/turns_n4.csv (35 rows), /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/probe_answers_n4.json
+
+### SHORT_TERM_N=12  (user_id=exp-20261019-012637-n12)
+  turn  1: prompt_tokens=109 (est 85) window=0 episodes=0 latency=19139.8 ms
+  turn  2: prompt_tokens=196 (est 166) window=2 episodes=0 latency=21080.7 ms
+  turn  3: prompt_tokens=301 (est 266) window=4 episodes=0 latency=12959.9 ms
+  turn  4: prompt_tokens=418 (est 379) window=6 episodes=0 latency=12607.9 ms
+  turn  5: prompt_tokens=538 (est 516) window=8 episodes=0 latency=25259.6 ms
+  turn  6: prompt_tokens=775 (est 762) window=10 episodes=1 latency=25984.0 ms
+  turn  7: prompt_tokens=916 (est 936) window=12 episodes=2 latency=25048.6 ms
+  turn  8: prompt_tokens=971 (est 1017) window=12 episodes=3 latency=22337.8 ms
+  turn  9: prompt_tokens=959 (est 1021) window=12 episodes=1 latency=22582.3 ms
+  turn 10: prompt_tokens=998 (est 1088) window=12 episodes=3 latency=59202.6 ms
+  turn 11: prompt_tokens=1185 (est 1269) window=12 episodes=1 latency=28909.7 ms
+  turn 12: prompt_tokens=1217 (est 1305) window=12 episodes=2 latency=23259.2 ms
+  turn 13: prompt_tokens=1252 (est 1319) window=12 episodes=3 latency=18395.5 ms
+  turn 14: prompt_tokens=1240 (est 1299) window=12 episodes=3 latency=21067.6 ms
+  turn 15: prompt_tokens=1220 (est 1273) window=12 episodes=3 latency=37136.4 ms
+  turn 16: prompt_tokens=1182 (est 1221) window=12 episodes=1 latency=21841.8 ms
+  turn 17: prompt_tokens=1179 (est 1206) window=12 episodes=3 latency=27513.8 ms
+  turn 18: prompt_tokens=1183 (est 1241) window=12 episodes=1 latency=32176.9 ms
+  turn 19: prompt_tokens=1264 (est 1333) window=12 episodes=3 latency=23047.8 ms
+  turn 20: prompt_tokens=1282 (est 1376) window=12 episodes=3 latency=69740.5 ms
+  turn 21: prompt_tokens=1413 (est 1512) window=12 episodes=3 latency=58096.5 ms
+  turn 22: prompt_tokens=1451 (est 1574) window=12 episodes=3 latency=45392.9 ms
+  turn 23: prompt_tokens=1533 (est 1705) window=12 episodes=3 latency=95384.9 ms
+  turn 24: prompt_tokens=1536 (est 1694) window=12 episodes=3 latency=64027.5 ms
+  turn 25: prompt_tokens=1502 (est 1657) window=12 episodes=2 latency=89672.8 ms
+  turn 26: prompt_tokens=1638 (est 1793) window=12 episodes=3 latency=105764.0 ms
+  turn 27: prompt_tokens=1684 (est 1837) window=12 episodes=3 latency=56079.1 ms
+  turn 28: prompt_tokens=1684 (est 1841) window=12 episodes=3 latency=50876.3 ms
+  turn 29: prompt_tokens=1667 (est 1815) window=12 episodes=3 latency=35795.6 ms
+  turn 30: prompt_tokens=1571 (est 1720) window=12 episodes=3 latency=111653.9 ms
+  probe p1_identity: "I don't have any information about your name, and you mentioned earlier that you're relocating to San Jose, California."
+  probe p2_budget_update: 'You mentioned earlier that your maximum monthly rent budget is $2,900.'
+  probe p3_pet: "You mentioned earlier that your pet's name is Biscuit, and it's a 30-pound beagle."
+  probe p4_move_in: "You mentioned earlier that you'd like to move in on January 15, 2027."
+  probe p5_flooring: "You mentioned earlier that you prefer hardwood or vinyl floors, and it's because of allergy concerns."
+  -> /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/turns_n12.csv (35 rows), /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/probe_answers_n12.json
+
+### SHORT_TERM_N=30  (user_id=exp-20261019-012637-n30)
+  turn  1: prompt_tokens=109 (est 85) window=0 episodes=0 latency=12008.0 ms
+  turn  2: prompt_tokens=196 (est 166) window=2 episodes=0 latency=13259.5 ms
+  turn  3: prompt_tokens=301 (est 266) window=4 episodes=0 latency=48586.7 ms
+  turn  4: prompt_tokens=418 (est 379) window=6 episodes=0 latency=67909.6 ms
+  turn  5: prompt_tokens=538 (est 516) window=8 episodes=0 latency=150228.9 ms
+  turn  6: prompt_tokens=775 (est 762) window=10 episodes=1 latency=81487.6 ms
+  turn  7: prompt_tokens=916 (est 936) window=12 episodes=2 latency=140834.8 ms
+  turn  8: prompt_tokens=1065 (est 1100) window=14 episodes=3 latency=103921.4 ms
+  turn  9: prompt_tokens=1147 (est 1199) window=16 episodes=1 latency=62999.9 ms
+  turn 10: prompt_tokens=1307 (est 1381) window=18 episodes=3 latency=122687.2 ms
+  turn 11: prompt_tokens=1607 (est 1688) window=20 episodes=1 latency=51310.4 ms
+  turn 12: prompt_tokens=1789 (est 1886) window=22 episodes=2 latency=46351.9 ms
+  turn 13: prompt_tokens=1947 (est 2056) window=24 episodes=3 latency=42887.6 ms
+  turn 14: prompt_tokens=2090 (est 2195) window=26 episodes=3 latency=78435.1 ms
+  turn 15: prompt_tokens=2204 (est 2316) window=28 episodes=3 latency=82564.2 ms
+  turn 16: prompt_tokens=2287 (est 2398) window=30 episodes=1 latency=90923.8 ms
+  turn 17: prompt_tokens=2328 (est 2455) window=30 episodes=3 latency=67883.2 ms
+  turn 18: prompt_tokens=2358 (est 2511) window=30 episodes=1 latency=87827.7 ms
+  turn 19: prompt_tokens=2571 (est 2764) window=30 episodes=3 latency=118017.6 ms
+  turn 20: prompt_tokens=2562 (est 2780) window=30 episodes=3 latency=317847.1 ms
+  turn 21: prompt_tokens=2699 (est 2944) window=30 episodes=3 latency=93428.9 ms
+  turn 22: prompt_tokens=2724 (est 2953) window=30 episodes=3 latency=95372.6 ms
+  turn 23: prompt_tokens=2753 (est 3002) window=30 episodes=3 latency=143107.7 ms
+  turn 24: prompt_tokens=2812 (est 3055) window=30 episodes=3 latency=160647.4 ms
+  turn 25: prompt_tokens=2849 (est 3105) window=30 episodes=2 latency=136124.9 ms
+  turn 26: prompt_tokens=2909 (est 3184) window=30 episodes=3 latency=115780.7 ms
+  turn 27: prompt_tokens=2919 (est 3210) window=30 episodes=3 latency=140721.8 ms
+  turn 28: prompt_tokens=2986 (est 3292) window=30 episodes=3 latency=89875.5 ms
+  turn 29: prompt_tokens=3012 (est 3345) window=30 episodes=3 latency=123372.9 ms
+  turn 30: prompt_tokens=3013 (est 3378) window=30 episodes=3 latency=226769.8 ms
+  probe p1_identity: "I don't have any information about your name or the city you're relocating to. Our conversation started with your request to help you find an apartment in San J"
+  probe p2_budget_update: 'Your maximum monthly rent budget is $2,900.'
+  probe p3_pet: "Your pet's name is Biscuit, and it's a 30-pound beagle."
+  probe p4_move_in: 'You want to move in by mid-January 2027.'
+  probe p5_flooring: 'You prefer hardwood or vinyl flooring, and you need it because of allergy concerns.'
+  -> /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/turns_n30.csv (35 rows), /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/probe_answers_n30.json
+
+Next: python Homework6/scripts/score_probes.py && python Homework6/scripts/memory_cost.py
+
+===== 2026-10-19 03:15:55 experiments-compress (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 3 memory experiments run_id=20261019-031555 settings=['compress']
+run at 2026-10-19T03:15:55 | VERIFY_SEED 269486
+==============================================================================
+
+### Compression policy (N=12, last 4 verbatim, older clipped to 120 chars)  (user_id=exp-20261019-031555-compress)
+  turn  1: prompt_tokens=109 (est 85) window=0 episodes=0 latency=68037.9 ms
+  turn  2: prompt_tokens=196 (est 166) window=2 episodes=0 latency=48467.6 ms
+  turn  3: prompt_tokens=301 (est 266) window=4 episodes=0 latency=57951.6 ms
+  turn  4: prompt_tokens=391 (est 348) window=6 episodes=0 latency=77324.5 ms
+  turn  5: prompt_tokens=447 (est 393) window=8 episodes=0 latency=162950.4 ms
+  turn  6: prompt_tokens=664 (est 620) window=10 episodes=1 latency=36511.0 ms
+  turn  7: prompt_tokens=784 (est 769) window=12 episodes=2 latency=22151.8 ms
+  turn  8: prompt_tokens=777 (est 777) window=12 episodes=3 latency=28700.3 ms
+  turn  9: prompt_tokens=694 (est 690) window=12 episodes=1 latency=27315.3 ms
+  turn 10: prompt_tokens=703 (est 709) window=12 episodes=3 latency=129295.7 ms
+  turn 11: prompt_tokens=932 (est 967) window=12 episodes=1 latency=34186.0 ms
+  turn 12: prompt_tokens=935 (est 978) window=12 episodes=2 latency=23176.4 ms
+  turn 13: prompt_tokens=950 (est 979) window=12 episodes=3 latency=42687.0 ms
+  turn 14: prompt_tokens=934 (est 953) window=12 episodes=3 latency=47323.8 ms
+  turn 15: prompt_tokens=965 (est 979) window=12 episodes=3 latency=76542.9 ms
+  turn 16: prompt_tokens=1018 (est 1026) window=12 episodes=1 latency=21749.0 ms
+  turn 17: prompt_tokens=984 (est 999) window=12 episodes=3 latency=20756.1 ms
+  turn 18: prompt_tokens=909 (est 932) window=12 episodes=1 latency=17132.8 ms
+  turn 19: prompt_tokens=949 (est 981) window=12 episodes=3 latency=18009.9 ms
+  turn 20: prompt_tokens=938 (est 978) window=12 episodes=3 latency=67250.4 ms
+  turn 21: prompt_tokens=859 (est 900) window=12 episodes=3 latency=19129.4 ms
+  turn 22: prompt_tokens=846 (est 880) window=12 episodes=3 latency=18140.6 ms
+  turn 23: prompt_tokens=865 (est 897) window=12 episodes=3 latency=18247.1 ms
+  turn 24: prompt_tokens=851 (est 878) window=12 episodes=3 latency=17435.7 ms
+  turn 25: prompt_tokens=817 (est 830) window=12 episodes=2 latency=41663.5 ms
+  turn 26: prompt_tokens=848 (est 864) window=12 episodes=3 latency=16546.9 ms
+  turn 27: prompt_tokens=856 (est 877) window=12 episodes=3 latency=29497.7 ms
+  turn 28: prompt_tokens=850 (est 886) window=12 episodes=3 latency=17395.3 ms
+  turn 29: prompt_tokens=880 (est 924) window=12 episodes=3 latency=14374.0 ms
+  turn 30: prompt_tokens=802 (est 837) window=12 episodes=3 latency=98222.8 ms
+  probe p1_identity: "I don't have any information about your name, and you didn't mention it during our conversation. You mentioned that you're relocating to San Jose, CA for a job "
+  probe p2_budget_update: 'According to our earlier conversation, your maximum monthly rent budget is $2,600.'
+  probe p3_pet: "Your pet's name is Biscuit, and it's a 30-pound beagle."
+  probe p4_move_in: 'You want to move in on January 15, 2027.'
+  probe p5_flooring: "You're looking for hardwood or vinyl flooring, and you need it due to allergy concerns."
+  -> /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/turns_compress.csv (35 rows), /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/probe_answers_compress.json
+
+Next: python Homework6/scripts/score_probes.py && python Homework6/scripts/memory_cost.py
+
+===== 2026-10-19 03:40:03 score-probes (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 3 probe scoring (memory_probes.yaml rubric)
+run at 2026-10-19T03:40:03 | VERIFY_SEED 269486
+==============================================================================
+
+setting                                                        probe scores       mean
+SHORT_TERM_N=4                                                 [3, 5, 5, 5, 3]    4.2
+SHORT_TERM_N=12                                                [3, 5, 5, 5, 5]    4.6
+SHORT_TERM_N=30                                                [3, 5, 5, 4, 5]    4.4
+Compression policy (N=12, last 4 verbatim, older clipped to 120 chars) [3, 2, 5, 5, 5]    4.0
+
+Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/probe_scores.csv and /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/probe_scores.json
+
+===== 2026-10-19 03:40:18 memory-cost (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 3 memory cost (input $1/M, output $5/M, 10,000 x 30-turn conversations)
+run at 2026-10-19T03:40:18 | VERIFY_SEED 269486
+==============================================================================
+| Setting | Mean prompt tokens/turn | Mean latency (ms) | Probe quality (1-5) |
+|---|---|---|---|
+| SHORT_TERM_N=4 | 624.5 | 47276.6 | 4.2 |
+| SHORT_TERM_N=12 | 1135.5 | 42067.9 | 4.6 |
+| SHORT_TERM_N=30 | 1906.4 | 103772.5 | 4.4 |
+| Compression policy (N=12, last 4 verbatim, older clipped to 120 chars) | 768.5 | 43939.1 | 4.0 | 
+
+| Setting | Primer | Long-term summary | Short-term window | Episodic facts | Upkeep prompt tokens/turn | Rows using estimate |
+|---|---|---|---|---|---|---|
+| SHORT_TERM_N=4 | 64.0 | 208.7 | 332.6 | 29.6 | 384.6 | 0/30 |
+| SHORT_TERM_N=12 | 64.0 | 242.3 | 842.6 | 29.6 | 377.4 | 0/30 |
+| SHORT_TERM_N=30 | 64.0 | 235.5 | 1685.5 | 29.6 | 374.1 | 0/30 |
+| Compression policy (N=12, last 4 verbatim, older clipped to 120 chars) | 64.0 | 284.0 | 372.4 | 29.6 | 355.0 | 0/30 | 
+
+| Baseline | Policy | Prompt tokens/turn saved | Saving | Probe quality change |
+|---|---|---|---|---|
+| SHORT_TERM_N=12 (1135.5) | Compression policy (N=12, last 4 verbatim, older clipped to 120 chars) (768.5) | 367.0 | 32.3% | -0.6 |
+
+Against SHORT_TERM_N=30 the policy saves 59.7% of prompt tokens per turn. 
+
+| Case | Setting | Input tokens/turn | Output tokens/turn | Cost, reply only | Cost, with upkeep |
+|---|---|---|---|---|---|
+| Best | SHORT_TERM_N=4 | 624.5 (+384.6 upkeep) | 134.1 (+79.8 upkeep) | $388.50 | $623.58 |
+| Worst | SHORT_TERM_N=30 | 1906.4 (+374.1 upkeep) | 126.0 (+78.9 upkeep) | $760.92 | $991.50 |
+
+Selection rule: best = cheapest setting (with upkeep) whose probe score is within 0.5 of the top score 4.6; worst = most expensive setting (ties broken by lower probe score). Price: $1.0/M input, $5.0/M output; 10,000 conversations x 30 turns.
+
+Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/memory_summary.json, /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/memory_cost.csv and updated METRICS.md
+
+===== 2026-10-19 09:50:57 consolidation-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 4 consolidation of the 55-line MEMORY.md fixture
+run at 2026-10-19T09:50:58 | VERIFY_SEED 269486
+==============================================================================
+original: Homework6/fixtures/MEMORY_original_55.md - 55 lines, 52 non-empty non-comment lines
+consolidation due: True (52 non-empty, non-comment lines > 40; last consolidated 1159.8 h ago > 24 h)
+
+/compact: before 55 lines (52 content lines, 50 facts) -> after 38 lines (33 content lines, 22 facts); 23 duplicates merged, 5 contradictions resolved, 2 flagged for review 
+
+Duplicates merged (23 lines):
+  [project.domain] The app manages rental housing listings
+  [project.port] The backend runs on port 8486
+  [user.budget] Monthly budget is $2,400
+  [project.mongo_db] The MongoDB database is s9486_doc
+  [user.parking] Needs one parking spot
+  [project.mysql_db] The MySQL database is s9486_rel
+  [user.bedrooms] Needs 2 bedrooms
+  [project.model] The local model is served by Ollama
+  [user.contact] Prefers email over phone calls
+  [project.frontend] The frontend is React with Redux Toolkit
+  [user.lease] Wants a 12-month lease
+  [project.tests] Offline tests use fake models and in-memory stores
+  [user.city] Wants listings in San Jose
+  [project.short_term_n] The default SHORT_TERM_N is 12
+  [user.move_in] Plans to move in on 2026-12-01
+  [project.summary_every] A session summary is written every 5 user messages
+  [project.embedding] Episodes store embeddings as arrays of floats
+  [user.laundry] Wants in-unit laundry
+  [project.verify] verify_hw06.py writes verification.json
+  [project.no_hosted] No paid hosted model is used
+  [project.domain] The app manages rental housing listings
+  [project.port] The backend runs on port 8486
+  [project.no_hosted] No paid hosted model is used
+
+Contradictions resolved (5):
+  [user.city] kept 'Wants listings in Santa Clara' (2026-10-10, user) over 'Wants listings in San Jose' (2026-09-20, user)
+  [user.budget] kept 'Monthly budget is $2,800' (2026-10-05, user) over 'Monthly budget is $2,400' (2026-09-12, user)
+  [user.bedrooms] kept 'Needs 1 bedroom' (2026-10-12, inferred) over 'Needs 2 bedrooms' (2026-09-15, user)
+  [user.lease] kept 'Wants a 6-month lease' (2026-10-08, user) over 'Wants a 12-month lease' (2026-09-17, user)
+  [user.pets] kept 'Has no pets' (2026-10-01, user) over 'Has a cat' (2026-10-01, user)
+
+Flagged as possibly resolved incorrectly (2):
+  [user.bedrooms] kept 'Needs 1 bedroom' over 'Needs 2 bedrooms': a user-stated fact lost to a inferred fact; newest-wins ignored where the fact came from
+  [user.pets] kept 'Has no pets' over 'Has a cat': same seen date, so file order decided
+
+Checks:
+  [PASS] fewer_than_40_lines: 38 lines
+  [PASS] duplicates_merged: 23 duplicate lines merged
+  [PASS] contradictions_resolved_explicitly: 5 resolved
+  [PASS] no_silent_deletion: dropped values missing from file: []
+  [PASS] incorrect_resolutions_flagged: 2 flagged
+  [PASS] timestamp_recorded: last_consolidated set
+
+----- MEMORY_consolidated.md -----
+# MEMORY.md - durable facts learned from previous conversations
+<!-- last_consolidated: 2026-10-19T16:50:58+00:00 -->
+<!-- Format: - [key] fact (seen: YYYY-MM-DD, source: user|inferred|dream) -->
+
+## Facts
+- [project.domain] The app manages rental housing listings (seen: 2026-09-27, source: user, merged: 3)
+- [project.embedding] Episodes store embeddings as arrays of floats (seen: 2026-09-23, source: user, merged: 2)
+- [project.frontend] The frontend is React with Redux Toolkit (seen: 2026-09-16, source: user, merged: 2)
+- [project.model] The local model is served by Ollama (seen: 2026-09-15, source: user, merged: 2)
+- [project.mongo_db] The MongoDB database is s9486_doc (seen: 2026-09-12, source: user, merged: 2)
+- [project.mysql_db] The MySQL database is s9486_rel (seen: 2026-09-13, source: user, merged: 2)
+- [project.no_hosted] No paid hosted model is used (seen: 2026-09-29, source: user, merged: 3)
+- [project.port] The backend runs on port 8486 (seen: 2026-09-28, source: user, merged: 3)
+- [project.short_term_n] The default SHORT_TERM_N is 12 (seen: 2026-09-20, source: user, merged: 2)
+- [project.summary_every] A session summary is written every 5 user messages (seen: 2026-09-22, source: user, merged: 2)
+- [project.tests] Offline tests use fake models and in-memory stores (seen: 2026-09-18, source: user, merged: 2)
+- [project.verify] verify_hw06.py writes verification.json (seen: 2026-09-25, source: user, merged: 2)
+- [user.bedrooms] Needs 1 bedroom (seen: 2026-10-12, source: inferred)
+- [user.budget] Monthly budget is $2,800 (seen: 2026-10-05, source: user)
+- [user.city] Wants listings in Santa Clara (seen: 2026-10-10, source: user)
+- [user.commute] Commutes to SJSU by light rail (seen: 2026-09-06, source: user)
+- [user.contact] Prefers email over phone calls (seen: 2026-09-16, source: user, merged: 2)
+- [user.laundry] Wants in-unit laundry (seen: 2026-09-24, source: user, merged: 2)
+- [user.lease] Wants a 6-month lease (seen: 2026-10-08, source: user)
+- [user.move_in] Plans to move in on 2026-12-01 (seen: 2026-09-21, source: user, merged: 2)
+- [user.parking] Needs one parking spot (seen: 2026-09-13, source: user, merged: 2)
+- [user.pets] Has no pets (seen: 2026-10-01, source: user)
+
+## Resolved contradictions
+- [user.city] kept "Wants listings in Santa Clara" (2026-10-10, user) over "Wants listings in San Jose" (2026-09-20, user); rule: newest seen date wins
+- [user.budget] kept "Monthly budget is $2,800" (2026-10-05, user) over "Monthly budget is $2,400" (2026-09-12, user); rule: newest seen date wins
+- [user.bedrooms] kept "Needs 1 bedroom" (2026-10-12, inferred) over "Needs 2 bedrooms" (2026-09-15, user); rule: newest seen date wins
+- [user.lease] kept "Wants a 6-month lease" (2026-10-08, user) over "Wants a 12-month lease" (2026-09-17, user); rule: newest seen date wins
+- [user.pets] kept "Has no pets" (2026-10-01, user) over "Has a cat" (2026-10-01, user); rule: newest seen date wins
+
+## Needs review
+- [user.bedrooms] CHECK: kept "Needs 1 bedroom" over "Needs 2 bedrooms" - a user-stated fact lost to a inferred fact; newest-wins ignored where the fact came from
+- [user.pets] CHECK: kept "Has no pets" over "Has a cat" - same seen date, so file order decided
+
+Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/MEMORY_consolidated.md and /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/consolidation_report.json
+
+===== 2026-10-19 09:55:05 agent-md-generate (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | Part 4 AGENT.md instructions + function compliance check
+run at 2026-10-19T09:55:05 | VERIFY_SEED 269486
+==============================================================================
+AGENT.md: 18 numbered instructions; per section: {'Project description': 2, 'Technology stack': 3, 'Coding conventions': 5, 'Testing approach': 2, 'Prohibited actions': 4, 'Code review (from HW1 AGENT.md)': 2}
+[PASS] >= 5 instructions in >= 3 required categories (covered: ['Project description', 'Technology stack', 'Coding conventions', 'Testing approach', 'Prohibited actions'])
+
+Implemented function: backend/app/file_memory.py::count_memory_lines
+  [PASS] R6_type_hints: unannotated params: []; return annotated: True
+  [PASS] R7_docstring: docstring: 'Count the non-empty, non-comment lines of MEMORY.md.'
+  [PASS] R8_line_length: lines > 120 chars: []
+  [PASS] R9_no_hardcoded_config: suspicious strings: []
+  [PASS] R10_no_print: print() at lines: []
+  [PASS] R13_no_banned_imports: banned imports: []
+
+Generated function (llama3.2:3b) saved to /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/generated_function.py:
+from datetime import datetime, date
+
+def days_until_available(available_from, today):
+    if available_from.date() == today:
+        return 0
+    elif available_from.date() < today:
+        return 0
+    else:
+        return (available_from - today).days
+
+  [FAIL] R6_type_hints: unannotated params: ['available_from', 'today']; return annotated: False
+  [FAIL] R7_docstring: docstring: None
+  [PASS] R8_line_length: lines > 120 chars: []
+  [PASS] R9_no_hardcoded_config: suspicious strings: []
+  [PASS] R10_no_print: print() at lines: []
+  [PASS] R13_no_banned_imports: banned imports: []
+  safe to run: {'passed': True, 'details': 'datetime only'}
+  [FAIL] days_until_available('2026-11-01 09:00:00', '2026-10-18') -> TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'datetime.date' (expected 14)
+  [PASS] days_until_available('2026-10-18 23:00:00', '2026-10-18') -> 0 (expected 0)
+  [PASS] days_until_available('2026-09-01 00:00:00', '2026-10-18') -> 0 (expected 0)
+  [FAIL] days_until_available('2027-01-15 00:00:00', '2026-12-31') -> TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'datetime.date' (expected 15)
+
+Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/agent_md_check.json

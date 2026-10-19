@@ -844,3 +844,26 @@ def days_until_available(available_from, today):
   [FAIL] days_until_available('2027-01-15 00:00:00', '2026-12-31') -> TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'datetime.date' (expected 15)
 
 Wrote /Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/reports/hw06/raw/agent_md_check.json
+
+===== 2026-10-19 10:52:30 verify-hw06 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW6 | HW6 self-check (verify_hw06)
+run at 2026-10-19T10:52:30 | VERIFY_SEED 269486
+==============================================================================
+[PASS] required_files: 24 files present
+[PASS] python_compiles: 37 files compiled
+[PASS] config_values: {'SID4': 9486, 'PORT_BASE': 8486, 'PREFIX': 's9486', 'SEED': 9486, 'VERIFY_SEED': 269486, 'DOMAIN_ID': 6, 'MONGODB_DB': 's9486_doc'}
+[PASS] mongodb_ping_and_validators: mongodb://localhost:27017/s9486_doc: ['listings', 'messages', 'summaries', 'episodes']
+[PASS] fastapi_responds_on_port_base: GET http://localhost:8486/health -> 200 (started by script: False)
+[PASS] listing_doc_crud: POST/GET/GET all/PUT/DELETE/GET -> [201, 200, 200, 200, 200, 404]
+[PASS] listing_doc_validation_errors: invalid enum / missing fields / malformed id -> [422, 422, 400]
+[PASS] chat_reply_and_memory_used: 2 replies; window on turn 2 = 2 msgs; prompt_tokens = 201; latency = 23634.2 ms
+[PASS] memory_endpoint: -> 200; 4 messages, 1 episodes
+[PASS] aggregate_endpoint: -> 200; daily counts [{'date': '2026-10-19', 'messages': 4, 'user_messages': 2, 'assistant_messages': 2}]
+[PASS] file_memory_help_command: -> 200
+[PASS] consolidation_fixture: /compact: before 55 lines (52 content lines, 50 facts) -> after 38 lines (33 content lines, 22 facts); 23 duplicates merged, 5 contradictions resolved, 2 flagged for review
+[PASS] offline_tests:tests/run_offline_tests.py: 16/16 tests passed
+[PASS] offline_tests:Homework6/tests/run_hw6_tests.py: 27/27 tests passed
+[PASS] cleanup_temp_data: removed {'messages': 4, 'summaries': 0, 'episodes': 1}
+
+15/15 checks passed -> reports/hw06/verification.json (commit 0399ca8a652bc0d26ec54283bc0a70e8c8f8b0f3)

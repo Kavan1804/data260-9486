@@ -1,0 +1,105 @@
+{
+  "homework": "HW6",
+  "sid4": 9486,
+  "prefix": "s9486",
+  "port_base": 8486,
+  "domain_id": 6,
+  "seed": 9486,
+  "verify_seed": 269486,
+  "commit_hash": "0399ca8a652bc0d26ec54283bc0a70e8c8f8b0f3",
+  "tag_hw6_commit": null,
+  "working_tree_clean": false,
+  "generated_at": "2026-10-19T17:53:29+00:00",
+  "configuration": {
+    "ollama_model": "llama3.2:3b",
+    "ollama_embed_model": "hash-bow-256 (local fallback, no embedding model set)",
+    "ollama_num_ctx": 8192,
+    "mongodb_uri": "mongodb://localhost:27017",
+    "mongodb_db": "s9486_doc",
+    "short_term_n": 12,
+    "summarize_every_user_msgs": 5,
+    "episodic_top_k": 3
+  },
+  "checks": [
+    {
+      "check": "required_files",
+      "passed": true,
+      "details": "24 files present"
+    },
+    {
+      "check": "python_compiles",
+      "passed": true,
+      "details": "37 files compiled"
+    },
+    {
+      "check": "config_values",
+      "passed": true,
+      "details": "{'SID4': 9486, 'PORT_BASE': 8486, 'PREFIX': 's9486', 'SEED': 9486, 'VERIFY_SEED': 269486, 'DOMAIN_ID': 6, 'MONGODB_DB': 's9486_doc'}"
+    },
+    {
+      "check": "mongodb_ping_and_validators",
+      "passed": true,
+      "details": "mongodb://localhost:27017/s9486_doc: ['listings', 'messages', 'summaries', 'episodes']"
+    },
+    {
+      "check": "fastapi_responds_on_port_base",
+      "passed": true,
+      "details": "GET http://localhost:8486/health -> 200 (started by script: False)"
+    },
+    {
+      "check": "listing_doc_crud",
+      "passed": true,
+      "details": "POST/GET/GET all/PUT/DELETE/GET -> [201, 200, 200, 200, 200, 404]"
+    },
+    {
+      "check": "listing_doc_validation_errors",
+      "passed": true,
+      "details": "invalid enum / missing fields / malformed id -> [422, 422, 400]"
+    },
+    {
+      "check": "chat_reply_and_memory_used",
+      "passed": true,
+      "details": "2 replies; window on turn 2 = 2 msgs; prompt_tokens = 201; latency = 23634.2 ms"
+    },
+    {
+      "check": "memory_endpoint",
+      "passed": true,
+      "details": "-> 200; 4 messages, 1 episodes"
+    },
+    {
+      "check": "aggregate_endpoint",
+      "passed": true,
+      "details": "-> 200; daily counts [{'date': '2026-10-19', 'messages': 4, 'user_messages': 2, 'assistant_messages': 2}]"
+    },
+    {
+      "check": "file_memory_help_command",
+      "passed": true,
+      "details": "-> 200"
+    },
+    {
+      "check": "consolidation_fixture",
+      "passed": true,
+      "details": "/compact: before 55 lines (52 content lines, 50 facts) -> after 38 lines (33 content lines, 22 facts); 23 duplicates merged, 5 contradictions resolved, 2 flagged for review"
+    },
+    {
+      "check": "offline_tests:tests/run_offline_tests.py",
+      "passed": true,
+      "details": "16/16 tests passed"
+    },
+    {
+      "check": "offline_tests:Homework6/tests/run_hw6_tests.py",
+      "passed": true,
+      "details": "27/27 tests passed"
+    },
+    {
+      "check": "cleanup_temp_data",
+      "passed": true,
+      "details": "removed {'messages': 4, 'summaries': 0, 'episodes': 1}"
+    }
+  ],
+  "summary": {
+    "passed": 15,
+    "total": 15,
+    "all_passed": true
+  }
+}

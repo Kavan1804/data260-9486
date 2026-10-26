@@ -42,7 +42,21 @@ CSS = r5.CSS.replace("Homework 5", "Homework 7") + (
     ".cmd { white-space: pre-wrap; font-size: 8.5pt; }\n"
 )
 HARDWARE = "MacBook Air with Apple M1 chip (8 GB unified memory)"
-r5.CROPS = {}  # set per screenshot below once the real screenshots exist
+# Crop boxes (left, top, right, bottom) as fractions: drop the VS Code panel tabs and status bar from
+# terminal shots, and the browser tab bar and empty side margins from the bike-share page.
+BROWSER = (0.18, 0.095, 0.82, 0.96)
+r5.CROPS = {
+    "p1_login": (0.0, 0.0, 0.955, 0.86),
+    "p1_me_401": (0.0, 0.075, 0.955, 0.6),
+    "p1_token_401": (0.0, 0.075, 0.955, 0.53),
+    "p1_create": (0.0, 0.075, 0.955, 0.9),
+    "p1_delete": (0.0, 0.06, 0.955, 0.965),
+    "p1_list": (0.0, 0.09, 0.955, 0.95),
+    "p2_tasks": (0.0, 0.065, 0.955, 0.965),
+    "p2_error": (0.0, 0.15, 0.955, 0.72),
+    "p6_run": (0.0, 0.035, 0.975, 0.985),
+    "p4_ui_": BROWSER,
+}
 MISSING: list[str] = []
 
 
@@ -75,6 +89,24 @@ def func_src(path: str, name: str, max_lines: int = 40) -> str:
             more = f"\n    ... ({len(lines) - max_lines} more lines in {path})" if len(lines) > max_lines else ""
             return "\n".join(lines[:max_lines]) + more
     raise KeyError(f"{name} not in {path}")
+
+
+def log_sections(*targets: str) -> str:
+    """The last logged RUN_LOG.txt section for each make target (header line + its output)."""
+    lines = (REPORT_DIR / "RUN_LOG.txt").read_text(encoding="utf-8").splitlines()
+    out = []
+    for target in targets:
+        starts = [
+            i
+            for i, line in enumerate(lines)
+            if line.startswith("=====") and line.endswith(f" {target} (Kavan Siddesh) =====")
+        ]
+        if not starts:
+            continue
+        i = starts[-1]
+        j = next((k for k in range(i + 1, len(lines)) if lines[k].startswith("===== ")), len(lines))
+        out += [line for line in lines[i:j] if line.strip() and not line.startswith("[INFO]")]
+    return "\n".join(out)
 
 
 def between(path: str, start: str, end: str) -> str:
@@ -138,12 +170,13 @@ def part1(d):
     fig(d, "p1_list", "GET /listings with a valid token returns 200.")
     d.h3("V. Linting (Ruff + pre-commit)")
     code(d, (ROOT / ".pre-commit-config.yaml").read_text(encoding="utf-8"))
-    fig(
-        d,
-        "p1_lint",
-        "Commit attempt: pre-commit runs Ruff and fails on the lint errors, the issues are fixed, and "
-        "the next commit passes.",
+    d.p(
+        "I set up Ruff (rules E, F and I, line length 120) in `pyproject.toml` and installed the pre-commit hook. "
+        "The first `ruff check` on my existing code found 86 issues (long lines, unsorted imports, unused imports "
+        "and variables named `l`); I fixed them, and the HW7 commit went through the hook. Logged output "
+        "(RUN_LOG.txt):"
     )
+    code(d, log_sections("precommit-all", "lint", "format-check"))
 
 
 def part2(d):
@@ -271,9 +304,16 @@ def part4(d):
         d.h3(title)
         fig(
             d,
-            f"p4_ui_{name}",
-            f"UI for {name}: tool-call timeline, cost comparison, decision, citations and the "
-            f"metrics strip (steps, total time, stop reason).",
+            f"p4_ui_{name}_1",
+            f"UI for {name} (top): metrics strip (steps, total time, stop reason), tool-call timeline, decision, "
+            "agent answer and cost comparison. This is a separate run in the browser, so its time differs from "
+            "the scripted run in the table.",
+        )
+        fig(
+            d,
+            f"p4_ui_{name}_2",
+            f"UI for {name} (bottom): weekly table, pricing citations with capture time, "
+            "snapshot hash, and assumptions.",
         )
         d.p(
             f"Data: {summ['rows']} real trips, {summ['first_ride'][:10]} to {summ['last_ride'][:10]} "

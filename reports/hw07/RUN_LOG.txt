@@ -1854,3 +1854,28 @@ Instruction: "Find the Python file that contains DEBUG and show me its contents.
     [PASS] git status; chmod -R 777 .       blocked: destructive (permission change (chmod)); needs explicit confirmation
 
 Required tests: 10/10 passed (5/5 allowed, 5/5 blocked); extra + v1 cases blocked: 17/17; integration found the DEBUG file: True
+
+===== 2026-10-26 15:29:44 verify-hw07 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW7 | HW7 self-check (verify_hw07)
+run at 2026-10-26T15:29:44 | VERIFY_SEED 269486
+==============================================================================
+[PASS] required_files: 29 files present
+[PASS] config_values: {"SID4": 9486, "PORT_BASE": 8486, "PREFIX": "s9486", "SEED": 9486, "VERIFY_SEED": 269486, "DOMAIN_ID": 6, "DB_NAME": "s9486_rel"}
+[PASS] ruff_check_and_format: All checks passed! | 78 files already formatted
+[PASS] mysql_users_table_hashed_passwords: 4 users, roles ['moderator', 'reader', 'writer'], all bcrypt hashes: True
+[PASS] fastapi_responds_on_port_base: GET http://localhost:8486/health -> 200 (started by script: False)
+[PASS] login_valid_200_invalid_401: valid -> [200, 200, 200], wrong password -> 401
+[PASS] missing_and_invalid_token_401: 401, 401, me={'id': 13, 'username': 's9486_reader', 'role': 'reader'}
+[PASS] role_checks_create_delete_list: reader POST, writer POST, writer DELETE, moderator DELETE, GET -> [403, 201, 403, 200, 200]
+[PASS] agent_loop_error_recovery_nonexistent_id: stop=completed, tool calls=1, tool error='No listing found with listing_code LST-99999'
+[PASS] agent_loop_completes_task_A_with_reflexion: clean stop=human_review, attempts=3, tool calls=3, verifier passed=False
+[PASS] csv_sql_read_only_and_calculator: non-SELECT refused [True, True, True], rows 510, calculator ok True
+[PASS] pricing_snapshots_hash_match: SHA-256 matches saved text: [True, True]
+[PASS] safety_gate_10_commands: 5/5 allowed, 5/5 blocked
+[PASS] offline_tests:tests/run_offline_tests.py: 16/16 tests passed
+[PASS] offline_tests:Homework6/tests/run_hw6_tests.py: 27/27 tests passed
+[PASS] offline_tests:Homework7/tests/run_hw7_tests.py: 23/23 tests passed
+[PASS] raw_evidence_files: 20 raw files present
+
+17/17 checks passed -> reports/hw07/verification.json (commit 1ba9ffa00c55a8a6c9e07121b9603d40e2184614)

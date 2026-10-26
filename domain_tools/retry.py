@@ -21,10 +21,10 @@ class TransientError(Exception):
 
 @dataclass(frozen=True)
 class RetryPolicy:
-    max_attempts: int = 3          # 1 try + 2 retries
-    base_delay_s: float = 0.05     # delay before retry n is base * 2**(n-1)
-    max_delay_s: float = 0.4       # cap on any single backoff delay
-    timeout_s: float = 2.0         # per attempt
+    max_attempts: int = 3  # 1 try + 2 retries
+    base_delay_s: float = 0.05  # delay before retry n is base * 2**(n-1)
+    max_delay_s: float = 0.4  # cap on any single backoff delay
+    timeout_s: float = 2.0  # per attempt
 
     def delay_before(self, attempt: int) -> float:
         """Backoff delay before `attempt` (attempt 1 has none)."""

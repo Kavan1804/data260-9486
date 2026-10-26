@@ -17,7 +17,6 @@ import json
 import sys
 
 import requests
-
 from hw6_common import BASE_URL, FIXTURES, RAW, banner, write_json
 
 
@@ -33,8 +32,11 @@ def main() -> int:
     print(f"user_id={args.user_id} session_id={args.session_id}\n", flush=True)
     transcript = []
     for i, text in enumerate(fixture["messages"], 1):
-        r = requests.post(f"{args.base_url}/api/chat", timeout=600,
-                          json={"user_id": args.user_id, "session_id": args.session_id, "message": text})
+        r = requests.post(
+            f"{args.base_url}/api/chat",
+            timeout=600,
+            json={"user_id": args.user_id, "session_id": args.session_id, "message": text},
+        )
         if r.status_code != 200:
             print(f"[{i}] HTTP {r.status_code}: {r.text}")
             return 1
@@ -43,16 +45,23 @@ def main() -> int:
         print(f"--- turn {body['turn']} ---")
         print(f"USER:      {text}")
         print(f"ASSISTANT: {body['reply']}")
-        print(f"  short-term window: {used['short_term']['count']} msgs | "
-              f"session summary: {'yes' if used['session_summary'] else 'no'} | "
-              f"lifetime summary: {'yes' if used['lifetime_summary'] else 'no'}")
+        print(
+            f"  short-term window: {used['short_term']['count']} msgs | "
+            f"session summary: {'yes' if used['session_summary'] else 'no'} | "
+            f"lifetime summary: {'yes' if used['lifetime_summary'] else 'no'}"
+        )
         for e in used["episodic_facts"]:
             print(f"  episodic fact (cosine {e['score']}): {e['fact']}")
-        print(f"  facts stored: {[f['fact'] for f in wrote['facts_extracted']]} | "
-              f"session summary created: {wrote['session_summary_created']} | "
-              f"lifetime summary created: {wrote['lifetime_summary_created']}")
-        print(f"  tokens prompt/completion: {usage['prompt_tokens']}/{usage['completion_tokens']} | "
-              f"latency {usage['latency_ms']} ms\n", flush=True)
+        print(
+            f"  facts stored: {[f['fact'] for f in wrote['facts_extracted']]} | "
+            f"session summary created: {wrote['session_summary_created']} | "
+            f"lifetime summary created: {wrote['lifetime_summary_created']}"
+        )
+        print(
+            f"  tokens prompt/completion: {usage['prompt_tokens']}/{usage['completion_tokens']} | "
+            f"latency {usage['latency_ms']} ms\n",
+            flush=True,
+        )
         transcript.append({"user": text, "response": body})
 
     write_json(RAW / "chat_demo_transcript.json", transcript)

@@ -14,6 +14,10 @@ export default function Navbar({ auth }) {
           Home
         </NavLink>
 
+        <NavLink to="/bikeshare" className={({ isActive }) => (isActive ? "active" : "")}>
+          Bike Share
+        </NavLink>
+
         {/* Protected navigation is disabled until the session is confirmed */}
         {auth.loggedIn ? (
           <>

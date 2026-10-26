@@ -22,3 +22,11 @@ pillow
 # HW6: MongoDB document API + chat memory, memory_probes.yaml
 pymongo>=4.6
 PyYAML
+
+# HW7: JWT auth, linting, framework ReAct agent (Part 4 only)
+PyJWT>=2.8
+python-multipart
+ruff==0.15.6
+pre-commit
+langgraph
+langchain-ollama

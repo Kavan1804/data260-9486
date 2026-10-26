@@ -1,0 +1,278 @@
+{
+  "confirmed_destructive_example": {
+    "allowed": true,
+    "reason": "destructive (recursive deletion (rm -r)) but explicitly confirmed"
+  },
+  "rows": [
+    {
+      "set": "required",
+      "command": "ls -la",
+      "expected": "allow",
+      "result": "allow",
+      "is_destructive": false,
+      "passed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry",
+      "why": "read-only listing"
+    },
+    {
+      "set": "required",
+      "command": "grep -n DEBUG *.py",
+      "expected": "allow",
+      "result": "allow",
+      "is_destructive": false,
+      "passed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry",
+      "why": "read-only search"
+    },
+    {
+      "set": "required",
+      "command": "cat config_loader.py",
+      "expected": "allow",
+      "result": "allow",
+      "is_destructive": false,
+      "passed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry",
+      "why": "read a file in the sandbox"
+    },
+    {
+      "set": "required",
+      "command": "python3 -m py_compile app.py utils.py",
+      "expected": "allow",
+      "result": "allow",
+      "is_destructive": false,
+      "passed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry",
+      "why": "syntax check, writes only __pycache__"
+    },
+    {
+      "set": "required",
+      "command": "echo done > notes.txt",
+      "expected": "allow",
+      "result": "allow",
+      "is_destructive": false,
+      "passed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry",
+      "why": "redirect to a relative file inside the sandbox"
+    },
+    {
+      "set": "required",
+      "command": "rm -rf build",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": "recursive deletion"
+    },
+    {
+      "set": "required",
+      "command": "sudo ls /root",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (privilege escalation (sudo)); needs explicit confirmation",
+      "why": "privilege escalation"
+    },
+    {
+      "set": "required",
+      "command": "chmod 777 app.py",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (permission change (chmod)); needs explicit confirmation",
+      "why": "permission change"
+    },
+    {
+      "set": "required",
+      "command": "echo pwned > /etc/hosts",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection to a root path (/etc/hosts)); needs explicit confirmation",
+      "why": "redirect to a root path (echo IS on SAFE_PREFIXES)"
+    },
+    {
+      "set": "required",
+      "command": "cat app.py > ~/.bashrc",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection outside the sandbox (~/.bashrc)); needs explicit confirmation",
+      "why": "write outside the sandbox (was a false allow in v1, now fixed)"
+    },
+    {
+      "set": "v1_false_allow",
+      "command": "cat a > ~/.bashrc",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection outside the sandbox (~/.bashrc)); needs explicit confirmation",
+      "why": "false allow in v1, fixed"
+    },
+    {
+      "set": "v1_false_allow",
+      "command": "echo x > ../../etc/hosts",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection outside the sandbox (../../etc/hosts)); needs explicit confirmation",
+      "why": "false allow in v1, fixed"
+    },
+    {
+      "set": "v1_false_allow",
+      "command": "echo x > $HOME/.zshrc",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection outside the sandbox ($HOME/.zshrc)); needs explicit confirmation",
+      "why": "false allow in v1, fixed"
+    },
+    {
+      "set": "extra",
+      "command": "rm -r -f build",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "\\rm -fr x",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "/bin/rm -Rf x",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "rm --recursive x",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "ls && rm -rf x",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "find . -name '*.py' -delete",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (find -delete / -exec rm)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "chown root app.py",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (ownership change (chown)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "dd if=/dev/zero of=/dev/disk2",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (raw-device write (dd of=/dev/...)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "mkfs.ext4 /dev/sdb1",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (filesystem creation / disk formatting (mkfs.ext4)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "cat x > /dev/disk2",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (raw-device write (redirect to /dev/disk2)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "echo $(rm -rf ~)",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "echo x > ../../etc/hosts",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection outside the sandbox (../../etc/hosts)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "echo x > $HOME/.zshrc",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (redirection outside the sandbox ($HOME/.zshrc)); needs explicit confirmation",
+      "why": ""
+    },
+    {
+      "set": "extra",
+      "command": "git status; chmod -R 777 .",
+      "expected": "block",
+      "result": "block",
+      "is_destructive": true,
+      "passed": true,
+      "reason": "blocked: destructive (permission change (chmod)); needs explicit confirmation",
+      "why": ""
+    }
+  ]
+}

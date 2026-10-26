@@ -20,7 +20,7 @@ def main() -> int:
         result = json.loads(raw)
         print(f"{label}: execute_tool({name!r}, {json.dumps(inputs)})")
         if result["ok"]:
-            codes = [l["listing_code"] for l in result["data"]["listings"]]
+            codes = [row["listing_code"] for row in result["data"]["listings"]]
             print(f"  -> ok=true, error=null, {result['data']['count']} listings: {codes}\n")
         else:
             print(f"  -> {raw}\n")

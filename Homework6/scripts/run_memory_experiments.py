@@ -27,16 +27,39 @@ from datetime import datetime
 
 import requests
 import yaml
-
 from hw6_common import BASE_URL, FIXTURES, PROBES_YAML, RAW, SETTING_NAMES, SETTINGS, banner, write_csv, write_json
 
 USAGE_FIELDS = [
-    "run_id", "setting", "phase", "user_id", "session_id", "turn", "short_term_n", "policy", "model",
-    "embedding_model", "prompt_tokens", "completion_tokens", "token_source", "prompt_tokens_est",
-    "completion_tokens_est", "system_primer_tokens_est", "long_term_summary_tokens_est",
-    "short_term_window_tokens_est", "episodic_facts_tokens_est", "current_message_tokens_est", "window_messages",
-    "episodes_retrieved", "aux_calls", "aux_prompt_tokens", "aux_completion_tokens", "model_latency_ms",
-    "latency_ms", "session_summary_created", "lifetime_summary_created", "timestamp",
+    "run_id",
+    "setting",
+    "phase",
+    "user_id",
+    "session_id",
+    "turn",
+    "short_term_n",
+    "policy",
+    "model",
+    "embedding_model",
+    "prompt_tokens",
+    "completion_tokens",
+    "token_source",
+    "prompt_tokens_est",
+    "completion_tokens_est",
+    "system_primer_tokens_est",
+    "long_term_summary_tokens_est",
+    "short_term_window_tokens_est",
+    "episodic_facts_tokens_est",
+    "current_message_tokens_est",
+    "window_messages",
+    "episodes_retrieved",
+    "aux_calls",
+    "aux_prompt_tokens",
+    "aux_completion_tokens",
+    "model_latency_ms",
+    "latency_ms",
+    "session_summary_created",
+    "lifetime_summary_created",
+    "timestamp",
 ]
 
 
@@ -57,17 +80,27 @@ def run_setting(label: str, run_id: str, conversation: list[str], probes: list[d
         body = send(base_url, {**common, "message": text, "phase": "conversation"})
         u = body["usage"]
         rows.append({"setting": label, **{k: u.get(k) for k in USAGE_FIELDS if k != "setting"}})
-        print(f"  turn {i:2d}: prompt_tokens={u['prompt_tokens']} (est {u['prompt_tokens_est']}) "
-              f"window={u['window_messages']} episodes={u['episodes_retrieved']} latency={u['latency_ms']} ms",
-              flush=True)
+        print(
+            f"  turn {i:2d}: prompt_tokens={u['prompt_tokens']} (est {u['prompt_tokens_est']}) "
+            f"window={u['window_messages']} episodes={u['episodes_retrieved']} latency={u['latency_ms']} ms",
+            flush=True,
+        )
 
     for p in probes:
         body = send(base_url, {**common, "message": p["question"], "phase": "probe"})
         u = body["usage"]
         rows.append({"setting": label, **{k: u.get(k) for k in USAGE_FIELDS if k != "setting"}})
-        answers.append({"setting": label, "run_id": run_id, "probe_id": p["id"], "question": p["question"],
-                        "expected": p["expected"], "answer": body["reply"],
-                        "episodic_facts": [e["fact"] for e in body["memory_used"]["episodic_facts"]]})
+        answers.append(
+            {
+                "setting": label,
+                "run_id": run_id,
+                "probe_id": p["id"],
+                "question": p["question"],
+                "expected": p["expected"],
+                "answer": body["reply"],
+                "episodic_facts": [e["fact"] for e in body["memory_used"]["episodic_facts"]],
+            }
+        )
         print(f"  probe {p['id']}: {body['reply'][:160]!r}", flush=True)
 
     write_csv(RAW / f"turns_{label}.csv", rows)

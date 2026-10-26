@@ -24,7 +24,7 @@ the original `Homework4/` layout).
 
 | Path | What |
 |---|---|
-| `backend/app/` | FastAPI + SQLAlchemy + MySQL: session login (HW4), `landlords` + `listings` CRUD, relationship query, N+1 endpoints (HW4) |
+| `backend/app/` | FastAPI + SQLAlchemy + MySQL: JWT login with roles (HW7; HW4 session login kept only at tag hw4), `landlords` + `listings` CRUD, relationship query, N+1 endpoints (HW4) |
 | `frontend/` | React (Vite) client; data layer in Redux Toolkit (`src/store`, `src/features/listings`, `src/features/landlords`) |
 | `mcp_servers/meals_server.py` | MCP server `meals` (TheMealDB, 4 tools, STDIO) |
 | `mcp_servers/domain_server.py` | MCP server `s9486_listings` (3 domain tools, `{ok, data, error}`) |
@@ -36,6 +36,10 @@ the original `Homework4/` layout).
 | `AGENT.md`, `MEMORY.md` | HW6 file-based memory |
 | `Homework6/` | HW6 scripts, tests, fixtures, `memory_probes.yaml`; run guide in `Homework6/README_HW6.md` |
 | `reports/hw06/` | HW6 RUN_LOG.txt, raw/, METRICS.md, AI_USE.md, verification.json |
+| `backend/app/security.py`, `scripts/migrate_hw07.py` | HW7: JWT bearer auth with roles reader / writer / moderator on the domain routes |
+| `domain_tools/validation.py`, `fixed_tasks.py`, `reflexion.py` | HW7: agent-loop repair path, verifier, bounded Reflexion |
+| `bikeshare/`, `agent_tools/` | HW7: bike-share ReAct agent (LangGraph) and its tools; file tools + bash safety gate |
+| `Homework7/`, `reports/hw07/` | HW7 scripts, tests, fixtures; results. Run guide in `Homework7/README_HW7.md` |
 | `Homework1/` - `Homework4/` | earlier homework reports and HW-specific scripts |
 
 ## Data model (HW5)
@@ -53,11 +57,11 @@ dropping anything: it seeds 20 landlords with SEED 9486, backfills `listing_code
 and a seeded `landlord_id` for the 5,000 HW4 listings, then adds the constraints. Re-running it
 changes nothing.
 
-## API (all routes except /health and /auth/login need the session cookie)
+## API (HW7: domain routes need `Authorization: Bearer <JWT>`; reads = any role, create/update = writer or moderator, delete = moderator)
 
 | Method | Path | Result |
 |---|---|---|
-| POST | /auth/login, /auth/logout; GET /auth/me | HW4 session auth |
+| POST | /auth/login (username + password -> JWT); GET /auth/me | HW7 JWT auth (401 bad login / missing or invalid token, 403 wrong role) |
 | POST | /landlords | 201; 409 duplicate email; 422 invalid email |
 | GET | /landlords?skip=0&limit=50 | `{total, skip, limit, items}` (limit 1-200) |
 | GET / PUT / DELETE | /landlords/{id} | 404 if missing; PUT is partial; DELETE 409 while listings exist |
@@ -77,7 +81,7 @@ make backend                     # FastAPI on http://localhost:8486
 make frontend                    # second terminal: React on http://localhost:5173
 ```
 
-Use `http://localhost:5173` (not 127.0.0.1) so the session cookie reaches `localhost:8486`.
+The React client keeps the JWT in sessionStorage and sends it as a bearer token (HW7).
 
 ## HW5 runs
 

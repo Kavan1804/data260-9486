@@ -123,3 +123,62 @@ verify-hw06:
 
 report-hw06:
 	$(PYTHON) $(HW6)/render_report_hw06.py
+
+# ---------- HW7 (JWT + roles, agent loop, Reflexion, bike-share ReAct, prompt injection, file tools) ----------
+LOG7 := reports/hw07/RUN_LOG.txt
+STAMP7 = mkdir -p reports/hw07/raw; echo -e "\n===== $$(date '+%Y-%m-%d %H:%M:%S') $@ (Kavan Siddesh) =====" | tee -a $(LOG7)
+HW7 := Homework7/scripts
+
+.PHONY: migrate-hw07 lint format-check precommit-all
+
+migrate-hw07:
+	@$(STAMP7); $(PYTHON) scripts/migrate_hw07.py 2>&1 | tee -a $(LOG7)
+
+lint:
+	@$(STAMP7); .venv/bin/ruff check . 2>&1 | tee -a $(LOG7)
+
+format-check:
+	@$(STAMP7); .venv/bin/ruff format --check . 2>&1 | tee -a $(LOG7)
+
+precommit-all:
+	@$(STAMP7); .venv/bin/pre-commit run --all-files 2>&1 | tee -a $(LOG7)
+
+auth-demo:
+	@$(STAMP7); $(PYTHON) $(HW7)/auth_demo.py 2>&1 | tee -a $(LOG7)
+
+agent-reliability:
+	@$(STAMP7); $(PYTHON) $(HW7)/run_agent_reliability.py 2>&1 | tee -a $(LOG7)
+
+file-tools-demo:
+	@$(STAMP7); $(PYTHON) $(HW7)/run_file_tools_demo.py 2>&1 | tee -a $(LOG7)
+
+reflexion-compare:
+	@$(STAMP7); $(PYTHON) $(HW7)/run_reflexion_compare.py 2>&1 | tee -a $(LOG7)
+
+bikeshare-scenarios:
+	@$(STAMP7); $(PYTHON) $(HW7)/build_bikeshare_scenarios.py 2>&1 | tee -a $(LOG7)
+
+bikeshare-run:
+	@$(STAMP7); $(PYTHON) $(HW7)/run_bikeshare_scenarios.py 2>&1 | tee -a $(LOG7)
+
+injection-tests:
+	@$(STAMP7); $(PYTHON) $(HW7)/run_injection_tests.py 2>&1 | tee -a $(LOG7)
+
+test-hw7:
+	@$(STAMP7); $(PYTHON) Homework7/tests/run_hw7_tests.py 2>/dev/null | tee -a $(LOG7)
+
+test-hw7-live:
+	@$(STAMP7); $(PYTHON) Homework7/tests/run_hw7_tests.py --live 2>/dev/null | tee -a $(LOG7)
+
+test-all:
+	@$(STAMP7); for t in tests/run_offline_tests.py Homework6/tests/run_hw6_tests.py Homework7/tests/run_hw7_tests.py; do \
+	  echo "--- $$t"; $(PYTHON) $$t 2>/dev/null | tail -1; done 2>&1 | tee -a $(LOG7)
+
+verify-hw07:
+	@$(STAMP7); $(PYTHON) $(HW7)/verify_hw07.py 2>/dev/null | tee -a $(LOG7)
+
+report-hw07:
+	$(PYTHON) $(HW7)/render_report_hw07.py
+
+injection-summary:
+	@$(STAMP7); $(PYTHON) $(HW7)/run_injection_tests.py --summarize-only 2>&1 | tee -a $(LOG7)

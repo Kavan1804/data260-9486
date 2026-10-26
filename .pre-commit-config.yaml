@@ -1,0 +1,8 @@
+# Runs Ruff on staged Python files before every commit (same hooks as the DATA 236 Demo 7 project).
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.6
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format

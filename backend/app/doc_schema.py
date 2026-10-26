@@ -63,6 +63,7 @@ class ListingDocOut(BaseModel):
 
 # ---------- Part 2: chat memory ----------
 
+
 class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 

@@ -56,6 +56,7 @@ EMBED_DIM = 256
 
 # ---------- helpers ----------
 
+
 def now_utc() -> datetime:
     return datetime.now(timezone.utc)
 
@@ -76,8 +77,10 @@ def cosine(a: list[float], b: list[float]) -> float:
 
 # ---------- embeddings ----------
 
-_STOP = set("a an and are as at be but by for from has have i i'm im in is it its me my of on or so that the "
-            "this to was we were what when where which who will with you your".split())
+_STOP = set(
+    "a an and are as at be but by for from has have i i'm im in is it its me my of on or so that the "
+    "this to was we were what when where which who will with you your".split()
+)
 
 
 class HashEmbedder:
@@ -138,6 +141,7 @@ def embed_safely(embedder, texts: list[str]) -> tuple[list[list[float]], str]:
 
 # ---------- storage ----------
 
+
 class MemoryStore(Protocol):
     def add_message(self, user_id: str, session_id: str, role: str, content: str) -> Any: ...
     def recent_messages(self, user_id: str, session_id: str, n: int, exclude_id: Any = None) -> list[dict]: ...
@@ -182,12 +186,16 @@ class MongoMemoryStore:
         return self.summaries.find_one(query, sort=[("created_at", -1), ("_id", -1)])
 
     def add_summary(self, user_id, session_id, scope, text):
-        self.summaries.insert_one({"user_id": user_id, "session_id": session_id, "scope": scope, "text": text,
-                                   "created_at": now_utc()})
+        self.summaries.insert_one(
+            {"user_id": user_id, "session_id": session_id, "scope": scope, "text": text, "created_at": now_utc()}
+        )
 
     def session_summaries(self, user_id, limit):
-        return list(self.summaries.find({"user_id": user_id, "scope": "session"})
-                    .sort([("created_at", -1), ("_id", -1)]).limit(limit))
+        return list(
+            self.summaries.find({"user_id": user_id, "scope": "session"})
+            .sort([("created_at", -1), ("_id", -1)])
+            .limit(limit)
+        )
 
     def count_session_summaries(self, user_id):
         return self.summaries.count_documents({"user_id": user_id, "scope": "session"})
@@ -205,16 +213,25 @@ class MongoMemoryStore:
     def daily_counts(self, user_id):
         pipeline = [
             {"$match": {"user_id": user_id}},
-            {"$group": {
-                "_id": {"$dateToString": {"format": "%Y-%m-%d", "date": "$created_at"}},
-                "messages": {"$sum": 1},
-                "user_messages": {"$sum": {"$cond": [{"$eq": ["$role", "user"]}, 1, 0]}},
-                "assistant_messages": {"$sum": {"$cond": [{"$eq": ["$role", "assistant"]}, 1, 0]}},
-            }},
+            {
+                "$group": {
+                    "_id": {"$dateToString": {"format": "%Y-%m-%d", "date": "$created_at"}},
+                    "messages": {"$sum": 1},
+                    "user_messages": {"$sum": {"$cond": [{"$eq": ["$role", "user"]}, 1, 0]}},
+                    "assistant_messages": {"$sum": {"$cond": [{"$eq": ["$role", "assistant"]}, 1, 0]}},
+                }
+            },
             {"$sort": {"_id": 1}},
         ]
-        return [{"date": r["_id"], "messages": r["messages"], "user_messages": r["user_messages"],
-                 "assistant_messages": r["assistant_messages"]} for r in self.messages.aggregate(pipeline)]
+        return [
+            {
+                "date": r["_id"],
+                "messages": r["messages"],
+                "user_messages": r["user_messages"],
+                "assistant_messages": r["assistant_messages"],
+            }
+            for r in self.messages.aggregate(pipeline)
+        ]
 
     def recent_summaries(self, user_id, limit):
         return list(self.summaries.find({"user_id": user_id}).sort([("created_at", -1), ("_id", -1)]).limit(limit))
@@ -234,28 +251,53 @@ class InMemoryMemoryStore:
         return self._next
 
     def add_message(self, user_id, session_id, role, content):
-        doc = {"_id": self._id(), "user_id": user_id, "session_id": session_id, "role": role, "content": content,
-               "created_at": now_utc()}
+        doc = {
+            "_id": self._id(),
+            "user_id": user_id,
+            "session_id": session_id,
+            "role": role,
+            "content": content,
+            "created_at": now_utc(),
+        }
         self.messages.append(doc)
         return doc["_id"]
 
     def recent_messages(self, user_id, session_id, n, exclude_id=None):
-        docs = [m for m in self.messages
-                if m["user_id"] == user_id and m["session_id"] == session_id and m["_id"] != exclude_id]
+        docs = [
+            m
+            for m in self.messages
+            if m["user_id"] == user_id and m["session_id"] == session_id and m["_id"] != exclude_id
+        ]
         return docs[-n:]
 
     def count_user_messages(self, user_id, session_id):
-        return sum(1 for m in self.messages
-                   if m["user_id"] == user_id and m["session_id"] == session_id and m["role"] == "user")
+        return sum(
+            1
+            for m in self.messages
+            if m["user_id"] == user_id and m["session_id"] == session_id and m["role"] == "user"
+        )
 
     def latest_summary(self, user_id, scope, session_id=None):
-        docs = [s for s in self.summaries if s["user_id"] == user_id and s["scope"] == scope
-                and (scope != "session" or session_id is None or s["session_id"] == session_id)]
+        docs = [
+            s
+            for s in self.summaries
+            if s["user_id"] == user_id
+            and s["scope"] == scope
+            and (scope != "session" or session_id is None or s["session_id"] == session_id)
+        ]
         return docs[-1] if docs else None
 
     def add_summary(self, user_id, session_id, scope, text):
-        self.summaries.append({"_id": self._id(), "user_id": user_id, "session_id": session_id, "scope": scope,
-                               "text": text, "created_at": now_utc()})
+        self.summaries.append(
+            {
+                "_id": self._id(),
+                "user_id": user_id,
+                "session_id": session_id,
+                "scope": scope,
+                "text": text,
+                "created_at": now_utc(),
+            }
+        )
 
     def session_summaries(self, user_id, limit):
         return [s for s in self.summaries if s["user_id"] == user_id and s["scope"] == "session"][::-1][:limit]
@@ -279,14 +321,22 @@ class InMemoryMemoryStore:
                 c = days.setdefault(m["created_at"].strftime("%Y-%m-%d"), Counter())
                 c["messages"] += 1
                 c[f"{m['role']}_messages"] += 1
-        return [{"date": d, "messages": c["messages"], "user_messages": c["user_messages"],
-                 "assistant_messages": c["assistant_messages"]} for d, c in sorted(days.items())]
+        return [
+            {
+                "date": d,
+                "messages": c["messages"],
+                "user_messages": c["user_messages"],
+                "assistant_messages": c["assistant_messages"],
+            }
+            for d, c in sorted(days.items())
+        ]
 
     def recent_summaries(self, user_id, limit):
         return [s for s in self.summaries if s["user_id"] == user_id][::-1][:limit]
 
 
 # ---------- memory logic ----------
+
 
 def select_window(messages: list[dict], n: int, policy: str = "none") -> list[dict]:
     """Short-term memory: the last n messages (oldest first).
@@ -295,9 +345,9 @@ def select_window(messages: list[dict], n: int, policy: str = "none") -> list[di
     window = [{"role": m["role"], "content": m["content"]} for m in messages[-n:]] if n > 0 else []
     if policy == "compress":
         cut = len(window) - config.COMPRESS_KEEP_RECENT
-        for m in window[:max(cut, 0)]:
+        for m in window[: max(cut, 0)]:
             if len(m["content"]) > config.COMPRESS_MAX_CHARS:
-                m["content"] = m["content"][:config.COMPRESS_MAX_CHARS].rstrip() + " ..."
+                m["content"] = m["content"][: config.COMPRESS_MAX_CHARS].rstrip() + " ..."
     return window
 
 
@@ -314,8 +364,14 @@ def retrieve_episodes(store, embedder, user_id: str, query: str, k: int = config
             continue
         score = cosine(qvec, e.get("embedding") or [])
         if score > 0:
-            scored.append({"fact": e["fact"], "importance": e["importance"], "score": round(score, 4),
-                           "session_id": e.get("session_id")})
+            scored.append(
+                {
+                    "fact": e["fact"],
+                    "importance": e["importance"],
+                    "score": round(score, 4),
+                    "session_id": e.get("session_id"),
+                }
+            )
     scored.sort(key=lambda x: (x["score"], x["importance"]), reverse=True)
     return scored[:k]
 
@@ -356,17 +412,28 @@ def _call(model, messages: list[dict], usage: dict, fmt: str | None = None) -> s
     return (reply.get("content") or "").strip()
 
 
-def extract_and_store_facts(store, model, embedder, user_id: str, session_id: str, message: str, usage: dict) -> list[dict]:
-    content = _call(model, [{"role": "system", "content": EXTRACT_PROMPT},
-                            {"role": "user", "content": message}], usage, fmt="json")
+def extract_and_store_facts(
+    store, model, embedder, user_id: str, session_id: str, message: str, usage: dict
+) -> list[dict]:
+    content = _call(
+        model, [{"role": "system", "content": EXTRACT_PROMPT}, {"role": "user", "content": message}], usage, fmt="json"
+    )
     facts = parse_facts(content)
     if not facts:
         return []
     vectors, model_name = embed_safely(embedder, [f["fact"] for f in facts])
     for f, vec in zip(facts, vectors):
-        store.add_episode({"user_id": user_id, "session_id": session_id, "fact": f["fact"],
-                           "importance": f["importance"], "embedding": vec, "embedding_model": model_name,
-                           "created_at": now_utc()})
+        store.add_episode(
+            {
+                "user_id": user_id,
+                "session_id": session_id,
+                "fact": f["fact"],
+                "importance": f["importance"],
+                "embedding": vec,
+                "embedding_model": model_name,
+                "created_at": now_utc(),
+            }
+        )
     return facts
 
 
@@ -385,26 +452,39 @@ def maybe_summarize(store, model, user_id: str, session_id: str, user_message_co
     previous = store.latest_summary(user_id, "session", session_id)
     transcript = "\n".join(f"{m['role']}: {m['content']}" for m in recent)
     prompt = (f"Previous summary:\n{previous['text']}\n\n" if previous else "") + f"Recent messages:\n{transcript}"
-    text = _call(model, [{"role": "system", "content": SESSION_SUMMARY_PROMPT}, {"role": "user", "content": prompt}], usage)
+    text = _call(
+        model, [{"role": "system", "content": SESSION_SUMMARY_PROMPT}, {"role": "user", "content": prompt}], usage
+    )
     if text:
         store.add_summary(user_id, session_id, "session", text)
         made["session_summary_created"] = True
 
-    if made["session_summary_created"] and store.count_session_summaries(user_id) % config.LIFETIME_EVERY_SESSION_SUMMARIES == 0:
+    if (
+        made["session_summary_created"]
+        and store.count_session_summaries(user_id) % config.LIFETIME_EVERY_SESSION_SUMMARIES == 0
+    ):
         sessions = store.session_summaries(user_id, 6)[::-1]  # oldest first, newest last
         lifetime = store.latest_summary(user_id, "user")
         body = "\n\n".join(f"Session {s['session_id']}:\n{s['text']}" for s in sessions)
         if lifetime:
             body = f"Current lifetime summary:\n{lifetime['text']}\n\n{body}"
-        text = _call(model, [{"role": "system", "content": LIFETIME_SUMMARY_PROMPT}, {"role": "user", "content": body}], usage)
+        text = _call(
+            model, [{"role": "system", "content": LIFETIME_SUMMARY_PROMPT}, {"role": "user", "content": body}], usage
+        )
         if text:
             store.add_summary(user_id, None, "user", text)
             made["lifetime_summary_created"] = True
     return made
 
 
-def build_prompt(session_summary: str | None, lifetime_summary: str | None, window: list[dict],
-                 message: str, episodes: list[dict], primer: str = SYSTEM_PRIMER) -> tuple[list[dict], dict]:
+def build_prompt(
+    session_summary: str | None,
+    lifetime_summary: str | None,
+    window: list[dict],
+    message: str,
+    episodes: list[dict],
+    primer: str = SYSTEM_PRIMER,
+) -> tuple[list[dict], dict]:
     """Prompt = system primer + long-term summaries + episodic facts (system message),
     then the short-term window, then the current message. Returns (messages, component texts)."""
     long_term = ""

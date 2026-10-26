@@ -53,8 +53,10 @@ def _run(label: str, fn, policy: RetryPolicy, attempts_log: list | None):
     try:
         return call_with_retry(fn, policy, attempts_log=attempts_log), None
     except RetryExhausted as exc:
-        return None, fail(f"Storage unavailable: {label} failed after {len(exc.attempts)} attempts "
-                          f"(last error: {exc.attempts[-1]['error']})")
+        return None, fail(
+            f"Storage unavailable: {label} failed after {len(exc.attempts)} attempts "
+            f"(last error: {exc.attempts[-1]['error']})"
+        )
 
 
 def search_listings(inputs: dict, repo, policy: RetryPolicy, attempts_log: list | None = None) -> dict:

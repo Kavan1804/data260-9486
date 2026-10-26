@@ -408,3 +408,20 @@ input:focus{
 .nowrap{
   white-space: nowrap;
 }
+
+/* HW7 Part 4 - bike-share page */
+.bs-form{ display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end; }
+.bs-form label{ display:flex; flex-direction:column; gap:4px; font-weight:600; }
+.bs-form input[type=url]{ min-width:360px; }
+.bs-metrics{ display:flex; flex-wrap:wrap; gap:18px; margin:16px 0; padding:10px 14px; border:1px solid var(--border); border-radius:12px; background:var(--bg2); font-size:14px; }
+.bs-grid{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.2fr); gap:20px; }
+.bs-timeline{ font-size:13px; padding-left:20px; }
+.bs-timeline li{ margin-bottom:8px; }
+.bs-timeline code{ font-size:12px; color:var(--muted); }
+.bs-check b{ color:var(--primary2); }
+.bs-ok{ color:#047857; }
+.bs-err{ color:var(--danger); }
+.bs-decision{ font-size:18px; margin-bottom:8px; }
+.bs-answer{ white-space:pre-wrap; background:var(--bg1); padding:10px; border-radius:10px; }
+.bs-cites{ font-size:13px; }
+@media (max-width: 900px){ .bs-grid{ grid-template-columns: 1fr; } .bs-form input[type=url]{ min-width:0; width:100%; } }

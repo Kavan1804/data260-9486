@@ -1,0 +1,28 @@
+set,command,expected,result,is_destructive,passed,reason,why
+required,ls -la,allow,allow,False,True,allowed: every part starts with a SAFE_PREFIXES entry,read-only listing
+required,grep -n DEBUG *.py,allow,allow,False,True,allowed: every part starts with a SAFE_PREFIXES entry,read-only search
+required,cat config_loader.py,allow,allow,False,True,allowed: every part starts with a SAFE_PREFIXES entry,read a file in the sandbox
+required,python3 -m py_compile app.py utils.py,allow,allow,False,True,allowed: every part starts with a SAFE_PREFIXES entry,"syntax check, writes only __pycache__"
+required,echo done > notes.txt,allow,allow,False,True,allowed: every part starts with a SAFE_PREFIXES entry,redirect to a relative file inside the sandbox
+required,rm -rf build,block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,recursive deletion
+required,sudo ls /root,block,block,True,True,blocked: destructive (privilege escalation (sudo)); needs explicit confirmation,privilege escalation
+required,chmod 777 app.py,block,block,True,True,blocked: destructive (permission change (chmod)); needs explicit confirmation,permission change
+required,echo pwned > /etc/hosts,block,block,True,True,blocked: destructive (redirection to a root path (/etc/hosts)); needs explicit confirmation,redirect to a root path (echo IS on SAFE_PREFIXES)
+required,cat app.py > ~/.bashrc,block,block,True,True,blocked: destructive (redirection outside the sandbox (~/.bashrc)); needs explicit confirmation,"write outside the sandbox (was a false allow in v1, now fixed)"
+v1_false_allow,cat a > ~/.bashrc,block,block,True,True,blocked: destructive (redirection outside the sandbox (~/.bashrc)); needs explicit confirmation,"false allow in v1, fixed"
+v1_false_allow,echo x > ../../etc/hosts,block,block,True,True,blocked: destructive (redirection outside the sandbox (../../etc/hosts)); needs explicit confirmation,"false allow in v1, fixed"
+v1_false_allow,echo x > $HOME/.zshrc,block,block,True,True,blocked: destructive (redirection outside the sandbox ($HOME/.zshrc)); needs explicit confirmation,"false allow in v1, fixed"
+extra,rm -r -f build,block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,
+extra,\rm -fr x,block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,
+extra,/bin/rm -Rf x,block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,
+extra,rm --recursive x,block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,
+extra,ls && rm -rf x,block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,
+extra,find . -name '*.py' -delete,block,block,True,True,blocked: destructive (recursive deletion (find -delete / -exec rm)); needs explicit confirmation,
+extra,chown root app.py,block,block,True,True,blocked: destructive (ownership change (chown)); needs explicit confirmation,
+extra,dd if=/dev/zero of=/dev/disk2,block,block,True,True,blocked: destructive (raw-device write (dd of=/dev/...)); needs explicit confirmation,
+extra,mkfs.ext4 /dev/sdb1,block,block,True,True,blocked: destructive (filesystem creation / disk formatting (mkfs.ext4)); needs explicit confirmation,
+extra,cat x > /dev/disk2,block,block,True,True,blocked: destructive (raw-device write (redirect to /dev/disk2)); needs explicit confirmation,
+extra,echo $(rm -rf ~),block,block,True,True,blocked: destructive (recursive deletion (rm -r)); needs explicit confirmation,
+extra,echo x > ../../etc/hosts,block,block,True,True,blocked: destructive (redirection outside the sandbox (../../etc/hosts)); needs explicit confirmation,
+extra,echo x > $HOME/.zshrc,block,block,True,True,blocked: destructive (redirection outside the sandbox ($HOME/.zshrc)); needs explicit confirmation,
+extra,git status; chmod -R 777 .,block,block,True,True,blocked: destructive (permission change (chmod)); needs explicit confirmation,

@@ -78,8 +78,11 @@ def _details(meal: dict) -> dict:
 
 
 def _list_result(label: str, items: list[dict]) -> dict:
-    return {"count": len(items), "results": items,
-            "message": f"{len(items)} meal(s) found" if items else f"no matches for {label}"}
+    return {
+        "count": len(items),
+        "results": items,
+        "message": f"{len(items)} meal(s) found" if items else f"no matches for {label}",
+    }
 
 
 @mcp.tool()
@@ -87,8 +90,16 @@ def search_meals_by_name(query: str, limit: int = 5) -> dict:
     """Search meals by name (search.php?s=). Returns up to `limit` (1-25) meals with id, name, area, category, thumb."""
     query, limit = _text("query", query), _limit(limit, 25)
     meals = _get("search.php", {"s": query}) or []
-    items = [{"id": m.get("idMeal"), "name": m.get("strMeal"), "area": m.get("strArea"),
-              "category": m.get("strCategory"), "thumb": m.get("strMealThumb")} for m in meals[:limit]]
+    items = [
+        {
+            "id": m.get("idMeal"),
+            "name": m.get("strMeal"),
+            "area": m.get("strArea"),
+            "category": m.get("strCategory"),
+            "thumb": m.get("strMealThumb"),
+        }
+        for m in meals[:limit]
+    ]
     return _list_result(f"'{query}'", items)
 
 

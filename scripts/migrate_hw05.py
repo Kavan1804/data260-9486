@@ -26,20 +26,70 @@ from sqlalchemy.engine import make_url  # noqa: E402
 
 from config import DB_NAME, N_LANDLORDS, SEED  # noqa: E402
 
-FIRST = ["Alicia", "Brandon", "Carmen", "Deepak", "Elena", "Farah", "Gabriel", "Hana", "Isaac", "Jasmine",
-         "Kevin", "Leila", "Marcus", "Neha", "Oscar", "Paula", "Quinn", "Rosa", "Tariq", "Vivian"]
-LAST = ["Alvarez", "Bennett", "Chowdhury", "Dang", "Estrada", "Fischer", "Gupta", "Huang", "Iyer", "Jensen",
-        "Kaur", "Larsen", "Morales", "Nakamura", "Okafor", "Park", "Reyes", "Shah", "Tran", "Vasquez"]
-COMPANIES = ["Bay Area Rentals LLC", "Silicon Valley Property Mgmt", "Santa Clara Homes", "Rose Garden Realty",
-             "Willow Glen Residential", "Downtown SJ Apartments", "Peninsula Leasing Co", "Campbell Rental Group"]
+FIRST = [
+    "Alicia",
+    "Brandon",
+    "Carmen",
+    "Deepak",
+    "Elena",
+    "Farah",
+    "Gabriel",
+    "Hana",
+    "Isaac",
+    "Jasmine",
+    "Kevin",
+    "Leila",
+    "Marcus",
+    "Neha",
+    "Oscar",
+    "Paula",
+    "Quinn",
+    "Rosa",
+    "Tariq",
+    "Vivian",
+]
+LAST = [
+    "Alvarez",
+    "Bennett",
+    "Chowdhury",
+    "Dang",
+    "Estrada",
+    "Fischer",
+    "Gupta",
+    "Huang",
+    "Iyer",
+    "Jensen",
+    "Kaur",
+    "Larsen",
+    "Morales",
+    "Nakamura",
+    "Okafor",
+    "Park",
+    "Reyes",
+    "Shah",
+    "Tran",
+    "Vasquez",
+]
+COMPANIES = [
+    "Bay Area Rentals LLC",
+    "Silicon Valley Property Mgmt",
+    "Santa Clara Homes",
+    "Rose Garden Realty",
+    "Willow Glen Residential",
+    "Downtown SJ Apartments",
+    "Peninsula Leasing Co",
+    "Campbell Rental Group",
+]
 
 NEW_COLUMNS = {
     "listing_code": "ALTER TABLE listings ADD COLUMN listing_code VARCHAR(9) NULL AFTER address",
     "available_units": "ALTER TABLE listings ADD COLUMN available_units INT NOT NULL DEFAULT 1 AFTER listing_code",
     "landlord_id": "ALTER TABLE listings ADD COLUMN landlord_id INT NULL AFTER available_units",
     "created_at": "ALTER TABLE listings ADD COLUMN created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP",
-    "updated_at": ("ALTER TABLE listings ADD COLUMN updated_at DATETIME NOT NULL "
-                   "DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"),
+    "updated_at": (
+        "ALTER TABLE listings ADD COLUMN updated_at DATETIME NOT NULL "
+        "DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+    ),
 }
 
 
@@ -48,9 +98,13 @@ def log(msg: str) -> None:
 
 
 def constraint_names(conn, table: str) -> set[str]:
-    rows = conn.execute(text(
-        "SELECT CONSTRAINT_NAME FROM information_schema.TABLE_CONSTRAINTS "
-        "WHERE TABLE_SCHEMA = :db AND TABLE_NAME = :t"), {"db": DB_NAME, "t": table})
+    rows = conn.execute(
+        text(
+            "SELECT CONSTRAINT_NAME FROM information_schema.TABLE_CONSTRAINTS "
+            "WHERE TABLE_SCHEMA = :db AND TABLE_NAME = :t"
+        ),
+        {"db": DB_NAME, "t": table},
+    )
     return {r[0] for r in rows}
 
 
@@ -82,23 +136,34 @@ def main() -> None:
         if n_landlords == 0:
             rng = random.Random(SEED)
             firsts, lasts = rng.sample(FIRST, N_LANDLORDS), rng.sample(LAST, N_LANDLORDS)
-            rows = [{"full_name": f"{f} {l}", "company": rng.choice(COMPANIES),
-                     "email": f"{f.lower()}.{l.lower()}@example.com"} for f, l in zip(firsts, lasts)]
-            conn.execute(text("INSERT INTO landlords (full_name, company, email) VALUES (:full_name, :company, :email)"), rows)
+            rows = [
+                {
+                    "full_name": f"{first} {last}",
+                    "company": rng.choice(COMPANIES),
+                    "email": f"{first.lower()}.{last.lower()}@example.com",
+                }
+                for first, last in zip(firsts, lasts)
+            ]
+            conn.execute(
+                text("INSERT INTO landlords (full_name, company, email) VALUES (:full_name, :company, :email)"), rows
+            )
             log(f"seeded {len(rows)} landlords with SEED={SEED}")
         else:
             log(f"landlords already has {n_landlords} rows - left unchanged")
 
-        filled = conn.execute(text(
-            "UPDATE listings SET listing_code = CONCAT('LST-', LPAD(id, 5, '0')) WHERE listing_code IS NULL")).rowcount
+        filled = conn.execute(
+            text("UPDATE listings SET listing_code = CONCAT('LST-', LPAD(id, 5, '0')) WHERE listing_code IS NULL")
+        ).rowcount
         log(f"backfilled listing_code on {filled} listings")
 
         landlord_ids = [r[0] for r in conn.execute(text("SELECT id FROM landlords ORDER BY id"))]
         missing = [r[0] for r in conn.execute(text("SELECT id FROM listings WHERE landlord_id IS NULL ORDER BY id"))]
         if missing:
             rng = random.Random(SEED)
-            conn.execute(text("UPDATE listings SET landlord_id = :lid WHERE id = :id"),
-                         [{"id": i, "lid": rng.choice(landlord_ids)} for i in missing])
+            conn.execute(
+                text("UPDATE listings SET landlord_id = :lid WHERE id = :id"),
+                [{"id": i, "lid": rng.choice(landlord_ids)} for i in missing],
+            )
         log(f"assigned landlord_id on {len(missing)} listings")
 
         # Tighten constraints only after every row has values.
@@ -116,17 +181,22 @@ def main() -> None:
             index_names = {i["name"] for i in inspect(conn).get_indexes("listings")}
             if "ix_listings_landlord_id" not in index_names:
                 conn.execute(text("CREATE INDEX ix_listings_landlord_id ON listings (landlord_id)"))
-            conn.execute(text(
-                "ALTER TABLE listings ADD CONSTRAINT fk_listings_landlord FOREIGN KEY (landlord_id) "
-                "REFERENCES landlords (id) ON DELETE RESTRICT ON UPDATE CASCADE"))
+            conn.execute(
+                text(
+                    "ALTER TABLE listings ADD CONSTRAINT fk_listings_landlord FOREIGN KEY (landlord_id) "
+                    "REFERENCES landlords (id) ON DELETE RESTRICT ON UPDATE CASCADE"
+                )
+            )
             log("added FOREIGN KEY fk_listings_landlord (ON DELETE RESTRICT)")
         if "ck_listings_available_units" not in names:
-            conn.execute(text(
-                "ALTER TABLE listings ADD CONSTRAINT ck_listings_available_units CHECK (available_units >= 0)"))
+            conn.execute(
+                text("ALTER TABLE listings ADD CONSTRAINT ck_listings_available_units CHECK (available_units >= 0)")
+            )
             log("added CHECK ck_listings_available_units")
 
-        summary = conn.execute(text(
-            "SELECT COUNT(*), COUNT(DISTINCT landlord_id), SUM(listing_code IS NULL) FROM listings")).one()
+        summary = conn.execute(
+            text("SELECT COUNT(*), COUNT(DISTINCT landlord_id), SUM(listing_code IS NULL) FROM listings")
+        ).one()
         log(f"listings={summary[0]}, distinct landlords used={summary[1]}, null codes={summary[2] or 0}")
         log(f"tables: {', '.join(sorted(inspect(conn).get_table_names()))}")
 

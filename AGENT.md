@@ -8,7 +8,7 @@
 2. HW6 adds a MongoDB document view of listings (`s9486_doc.listings`) and chat memory (`messages`, `summaries`, `episodes`) next to the HW4/HW5 MySQL backend.
 
 ## Technology stack
-3. Backend: Python 3 + FastAPI on port 8486 (`config.PORT_BASE`), SQLAlchemy/MySQL (`s9486_rel`), PyMongo/MongoDB (`s9486_doc`), Pydantic v2 schemas.
+3. Backend: Python 3 + FastAPI on port 8486 (`config.PORT_BASE`), SQLAlchemy/MySQL (`s9486_rel`), PyMongo/MongoDB (`s9486_doc`), Pydantic v2 schemas. Since HW7 the domain routes use JWT bearer auth with roles reader / writer / moderator, and Ruff + pre-commit check every commit.
 4. Models: only the local Ollama model, called through the HW5 adapter `domain_tools.agent.OllamaModel`; no hosted or paid model APIs.
 5. Frontend: React (Vite) + Redux Toolkit in `frontend/`.
 
@@ -24,7 +24,7 @@
 12. Tests that need MongoDB run only with `--live` and use the throwaway database `s9486_doc_test`.
 
 ## Prohibited actions
-13. Do not import LangChain, OpenAI, Flask or Redis.
+13. Do not import OpenAI, Flask or Redis. LangChain/LangGraph is allowed only in `bikeshare/` (HW7 Part 4 asks for a framework-based ReAct agent); everywhere else the agents stay hand-written.
 14. Do not commit `.env`, credentials, `.venv/`, `__pycache__/` or `.DS_Store`.
 15. Do not fabricate results, metrics, screenshots, timestamps or commit hashes; report what a real run printed.
 16. Do not delete or rewrite working HW1-HW5 code to make a new homework pass.

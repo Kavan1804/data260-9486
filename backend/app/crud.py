@@ -50,6 +50,7 @@ def _page(db: Session, query, skip: int, limit: int) -> dict:
 
 # ---------- Landlords ----------
 
+
 def get_landlord(db: Session, landlord_id: int) -> models.Landlord | None:
     return db.get(models.Landlord, landlord_id)
 
@@ -95,9 +96,7 @@ def delete_landlord(db: Session, landlord_id: int):
         return None
     owned = db.scalar(select(func.count()).where(models.Listing.landlord_id == landlord_id))
     if owned:
-        raise ConflictError(
-            f"Landlord {landlord_id} still has {owned} listing(s); reassign or delete them first"
-        )
+        raise ConflictError(f"Landlord {landlord_id} still has {owned} listing(s); reassign or delete them first")
     deleted = schema.LandlordOut.model_validate(landlord)
     db.delete(landlord)
     _commit(db)
@@ -113,6 +112,7 @@ def listings_for_landlord(db: Session, landlord_id: int, skip: int, limit: int):
 
 
 # ---------- Listings ----------
+
 
 def _code_taken(db: Session, code: str, exclude_id: int | None = None) -> bool:
     q = db.query(models.Listing.id).filter(models.Listing.listing_code == code)
@@ -175,11 +175,7 @@ def delete_listing(db: Session, listing_id: int):
 def list_listings_naive(db: Session, page: int, page_size: int) -> list[dict]:
     """Intentional N+1: one query for the page, then one query per listing."""
     listings = (
-        db.query(models.Listing)
-        .order_by(models.Listing.id)
-        .offset((page - 1) * page_size)
-        .limit(page_size)
-        .all()
+        db.query(models.Listing).order_by(models.Listing.id).offset((page - 1) * page_size).limit(page_size).all()
     )
     items = []
     for listing in listings:
@@ -208,3 +204,7 @@ def list_listings_fixed(db: Session, page: int, page_size: int) -> list[models.L
 
 def get_user_by_email(db: Session, email: str) -> models.User | None:
     return db.query(models.User).filter(models.User.email == email).first()
+
+
+def get_user_by_username(db: Session, username: str) -> models.User | None:
+    return db.query(models.User).filter(models.User.username == username).first()

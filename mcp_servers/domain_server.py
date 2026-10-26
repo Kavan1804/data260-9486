@@ -37,9 +37,11 @@ def _call(name: str, inputs: dict) -> dict:
 # Parameters are typed loosely (str | int) on purpose: wrong types still reach
 # execute_tool's validation and come back as a clean {ok: false} envelope.
 
+
 @mcp.tool(description=TOOL_SPECS["search_listings"]["description"])
-def search_listings(query: str | int | None = None, limit: int | str | None = None,
-                    min_units: int | str | None = None) -> dict:
+def search_listings(
+    query: str | int | None = None, limit: int | str | None = None, min_units: int | str | None = None
+) -> dict:
     return _call("search_listings", {"query": query, "limit": limit, "min_units": min_units})
 
 

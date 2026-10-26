@@ -31,8 +31,10 @@ def main() -> int:
     banner("Part 4 consolidation of the 55-line MEMORY.md fixture")
     original = ORIGINAL.read_text(encoding="utf-8")
     due, reasons = file_memory.needs_consolidation(original)
-    print(f"original: {ORIGINAL.relative_to(file_memory.config.ROOT)} - {len(original.splitlines())} lines, "
-          f"{file_memory.count_memory_lines(original)} non-empty non-comment lines")
+    print(
+        f"original: {ORIGINAL.relative_to(file_memory.config.ROOT)} - {len(original.splitlines())} lines, "
+        f"{file_memory.count_memory_lines(original)} non-empty non-comment lines"
+    )
     print(f"consolidation due: {due} ({'; '.join(reasons)})\n")
 
     CONSOLIDATED.parent.mkdir(parents=True, exist_ok=True)
@@ -46,8 +48,10 @@ def main() -> int:
         print(f"  [{d['key']}] {d['value']}")
     print(f"\nContradictions resolved ({len(report['contradictions_resolved'])}):")
     for c in report["contradictions_resolved"]:
-        print(f"  [{c['key']}] kept {c['kept']!r} ({c['kept_seen']}, {c['kept_source']}) "
-              f"over {c['dropped']!r} ({c['dropped_seen']}, {c['dropped_source']})")
+        print(
+            f"  [{c['key']}] kept {c['kept']!r} ({c['kept_seen']}, {c['kept_source']}) "
+            f"over {c['dropped']!r} ({c['dropped_seen']}, {c['dropped_source']})"
+        )
     print(f"\nFlagged as possibly resolved incorrectly ({len(report['needs_review'])}):")
     for r in report["needs_review"]:
         print(f"  [{r['key']}] kept {r['kept']!r} over {r['dropped']!r}: {r['why']}")
@@ -59,9 +63,16 @@ def main() -> int:
         print(f"  [{'PASS' if c['passed'] else 'FAIL'}] {c['check']}: {c['details']}")
     print(f"\n----- {CONSOLIDATED.name} -----\n{consolidated}")
 
-    write_json(RAW / "consolidation_report.json", {"original": str(ORIGINAL), "consolidated": str(CONSOLIDATED),
-                                                   "compact_reply": result["reply"], "report": report,
-                                                   "checks": checks})
+    write_json(
+        RAW / "consolidation_report.json",
+        {
+            "original": str(ORIGINAL),
+            "consolidated": str(CONSOLIDATED),
+            "compact_reply": result["reply"],
+            "report": report,
+            "checks": checks,
+        },
+    )
     print(f"Wrote {CONSOLIDATED} and {RAW / 'consolidation_report.json'}")
     return 0 if all(c["passed"] for c in checks) else 1
 

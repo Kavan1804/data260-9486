@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { errorMessage, login, logout } from "../api/listingsApi.js";
 
 export default function Login({ auth, setAuth }) {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -10,7 +10,7 @@ export default function Login({ auth, setAuth }) {
     e.preventDefault();
     setError("");
     try {
-      const user = await login(email.trim(), password);
+      const user = await login(username.trim(), password);
       setAuth({ checked: true, loggedIn: true, user });
       setPassword("");
     } catch (err) {
@@ -30,7 +30,7 @@ export default function Login({ auth, setAuth }) {
     return (
       <div className="loginbar">
         <div className="loginbar-text">
-          Logged in as <b>{auth.user.name}</b> ({auth.user.email})
+          Logged in as <b>{auth.user.username}</b> (role: {auth.user.role})
         </div>
         <button className="btn danger" onClick={handleLogout}>
           Logout
@@ -45,10 +45,10 @@ export default function Login({ auth, setAuth }) {
         <div className="loginbar-text">Not logged in</div>
         <input
           className="loginbar-input"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           required
         />
         <input

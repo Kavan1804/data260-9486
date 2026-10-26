@@ -7,6 +7,7 @@ import Login from "./pages/Login.jsx";
 import Home from "./pages/Home.jsx";
 import CreateRecord from "./pages/CreateRecord.jsx";
 import UpdateRecord from "./pages/UpdateRecord.jsx";
+import BikeShare from "./pages/BikeShare.jsx";
 
 import { me } from "./api/listingsApi.js";
 import { fetchLandlords } from "./features/landlords/landlordsSlice.js";
@@ -34,7 +35,7 @@ export default function App() {
   // Auth stays local React state (HW4); listing data lives in the Redux store.
   const [auth, setAuth] = useState({ checked: false, loggedIn: false, user: null });
 
-  // On first load, ask the backend whether the HTTP-only cookie is still a valid session.
+  // On first load, check whether the stored JWT (if any) is still valid.
   useEffect(() => {
     me()
       .then((user) => setAuth({ checked: true, loggedIn: true, user }))
@@ -59,6 +60,7 @@ export default function App() {
         <Route path="/" element={<Home auth={auth} />} />
         <Route path="/create" element={<RequireAuth auth={auth}><CreateRecord /></RequireAuth>} />
         <Route path="/update" element={<RequireAuth auth={auth}><UpdateRecord /></RequireAuth>} />
+        <Route path="/bikeshare" element={<BikeShare />} />
         <Route path="/update/:id" element={<RequireAuth auth={auth}><UpdateRecord /></RequireAuth>} />
       </Routes>
     </div>

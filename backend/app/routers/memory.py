@@ -43,32 +43,53 @@ def _summary_out(s: dict | None) -> dict | None:
 
 def _episode_out(e: dict) -> dict:
     vec = e.get("embedding") or []
-    return {"session_id": e.get("session_id"), "fact": e["fact"], "importance": e["importance"],
-            "embedding_model": e.get("embedding_model"), "embedding_dim": len(vec),
-            "embedding_preview": [round(x, 4) for x in vec[:4]], "created_at": e["created_at"]}
+    return {
+        "session_id": e.get("session_id"),
+        "fact": e["fact"],
+        "importance": e["importance"],
+        "embedding_model": e.get("embedding_model"),
+        "embedding_dim": len(vec),
+        "embedding_preview": [round(x, 4) for x in vec[:4]],
+        "created_at": e["created_at"],
+    }
 
 
 @router.post("/chat")
-def chat(payload: ChatRequest, store=Depends(get_store), model=Depends(get_chat_model),
-         embedder=Depends(get_embedder)):
+def chat(payload: ChatRequest, store=Depends(get_store), model=Depends(get_chat_model), embedder=Depends(get_embedder)):
     try:
         if file_memory.is_command(payload.message):
-            recent = (store.recent_messages(payload.user_id, payload.session_id, 16) if payload.session_id else
-                      store.user_messages(payload.user_id, 16))
+            recent = (
+                store.recent_messages(payload.user_id, payload.session_id, 16)
+                if payload.session_id
+                else store.user_messages(payload.user_id, 16)
+            )
             recent = [{"role": m["role"], "content": m["content"]} for m in recent]
-            return {"user_id": payload.user_id, "session_id": payload.session_id,
-                    **file_memory.handle_command(payload.message, model, recent)}
+            return {
+                "user_id": payload.user_id,
+                "session_id": payload.session_id,
+                **file_memory.handle_command(payload.message, model, recent),
+            }
         return memory_logic.chat_turn(
-            store, model, embedder, payload.user_id, payload.message, session_id=payload.session_id,
-            short_term_n=payload.short_term_n, policy=payload.policy, phase=payload.phase, run_id=payload.run_id,
+            store,
+            model,
+            embedder,
+            payload.user_id,
+            payload.message,
+            session_id=payload.session_id,
+            short_term_n=payload.short_term_n,
+            policy=payload.policy,
+            phase=payload.phase,
+            run_id=payload.run_id,
         )
     except PyMongoError as exc:
         raise HTTPException(status_code=500, detail=f"Database error during chat: {type(exc).__name__}")
     except HTTPException:
         raise
     except Exception as exc:  # noqa: BLE001 - usually Ollama not running or the model name is wrong
-        raise HTTPException(status_code=502, detail=f"Model call failed ({type(exc).__name__}: {exc}). "
-                                                    "Is Ollama running and is OLLAMA_MODEL pulled?")
+        raise HTTPException(
+            status_code=502,
+            detail=f"Model call failed ({type(exc).__name__}: {exc}). Is Ollama running and is OLLAMA_MODEL pulled?",
+        )
 
 
 @router.get("/memory/{user_id}")

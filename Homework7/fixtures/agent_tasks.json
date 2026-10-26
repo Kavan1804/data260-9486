@@ -1,0 +1,29 @@
+{
+  "description": "HW7 Part 2/3 fixed verification tasks. Each one needs at least two tool calls and is asked once, with no follow-up prompting. Expected values are checked against MySQL s9486_rel at verification time, not hard-coded.",
+  "tasks": {
+    "A": {
+      "name": "search then detail lookup",
+      "prompt": "Search for listings in Campbell, then look up the full details of the first result and tell me its listing code, title and landlord name.",
+      "min_tool_calls": 2,
+      "search_query": "Campbell"
+    },
+    "B": {
+      "name": "aggregate then supporting example",
+      "prompt": "How many listings does landlord 12 manage, and how many units are available in total? Then back it up with one example: search listings in San Jose and give me the listing code of one listing that belongs to landlord 12.",
+      "min_tool_calls": 2,
+      "landlord_id": 12,
+      "search_query": "San Jose"
+    },
+    "C": {
+      "name": "compare two entities (search + two detail lookups)",
+      "prompt": "Search for listings with parking and compare the first two results: look up the details of both and tell me each one's listing code, address and landlord name.",
+      "min_tool_calls": 3,
+      "search_query": "parking"
+    }
+  },
+  "error_recovery": {
+    "name": "nonexistent id",
+    "prompt": "Give me the full details for listing LST-99999.",
+    "listing_code": "LST-99999"
+  }
+}

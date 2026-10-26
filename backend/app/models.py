@@ -1,5 +1,15 @@
 from sqlalchemy import (
-    CheckConstraint, Column, DateTime, ForeignKey, Index, Integer, String, Text, UniqueConstraint, func, text,
+    CheckConstraint,
+    Column,
+    DateTime,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+    func,
+    text,
 )
 from sqlalchemy.orm import foreign, relationship
 
@@ -90,13 +100,23 @@ class ListingInquiry(Base):
     __table_args__ = (Index(INQUIRY_INDEX_NAME, "listing_id"),)
 
 
+USER_ROLES = ("reader", "writer", "moderator")
+
+
 class User(Base):
+    """HW7: id, username (unique), password_hash (bcrypt only) and role are what auth uses.
+    name/email are the HW4 columns; scripts/migrate_hw07.py made them optional."""
+
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(255), nullable=False)
-    email = Column(String(255), nullable=False, unique=True)
+    username = Column(String(64), nullable=False, unique=True)
     password_hash = Column(String(255), nullable=False)
+    role = Column(String(16), nullable=False, server_default="reader")
+    name = Column(String(255), nullable=True)
+    email = Column(String(255), nullable=True, unique=True)
+
+    __table_args__ = (CheckConstraint("role IN ('reader', 'writer', 'moderator')", name="ck_users_role"),)
 
 
 class SessionToken(Base):

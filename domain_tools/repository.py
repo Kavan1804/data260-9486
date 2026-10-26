@@ -32,20 +32,23 @@ class InMemoryListingRepository:
 
     def __init__(self, listings: list[dict], landlords: list[dict]):
         self.listings = listings
-        self.landlords = {l["id"]: l for l in landlords}
+        self.landlords = {ld["id"]: ld for ld in landlords}
 
     def search(self, query: str, limit: int, min_units: int) -> list[dict]:
         q = query.lower()
-        hits = [l for l in sorted(self.listings, key=lambda l: l["id"])
-                if (q in l["title"].lower() or q in l["address"].lower()) and l["available_units"] >= min_units]
-        return [_listing_row(l, self.landlords.get(l["landlord_id"])) for l in hits[:limit]]
+        hits = [
+            row
+            for row in sorted(self.listings, key=lambda r: r["id"])
+            if (q in row["title"].lower() or q in row["address"].lower()) and row["available_units"] >= min_units
+        ]
+        return [_listing_row(row, self.landlords.get(row["landlord_id"])) for row in hits[:limit]]
 
     def get_by_code(self, listing_code: str) -> dict | None:
-        for l in self.listings:
-            if l["listing_code"] == listing_code:
-                landlord = self.landlords.get(l["landlord_id"])
-                row = _listing_row(l, landlord)
-                row["id"] = l["id"]
+        for item in self.listings:
+            if item["listing_code"] == listing_code:
+                landlord = self.landlords.get(item["landlord_id"])
+                row = _listing_row(item, landlord)
+                row["id"] = item["id"]
                 row["landlord_company"] = landlord["company"] if landlord else None
                 return row
         return None
@@ -54,7 +57,7 @@ class InMemoryListingRepository:
         landlord = self.landlords.get(landlord_id)
         if not landlord:
             return None
-        units = [l["available_units"] for l in self.listings if l["landlord_id"] == landlord_id]
+        units = [row["available_units"] for row in self.listings if row["landlord_id"] == landlord_id]
         return _stats_row(landlord, len(units), sum(units), min(units, default=None), max(units, default=None))
 
 
@@ -85,7 +88,8 @@ class MySQLListingRepository:
         t = max(1, int(round(timeout_s)))
         # Driver-level timeouts so a hung MySQL cannot block a tool call forever.
         self.engine = create_engine(
-            url, pool_pre_ping=True,
+            url,
+            pool_pre_ping=True,
             connect_args={"connect_timeout": t, "read_timeout": t, "write_timeout": t},
         )
 

@@ -47,6 +47,7 @@ if not LIVE:
     socket.create_connection = _no_network  # type: ignore[assignment]
 
 from fastapi import HTTPException  # noqa: E402
+from hw5_common import banner  # noqa: E402
 from pydantic import ValidationError  # noqa: E402
 
 import config  # noqa: E402
@@ -54,11 +55,15 @@ from backend.app import file_memory, memory_logic  # noqa: E402
 from backend.app.doc_schema import PROPERTY_TYPES, STATUSES, ListingDocCreate, ListingDocUpdate  # noqa: E402
 from backend.app.mongo import EPISODES, LISTINGS, MESSAGES, SUMMARIES, VALIDATORS  # noqa: E402
 from backend.app.routers.listing_docs import to_object_id  # noqa: E402
-from hw5_common import banner  # noqa: E402
 
 FIXTURE_55 = ROOT / "Homework6" / "fixtures" / "MEMORY_original_55.md"
-VALID_DOC = {"title": "Sunny studio near SJSU", "description": "Walk to campus", "status": "available",
-             "property_type": "studio", "available_from": "2026-12-01T09:00:00Z"}
+VALID_DOC = {
+    "title": "Sunny studio near SJSU",
+    "description": "Walk to campus",
+    "status": "available",
+    "property_type": "studio",
+    "available_from": "2026-12-01T09:00:00Z",
+}
 
 
 class FakeModel:
@@ -81,10 +86,18 @@ class FakeModel:
         if system.startswith("Condense"):
             return {"content": "- lifetime: user rents in the Bay Area", **usage}
         if system.startswith("From the conversation"):
-            return {"content": json.dumps({"facts": [{"key": "user.city", "fact": "Wants to live in Santa Clara",
-                                                      "source": "user"}]}), **usage}
-        return {"content": f"fake reply to: {last[:40]}", "tool_calls": [],
-                "prompt_tokens": len(json.dumps(messages)) // 4, "completion_tokens": 7}
+            return {
+                "content": json.dumps(
+                    {"facts": [{"key": "user.city", "fact": "Wants to live in Santa Clara", "source": "user"}]}
+                ),
+                **usage,
+            }
+        return {
+            "content": f"fake reply to: {last[:40]}",
+            "tool_calls": [],
+            "prompt_tokens": len(json.dumps(messages)) // 4,
+            "completion_tokens": 7,
+        }
 
 
 def expect_invalid(model, data: dict) -> str:
@@ -96,15 +109,26 @@ def expect_invalid(model, data: dict) -> str:
 
 
 def run_chat(store, model, messages: list[str], user="u1", session="s1", **kw) -> list[dict]:
-    return [memory_logic.chat_turn(store, model, memory_logic.HashEmbedder(), user, m, session_id=session,
-                                   log_path=None, **kw) for m in messages]
+    return [
+        memory_logic.chat_turn(
+            store, model, memory_logic.HashEmbedder(), user, m, session_id=session, log_path=None, **kw
+        )
+        for m in messages
+    ]
 
 
 # ---------- configuration ----------
 
+
 def test_config_values():
-    assert (config.SID4, config.PORT_BASE, config.PREFIX, config.SEED, config.VERIFY_SEED, config.DOMAIN_ID) == \
-        (9486, 8486, "s9486", 9486, 269486, 6)
+    assert (config.SID4, config.PORT_BASE, config.PREFIX, config.SEED, config.VERIFY_SEED, config.DOMAIN_ID) == (
+        9486,
+        8486,
+        "s9486",
+        9486,
+        269486,
+        6,
+    )
     assert config.PORT_BASE == 8000 + config.SID4 % 900 and config.DOMAIN_ID == config.SID4 % 8
     assert config.MONGODB_DB == "s9486_doc" and config.MONGODB_URI.startswith("mongodb://")
     assert config.OLLAMA_MODEL and not config.OLLAMA_MODEL.startswith("<")
@@ -120,16 +144,30 @@ def test_placeholder_env_values_are_ignored():
 
 # ---------- Part 1 schemas + MongoDB validators ----------
 
+
 def test_mongo_validators_match_pydantic_rules():
     listing = VALIDATORS[LISTINGS]
-    assert set(listing["required"]) >= {"title", "status", "property_type", "available_from", "created_at", "updated_at"}
+    assert set(listing["required"]) >= {
+        "title",
+        "status",
+        "property_type",
+        "available_from",
+        "created_at",
+        "updated_at",
+    }
     assert listing["properties"]["title"]["maxLength"] == 100
     assert listing["properties"]["status"]["enum"] == list(STATUSES)
     assert listing["properties"]["property_type"]["enum"] == list(PROPERTY_TYPES)
     assert set(VALIDATORS[MESSAGES]["required"]) == {"user_id", "session_id", "role", "content", "created_at"}
     assert set(VALIDATORS[SUMMARIES]["required"]) == {"user_id", "session_id", "scope", "text", "created_at"}
-    assert set(VALIDATORS[EPISODES]["required"]) == {"user_id", "session_id", "fact", "importance", "embedding",
-                                                    "created_at"}
+    assert set(VALIDATORS[EPISODES]["required"]) == {
+        "user_id",
+        "session_id",
+        "fact",
+        "importance",
+        "embedding",
+        "created_at",
+    }
     assert VALIDATORS[EPISODES]["properties"]["importance"]["maximum"] == 1
 
 
@@ -183,6 +221,7 @@ def test_malformed_object_id_is_400():
 
 # ---------- Part 2 memory logic ----------
 
+
 def test_hash_embedder_and_cosine():
     emb = memory_logic.HashEmbedder()
     a, b, c = emb.embed(["I have a dog named Biscuit", "my dog Biscuit", "budget is 2600 dollars"])
@@ -205,9 +244,17 @@ def test_select_window_and_compress_policy():
 
 
 def test_parse_facts_limits_and_clamps():
-    raw = json.dumps({"facts": [{"fact": "Has a dog", "importance": 1.7}, {"fact": "has a dog", "importance": 0.2},
-                                {"fact": "Budget $2,600", "importance": -1}, {"fact": "Likes parks"},
-                                {"fact": "Fourth fact", "importance": 0.4}]})
+    raw = json.dumps(
+        {
+            "facts": [
+                {"fact": "Has a dog", "importance": 1.7},
+                {"fact": "has a dog", "importance": 0.2},
+                {"fact": "Budget $2,600", "importance": -1},
+                {"fact": "Likes parks"},
+                {"fact": "Fourth fact", "importance": 0.4},
+            ]
+        }
+    )
     facts = memory_logic.parse_facts(raw)
     assert [f["fact"] for f in facts] == ["Has a dog", "Budget $2,600", "Likes parks"]
     assert facts[0]["importance"] == 1.0 and facts[1]["importance"] == 0.0 and facts[2]["importance"] == 0.5
@@ -216,13 +263,20 @@ def test_parse_facts_limits_and_clamps():
 
 def test_build_prompt_contains_all_parts():
     window = [{"role": "user", "content": "earlier"}, {"role": "assistant", "content": "reply"}]
-    msgs, parts = memory_logic.build_prompt("- session bullet", "- lifetime bullet", window, "now?",
-                                            [{"fact": "Has a dog", "importance": 0.9}])
+    msgs, parts = memory_logic.build_prompt(
+        "- session bullet", "- lifetime bullet", window, "now?", [{"fact": "Has a dog", "importance": 0.9}]
+    )
     system = msgs[0]["content"]
     assert msgs[0]["role"] == "system" and system.startswith(memory_logic.SYSTEM_PRIMER)
     assert "lifetime bullet" in system and "session bullet" in system and "- Has a dog" in system
     assert msgs[1:3] == window and msgs[-1] == {"role": "user", "content": "now?"}
-    assert set(parts) == {"system_primer", "long_term_summary", "short_term_window", "episodic_facts", "current_message"}
+    assert set(parts) == {
+        "system_primer",
+        "long_term_summary",
+        "short_term_window",
+        "episodic_facts",
+        "current_message",
+    }
 
 
 def test_chat_turn_memory_flow():
@@ -233,7 +287,9 @@ def test_chat_turn_memory_flow():
     assert out[0]["memory_used"]["short_term"]["count"] == 0
     assert out[-1]["memory_used"]["short_term"]["count"] == 4 and out[-1]["turn"] == 10
     assert [o["memory_written"]["session_summary_created"] for o in out].count(True) == 2  # turns 5 and 10
-    assert out[4]["memory_written"]["session_summary_created"] and not out[4]["memory_written"]["lifetime_summary_created"]
+    assert (
+        out[4]["memory_written"]["session_summary_created"] and not out[4]["memory_written"]["lifetime_summary_created"]
+    )
     assert out[9]["memory_written"]["lifetime_summary_created"]  # 2nd session summary -> lifetime
     lifetime = store.latest_summary("u1", "user")
     assert lifetime["session_id"] is None and lifetime["scope"] == "user"
@@ -254,12 +310,36 @@ def test_episodic_retrieval_ranks_relevant_fact():
 def test_usage_row_has_part3_fields():
     store = memory_logic.InMemoryMemoryStore()
     log = _TMP / "usage_test.jsonl"
-    memory_logic.chat_turn(store, FakeModel(), memory_logic.HashEmbedder(), "u2", "hello there", session_id="s",
-                           short_term_n=4, policy="compress", phase="conversation", run_id="r1", log_path=log)
+    memory_logic.chat_turn(
+        store,
+        FakeModel(),
+        memory_logic.HashEmbedder(),
+        "u2",
+        "hello there",
+        session_id="s",
+        short_term_n=4,
+        policy="compress",
+        phase="conversation",
+        run_id="r1",
+        log_path=log,
+    )
     row = json.loads(log.read_text(encoding="utf-8").splitlines()[-1])
-    for k in ("prompt_tokens", "completion_tokens", "system_primer_tokens_est", "long_term_summary_tokens_est",
-              "short_term_window_tokens_est", "episodic_facts_tokens_est", "latency_ms", "short_term_n", "user_id",
-              "session_id", "turn", "timestamp", "policy", "token_source"):
+    for k in (
+        "prompt_tokens",
+        "completion_tokens",
+        "system_primer_tokens_est",
+        "long_term_summary_tokens_est",
+        "short_term_window_tokens_est",
+        "episodic_facts_tokens_est",
+        "latency_ms",
+        "short_term_n",
+        "user_id",
+        "session_id",
+        "turn",
+        "timestamp",
+        "policy",
+        "token_source",
+    ):
         assert k in row, k
     assert row["short_term_n"] == 4 and row["policy"] == "compress" and row["token_source"] == "ollama"
     assert memory_logic.approx_tokens("abcd" * 10) == 10
@@ -274,6 +354,7 @@ def test_aggregate_and_memory_reads_in_memory_store():
 
 
 # ---------- Part 4 file memory ----------
+
 
 def test_file_memory_load_and_system_prompt():
     agent, mem = _TMP / "AGENT.md", _TMP / "MEMORY_load.md"
@@ -326,8 +407,9 @@ def test_memory_commands():
     assert mem["consolidation_due"] and mem["lines"] == 52
     comp = file_memory.handle_command("/compact", path=path)
     assert "before 55 lines" in comp["reply"] and comp["report"]["after_total_lines"] < 40
-    dream = file_memory.handle_command("/dream", FakeModel(), [{"role": "user", "content": "I moved to Santa Clara"}],
-                                       path=path)
+    dream = file_memory.handle_command(
+        "/dream", FakeModel(), [{"role": "user", "content": "I moved to Santa Clara"}], path=path
+    )
     assert len(dream["added"]) == 1 and "Wants to live in Santa Clara" in path.read_text(encoding="utf-8")
     assert "## Resolved contradictions" in path.read_text(encoding="utf-8")  # other sections survive /dream
     again = file_memory.handle_command("/dream", FakeModel(), [{"role": "user", "content": "Santa Clara"}], path=path)
@@ -345,13 +427,19 @@ def test_agent_md_instructions_and_function_rules():
     assert all(c["passed"] for c in agent_md_check.check_function(src, "count_memory_lines"))
     bad = 'import openai\ndef f(x):\n    print("http://localhost:8486")\n    return x\n'
     failed = {c["rule"] for c in agent_md_check.check_function(bad, "f") if not c["passed"]}
-    assert failed == {"R6_type_hints", "R7_docstring", "R9_no_hardcoded_config", "R10_no_print",
-                      "R13_no_banned_imports"}
+    assert failed == {
+        "R6_type_hints",
+        "R7_docstring",
+        "R9_no_hardcoded_config",
+        "R10_no_print",
+        "R13_no_banned_imports",
+    }
     assert not agent_md_check.safe_to_run("import os\ndef f(): pass\n")[0]
     assert agent_md_check.safe_to_run("from datetime import date\ndef f(): pass\n")[0]
 
 
 # ---------- Part 3 scoring + cost, verification ----------
+
 
 def test_score_probe_rubric():
     import score_probes
@@ -369,9 +457,11 @@ def test_cost_formula():
 
     # 1,000 input + 100 output tokens per turn: (1000*$1 + 100*$5)/1M = $0.0015/turn -> x30 x10,000 = $450
     assert round(memory_cost.cost_for(1000, 100), 2) == 450.0
-    s = [{"setting": "a", "cost_with_upkeep": 10, "probe_mean": 4.0}, {"setting": "b", "cost_with_upkeep": 5,
-                                                                        "probe_mean": 3.8},
-         {"setting": "c", "cost_with_upkeep": 3, "probe_mean": 2.0}]
+    s = [
+        {"setting": "a", "cost_with_upkeep": 10, "probe_mean": 4.0},
+        {"setting": "b", "cost_with_upkeep": 5, "probe_mean": 3.8},
+        {"setting": "c", "cost_with_upkeep": 3, "probe_mean": 2.0},
+    ]
     best, worst, _ = memory_cost.pick_best_worst(s)
     assert best["setting"] == "b" and worst["setting"] == "a"
 
@@ -380,8 +470,17 @@ def test_verification_payload_shape():
     import verify_hw06
 
     payload = verify_hw06.build_payload([{"check": "x", "passed": True, "details": ""}])
-    for k in ("homework", "sid4", "commit_hash", "seed", "verify_seed", "configuration", "checks", "summary",
-              "generated_at"):
+    for k in (
+        "homework",
+        "sid4",
+        "commit_hash",
+        "seed",
+        "verify_seed",
+        "configuration",
+        "checks",
+        "summary",
+        "generated_at",
+    ):
         assert k in payload, k
     assert payload["homework"] == "HW6" and payload["sid4"] == 9486 and payload["verify_seed"] == 269486
     assert payload["summary"] == {"passed": 1, "total": 1, "all_passed": True}
@@ -508,8 +607,17 @@ def test_live_db_validator_rejects_bad_document():
 
 def test_live_chat_memory_endpoints():
     c = live_client()
-    for i, m in enumerate(["I have a dog named Biscuit", "My budget is 2600", "I work downtown",
-                           "I need parking", "I like quiet streets", "Is my dog Biscuit allowed?"], 1):
+    for i, m in enumerate(
+        [
+            "I have a dog named Biscuit",
+            "My budget is 2600",
+            "I work downtown",
+            "I need parking",
+            "I like quiet streets",
+            "Is my dog Biscuit allowed?",
+        ],
+        1,
+    ):
         r = c.post("/api/chat", json={"user_id": "live-user", "session_id": "live-s1", "message": m})
         assert r.status_code == 200, r.text
         body = r.json()
@@ -548,8 +656,10 @@ def main() -> int:
         try:
             reset_test_db()
         except Exception as exc:  # noqa: BLE001
-            print(f"MongoDB not reachable at {config.MONGODB_URI} ({type(exc).__name__}); start it first "
-                  "(see Homework6/README_HW6.md).")
+            print(
+                f"MongoDB not reachable at {config.MONGODB_URI} ({type(exc).__name__}); start it first "
+                "(see Homework6/README_HW6.md)."
+            )
             return 1
     passed = 0
     for i, test in enumerate(tests, 1):

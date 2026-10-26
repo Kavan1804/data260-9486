@@ -32,12 +32,16 @@ TOOL_SPECS: dict[str, dict[str, Any]] = {
     "search_listings": {
         "fn": tools.search_listings,
         "description": "Search rental listings whose title or address contains the query text "
-                       "(e.g. a city, street, or feature such as 'parking'). Returns up to `limit` listings.",
+        "(e.g. a city, street, or feature such as 'parking'). Returns up to `limit` listings.",
         "schema": {
             "type": "object",
             "properties": {
-                "query": {"type": "string", "minLength": 2, "maxLength": 80,
-                          "description": "Text to find in the listing title or address"},
+                "query": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 80,
+                    "description": "Text to find in the listing title or address",
+                },
                 "limit": {"type": "integer", "minimum": 1, "maximum": 20, "default": 5},
                 "min_units": {"type": "integer", "minimum": 0, "maximum": 500, "default": 0},
             },
@@ -50,20 +54,23 @@ TOOL_SPECS: dict[str, dict[str, Any]] = {
         "description": "Get full details of one listing by its unique listing_code, format LST-12345.",
         "schema": {
             "type": "object",
-            "properties": {"listing_code": {"type": "string", "pattern": "^LST-\\d{5}$",
-                                            "description": "Unique code such as LST-00042"}},
+            "properties": {
+                "listing_code": {
+                    "type": "string",
+                    "pattern": "^LST-\\d{5}$",
+                    "description": "Unique code such as LST-00042",
+                }
+            },
             "required": ["listing_code"],
             "additionalProperties": False,
         },
     },
     "landlord_portfolio_stats": {
         "fn": tools.landlord_portfolio_stats,
-        "description": "Aggregate statistics for one landlord: number of listings, total and "
-                       "average available units.",
+        "description": "Aggregate statistics for one landlord: number of listings, total and average available units.",
         "schema": {
             "type": "object",
-            "properties": {"landlord_id": {"type": "integer", "minimum": 1,
-                                           "description": "Numeric landlord id"}},
+            "properties": {"landlord_id": {"type": "integer", "minimum": 1, "description": "Numeric landlord id"}},
             "required": ["landlord_id"],
             "additionalProperties": False,
         },

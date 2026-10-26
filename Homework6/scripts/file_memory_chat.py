@@ -26,8 +26,9 @@ from backend.app.memory_logic import SYSTEM_PRIMER, default_model
 def run_turn(text: str, history: list[dict], model, memory_path: Path) -> str:
     if file_memory.is_command(text):
         return file_memory.handle_command(text, model, history[-16:], path=memory_path)["reply"]
-    system = file_memory.build_system_prompt(SYSTEM_PRIMER, file_memory.load_agent_md(),
-                                             file_memory.load_memory_md(memory_path))
+    system = file_memory.build_system_prompt(
+        SYSTEM_PRIMER, file_memory.load_agent_md(), file_memory.load_memory_md(memory_path)
+    )
     reply = model.chat([{"role": "system", "content": system}, *history[-12:], {"role": "user", "content": text}], [])
     answer = (reply.get("content") or "").strip()
     history += [{"role": "user", "content": text}, {"role": "assistant", "content": answer}]
@@ -43,9 +44,11 @@ def main() -> int:
     banner(f"Part 4 file-memory chat (model {config.OLLAMA_MODEL}, memory {args.memory_path.name})")
     text = file_memory.load_memory_md(args.memory_path)
     due, reasons = file_memory.needs_consolidation(text)
-    print(f"AGENT.md: {file_memory.count_memory_lines(file_memory.load_agent_md())} lines | "
-          f"{args.memory_path.name}: {file_memory.count_memory_lines(text)} lines | "
-          f"consolidation due: {'yes - ' + '; '.join(reasons) if due else 'no'}")
+    print(
+        f"AGENT.md: {file_memory.count_memory_lines(file_memory.load_agent_md())} lines | "
+        f"{args.memory_path.name}: {file_memory.count_memory_lines(text)} lines | "
+        f"consolidation due: {'yes - ' + '; '.join(reasons) if due else 'no'}"
+    )
     print("Type /help for commands, /quit to exit.\n", flush=True)
 
     model = default_model()

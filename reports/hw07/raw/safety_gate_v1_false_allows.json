@@ -1,0 +1,25 @@
+{
+  "captured_at": "2026-10-26T12:18:06",
+  "gate_version": "v1 (before fix)",
+  "note": "Found while probing the first version with tricky commands: redirect targets starting with ~, $ or .. were not treated as unsafe, and cat/echo are on SAFE_PREFIXES, so these were allowed.",
+  "results": [
+    {
+      "command": "cat a > ~/.bashrc",
+      "is_destructive": false,
+      "allowed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry"
+    },
+    {
+      "command": "echo x > ../../etc/hosts",
+      "is_destructive": false,
+      "allowed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry"
+    },
+    {
+      "command": "echo x > $HOME/.zshrc",
+      "is_destructive": false,
+      "allowed": true,
+      "reason": "allowed: every part starts with a SAFE_PREFIXES entry"
+    }
+  ]
+}

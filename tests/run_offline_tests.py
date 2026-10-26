@@ -53,10 +53,38 @@ def fixture_repo() -> InMemoryListingRepository:
         {"id": 7, "full_name": "Nobody Owns", "company": "Empty Co", "email": "empty@example.com"},
     ]
     listings = [
-        {"id": 1, "listing_code": "LST-00001", "title": "Studio near SJSU", "address": "1 San Carlos St, San Jose, CA", "available_units": 2, "landlord_id": 1},
-        {"id": 2, "listing_code": "LST-00002", "title": "2BR Apartment with parking", "address": "2 Park Ave, Campbell, CA", "available_units": 1, "landlord_id": 3},
-        {"id": 3, "listing_code": "LST-00003", "title": "Loft with balcony", "address": "3 Market St, Campbell, CA", "available_units": 4, "landlord_id": 3},
-        {"id": 42, "listing_code": "LST-00042", "title": "1BR Condo pet friendly", "address": "42 Alameda, San Jose, CA", "available_units": 0, "landlord_id": 3},
+        {
+            "id": 1,
+            "listing_code": "LST-00001",
+            "title": "Studio near SJSU",
+            "address": "1 San Carlos St, San Jose, CA",
+            "available_units": 2,
+            "landlord_id": 1,
+        },
+        {
+            "id": 2,
+            "listing_code": "LST-00002",
+            "title": "2BR Apartment with parking",
+            "address": "2 Park Ave, Campbell, CA",
+            "available_units": 1,
+            "landlord_id": 3,
+        },
+        {
+            "id": 3,
+            "listing_code": "LST-00003",
+            "title": "Loft with balcony",
+            "address": "3 Market St, Campbell, CA",
+            "available_units": 4,
+            "landlord_id": 3,
+        },
+        {
+            "id": 42,
+            "listing_code": "LST-00042",
+            "title": "1BR Condo pet friendly",
+            "address": "42 Alameda, San Jose, CA",
+            "available_units": 0,
+            "landlord_id": 3,
+        },
     ]
     return InMemoryListingRepository(listings, landlords)
 
@@ -90,11 +118,12 @@ class SpyRepo:
 
 # ---------------------------------------------------------------- Part 4 tests
 
+
 def test_search_listings_valid():
     r = call("search_listings", VALID["search_listings"])
     assert r["ok"] and r["error"] is None
     assert r["data"]["count"] == 2
-    assert [l["listing_code"] for l in r["data"]["listings"]] == ["LST-00002", "LST-00003"]
+    assert [row["listing_code"] for row in r["data"]["listings"]] == ["LST-00002", "LST-00003"]
 
 
 def test_search_listings_rejected_input():
@@ -196,6 +225,7 @@ def test_fault_injection_is_reproducible():
 
 # ---------------------------------------------------------------- Part 5 tests
 
+
 def test_safety_rule_blocks_violating_call():
     spy = SpyRepo(fixture_repo())
     name, inputs = SAFETY_BLOCKED
@@ -215,8 +245,9 @@ def test_run_agent_mock_model_stops_at_max_steps():
 
     with tempfile.TemporaryDirectory() as tmp:
         log_path = Path(tmp) / "agent_runs.jsonl"
-        summary = run_agent("keep searching forever", model=MockModel(), max_steps=3,
-                            executor=executor, log_path=log_path)
+        summary = run_agent(
+            "keep searching forever", model=MockModel(), max_steps=3, executor=executor, log_path=log_path
+        )
         events = [json.loads(line) for line in log_path.read_text().splitlines()]
     assert summary["stop_reason"] == "max_steps", summary
     assert summary["steps"] == 3 and summary["tool_calls"] == 3
@@ -232,8 +263,13 @@ def test_agent_rejects_fabricated_tool_result():
         {"content": "Landlord 3 manages 3 listings.", "tool_calls": []},
     ]
     repo = fixture_repo()
-    summary = run_agent("how many listings for landlord 3?", model=MockModel(replies), max_steps=5,
-                        executor=lambda n, i: execute_tool(n, i, repo=repo, policy=FAST), log_path=None)
+    summary = run_agent(
+        "how many listings for landlord 3?",
+        model=MockModel(replies),
+        max_steps=5,
+        executor=lambda n, i: execute_tool(n, i, repo=repo, policy=FAST),
+        log_path=None,
+    )
     assert summary["stop_reason"] == "completed" and summary["steps"] == 3 and summary["tool_calls"] == 1, summary
     assert summary["final_answer"] == "Landlord 3 manages 3 listings."
 

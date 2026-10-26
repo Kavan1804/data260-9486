@@ -1,0 +1,20 @@
+{
+  "scenario": "payperuse_wins",
+  "rows": 510,
+  "selection_rule": "510 random real classic-bike trips of 3-9 minutes, spread over 48 months (2022-09 to 2026-08)",
+  "source_file": "202608-baywheels-tripdata.csv",
+  "source_url": "https://s3.amazonaws.com/baywheels-data/202608-baywheels-tripdata.csv.zip",
+  "seed": 9486,
+  "first_ride": "2022-09-02T18:10:14.804000",
+  "last_ride": "2026-08-24T22:34:50.008000",
+  "rideable_types": {
+    "classic_bike": 510
+  },
+  "duration_min": {
+    "mean": 5.85,
+    "min": 3.0,
+    "max": 9.0
+  },
+  "missing_end_station": 0,
+  "note": "Real trip rows; only the calendar date was moved to model one rider's history."
+}

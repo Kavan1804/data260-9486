@@ -62,8 +62,10 @@ def summarize_data(result: dict):
 def main() -> int:
     banner("Part 3 - fault injection: 3 rates x 50 calls")
     policy = DEFAULT_POLICY
-    print(f"policy: max_attempts={policy.max_attempts}, backoff {policy.base_delay_s * 1000:.0f} ms x2 "
-          f"(cap {policy.max_delay_s * 1000:.0f} ms), timeout {policy.timeout_s:.1f} s/attempt; seed={config.VERIFY_SEED}")
+    print(
+        f"policy: max_attempts={policy.max_attempts}, backoff {policy.base_delay_s * 1000:.0f} ms x2 "
+        f"(cap {policy.max_delay_s * 1000:.0f} ms), timeout {policy.timeout_s:.1f} s/attempt; seed={config.VERIFY_SEED}"
+    )
     repo = default_repository()
     execute_tool("get_listing", {"listing_code": "LST-00001"}, repo=repo)  # warm the connection pool (not recorded)
 
@@ -80,21 +82,23 @@ def main() -> int:
             result = json.loads(execute_tool(tool, inputs, repo=faulty, policy=policy, attempts_log=attempts))
             latency = (time.perf_counter() - start) * 1000
             draws = injector.draws[before:]
-            rows.append({
-                "failure_rate": rate,
-                "call_no": n,
-                "tool": tool,
-                "inputs": json.dumps(inputs),
-                "attempts": len(attempts),
-                "retries": len(attempts) - 1,
-                "draws": ";".join(f"{d['draw']:.6f}" for d in draws),
-                "injected_failures": ";".join("F" if d["injected_failure"] else "-" for d in draws),
-                "attempt_outcomes": ";".join(a["outcome"] for a in attempts),
-                "success": result["ok"],
-                "latency_ms": round(latency, 3),
-                "error": result["error"] or "",
-                "result": summarize_data(result) if result["ok"] else "",
-            })
+            rows.append(
+                {
+                    "failure_rate": rate,
+                    "call_no": n,
+                    "tool": tool,
+                    "inputs": json.dumps(inputs),
+                    "attempts": len(attempts),
+                    "retries": len(attempts) - 1,
+                    "draws": ";".join(f"{d['draw']:.6f}" for d in draws),
+                    "injected_failures": ";".join("F" if d["injected_failure"] else "-" for d in draws),
+                    "attempt_outcomes": ";".join(a["outcome"] for a in attempts),
+                    "success": result["ok"],
+                    "latency_ms": round(latency, 3),
+                    "error": result["error"] or "",
+                    "result": summarize_data(result) if result["ok"] else "",
+                }
+            )
         lat = [r["latency_ms"] for r in rows]
         decisions = "".join(r["injected_failures"] + "|" for r in rows)
         s = {
@@ -111,10 +115,12 @@ def main() -> int:
         }
         summary.append(s)
         records.extend(rows)
-        print(f"rate {rate:4.0%}: success {s['successes']}/{s['calls']} ({s['success_rate']:.0%}), "
-              f"attempts {s['total_attempts']}, injected failures {s['injected_failures']}, "
-              f"calls retried {s['calls_with_retry']}, mean {s['mean_latency_ms']:.2f} ms, "
-              f"p99 {s['p99_latency_ms']:.2f} ms, decisions sha1 {s['decision_sha1']}")
+        print(
+            f"rate {rate:4.0%}: success {s['successes']}/{s['calls']} ({s['success_rate']:.0%}), "
+            f"attempts {s['total_attempts']}, injected failures {s['injected_failures']}, "
+            f"calls retried {s['calls_with_retry']}, mean {s['mean_latency_ms']:.2f} ms, "
+            f"p99 {s['p99_latency_ms']:.2f} ms, decisions sha1 {s['decision_sha1']}"
+        )
 
     RAW.mkdir(parents=True, exist_ok=True)
     with (RAW / "retry_calls.csv").open("w", newline="", encoding="utf-8") as f:
@@ -129,15 +135,24 @@ def main() -> int:
         "p99_method": "nearest rank, ceil(0.99 * n)",
         "latency": "wall clock of execute_tool, including backoff waits",
     }
-    (RAW / "retry_calls.json").write_text(json.dumps({"meta": meta, "calls": records}, indent=2) + "\n", encoding="utf-8")
-    (RAW / "retry_summary.json").write_text(json.dumps({"meta": meta, "rates": summary}, indent=2) + "\n", encoding="utf-8")
+    (RAW / "retry_calls.json").write_text(
+        json.dumps({"meta": meta, "calls": records}, indent=2) + "\n", encoding="utf-8"
+    )
+    (RAW / "retry_summary.json").write_text(
+        json.dumps({"meta": meta, "rates": summary}, indent=2) + "\n", encoding="utf-8"
+    )
 
-    table = ["| Injected failure rate | Success rate | Mean latency (ms) | p99 latency (ms) | Attempts | Injected failures | Calls retried |",
-             "|---|---|---|---|---|---|---|"]
+    table = [
+        "| Injected failure rate | Success rate | Mean latency (ms) | p99 latency (ms) |"
+        " Attempts | Injected failures | Calls retried |",
+        "|---|---|---|---|---|---|---|",
+    ]
     for s in summary:
-        table.append(f"| {s['failure_rate']:.0%} | {s['success_rate']:.0%} ({s['successes']}/{s['calls']}) | "
-                     f"{s['mean_latency_ms']:.2f} | {s['p99_latency_ms']:.2f} | {s['total_attempts']} | "
-                     f"{s['injected_failures']} | {s['calls_with_retry']} |")
+        table.append(
+            f"| {s['failure_rate']:.0%} | {s['success_rate']:.0%} ({s['successes']}/{s['calls']}) | "
+            f"{s['mean_latency_ms']:.2f} | {s['p99_latency_ms']:.2f} | {s['total_attempts']} | "
+            f"{s['injected_failures']} | {s['calls_with_retry']} |"
+        )
     fill_metrics_section("retry-table", "\n".join(table) + f"\n\nSource: raw/retry_summary.json, run {meta['run_at']}.")
     print("\nsaved reports/hw05/raw/retry_calls.csv, retry_calls.json, retry_summary.json; updated METRICS.md")
     return 0

@@ -56,6 +56,7 @@ class Fact:
 
 # ---------- loading + prompt ----------
 
+
 def load_text(path: Path) -> str:
     """Return the file contents, or an empty string when the file does not exist."""
     return path.read_text(encoding="utf-8") if path.exists() else ""
@@ -82,6 +83,7 @@ def build_system_prompt(base: str, agent_text: str, memory_text: str) -> str:
 
 
 # ---------- consolidation checks ----------
+
 
 def content_lines(text: str) -> list[str]:
     """Non-empty lines that are not HTML comments (multi-line comments included)."""
@@ -134,6 +136,7 @@ def needs_consolidation(text: str, now: datetime | None = None) -> tuple[bool, l
 
 # ---------- consolidation ----------
 
+
 def normalize(value: str) -> str:
     """Lower-case, drop punctuation and repeated spaces, so trivially different wordings match."""
     return " ".join(re.sub(r"[^a-z0-9$ ]", " ", value.lower()).split())
@@ -170,9 +173,16 @@ def parse_fact_lines(lines: list[str]) -> list[Fact]:
         if not m or not line.strip().startswith("-") or not m.group("value"):
             continue
         meta = parse_meta(m.group("meta"))
-        facts.append(Fact(key=(m.group("key") or "").strip().lower() or None, value=m.group("value").strip(),
-                          seen=meta.get("seen", ""), source=meta.get("source", "inferred").lower(),
-                          merged=int(meta.get("merged", "1") or 1), line_no=i))
+        facts.append(
+            Fact(
+                key=(m.group("key") or "").strip().lower() or None,
+                value=m.group("value").strip(),
+                seen=meta.get("seen", ""),
+                source=meta.get("source", "inferred").lower(),
+                merged=int(meta.get("merged", "1") or 1),
+                line_no=i,
+            )
+        )
     return facts
 
 
@@ -228,21 +238,35 @@ def consolidate(text: str, now: datetime | None = None) -> tuple[str, dict]:
         for loser in group:
             if loser is winner:
                 continue
-            item = {"key": key, "kept": winner.value, "kept_seen": winner.seen, "kept_source": winner.source,
-                    "dropped": loser.value, "dropped_seen": loser.seen, "dropped_source": loser.source,
-                    "rule": "newest seen date wins"}
+            item = {
+                "key": key,
+                "kept": winner.value,
+                "kept_seen": winner.seen,
+                "kept_source": winner.source,
+                "dropped": loser.value,
+                "dropped_seen": loser.seen,
+                "dropped_source": loser.source,
+                "rule": "newest seen date wins",
+            }
             contradictions.append(item)
             if SOURCE_RANK.get(loser.source, 0) > SOURCE_RANK.get(winner.source, 0):
-                review.append({**item, "why": f"a {loser.source}-stated fact lost to a {winner.source} fact; "
-                                              "newest-wins ignored where the fact came from"})
+                review.append(
+                    {
+                        **item,
+                        "why": f"a {loser.source}-stated fact lost to a {winner.source} fact; "
+                        "newest-wins ignored where the fact came from",
+                    }
+                )
             elif loser.seen == winner.seen:
                 review.append({**item, "why": "same seen date, so file order decided"})
 
     kept.sort(key=lambda f: (f.key or "~", f.line_no))
     resolved_lines = [line for line in sections.get("Resolved contradictions", []) if line.strip()]
-    resolved_lines += [f'- [{c["key"]}] kept "{c["kept"]}" ({c["kept_seen"]}, {c["kept_source"]}) over '
-                       f'"{c["dropped"]}" ({c["dropped_seen"]}, {c["dropped_source"]}); rule: {c["rule"]}'
-                       for c in contradictions]
+    resolved_lines += [
+        f'- [{c["key"]}] kept "{c["kept"]}" ({c["kept_seen"]}, {c["kept_source"]}) over '
+        f'"{c["dropped"]}" ({c["dropped_seen"]}, {c["dropped_source"]}); rule: {c["rule"]}'
+        for c in contradictions
+    ]
     review_lines = [line for line in sections.get("Needs review", []) if line.strip()]
     review_lines += [f'- [{r["key"]}] CHECK: kept "{r["kept"]}" over "{r["dropped"]}" - {r["why"]}' for r in review]
 
@@ -275,17 +299,25 @@ def verify_consolidation(original: str, consolidated: str, report: dict) -> list
     """Objective checks for Part 4.5 (used by the tests and the consolidation demo)."""
     lines = consolidated.splitlines()
     kept_values = {normalize(f.value) for f in parse_fact_lines(split_sections(consolidated).get("Facts", []))}
-    lost = [c for c in report["contradictions_resolved"]
-            if normalize(c["dropped"]) not in normalize(consolidated)]
+    lost = [c for c in report["contradictions_resolved"] if normalize(c["dropped"]) not in normalize(consolidated)]
     checks = [
         ("fewer_than_40_lines", len(lines) < 40, f"{len(lines)} lines"),
-        ("duplicates_merged", len(report["duplicates_merged"]) >= 3 and len(kept_values) == report["after_facts"],
-         f"{len(report['duplicates_merged'])} duplicate lines merged"),
-        ("contradictions_resolved_explicitly", len(report["contradictions_resolved"]) >= 3
-         and "## Resolved contradictions" in consolidated, f"{len(report['contradictions_resolved'])} resolved"),
+        (
+            "duplicates_merged",
+            len(report["duplicates_merged"]) >= 3 and len(kept_values) == report["after_facts"],
+            f"{len(report['duplicates_merged'])} duplicate lines merged",
+        ),
+        (
+            "contradictions_resolved_explicitly",
+            len(report["contradictions_resolved"]) >= 3 and "## Resolved contradictions" in consolidated,
+            f"{len(report['contradictions_resolved'])} resolved",
+        ),
         ("no_silent_deletion", not lost, f"dropped values missing from file: {[c['dropped'] for c in lost]}"),
-        ("incorrect_resolutions_flagged", len(report["needs_review"]) >= 1 and "## Needs review" in consolidated,
-         f"{len(report['needs_review'])} flagged"),
+        (
+            "incorrect_resolutions_flagged",
+            len(report["needs_review"]) >= 1 and "## Needs review" in consolidated,
+            f"{len(report['needs_review'])} flagged",
+        ),
         ("timestamp_recorded", read_last_consolidated(consolidated) is not None, "last_consolidated set"),
     ]
     return [{"check": n, "passed": bool(p), "details": d} for n, p, d in checks]
@@ -293,14 +325,16 @@ def verify_consolidation(original: str, consolidated: str, report: dict) -> list
 
 # ---------- /dream ----------
 
+
 def dream(model, recent_messages: list[dict], path: Path = config.MEMORY_MD, today: str | None = None) -> list[str]:
     """Ask the model for durable facts in the recent conversation and append new ones to MEMORY.md."""
     today = today or datetime.now(timezone.utc).date().isoformat()
     transcript = "\n".join(f"{m['role']}: {m['content']}" for m in recent_messages if not m["content"].startswith("/"))
     if not transcript:
         return []
-    reply = model.chat([{"role": "system", "content": DREAM_PROMPT}, {"role": "user", "content": transcript}], [],
-                       fmt="json")
+    reply = model.chat(
+        [{"role": "system", "content": DREAM_PROMPT}, {"role": "user", "content": transcript}], [], fmt="json"
+    )
     try:
         items = json.loads((reply.get("content") or "").strip()).get("facts", [])
     except (json.JSONDecodeError, AttributeError):
@@ -337,13 +371,15 @@ def join_sections(sections: dict[str, list[str]]) -> str:
 
 # ---------- commands ----------
 
+
 def is_command(message: str) -> bool:
     """True for the four memory commands."""
     return message.strip().split(" ")[0].lower() in {"/memory", "/compact", "/dream", "/help"}
 
 
-def handle_command(message: str, model=None, recent_messages: list[dict] | None = None,
-                   path: Path = config.MEMORY_MD) -> dict:
+def handle_command(
+    message: str, model=None, recent_messages: list[dict] | None = None, path: Path = config.MEMORY_MD
+) -> dict:
     """Run /memory, /compact, /dream or /help and return {"command", "reply", ...details}."""
     command = message.strip().split(" ")[0].lower()
     if command == "/help":
@@ -353,22 +389,32 @@ def handle_command(message: str, model=None, recent_messages: list[dict] | None 
         text = load_text(path)
         due, reasons = needs_consolidation(text)
         last = read_last_consolidated(text)
-        reply = (f"{path.name}: {count_memory_lines(text)} non-empty, non-comment lines; "
-                 f"last consolidated: {last.isoformat() if last else 'never'}; "
-                 f"consolidation due: {'yes (' + '; '.join(reasons) + ')' if due else 'no'}\n\n{text}")
-        return {"command": command, "reply": reply, "lines": count_memory_lines(text), "consolidation_due": due,
-                "reasons": reasons, "agent_md_lines": count_memory_lines(load_agent_md())}
+        reply = (
+            f"{path.name}: {count_memory_lines(text)} non-empty, non-comment lines; "
+            f"last consolidated: {last.isoformat() if last else 'never'}; "
+            f"consolidation due: {'yes (' + '; '.join(reasons) + ')' if due else 'no'}\n\n{text}"
+        )
+        return {
+            "command": command,
+            "reply": reply,
+            "lines": count_memory_lines(text),
+            "consolidation_due": due,
+            "reasons": reasons,
+            "agent_md_lines": count_memory_lines(load_agent_md()),
+        }
 
     if command == "/compact":
         text = load_text(path)
         new_text, report = consolidate(text)
         path.write_text(new_text, encoding="utf-8")
-        reply = (f"/compact: before {report['before_total_lines']} lines ({report['before_content_lines']} content lines, "
-                 f"{report['before_facts']} facts) -> after {report['after_total_lines']} lines "
-                 f"({report['after_content_lines']} content lines, {report['after_facts']} facts); "
-                 f"{len(report['duplicates_merged'])} duplicates merged, "
-                 f"{len(report['contradictions_resolved'])} contradictions resolved, "
-                 f"{len(report['needs_review'])} flagged for review")
+        reply = (
+            f"/compact: before {report['before_total_lines']} lines ({report['before_content_lines']} content lines, "
+            f"{report['before_facts']} facts) -> after {report['after_total_lines']} lines "
+            f"({report['after_content_lines']} content lines, {report['after_facts']} facts); "
+            f"{len(report['duplicates_merged'])} duplicates merged, "
+            f"{len(report['contradictions_resolved'])} contradictions resolved, "
+            f"{len(report['needs_review'])} flagged for review"
+        )
         return {"command": command, "reply": reply, "report": report}
 
     if command == "/dream":

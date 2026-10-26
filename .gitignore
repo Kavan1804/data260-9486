@@ -16,6 +16,16 @@ Homework5/*.pdf
 Homework6/Data236_DEMO6/
 Homework6/long-term-memory/
 Homework6/*.pdf
+Homework7/DATA236_DEMO7/
+Homework7/DATA236_DEMO7.zip
+Homework7/*.docx
+
+# Tool caches
+.ruff_cache/
+.pytest_cache/
+
+# HW7 downloaded public trip data (large); the scenario CSVs we built are kept
+data/bikeshare/downloads/
 
 # Database dumps
 *.sql
@@ -24,3 +34,4 @@ Homework6/*.pdf
 # Screenshots are only used to build the report PDF; not committed (same as HW4).
 reports/hw05/screenshots/
 reports/hw06/screenshots/
+reports/hw07/screenshots/

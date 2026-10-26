@@ -14,10 +14,37 @@ SAFETY_ERROR_PREFIX = "Blocked by fair-housing safety rule"
 # (protected class, pattern). Patterns target exclusionary phrasing, not ordinary
 # words, so "family room" or "near church st" still search normally.
 _RULES: list[tuple[str, re.Pattern]] = [
-    ("familial status", re.compile(r"\b(no|without|exclude|excluding)\s+(kids|children|child|families|family|minors|babies)\b|\badults?[\s-]+only\b", re.I)),
-    ("race / color / national origin", re.compile(r"\b(white|black|asian|hispanic|latino|mexican|indian|chinese|arab|immigrants?|foreigners?)s?[\s-]+(only|tenants only|renters only)\b|\bno\s+(immigrants?|foreigners?|blacks|asians|hispanics|mexicans|indians|arabs)\b|\bby\s+(race|ethnicity|nationality)\b", re.I)),
-    ("religion", re.compile(r"\b(christians?|muslims?|jews?|jewish|hindus?|sikhs?|catholics?|buddhists?)[\s-]+only\b|\bno\s+(christians?|muslims?|jews|hindus?|sikhs?|catholics?)\b|\bby\s+religion\b", re.I)),
-    ("disability", re.compile(r"\bno\s+(disabled|disabilities|handicapped|wheelchairs?|service animals?)\b|\b(able[\s-]+bodied)[\s-]+only\b", re.I)),
+    (
+        "familial status",
+        re.compile(
+            r"\b(no|without|exclude|excluding)\s+(kids|children|child|families|family|minors|babies)\b|\badults?[\s-]+only\b",
+            re.I,
+        ),
+    ),
+    (
+        "race / color / national origin",
+        re.compile(
+            r"\b(white|black|asian|hispanic|latino|mexican|indian|chinese|arab|immigrants?|foreigners?)s?"
+            r"[\s-]+(only|tenants only|renters only)\b"
+            r"|\bno\s+(immigrants?|foreigners?|blacks|asians|hispanics|mexicans|indians|arabs)\b|\bby\s+(race|ethnicity|nationality)\b",
+            re.I,
+        ),
+    ),
+    (
+        "religion",
+        re.compile(
+            r"\b(christians?|muslims?|jews?|jewish|hindus?|sikhs?|catholics?|buddhists?)[\s-]+only\b|\bno\s+(christians?|muslims?|jews|hindus?|sikhs?|catholics?)\b|\bby\s+religion\b",
+            re.I,
+        ),
+    ),
+    (
+        "disability",
+        re.compile(
+            r"\bno\s+(disabled|disabilities|handicapped|wheelchairs?|service animals?)\b"
+            r"|\b(able[\s-]+bodied)[\s-]+only\b",
+            re.I,
+        ),
+    ),
     ("sex / gender", re.compile(r"\b(men|women|males?|females?)[\s-]+only\b|\bno\s+(men|women|males|females)\b", re.I)),
     ("source of income", re.compile(r"\bno\s+(section\s*8|vouchers?|housing\s+vouchers?)\b", re.I)),
 ]
@@ -35,7 +62,9 @@ def check_safety(name: str, inputs: dict) -> str | None:
         for protected_class, pattern in _RULES:
             match = pattern.search(value)
             if match:
-                return (f"{SAFETY_ERROR_PREFIX}: listing searches cannot filter on a protected "
-                        f"characteristic ({protected_class}: '{match.group(0)}'). Search by location, "
-                        f"title words, or available units instead.")
+                return (
+                    f"{SAFETY_ERROR_PREFIX}: listing searches cannot filter on a protected "
+                    f"characteristic ({protected_class}: '{match.group(0)}'). Search by location, "
+                    f"title words, or available units instead."
+                )
     return None

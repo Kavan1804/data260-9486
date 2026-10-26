@@ -1,0 +1,19 @@
+# Ruff settings for the root-level application (HW7). Adapted from the DATA 236 Demo 7 project:
+# same rule families (E, F, I), but line-length 120 to match AGENT.md rule 8.
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = [
+    "Homework1", "Homework2", "Homework3", "Homework4", "Homework5", "Homework7/DATA236_DEMO7",
+    "frontend", "data", "reports",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["backend", "domain_tools", "mcp_servers", "bikeshare", "agent_tools", "config"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

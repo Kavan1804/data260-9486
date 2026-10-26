@@ -16,7 +16,7 @@ export default function Home({ auth }) {
         <div className="card-header">
           <div>
             <div className="page-title">Login required</div>
-            <div className="subtitle">Log in with your email and password to view rental listings.</div>
+            <div className="subtitle">Log in with your username and password to view rental listings.</div>
           </div>
         </div>
         <div className="card-body">

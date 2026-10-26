@@ -1,0 +1,149 @@
+{
+  "run_at": "2026-10-26T12:08:50",
+  "cases": [
+    {
+      "case": "Login with valid credentials returns a JWT",
+      "method": "POST",
+      "path": "/auth/login",
+      "as": "s9486_writer",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "case": "Login with a wrong password",
+      "method": "POST",
+      "path": "/auth/login",
+      "as": "s9486_writer",
+      "status": 401,
+      "expected": 401,
+      "passed": true
+    },
+    {
+      "case": "Login with an unknown username",
+      "method": "POST",
+      "path": "/auth/login",
+      "as": "nobody_9486",
+      "status": 401,
+      "expected": 401,
+      "passed": true
+    },
+    {
+      "case": "GET /auth/me without a token",
+      "method": "GET",
+      "path": "/auth/me",
+      "as": null,
+      "status": 401,
+      "expected": 401,
+      "passed": true
+    },
+    {
+      "case": "GET /auth/me with a valid token",
+      "method": "GET",
+      "path": "/auth/me",
+      "as": "reader",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "case": "GET /auth/me with a tampered (invalid) token",
+      "method": "GET",
+      "path": "/auth/me",
+      "as": "tampered token",
+      "status": 401,
+      "expected": 401,
+      "passed": true
+    },
+    {
+      "case": "GET /auth/me with an expired token",
+      "method": "GET",
+      "path": "/auth/me",
+      "as": "expired token",
+      "status": 401,
+      "expected": 401,
+      "passed": true
+    },
+    {
+      "case": "Create landlord as reader",
+      "method": "POST",
+      "path": "/landlords",
+      "as": "reader",
+      "status": 403,
+      "expected": 403,
+      "passed": true
+    },
+    {
+      "case": "Create landlord as writer",
+      "method": "POST",
+      "path": "/landlords",
+      "as": "writer",
+      "status": 201,
+      "expected": 201,
+      "passed": true
+    },
+    {
+      "case": "Create listing as reader",
+      "method": "POST",
+      "path": "/listings",
+      "as": "reader",
+      "status": 403,
+      "expected": 403,
+      "passed": true
+    },
+    {
+      "case": "Create listing as moderator",
+      "method": "POST",
+      "path": "/listings",
+      "as": "moderator",
+      "status": 201,
+      "expected": 201,
+      "passed": true
+    },
+    {
+      "case": "Delete listing as writer",
+      "method": "DELETE",
+      "path": "/listings/5015",
+      "as": "writer",
+      "status": 403,
+      "expected": 403,
+      "passed": true
+    },
+    {
+      "case": "Delete listing as moderator",
+      "method": "DELETE",
+      "path": "/listings/5015",
+      "as": "moderator",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "case": "List listings as reader",
+      "method": "GET",
+      "path": "/listings?limit=2",
+      "as": "reader",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "case": "Read one listing as reader",
+      "method": "GET",
+      "path": "/listings/5010",
+      "as": "reader",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "case": "List listings without a token",
+      "method": "GET",
+      "path": "/listings?limit=2",
+      "as": null,
+      "status": 401,
+      "expected": 401,
+      "passed": true
+    }
+  ]
+}

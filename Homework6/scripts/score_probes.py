@@ -16,7 +16,6 @@ import json
 import sys
 
 import yaml
-
 from hw6_common import PROBES_YAML, RAW, SETTING_NAMES, SETTINGS, banner, write_csv, write_json
 
 
@@ -57,8 +56,17 @@ def main() -> int:
             continue
         for a in json.loads(path.read_text(encoding="utf-8")):
             score, reason = score_answer(a["answer"], probes[a["probe_id"]])
-            rows.append({"setting": label, "run_id": a["run_id"], "probe_id": a["probe_id"], "score": score,
-                         "reason": reason, "expected": a["expected"], "answer": a["answer"]})
+            rows.append(
+                {
+                    "setting": label,
+                    "run_id": a["run_id"],
+                    "probe_id": a["probe_id"],
+                    "score": score,
+                    "reason": reason,
+                    "expected": a["expected"],
+                    "answer": a["answer"],
+                }
+            )
     if not rows:
         print("No probe answers found.")
         return 1

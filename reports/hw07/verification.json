@@ -1,0 +1,118 @@
+{
+  "homework": "HW7",
+  "sid4": 9486,
+  "prefix": "s9486",
+  "port_base": 8486,
+  "domain_id": 6,
+  "seed": 9486,
+  "verify_seed": 269486,
+  "commit_hash": "1e40c6665a54b6478a45f7efa02a34192e4c902e",
+  "tag_hw7_commit": null,
+  "working_tree_clean": false,
+  "generated_at": "2026-10-26T20:30:05+00:00",
+  "configuration": {
+    "model": "llama3.2:3b",
+    "ollama_url": "http://localhost:11434",
+    "agent_framework_part4": "LangGraph create_react_agent + langchain-ollama ChatOllama",
+    "jwt_algorithm": "HS256",
+    "access_token_expire_minutes": 30,
+    "roles": [
+      "reader",
+      "writer",
+      "moderator"
+    ],
+    "mysql_db": "s9486_rel"
+  },
+  "checks": [
+    {
+      "check": "required_files",
+      "passed": true,
+      "details": "29 files present"
+    },
+    {
+      "check": "config_values",
+      "passed": true,
+      "details": "{\"SID4\": 9486, \"PORT_BASE\": 8486, \"PREFIX\": \"s9486\", \"SEED\": 9486, \"VERIFY_SEED\": 269486, \"DOMAIN_ID\": 6, \"DB_NAME\": \"s9486_rel\"}"
+    },
+    {
+      "check": "ruff_check_and_format",
+      "passed": true,
+      "details": "All checks passed! | 77 files already formatted"
+    },
+    {
+      "check": "mysql_users_table_hashed_passwords",
+      "passed": true,
+      "details": "4 users, roles ['moderator', 'reader', 'writer'], all bcrypt hashes: True"
+    },
+    {
+      "check": "fastapi_responds_on_port_base",
+      "passed": true,
+      "details": "GET http://localhost:8486/health -> 200 (started by script: False)"
+    },
+    {
+      "check": "login_valid_200_invalid_401",
+      "passed": true,
+      "details": "valid -> [200, 200, 200], wrong password -> 401"
+    },
+    {
+      "check": "missing_and_invalid_token_401",
+      "passed": true,
+      "details": "401, 401, me={'id': 13, 'username': 's9486_reader', 'role': 'reader'}"
+    },
+    {
+      "check": "role_checks_create_delete_list",
+      "passed": true,
+      "details": "reader POST, writer POST, writer DELETE, moderator DELETE, GET -> [403, 201, 403, 200, 200]"
+    },
+    {
+      "check": "agent_loop_error_recovery_nonexistent_id",
+      "passed": true,
+      "details": "stop=completed, tool calls=1, tool error='No listing found with listing_code LST-99999'"
+    },
+    {
+      "check": "agent_loop_completes_task_A_with_reflexion",
+      "passed": true,
+      "details": "clean stop=human_review, attempts=3, tool calls=3, verifier passed=False"
+    },
+    {
+      "check": "csv_sql_read_only_and_calculator",
+      "passed": true,
+      "details": "non-SELECT refused [True, True, True], rows 510, calculator ok True"
+    },
+    {
+      "check": "pricing_snapshots_hash_match",
+      "passed": true,
+      "details": "SHA-256 matches saved text: [True, True]"
+    },
+    {
+      "check": "safety_gate_10_commands",
+      "passed": true,
+      "details": "5/5 allowed, 5/5 blocked"
+    },
+    {
+      "check": "offline_tests:tests/run_offline_tests.py",
+      "passed": true,
+      "details": "16/16 tests passed"
+    },
+    {
+      "check": "offline_tests:Homework6/tests/run_hw6_tests.py",
+      "passed": true,
+      "details": "27/27 tests passed"
+    },
+    {
+      "check": "offline_tests:Homework7/tests/run_hw7_tests.py",
+      "passed": true,
+      "details": "23/23 tests passed"
+    },
+    {
+      "check": "raw_evidence_files",
+      "passed": true,
+      "details": "20 raw files present"
+    }
+  ],
+  "summary": {
+    "passed": 17,
+    "total": 17,
+    "all_passed": true
+  }
+}

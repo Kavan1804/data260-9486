@@ -27,22 +27,30 @@ TOOL, INPUTS = "get_listing", {"listing_code": "LST-00042"}
 def main() -> int:
     banner("Part 3 - retry demonstration")
     p = DEFAULT_POLICY
-    print(f"policy: max_attempts={p.max_attempts}, backoff={p.base_delay_s * 1000:.0f} ms x2 "
-          f"(cap {p.max_delay_s * 1000:.0f} ms), timeout={p.timeout_s:.1f} s per attempt")
+    print(
+        f"policy: max_attempts={p.max_attempts}, backoff={p.base_delay_s * 1000:.0f} ms x2 "
+        f"(cap {p.max_delay_s * 1000:.0f} ms), timeout={p.timeout_s:.1f} s per attempt"
+    )
     print(f"call: execute_tool({TOOL!r}, {json.dumps(INPUTS)})\n")
     repo = default_repository()
     execute_tool(TOOL, INPUTS, repo=repo)  # warm the MySQL connection (not shown)
     records = []
     for label, script in CASES:
         attempts: list = []
-        result = json.loads(execute_tool(TOOL, INPUTS, repo=FaultyRepository(repo, ScriptedInjector(script)),
-                                         attempts_log=attempts))
+        result = json.loads(
+            execute_tool(TOOL, INPUTS, repo=FaultyRepository(repo, ScriptedInjector(script)), attempts_log=attempts)
+        )
         print(label)
         for a in attempts:
-            print(f"   attempt {a['attempt']}: wait {a['delay_before_s'] * 1000:5.0f} ms -> {a['outcome']:17s}"
-                  f" {a['latency_ms']:7.2f} ms  {a['error'] or ''}")
-        shown = {"ok": result["ok"], "data": {"listing_code": result["data"]["listing_code"]} if result["ok"] else None,
-                 "error": result["error"]}
+            print(
+                f"   attempt {a['attempt']}: wait {a['delay_before_s'] * 1000:5.0f} ms -> {a['outcome']:17s}"
+                f" {a['latency_ms']:7.2f} ms  {a['error'] or ''}"
+            )
+        shown = {
+            "ok": result["ok"],
+            "data": {"listing_code": result["data"]["listing_code"]} if result["ok"] else None,
+            "error": result["error"],
+        }
         print(f"   result: {json.dumps(shown)}\n")
         records.append({"case": label, "fault_script": script, "attempts": attempts, "result": result})
     RAW.mkdir(parents=True, exist_ok=True)

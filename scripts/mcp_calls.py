@@ -17,7 +17,6 @@ import time
 from datetime import datetime
 
 from hw5_common import RAW, ROOT, banner
-
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
@@ -64,11 +63,21 @@ async def run_server(script: str, calls: list, timeout_s: float = 30.0) -> dict:
                 start = time.perf_counter()
                 try:
                     res = await asyncio.wait_for(session.call_tool(name, args), timeout_s)
-                    record = {"tool": name, "arguments": args, "kind": kind, "is_error": bool(res.isError),
-                              "result": _payload(res)}
+                    record = {
+                        "tool": name,
+                        "arguments": args,
+                        "kind": kind,
+                        "is_error": bool(res.isError),
+                        "result": _payload(res),
+                    }
                 except Exception as exc:  # noqa: BLE001 - recorded, not raised
-                    record = {"tool": name, "arguments": args, "kind": kind, "is_error": True,
-                              "result": f"client error: {type(exc).__name__}: {exc}"}
+                    record = {
+                        "tool": name,
+                        "arguments": args,
+                        "kind": kind,
+                        "is_error": True,
+                        "result": f"client error: {type(exc).__name__}: {exc}",
+                    }
                 record["latency_ms"] = round((time.perf_counter() - start) * 1000, 1)
                 out["calls"].append(record)
     return out
@@ -79,7 +88,9 @@ def summarize(run: dict) -> None:
     for c in run["calls"]:
         res = c["result"]
         if isinstance(res, dict) and "ok" in res:
-            short = f"ok={res['ok']} error={res['error']!r}" if not res["ok"] else f"ok=True data keys={list(res['data'])}"
+            short = (
+                f"ok={res['ok']} error={res['error']!r}" if not res["ok"] else f"ok=True data keys={list(res['data'])}"
+            )
         elif isinstance(res, dict):
             short = res.get("message") or f"keys={list(res)}"
         else:

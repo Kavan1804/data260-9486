@@ -26,7 +26,7 @@ def main() -> int:
         "",
         f"Server `{recorded['server_name']}`, recorded {recorded['started_at']} over MCP STDIO "
         "(`scripts/mcp_calls.py`, the same calls as the MCP Inspector screenshots).",
-        "Every tool returns the envelope `{\"ok\": bool, \"data\": ..., \"error\": null | \"message\"}`.",
+        'Every tool returns the envelope `{"ok": bool, "data": ..., "error": null | "message"}`.',
         "",
     ]
     for name, spec in TOOL_SPECS.items():
@@ -41,13 +41,17 @@ def main() -> int:
             spec["description"],
             "",
             "Expected input schema:",
-            "```json", json.dumps(spec["schema"], indent=2), "```",
+            "```json",
+            json.dumps(spec["schema"], indent=2),
+            "```",
             f"Valid example: `{json.dumps(VALID[name])}` -> ok = {str(good['ok']).lower()}",
             "",
             f"Rejected input: `{json.dumps(bad)}`",
             "",
             "Returned output:",
-            "```json", json.dumps(call["result"], indent=2), "```",
+            "```json",
+            json.dumps(call["result"], indent=2),
+            "```",
             f"Why rejected: {why}.",
             "",
         ]

@@ -12,14 +12,15 @@ for p in (ROOT, ROOT / "scripts"):
     if str(p) not in sys.path:
         sys.path.insert(0, str(p))
 
-import config  # noqa: E402
 from hw5_common import STUDENT  # noqa: E402,F401 - same name in every terminal screenshot
 from hw5_common import banner as _hw5_banner  # noqa: E402
+
+import config  # noqa: E402
 
 HW6_DIR = ROOT / "Homework6"
 FIXTURES = HW6_DIR / "fixtures"
 PROBES_YAML = HW6_DIR / "memory_probes.yaml"
-REPORT_DIR = config.HW6_REPORT_DIR          # reports/hw06 (the folder the HW6 PDF asks for)
+REPORT_DIR = config.HW6_REPORT_DIR  # reports/hw06 (the folder the HW6 PDF asks for)
 RAW = REPORT_DIR / "raw"
 BASE_URL = f"http://localhost:{config.PORT_BASE}"
 
@@ -35,7 +36,7 @@ SETTING_NAMES = {
     "n12": "SHORT_TERM_N=12",
     "n30": "SHORT_TERM_N=30",
     "compress": f"Compression policy (N=12, last {config.COMPRESS_KEEP_RECENT} verbatim, "
-                f"older clipped to {config.COMPRESS_MAX_CHARS} chars)",
+    f"older clipped to {config.COMPRESS_MAX_CHARS} chars)",
 }
 
 

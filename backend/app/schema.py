@@ -1,7 +1,16 @@
 from datetime import datetime
 from typing import Annotated, Generic, TypeVar
 
-from pydantic import AfterValidator, BaseModel, BeforeValidator, ConfigDict, EmailStr, Field, StringConstraints, model_validator
+from pydantic import (
+    AfterValidator,
+    BaseModel,
+    BeforeValidator,
+    ConfigDict,
+    EmailStr,
+    Field,
+    StringConstraints,
+    model_validator,
+)
 
 from .models import LISTING_CODE_PATTERN
 
@@ -48,6 +57,7 @@ class PartialUpdate(BaseModel):
 
 # ---------- Landlords (HW5 related entity) ----------
 
+
 class LandlordCreate(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -74,6 +84,7 @@ class LandlordOut(BaseModel):
 
 
 # ---------- Listings (primary entity) ----------
+
 
 class ListingCreate(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -127,14 +138,23 @@ class ListingPage(BaseModel):
 
 
 class LoginRequest(BaseModel):
-    email: EmailStr
+    """HW7: login is by username (the HW4 email login is kept only at the hw4 tag)."""
+
+    username: Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=64)]
     # bcrypt only uses the first 72 bytes and bcrypt>=5 rejects longer input
     password: Annotated[str, StringConstraints(min_length=1, max_length=72)]
+
+
+class TokenOut(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+    expires_in: int  # seconds
+    role: str
 
 
 class UserOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
-    name: str
-    email: EmailStr
+    username: str
+    role: str

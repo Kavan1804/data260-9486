@@ -26,7 +26,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
-
 from hw6_common import BASE_URL, FIXTURES, REPORT_DIR, ROOT, banner, write_json
 
 import config
@@ -34,14 +33,30 @@ import config
 OUT = REPORT_DIR / "verification.json"
 
 REQUIRED_FILES = [
-    "config.py", "requirements.txt", ".env.example", "Makefile", "AGENT.md", "MEMORY.md",
-    "backend/app/main.py", "backend/app/mongo.py", "backend/app/doc_schema.py", "backend/app/memory_logic.py",
-    "backend/app/file_memory.py", "backend/app/routers/listing_docs.py", "backend/app/routers/memory.py",
-    "domain_tools/agent.py", "Homework6/README_HW6.md", "Homework6/memory_probes.yaml",
-    "Homework6/fixtures/conversation_30.json", "Homework6/fixtures/MEMORY_original_55.md",
-    "Homework6/tests/run_hw6_tests.py", "Homework6/scripts/run_memory_experiments.py",
-    "Homework6/scripts/score_probes.py", "Homework6/scripts/memory_cost.py",
-    "reports/hw06/METRICS.md", "reports/hw06/AI_USE.md",
+    "config.py",
+    "requirements.txt",
+    ".env.example",
+    "Makefile",
+    "AGENT.md",
+    "MEMORY.md",
+    "backend/app/main.py",
+    "backend/app/mongo.py",
+    "backend/app/doc_schema.py",
+    "backend/app/memory_logic.py",
+    "backend/app/file_memory.py",
+    "backend/app/routers/listing_docs.py",
+    "backend/app/routers/memory.py",
+    "domain_tools/agent.py",
+    "Homework6/README_HW6.md",
+    "Homework6/memory_probes.yaml",
+    "Homework6/fixtures/conversation_30.json",
+    "Homework6/fixtures/MEMORY_original_55.md",
+    "Homework6/tests/run_hw6_tests.py",
+    "Homework6/scripts/run_memory_experiments.py",
+    "Homework6/scripts/score_probes.py",
+    "Homework6/scripts/memory_cost.py",
+    "reports/hw06/METRICS.md",
+    "reports/hw06/AI_USE.md",
 ]
 
 results: list[dict] = []
@@ -56,6 +71,7 @@ def check(name: str):
         results.append({"check": name, "passed": bool(passed), "details": details})
         print(f"[{'PASS' if passed else 'FAIL'}] {name}: {details}", flush=True)
         return passed
+
     return wrap
 
 
@@ -117,16 +133,26 @@ def main() -> int:
 
     @check("python_compiles")
     def _():
-        files = [p for d in ("backend", "domain_tools", "Homework6/scripts", "Homework6/tests")
-                 for p in (ROOT / d).rglob("*.py")]
+        files = [
+            p
+            for d in ("backend", "domain_tools", "Homework6/scripts", "Homework6/tests")
+            for p in (ROOT / d).rglob("*.py")
+        ]
         for p in files:
             compile(p.read_text(encoding="utf-8"), str(p), "exec")
         return True, f"{len(files)} files compiled"
 
     @check("config_values")
     def _():
-        expected = {"SID4": 9486, "PORT_BASE": 8486, "PREFIX": "s9486", "SEED": 9486, "VERIFY_SEED": 269486,
-                    "DOMAIN_ID": 6, "MONGODB_DB": "s9486_doc"}
+        expected = {
+            "SID4": 9486,
+            "PORT_BASE": 8486,
+            "PREFIX": "s9486",
+            "SEED": 9486,
+            "VERIFY_SEED": 269486,
+            "DOMAIN_ID": 6,
+            "MONGODB_DB": "s9486_doc",
+        }
         actual = {k: getattr(config, k) for k in expected}
         return actual == expected, str(actual)
 
@@ -137,13 +163,17 @@ def main() -> int:
         db = get_db()
         db.command("ping")
         infos = {c["name"]: c for c in db.list_collections()}
-        with_validator = [n for n in VALIDATORS if "$jsonSchema" in infos.get(n, {}).get("options", {}).get("validator", {})]
+        with_validator = [
+            n for n in VALIDATORS if "$jsonSchema" in infos.get(n, {}).get("options", {}).get("validator", {})
+        ]
         return len(with_validator) == len(VALIDATORS), f"{config.MONGODB_URI}/{config.MONGODB_DB}: {with_validator}"
 
     if not backend_up():
         started = subprocess.Popen(
             [sys.executable, "-m", "uvicorn", "backend.app.main:app", "--port", str(config.PORT_BASE)],
-            cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
         for _ in range(40):
             if backend_up():
@@ -151,15 +181,23 @@ def main() -> int:
             time.sleep(0.5)
 
     try:
+
         @check("fastapi_responds_on_port_base")
         def _():
             r = http.get(f"{BASE_URL}/health", timeout=5)
-            return r.status_code == 200, f"GET {BASE_URL}/health -> {r.status_code} (started by script: {started is not None})"
+            return (
+                r.status_code == 200,
+                f"GET {BASE_URL}/health -> {r.status_code} (started by script: {started is not None})",
+            )
 
         @check("listing_doc_crud")
         def _():
-            body = {"title": f"Verify listing {config.VERIFY_SEED}", "description": "temporary verify_hw06 document",
-                    "property_type": "studio", "available_from": "2026-12-01T09:00:00Z"}
+            body = {
+                "title": f"Verify listing {config.VERIFY_SEED}",
+                "description": "temporary verify_hw06 document",
+                "property_type": "studio",
+                "available_from": "2026-12-01T09:00:00Z",
+            }
             c = http.post(f"{BASE_URL}/api/listings", json=body, timeout=10)
             doc_id = c.json().get("id") if c.status_code == 201 else None
             state["doc_id"] = doc_id
@@ -168,17 +206,31 @@ def main() -> int:
             upd = http.put(f"{BASE_URL}/api/listings/{doc_id}", json={"status": "pending"}, timeout=10)
             dele = http.delete(f"{BASE_URL}/api/listings/{doc_id}", timeout=10)
             gone = http.get(f"{BASE_URL}/api/listings/{doc_id}", timeout=10)
-            codes = [c.status_code, one.status_code, many.status_code, upd.status_code, dele.status_code, gone.status_code]
-            ok = (codes == [201, 200, 200, 200, 200, 404] and c.json().get("status") == "available"
-                  and any(d["id"] == doc_id for d in many.json()) and upd.json().get("status") == "pending")
+            codes = [
+                c.status_code,
+                one.status_code,
+                many.status_code,
+                upd.status_code,
+                dele.status_code,
+                gone.status_code,
+            ]
+            ok = (
+                codes == [201, 200, 200, 200, 200, 404]
+                and c.json().get("status") == "available"
+                and any(d["id"] == doc_id for d in many.json())
+                and upd.json().get("status") == "pending"
+            )
             if ok:
                 state.pop("doc_id")
             return ok, f"POST/GET/GET all/PUT/DELETE/GET -> {codes}"
 
         @check("listing_doc_validation_errors")
         def _():
-            bad_enum = http.post(f"{BASE_URL}/api/listings", json={"title": "x", "property_type": "castle",
-                                                                    "available_from": "2026-12-01"}, timeout=10)
+            bad_enum = http.post(
+                f"{BASE_URL}/api/listings",
+                json={"title": "x", "property_type": "castle", "available_from": "2026-12-01"},
+                timeout=10,
+            )
             missing = http.post(f"{BASE_URL}/api/listings", json={"property_type": "studio"}, timeout=10)
             bad_id = http.get(f"{BASE_URL}/api/listings/not-an-id", timeout=10)
             codes = [bad_enum.status_code, missing.status_code, bad_id.status_code]
@@ -189,39 +241,55 @@ def main() -> int:
             msgs = ["My name is Verify and my budget is $2,000 per month.", "What budget did I mention?"]
             bodies = []
             for m in msgs:
-                r = http.post(f"{BASE_URL}/api/chat", json={"user_id": user_id, "session_id": session_id, "message": m,
-                                                           "run_id": "verify_hw06"}, timeout=600)
+                r = http.post(
+                    f"{BASE_URL}/api/chat",
+                    json={"user_id": user_id, "session_id": session_id, "message": m, "run_id": "verify_hw06"},
+                    timeout=600,
+                )
                 if r.status_code != 200:
                     return False, f"POST /api/chat -> {r.status_code}: {r.text[:200]}"
                 bodies.append(r.json())
             last = bodies[-1]
             used = last["memory_used"]
-            ok = (all(b["reply"].strip() for b in bodies) and used["short_term"]["count"] >= 2
-                  and {"session_summary", "lifetime_summary", "episodic_facts"} <= set(used)
-                  and "latency_ms" in last["usage"])
-            return ok, (f"2 replies; window on turn 2 = {used['short_term']['count']} msgs; "
-                        f"prompt_tokens = {last['usage']['prompt_tokens']}; latency = {last['usage']['latency_ms']} ms")
+            ok = (
+                all(b["reply"].strip() for b in bodies)
+                and used["short_term"]["count"] >= 2
+                and {"session_summary", "lifetime_summary", "episodic_facts"} <= set(used)
+                and "latency_ms" in last["usage"]
+            )
+            return ok, (
+                f"2 replies; window on turn 2 = {used['short_term']['count']} msgs; "
+                f"prompt_tokens = {last['usage']['prompt_tokens']}; latency = {last['usage']['latency_ms']} ms"
+            )
 
         @check("memory_endpoint")
         def _():
             r = http.get(f"{BASE_URL}/api/memory/{user_id}", timeout=30)
             body = r.json()
             keys = {"messages", "latest_session_summary", "latest_lifetime_summary", "episodes"}
-            return (r.status_code == 200 and keys <= set(body) and len(body["messages"]) >= 4,
-                    f"-> {r.status_code}; {len(body.get('messages', []))} messages, {len(body.get('episodes', []))} episodes")
+            return (
+                r.status_code == 200 and keys <= set(body) and len(body["messages"]) >= 4,
+                f"-> {r.status_code}; {len(body.get('messages', []))}"
+                f" messages, {len(body.get('episodes', []))} episodes",
+            )
 
         @check("aggregate_endpoint")
         def _():
             r = http.get(f"{BASE_URL}/api/aggregate/{user_id}", timeout=30)
             body = r.json()
             total = sum(d["messages"] for d in body.get("daily_message_counts", []))
-            return r.status_code == 200 and total >= 4, f"-> {r.status_code}; daily counts {body.get('daily_message_counts')}"
+            return (
+                r.status_code == 200 and total >= 4,
+                f"-> {r.status_code}; daily counts {body.get('daily_message_counts')}",
+            )
 
         @check("file_memory_help_command")
         def _():
             r = http.post(f"{BASE_URL}/api/chat", json={"user_id": user_id, "message": "/help"}, timeout=30)
             reply = r.json().get("reply", "")
-            return r.status_code == 200 and all(c in reply for c in ("/memory", "/compact", "/dream")), f"-> {r.status_code}"
+            return r.status_code == 200 and all(
+                c in reply for c in ("/memory", "/compact", "/dream")
+            ), f"-> {r.status_code}"
     finally:
         if started:
             started.terminate()
@@ -237,9 +305,12 @@ def main() -> int:
             result = file_memory.handle_command("/compact", path=path)
             checks = file_memory.verify_consolidation(original, path.read_text(encoding="utf-8"), result["report"])
         failed = [c["check"] for c in checks if not c["passed"]]
-        return len(original.splitlines()) == 55 and not failed, result["reply"] + (f"; failed: {failed}" if failed else "")
+        return len(original.splitlines()) == 55 and not failed, result["reply"] + (
+            f"; failed: {failed}" if failed else ""
+        )
 
     for script in ("tests/run_offline_tests.py", "Homework6/tests/run_hw6_tests.py"):
+
         @check(f"offline_tests:{script}")
         def _(script=script):
             p = subprocess.run([sys.executable, script], cwd=ROOT, capture_output=True, text=True, timeout=300)

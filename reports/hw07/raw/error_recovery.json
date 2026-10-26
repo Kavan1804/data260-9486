@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "run_id": "67337a66d7df",
+    "scenario": "error-recovery",
+    "model": "llama3.2:3b",
+    "user_input": "Give me the full details for listing LST-99999.",
+    "steps": 2,
+    "tool_calls": 1,
+    "stop_reason": "completed",
+    "max_steps": 8,
+    "final_answer": "I was unable to retrieve the details for listing LST-99999 because it does not exist in the database. If you can provide the actual listing code or more information about the listing, I'll be happy to help you find the details.",
+    "duration_s": 6.46,
+    "prompt_tokens": 731,
+    "completion_tokens": 68,
+    "tool_log": [
+      {
+        "n": 1,
+        "step": 1,
+        "tool": "get_listing",
+        "inputs": {
+          "listing_code": "LST-99999"
+        },
+        "ok": false,
+        "error": "No listing found with listing_code LST-99999",
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": "No listing found with listing_code LST-99999"
+        }
+      }
+    ],
+    "failures": [],
+    "call_slots": 1,
+    "first_try_valid": 1,
+    "repaired": 0,
+    "failed_repairs": 0
+  },
+  "check": {
+    "passed": true,
+    "tool_error": "No listing found with listing_code LST-99999",
+    "stop_reason": "completed",
+    "answer": "I was unable to retrieve the details for listing LST-99999 because it does not exist in the database. If you can provide the actual listing code or more information about the listing, I'll be happy to help you find the details."
+  }
+}

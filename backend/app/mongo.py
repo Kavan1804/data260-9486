@@ -17,10 +17,10 @@ from config import MONGO_TIMEOUT_MS, MONGODB_DB, MONGODB_URI
 
 from .doc_schema import PROPERTY_TYPES, STATUSES, TITLE_MAX
 
-LISTINGS = "listings"      # Part 1 document view of the HW5 domain
-MESSAGES = "messages"      # Part 2 short-term memory
-SUMMARIES = "summaries"    # Part 2 long-term memory
-EPISODES = "episodes"      # Part 2 episodic memory
+LISTINGS = "listings"  # Part 1 document view of the HW5 domain
+MESSAGES = "messages"  # Part 2 short-term memory
+SUMMARIES = "summaries"  # Part 2 long-term memory
+EPISODES = "episodes"  # Part 2 episodic memory
 
 _DATE = {"bsonType": "date"}
 _STR = {"bsonType": "string"}

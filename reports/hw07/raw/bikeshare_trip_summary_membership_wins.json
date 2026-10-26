@@ -1,0 +1,21 @@
+{
+  "scenario": "membership_wins",
+  "rows": 520,
+  "selection_rule": "520 random real trips of 12-55 minutes, spread over 26 weeks (2026-03-02 to 2026-08-30)",
+  "source_file": "202608-baywheels-tripdata.csv",
+  "source_url": "https://s3.amazonaws.com/baywheels-data/202608-baywheels-tripdata.csv.zip",
+  "seed": 9486,
+  "first_ride": "2026-03-02T15:34:44.410000",
+  "last_ride": "2026-08-30T18:43:44.961000",
+  "rideable_types": {
+    "electric_bike": 419,
+    "classic_bike": 101
+  },
+  "duration_min": {
+    "mean": 20.63,
+    "min": 12.01,
+    "max": 54.45
+  },
+  "missing_end_station": 74,
+  "note": "Real trip rows; only the calendar date was moved to model one rider's history."
+}

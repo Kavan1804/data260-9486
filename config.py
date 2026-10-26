@@ -38,10 +38,10 @@ FRONTEND_ORIGINS = [
 N_LANDLORDS = 20
 
 # HW5 Part 3 - retry policy for domain storage calls
-RETRY_MAX_ATTEMPTS = 3          # 1 try + 2 retries
-RETRY_BASE_DELAY_S = 0.05       # 50 ms, doubled each retry
+RETRY_MAX_ATTEMPTS = 3  # 1 try + 2 retries
+RETRY_BASE_DELAY_S = 0.05  # 50 ms, doubled each retry
 RETRY_MAX_DELAY_S = 0.4
-CALL_TIMEOUT_S = 2.0            # per attempt
+CALL_TIMEOUT_S = 2.0  # per attempt
 FAILURE_RATES = [0.0, 0.2, 0.5]
 CALLS_PER_RATE = 50
 
@@ -79,7 +79,7 @@ OLLAMA_EMBED_MODEL = _env_value("OLLAMA_EMBED_MODEL")
 OLLAMA_NUM_CTX = _env_int("OLLAMA_NUM_CTX", 8192)  # large enough that SHORT_TERM_N=30 is not truncated
 SHORT_TERM_N = _env_int("SHORT_TERM_N", 12)
 SUMMARIZE_EVERY_USER_MSGS = _env_int("SUMMARIZE_EVERY_USER_MSGS", 5)
-LIFETIME_EVERY_SESSION_SUMMARIES = 2   # condense into the lifetime summary after every 2nd session summary
+LIFETIME_EVERY_SESSION_SUMMARIES = 2  # condense into the lifetime summary after every 2nd session summary
 EPISODIC_TOP_K = _env_int("EPISODIC_TOP_K", 3)
 MAX_FACTS_PER_MESSAGE = 3
 
@@ -95,3 +95,11 @@ AGENT_MD = ROOT / "AGENT.md"
 MEMORY_MD = Path(_env_value("MEMORY_MD") or ROOT / "MEMORY.md")
 MEMORY_MAX_LINES = 40
 MEMORY_MAX_AGE_HOURS = 24
+
+# HW7 Part 1 - JWT bearer auth (replaces the HW4 session cookie on the domain routes).
+# The secret lives only in .env (never committed); there is no default on purpose.
+JWT_SECRET_KEY = _env_value("JWT_SECRET_KEY")
+JWT_ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = _env_int("ACCESS_TOKEN_EXPIRE_MINUTES", 30)
+ROLES = ("reader", "writer", "moderator")
+HW7_REPORT_DIR = ROOT / "reports" / "hw07"

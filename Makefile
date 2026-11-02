@@ -182,3 +182,89 @@ report-hw07:
 
 injection-summary:
 	@$(STAMP7); $(PYTHON) $(HW7)/run_injection_tests.py --summarize-only 2>&1 | tee -a $(LOG7)
+
+# ---------- HW8 (Kafka request/response, three-agent pipeline, failure behavior) ----------
+LOG8 := reports/hw08/RUN_LOG.txt
+STAMP8 = mkdir -p reports/hw08/raw/agent_logs; echo -e "\n===== $$(date '+%Y-%m-%d %H:%M:%S') $@ (Kavan Siddesh) =====" | tee -a $(LOG8)
+HW8 := Homework8/scripts
+AGENT_LOGS := reports/hw08/raw/agent_logs
+
+.PHONY: kafka-up kafka-down kafka-ps kafka-logs kafka-topics homework-demo homework-demo-api api-calls \
+        planner writer writer2 reviewer send-question pipeline-demo dup-test death-test poison-test \
+        ordering-test failure-tests metrics-hw08 reset-groups test-hw8 verify-hw08 report-hw08
+
+# Kafka + topic setup + worker + FastAPI (all in docker-compose.yml)
+kafka-up:
+	@$(STAMP8); (docker compose up -d --build && docker compose ps -a) 2>&1 | grep -v "^#\|^ *=>" | tee -a $(LOG8)
+
+kafka-down:
+	docker compose down
+
+kafka-ps:
+	@$(STAMP8); docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}' 2>&1 | tee -a $(LOG8)
+
+kafka-logs:
+	@$(STAMP8); (echo "--- docker logs s9486_worker"; docker logs s9486_worker 2>&1 | grep "\[worker\]" | head -3; \
+	  echo "--- docker logs s9486_api"; docker logs s9486_api 2>&1 | head -5) | tee -a $(LOG8)
+
+kafka-topics:
+	@$(STAMP8); docker exec -i s9486_kafka bash -s kafka:29092 < scripts/kafka_create_topics.sh 2>&1 | tee -a $(LOG8)
+
+homework-demo:
+	@$(STAMP8); $(PYTHON) Homework8/homework_demo.py 2>&1 | tee -a $(LOG8)
+
+homework-demo-api:
+	@$(STAMP8); $(PYTHON) Homework8/homework_demo.py --via api 2>&1 | tee -a $(LOG8)
+
+api-calls:
+	@$(STAMP8); $(PYTHON) $(HW8)/api_calls.py 2>&1 | tee -a $(LOG8)
+
+# Part 2: one agent per terminal (each also keeps its own log file for the journey excerpt)
+planner:
+	@$(STAMP8); $(PYTHON) kafka_agents/planner.py 2>&1 | tee -a $(AGENT_LOGS)/planner.log
+
+writer:
+	@$(STAMP8); $(PYTHON) kafka_agents/writer.py 2>&1 | tee -a $(AGENT_LOGS)/writer.log
+
+writer2:
+	@$(STAMP8); $(PYTHON) kafka_agents/writer.py --instance writer-2 2>&1 | tee -a $(AGENT_LOGS)/writer2.log
+
+reviewer:
+	@$(STAMP8); $(PYTHON) kafka_agents/reviewer.py 2>&1 | tee -a $(AGENT_LOGS)/reviewer.log
+
+send-question:
+	@$(STAMP8); $(PYTHON) kafka_agents/send_question.py 2>&1 | tee -a $(LOG8)
+
+# Starts the three agents in the background, sends one question and saves the journey (no extra terminals).
+pipeline-demo:
+	@$(STAMP8); $(PYTHON) $(HW8)/pipeline_demo.py 2>&1 | tee -a $(LOG8)
+
+# Part 3 failure tests (each prints before-fix and after-fix runs)
+dup-test:
+	@$(STAMP8); $(PYTHON) $(HW8)/failure_duplicate.py 2>&1 | tee -a $(LOG8)
+
+death-test:
+	@$(STAMP8); $(PYTHON) $(HW8)/failure_consumer_death.py 2>&1 | tee -a $(LOG8)
+
+poison-test:
+	@$(STAMP8); $(PYTHON) $(HW8)/failure_poison.py 2>&1 | tee -a $(LOG8)
+
+ordering-test:
+	@$(STAMP8); $(PYTHON) $(HW8)/failure_ordering.py 2>&1 | tee -a $(LOG8)
+
+failure-tests: dup-test death-test poison-test ordering-test
+
+metrics-hw08:
+	@$(STAMP8); $(PYTHON) $(HW8)/build_metrics.py 2>&1 | tee -a $(LOG8)
+
+reset-groups:
+	@$(STAMP8); $(PYTHON) $(HW8)/reset_groups.py 2>&1 | tee -a $(LOG8)
+
+test-hw8:
+	@$(STAMP8); $(PYTHON) Homework8/tests/run_hw8_tests.py 2>/dev/null | tee -a $(LOG8)
+
+verify-hw08:
+	@$(STAMP8); $(PYTHON) $(HW8)/verify_hw08.py 2>/dev/null | tee -a $(LOG8)
+
+report-hw08:
+	$(PYTHON) $(HW8)/render_report_hw08.py

@@ -1,0 +1,65 @@
+2026-11-02 00:46:24.144 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-02 00:46:24.144 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 00:46:40.987 [writer] received from topic=s9486_tasks partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+2026-11-02 00:46:41.012 [writer] working on correlation_id=e59eb806-56d8-4382-bd16-78250708281f with llama3.2:3b
+2026-11-02 00:47:18.313 [writer] sent to topic=s9486_drafts partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+OffsetCommit failed for group s9486_writers due to group error ([Error 25] UnknownMemberIdError: s9486_writers), will rejoin
+2026-11-02 00:47:18.857 [writer] partitions revoked [0, 1]
+2026-11-02 00:47:18.916 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-02 00:47:19.014 [writer] stopped
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/group_coordinator.py", line 1009, in commit_offsets
+    await asyncio.shield(self._do_commit_offsets(assignment, offsets))
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/group_coordinator.py", line 1144, in _do_commit_offsets
+    raise first_error
+aiokafka.errors.UnknownMemberIdError: [Error 25] UnknownMemberIdError: s9486_writers
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/writer.py", line 69, in <module>
+    main(Writer)
+    ~~~~^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 222, in main
+    asyncio.run(agent.run())
+    ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 109, in run
+    await self.one_record(record, consumer, producer)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 173, in one_record
+    await self.commit(consumer, record)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 178, in commit
+    await consumer.commit({TopicPartition(record.topic, record.partition): record.offset + 1})
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/consumer.py", line 595, in commit
+    await self._coordinator.commit_offsets(assignment, offsets)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/group_coordinator.py", line 1015, in commit_offsets
+    raise Errors.CommitFailedError(
+    ...<3 lines>...
+    ) from exc
+aiokafka.errors.CommitFailedError: CommitFailedError: ('Commit cannot be completed since the group has already\n            rebalanced and assigned the partitions to another member.\n            This means that the time between subsequent calls to poll()\n            was longer than the configured max_poll_interval_ms, which\n            typically implies that the poll loop is spending too much\n            time message processing. You can address this either by\n            increasing the rebalance timeout with max_poll_interval_ms,\n            or by reducing the maximum size of batches returned in poll()\n            with max_poll_records.\n            ', 'Commit cannot be completed since the group has already rebalanced and may have assigned the partitions to another member')
+2026-11-02 00:49:00.914 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-02 00:49:00.915 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 00:49:28.920 [writer] received from topic=s9486_tasks partition=1 offset=0 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+2026-11-02 00:49:28.945 [writer] working on correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df with llama3.2:3b
+Got error produce response on topic-partition TopicPartition(topic='s9486_drafts', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+2026-11-02 00:50:02.373 [writer] sent to topic=s9486_drafts partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+2026-11-02 00:50:03.505 [writer] committed offset 1 for s9486_tasks partition 1
+2026-11-02 00:50:15.664 [writer] stopped
+2026-11-02 14:27:35.166 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-02 14:27:35.166 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 14:28:30.919 [writer] received from topic=s9486_tasks partition=1 offset=49 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143
+2026-11-02 14:28:30.967 [writer] working on correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143 with llama3.2:3b
+2026-11-02 14:28:54.760 [writer] sent to topic=s9486_drafts partition=0 offset=54 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143 value={"correlation_id": "f59a991c-8d85-44d4-b0d5-682baea56143", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+2026-11-02 14:28:54.778 [writer] committed offset 50 for s9486_tasks partition 1

@@ -1,0 +1,72 @@
+2026-11-02 00:46:24.143 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-02 00:46:24.144 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 00:46:24.396 [planner] received from topic=s9486_inbox partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+2026-11-02 00:46:40.981 [planner] sent to topic=s9486_tasks partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+2026-11-02 00:46:41.019 [planner] committed offset 1 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+2026-11-02 00:47:43.743 [planner] stopped
+2026-11-02 00:49:00.919 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-02 00:49:00.919 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 00:49:01.321 [planner] received from topic=s9486_inbox partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+2026-11-02 00:49:28.911 [planner] sent to topic=s9486_tasks partition=1 offset=0 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+2026-11-02 00:49:28.932 [planner] committed offset 2 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-02 00:50:15.375 [planner] stopped
+2026-11-02 14:27:26.465 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-02 14:27:26.465 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 14:28:15.939 [planner] received from topic=s9486_inbox partition=0 offset=3 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143
+2026-11-02 14:28:30.857 [planner] sent to topic=s9486_tasks partition=1 offset=49 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143 value={"correlation_id": "f59a991c-8d85-44d4-b0d5-682baea56143", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+2026-11-02 14:28:31.025 [planner] committed offset 4 for s9486_inbox partition 0

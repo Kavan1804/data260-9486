@@ -19,6 +19,9 @@ Homework6/*.pdf
 Homework7/DATA236_DEMO7/
 Homework7/DATA236_DEMO7.zip
 Homework7/*.docx
+Homework8/DATA236_DEMO8/
+Homework8/multi-agent-demo/
+Homework8/*.pdf
 
 # Tool caches
 .ruff_cache/
@@ -35,3 +38,4 @@ data/bikeshare/downloads/
 reports/hw05/screenshots/
 reports/hw06/screenshots/
 reports/hw07/screenshots/
+reports/hw08/screenshots/

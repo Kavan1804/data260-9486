@@ -1,0 +1,90 @@
+{
+  "run_at": "2026-11-02T22:24:33+00:00",
+  "via": "api",
+  "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+  "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba",
+  "create": {
+    "operation": "CREATE_LISTING",
+    "request": {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "reply_to": "s9486_entity_responses",
+      "operation": "CREATE_LISTING",
+      "data": {
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    },
+    "response": {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "success": true,
+      "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba",
+      "message": "Listing created"
+    },
+    "kafka": {
+      "request": {
+        "topic": "s9486_entity_requests",
+        "partition": 0,
+        "offset": 55
+      },
+      "response": {
+        "topic": "s9486_entity_responses",
+        "partition": 0,
+        "offset": 55
+      }
+    },
+    "worker_log": [
+      "2026-11-02 14:24:32.638 [worker] received request topic=s9486_entity_requests partition=0 offset=55 value={\"correlation_id\": \"34bce634-4e17-43cf-ad46-8dcae4916006\", \"reply_to\": \"s9486_entity_responses\", \"operation\": \"CREATE_LISTING\", \"data\": {\"title\": \"Sunny 2BR near SJSU\", \"address\": \"125 E San Fernando St, San Jose, CA\", \"listing_code\": \"LST-94861\", \"available_units\": 2, \"landlord_id\": 6}}",
+      "2026-11-02 14:24:32.653 [worker] processing operation=CREATE_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 data={\"title\": \"Sunny 2BR near SJSU\", \"address\": \"125 E San Fernando St, San Jose, CA\", \"listing_code\": \"LST-94861\", \"available_units\": 2, \"landlord_id\": 6}",
+      "2026-11-02 14:24:32.663 [worker] processed correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 success=True listings_in_store=10",
+      "2026-11-02 14:24:32.773 [worker] sent response to topic=s9486_entity_responses partition=0 offset=55 value={\"correlation_id\": \"34bce634-4e17-43cf-ad46-8dcae4916006\", \"success\": true, \"listing_id\": \"6759ef73-b695-47de-921f-30fa51d32cba\", \"message\": \"Listing created\"}",
+      "2026-11-02 14:24:32.803 [worker] committed offset 56 for partition 0"
+    ]
+  },
+  "get": {
+    "operation": "GET_LISTING",
+    "request": {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "reply_to": "s9486_entity_responses",
+      "operation": "GET_LISTING",
+      "data": {
+        "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba"
+      }
+    },
+    "response": {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "success": true,
+      "listing": {
+        "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba",
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    },
+    "kafka": {
+      "request": {
+        "topic": "s9486_entity_requests",
+        "partition": 0,
+        "offset": 56
+      },
+      "response": {
+        "topic": "s9486_entity_responses",
+        "partition": 0,
+        "offset": 56
+      }
+    },
+    "worker_log": [
+      "2026-11-02 14:24:33.384 [worker] received request topic=s9486_entity_requests partition=0 offset=56 value={\"correlation_id\": \"34bce634-4e17-43cf-ad46-8dcae4916006\", \"reply_to\": \"s9486_entity_responses\", \"operation\": \"GET_LISTING\", \"data\": {\"listing_id\": \"6759ef73-b695-47de-921f-30fa51d32cba\"}}",
+      "2026-11-02 14:24:33.384 [worker] processing operation=GET_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 data={\"listing_id\": \"6759ef73-b695-47de-921f-30fa51d32cba\"}",
+      "2026-11-02 14:24:33.384 [worker] processed correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 success=True listings_in_store=10",
+      "2026-11-02 14:24:33.385 [worker] sent response to topic=s9486_entity_responses partition=0 offset=56 value={\"correlation_id\": \"34bce634-4e17-43cf-ad46-8dcae4916006\", \"success\": true, \"listing\": {\"listing_id\": \"6759ef73-b695-47de-921f-30fa51d32cba\", \"title\": \"Sunny 2BR near SJSU\", \"address\": \"125 E San Fernando St, San Jose, CA\", \"listing_code\": \"LST-94861\", \"available_units\": 2, \"landlord_id\": 6}}",
+      "2026-11-02 14:24:33.387 [worker] committed offset 57 for partition 0"
+    ]
+  },
+  "correlation_id_preserved": true,
+  "get_matches_create": true
+}

@@ -1,0 +1,171 @@
+{
+  "homework": "HW8",
+  "sid4": 9486,
+  "port_base": 8486,
+  "prefix": "s9486",
+  "seed": 9486,
+  "verify_seed": 269486,
+  "domain_id": 6,
+  "commit_hash": "2ad21c1634be5fe5c1c1467672ec6f817fd2c00f",
+  "tag_hw8": null,
+  "working_tree_clean": false,
+  "run_at": "2026-11-02T08:57:35+00:00",
+  "model": {
+    "name": "llama3.2:3b",
+    "server": "http://localhost:11434",
+    "num_ctx": 2048,
+    "temperature": 0.2,
+    "seed": 9486,
+    "used_by": "planner, writer, reviewer (pipeline_reaches_final); other checks use fast mode or no model"
+  },
+  "kafka": {
+    "bootstrap": "localhost:9092",
+    "image": "apache/kafka:3.9.2 (KRaft)",
+    "topics": {
+      "s9486_entity_requests": 1,
+      "s9486_entity_responses": 1,
+      "s9486_inbox": 1,
+      "s9486_tasks": 2,
+      "s9486_drafts": 1,
+      "s9486_final": 1,
+      "s9486_dead_letter": 1
+    }
+  },
+  "writer_max_retries": 3,
+  "checks": [
+    {
+      "name": "config_values",
+      "passed": true,
+      "detail": "PORT_BASE=8486 PREFIX=s9486 DOMAIN_ID=6"
+    },
+    {
+      "name": "docker_containers_running",
+      "passed": true,
+      "detail": "running: ['s9486_kafka', 's9486_worker', 's9486_api']"
+    },
+    {
+      "name": "kafka_reachable",
+      "passed": true,
+      "detail": "localhost:9092"
+    },
+    {
+      "name": "topics_created",
+      "passed": true,
+      "detail": {
+        "s9486_entity_requests": 1,
+        "s9486_entity_responses": 1,
+        "s9486_inbox": 1,
+        "s9486_tasks": 2,
+        "s9486_drafts": 1,
+        "s9486_final": 1,
+        "s9486_dead_letter": 1
+      }
+    },
+    {
+      "name": "create_listing_ok",
+      "passed": true,
+      "detail": {
+        "correlation_id": "d141d43e-dee6-4f1f-a19e-1ba35125b7df",
+        "success": true,
+        "listing_id": "1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93",
+        "message": "Listing created"
+      }
+    },
+    {
+      "name": "listing_id_present",
+      "passed": true,
+      "detail": "listing_id=1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93"
+    },
+    {
+      "name": "get_listing_ok",
+      "passed": true,
+      "detail": {
+        "correlation_id": "bf1f6c9d-1b9a-4fd6-b829-183e2f386446",
+        "success": true,
+        "listing": {
+          "listing_id": "1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93",
+          "title": "Verify studio",
+          "address": "1 Washington Sq, San Jose, CA",
+          "listing_code": "LST-26948",
+          "available_units": 1,
+          "landlord_id": 6
+        }
+      }
+    },
+    {
+      "name": "correlation_id_preserved",
+      "passed": true,
+      "detail": "create d141d43e-dee6-4f1f-a19e-1ba35125b7df -> d141d43e-dee6-4f1f-a19e-1ba35125b7df; get bf1f6c9d-1b9a-4fd6-b829-183e2f386446 -> bf1f6c9d-1b9a-4fd6-b829-183e2f386446"
+    },
+    {
+      "name": "unknown_operation_error",
+      "passed": true,
+      "detail": {
+        "correlation_id": "404e9ddd-e386-44f0-9820-63c3e249196d",
+        "success": false,
+        "error": "Unknown operation"
+      }
+    },
+    {
+      "name": "unknown_listing_id_error",
+      "passed": true,
+      "detail": {
+        "correlation_id": "c8c1691f-b0de-47b2-a741-da9d7e073d07",
+        "success": false,
+        "error": "Listing not found"
+      }
+    },
+    {
+      "name": "invalid_fields_rejected",
+      "passed": true,
+      "detail": {
+        "correlation_id": "e8dda1be-e2a8-4a92-b2fe-1a03c2c7d5c1",
+        "success": false,
+        "error": "Invalid listing data: title: String should have at least 1 character"
+      }
+    },
+    {
+      "name": "duplicate_no_side_effect",
+      "passed": true,
+      "detail": "2 responses for one correlation_id, 1 distinct listing_id"
+    },
+    {
+      "name": "fastapi_wrapper_8486",
+      "passed": true,
+      "detail": "HTTP 201, correlation_id echoed=True"
+    },
+    {
+      "name": "pipeline_reaches_final",
+      "passed": true,
+      "detail": "status=approved stages=['send_question', 'planner', 'writer', 'reviewer'] correlation_id=a6762b60-51db-41e5-8e8f-32e49ec3880e"
+    },
+    {
+      "name": "poison_reaches_dead_letter",
+      "passed": true,
+      "detail": "dead-letter entries=1 attempts=3, next task done=True"
+    },
+    {
+      "name": "ordering_files_exist",
+      "passed": true,
+      "detail": "missing=[], keyed run: split=0 out_of_order=0"
+    },
+    {
+      "name": "offline_tests_pass",
+      "passed": true,
+      "detail": "16/16 tests passed"
+    },
+    {
+      "name": "ruff_clean",
+      "passed": true,
+      "detail": "All checks passed!"
+    },
+    {
+      "name": "evidence_files_exist",
+      "passed": true,
+      "detail": "16 files + 12 raw"
+    }
+  ],
+  "passed": 19,
+  "total": 19,
+  "all_passed": true
+}

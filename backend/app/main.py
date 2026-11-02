@@ -1,4 +1,5 @@
 import time
+from contextlib import asynccontextmanager
 
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
@@ -11,10 +12,19 @@ from config import ACCESS_TOKEN_EXPIRE_MINUTES, DOMAIN_NAME, FRONTEND_ORIGINS, P
 from . import crud, models, schema
 from .database import get_db
 from .query_counter import count_queries
-from .routers import bikeshare, listing_docs, memory
+from .routers import bikeshare, kafka_listings, listing_docs, memory
 from .security import any_role, authenticate, can_delete, can_write, create_access_token
 
-app = FastAPI(title=f"DATA 260 - {DOMAIN_NAME}")
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    # HW8 screenshot line; inside Docker the server binds to 0.0.0.0 but is published on 127.0.0.1.
+    print(f"FastAPI started at http://127.0.0.1:{PORT_BASE}", flush=True)
+    yield
+    await kafka_listings.shutdown()  # HW8: stop the Kafka client if it was started
+
+
+app = FastAPI(title=f"DATA 260 - {DOMAIN_NAME}", lifespan=lifespan)
 
 # HW6: MongoDB routes under /api (listing documents, chat memory). They do not use the
 # MySQL session cookie so they can be exercised from cURL/Postman as the HW6 PDF describes.
@@ -22,6 +32,8 @@ app.include_router(listing_docs.router)
 app.include_router(memory.router)
 # HW7 Part 4: bike-share ReAct agent for the /bikeshare page.
 app.include_router(bikeshare.router)
+# HW8 Part 1: Kafka request/response wrapper for the Listing worker (/api/kafka/...).
+app.include_router(kafka_listings.router)
 
 app.add_middleware(
     CORSMiddleware,

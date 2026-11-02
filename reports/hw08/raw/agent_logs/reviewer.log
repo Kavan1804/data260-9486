@@ -1,0 +1,200 @@
+2026-11-02 00:46:24.145 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-02 00:46:24.145 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 00:47:18.457 [reviewer] received from topic=s9486_drafts partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+2026-11-02 00:47:42.820 [reviewer] sent to topic=s9486_final partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "status": "approved", "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neigh...(truncated)
+2026-11-02 00:47:42.863 [reviewer] committed offset 1 for s9486_drafts partition 0
+2026-11-02 00:47:44.146 [reviewer] stopped
+2026-11-02 00:49:00.911 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-02 00:49:00.912 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-02 00:50:02.627 [reviewer] received from topic=s9486_drafts partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-02 00:50:15.126 [reviewer] sent to topic=s9486_final partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "status": "approved", "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neigh...(truncated)
+2026-11-02 00:50:15.166 [reviewer] committed offset 2 for s9486_drafts partition 0
+2026-11-02 00:50:15.961 [reviewer] stopped
+2026-11-02 14:27:43.902 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-02 14:27:43.902 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-02 14:28:54.779 [reviewer] received from topic=s9486_drafts partition=0 offset=54 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143
+2026-11-02 14:29:03.454 [reviewer] sent to topic=s9486_final partition=0 offset=3 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143 value={"correlation_id": "f59a991c-8d85-44d4-b0d5-682baea56143", "status": "approved", "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neigh...(truncated)
+2026-11-02 14:29:03.484 [reviewer] committed offset 55 for s9486_drafts partition 0

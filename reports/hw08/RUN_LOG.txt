@@ -1,0 +1,1655 @@
+
+===== 2026-11-02 00:44:46 kafka-up (Kavan Siddesh) =====
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ s9486-hw08-app  Built
+ Network s9486-hw08_default  Creating
+ Network s9486-hw08_default  Created
+ Container s9486_kafka  Creating
+ Container s9486_kafka  Created
+ Container s9486_kafka_init  Creating
+ Container s9486_kafka_init  Created
+ Container s9486_worker  Creating
+ Container s9486_worker  Created
+ Container s9486_api  Creating
+ Container s9486_api  Created
+ Container s9486_kafka  Starting
+ Container s9486_kafka  Started
+ Container s9486_kafka  Waiting
+ Container s9486_kafka  Healthy
+ Container s9486_kafka_init  Starting
+ Container s9486_kafka_init  Started
+ Container s9486_kafka_init  Waiting
+ Container s9486_kafka_init  Exited
+ Container s9486_worker  Starting
+ Container s9486_worker  Started
+ Container s9486_kafka_init  Waiting
+ Container s9486_kafka_init  Exited
+ Container s9486_api  Starting
+ Container s9486_api  Started
+NAME               IMAGE                COMMAND                  SERVICE      CREATED          STATUS                     PORTS
+s9486_api          s9486-hw08-app       "uvicorn backend.app…"   api          37 seconds ago   Up Less than a second      127.0.0.1:8486->8486/tcp
+s9486_kafka        apache/kafka:3.9.2   "/__cacert_entrypoin…"   kafka        41 seconds ago   Up 36 seconds (healthy)    0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+s9486_kafka_init   apache/kafka:3.9.2   "/bin/bash /create_t…"   kafka-init   39 seconds ago   Exited (0) 2 seconds ago   
+s9486_worker       s9486-hw08-app       "python -m kafka_ser…"   worker       38 seconds ago   Up 1 second                
+
+===== 2026-11-02 00:45:40 kafka-ps (Kavan Siddesh) =====
+NAMES                   IMAGE                STATUS                    PORTS
+s9486_api               s9486-hw08-app       Up 11 seconds             127.0.0.1:8486->8486/tcp
+s9486_worker            s9486-hw08-app       Up 12 seconds             
+s9486_kafka             apache/kafka:3.9.2   Up 46 seconds (healthy)   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+study_assistant_mongo   mongo:7.0            Up 6 hours (healthy)      0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+
+===== 2026-11-02 00:45:40 kafka-logs (Kavan Siddesh) =====
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Marking the coordinator dead (node 1)for group s9486_entity_worker.
+Marking the coordinator dead (node 1)for group s9486_entity_worker.
+Marking the coordinator dead (node 1)for group s9486_entity_worker.
+Marking the coordinator dead (node 1)for group s9486_entity_worker.
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+FastAPI started at http://127.0.0.1:8486
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8486 (Press CTRL+C to quit)
+
+===== 2026-11-02 00:45:41 kafka-topics (Kavan Siddesh) =====
+creating s9486_entity_requests with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_entity_responses with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_inbox with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_tasks with 2 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_drafts with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_final with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_dead_letter with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+--- s9486 topics on kafka:29092
+Topic: s9486_drafts PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_entity_requests PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_entity_responses PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_inbox PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_tasks PartitionCount: 2 ReplicationFactor: 1
+Topic: s9486_final PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_dead_letter PartitionCount: 1 ReplicationFactor: 1
+
+===== 2026-11-02 00:46:05 kafka-logs (Kavan Siddesh) =====
+--- docker logs s9486_worker
+2026-11-02 00:45:33.193 [worker] bootstrap=kafka:29092 group=s9486_entity_worker topic=s9486_entity_requests idempotency=on
+2026-11-02 00:45:33.193 [worker] Consumer is ready and listening...
+--- docker logs s9486_api
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+FastAPI started at http://127.0.0.1:8486
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8486 (Press CTRL+C to quit)
+
+===== 2026-11-02 00:46:09 homework-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 Kafka request/response demo (via kafka)
+run at 2026-11-02T00:46:12 | VERIFY_SEED 269486
+==============================================================================
+2026-11-02 00:46:12.872 [client] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+
+--- Step 1: create one correlation_id (used for both requests)
+    correlation_id = c1d09be8-2661-4043-8d1b-3d2a371def73
+
+--- Step 2: CREATE_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 00:46:12.949 [client] sent request to topic=s9486_entity_requests partition=0 offset=0 operation=CREATE_LISTING correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73
+    request message:
+    {
+      "correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73",
+      "reply_to": "s9486_entity_responses",
+      "operation": "CREATE_LISTING",
+      "data": {
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 3: worker received the request
+    worker | 2026-11-02 00:46:12.974 [worker] received request topic=s9486_entity_requests partition=0 offset=0 value={"correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73", "reply_to": "s9486_entity_responses", "operation": "CREATE_LISTING", "data": {"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+
+--- Step 4: worker processed the request
+    worker | 2026-11-02 00:46:12.986 [worker] processing operation=CREATE_LISTING correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73 data={"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}
+    worker | 2026-11-02 00:46:13.015 [worker] processed correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73 success=True listings_in_store=1
+
+--- Step 5: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 00:46:13.098 [worker] sent response to topic=s9486_entity_responses partition=0 offset=0 value={"correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73", "success": true, "listing_id": "03db3f29-9dc1-4790-8362-706994381433", "message": "Listing created"}
+    worker | 2026-11-02 00:46:13.191 [worker] committed offset 1 for partition 0
+
+--- Step 6: response received by the client
+    client | 2026-11-02 00:46:13.100 [client] received response from topic=s9486_entity_responses partition=0 offset=0 correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73 success=True
+    response message:
+    {
+      "correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73",
+      "success": true,
+      "listing_id": "03db3f29-9dc1-4790-8362-706994381433",
+      "message": "Listing created"
+    }
+
+--- Step 7: extract the generated listing_id from the CREATE_LISTING response
+    listing_id = 03db3f29-9dc1-4790-8362-706994381433
+
+--- Step 8: GET_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 00:46:13.794 [client] sent request to topic=s9486_entity_requests partition=0 offset=1 operation=GET_LISTING correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73
+    request message:
+    {
+      "correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73",
+      "reply_to": "s9486_entity_responses",
+      "operation": "GET_LISTING",
+      "data": {
+        "listing_id": "03db3f29-9dc1-4790-8362-706994381433"
+      }
+    }
+
+--- Step 9: worker received the request
+    worker | 2026-11-02 00:46:13.794 [worker] received request topic=s9486_entity_requests partition=0 offset=1 value={"correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73", "reply_to": "s9486_entity_responses", "operation": "GET_LISTING", "data": {"listing_id": "03db3f29-9dc1-4790-8362-706994381433"}}
+
+--- Step 10: worker processed the request
+    worker | 2026-11-02 00:46:13.795 [worker] processing operation=GET_LISTING correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73 data={"listing_id": "03db3f29-9dc1-4790-8362-706994381433"}
+    worker | 2026-11-02 00:46:13.795 [worker] processed correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73 success=True listings_in_store=1
+
+--- Step 11: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 00:46:13.799 [worker] sent response to topic=s9486_entity_responses partition=0 offset=1 value={"correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73", "success": true, "listing": {"listing_id": "03db3f29-9dc1-4790-8362-706994381433", "title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+    worker | 2026-11-02 00:46:13.805 [worker] committed offset 2 for partition 0
+
+--- Step 12: response received by the client
+    client | 2026-11-02 00:46:13.802 [client] received response from topic=s9486_entity_responses partition=0 offset=1 correlation_id=c1d09be8-2661-4043-8d1b-3d2a371def73 success=True
+    response message:
+    {
+      "correlation_id": "c1d09be8-2661-4043-8d1b-3d2a371def73",
+      "success": true,
+      "listing": {
+        "listing_id": "03db3f29-9dc1-4790-8362-706994381433",
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 13: retrieved listing
+    listing_id       03db3f29-9dc1-4790-8362-706994381433
+    title            Sunny 2BR near SJSU
+    address          125 E San Fernando St, San Jose, CA
+    listing_code     LST-94861
+    available_units  2
+    landlord_id      6
+
+--- Step 14: correlation_id check
+    client created   c1d09be8-2661-4043-8d1b-3d2a371def73
+    CREATE request   c1d09be8-2661-4043-8d1b-3d2a371def73
+    CREATE response  c1d09be8-2661-4043-8d1b-3d2a371def73
+    GET request      c1d09be8-2661-4043-8d1b-3d2a371def73
+    GET response     c1d09be8-2661-4043-8d1b-3d2a371def73
+    correlation_id unchanged everywhere: True
+    GET returned the same fields that were created: True
+
+===== 2026-11-02 00:46:14 homework-demo-api (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 Kafka request/response demo (via api)
+run at 2026-11-02T00:46:15 | VERIFY_SEED 269486
+==============================================================================
+
+--- Step 1: create one correlation_id (used for both requests)
+    correlation_id = 89a90747-80e4-4973-a27d-33b8fe1f8c23
+
+--- Step 2: CREATE_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 00:46:16.443 [client] HTTP POST http://127.0.0.1:8486/api/kafka/listings correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    api    | 2026-11-02 00:46:16.506 [api] HTTP request -> CREATE_LISTING correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    api    | 2026-11-02 00:46:16.513 [api] sent request to topic=s9486_entity_requests partition=0 offset=2 operation=CREATE_LISTING correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    request message:
+    {
+      "correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23",
+      "reply_to": "s9486_entity_responses",
+      "operation": "CREATE_LISTING",
+      "data": {
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 3: worker received the request
+    worker | 2026-11-02 00:46:16.515 [worker] received request topic=s9486_entity_requests partition=0 offset=2 value={"correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23", "reply_to": "s9486_entity_responses", "operation": "CREATE_LISTING", "data": {"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+
+--- Step 4: worker processed the request
+    worker | 2026-11-02 00:46:16.516 [worker] processing operation=CREATE_LISTING correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23 data={"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}
+    worker | 2026-11-02 00:46:16.517 [worker] processed correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23 success=True listings_in_store=2
+
+--- Step 5: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 00:46:16.521 [worker] sent response to topic=s9486_entity_responses partition=0 offset=2 value={"correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23", "success": true, "listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff", "message": "Listing created"}
+    worker | 2026-11-02 00:46:16.526 [worker] committed offset 3 for partition 0
+
+--- Step 6: response received by the FastAPI and returned to the client
+    api    | 2026-11-02 00:46:16.523 [api] received response from topic=s9486_entity_responses partition=0 offset=2 correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23 success=True
+    api    | 2026-11-02 00:46:16.523 [api] returning HTTP 201 to caller correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    client | 2026-11-02 00:46:16.526 [client] HTTP 201 from API correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    response message:
+    {
+      "correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23",
+      "success": true,
+      "listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff",
+      "message": "Listing created"
+    }
+
+--- Step 7: extract the generated listing_id from the CREATE_LISTING response
+    listing_id = bbd51d84-abb9-4d74-846a-2e2b57df40ff
+
+--- Step 8: GET_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 00:46:17.219 [client] HTTP GET http://127.0.0.1:8486/api/kafka/listings/bbd51d84-abb9-4d74-846a-2e2b57df40ff X-Correlation-ID=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    api    | 2026-11-02 00:46:17.224 [api] HTTP request -> GET_LISTING correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    api    | 2026-11-02 00:46:17.232 [api] sent request to topic=s9486_entity_requests partition=0 offset=3 operation=GET_LISTING correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    request message:
+    {
+      "correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23",
+      "reply_to": "s9486_entity_responses",
+      "operation": "GET_LISTING",
+      "data": {
+        "listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff"
+      }
+    }
+
+--- Step 9: worker received the request
+    worker | 2026-11-02 00:46:17.235 [worker] received request topic=s9486_entity_requests partition=0 offset=3 value={"correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23", "reply_to": "s9486_entity_responses", "operation": "GET_LISTING", "data": {"listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff"}}
+
+--- Step 10: worker processed the request
+    worker | 2026-11-02 00:46:17.236 [worker] processing operation=GET_LISTING correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23 data={"listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff"}
+    worker | 2026-11-02 00:46:17.237 [worker] processed correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23 success=True listings_in_store=2
+
+--- Step 11: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 00:46:17.242 [worker] sent response to topic=s9486_entity_responses partition=0 offset=3 value={"correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23", "success": true, "listing": {"listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff", "title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+    worker | 2026-11-02 00:46:17.256 [worker] committed offset 4 for partition 0
+
+--- Step 12: response received by the FastAPI and returned to the client
+    api    | 2026-11-02 00:46:17.244 [api] received response from topic=s9486_entity_responses partition=0 offset=3 correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23 success=True
+    api    | 2026-11-02 00:46:17.244 [api] returning HTTP 200 to caller correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    client | 2026-11-02 00:46:17.257 [client] HTTP 200 from API correlation_id=89a90747-80e4-4973-a27d-33b8fe1f8c23
+    response message:
+    {
+      "correlation_id": "89a90747-80e4-4973-a27d-33b8fe1f8c23",
+      "success": true,
+      "listing": {
+        "listing_id": "bbd51d84-abb9-4d74-846a-2e2b57df40ff",
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 13: retrieved listing
+    listing_id       bbd51d84-abb9-4d74-846a-2e2b57df40ff
+    title            Sunny 2BR near SJSU
+    address          125 E San Fernando St, San Jose, CA
+    listing_code     LST-94861
+    available_units  2
+    landlord_id      6
+
+--- Step 14: correlation_id check
+    client created   89a90747-80e4-4973-a27d-33b8fe1f8c23
+    CREATE request   89a90747-80e4-4973-a27d-33b8fe1f8c23
+    CREATE response  89a90747-80e4-4973-a27d-33b8fe1f8c23
+    GET request      89a90747-80e4-4973-a27d-33b8fe1f8c23
+    GET response     89a90747-80e4-4973-a27d-33b8fe1f8c23
+    correlation_id unchanged everywhere: True
+    GET returned the same fields that were created: True
+
+===== 2026-11-02 00:46:18 api-calls (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 error cases through FastAPI on 8486
+run at 2026-11-02T00:46:18 | VERIFY_SEED 269486
+==============================================================================
+[OK] valid CREATE_LISTING: POST /api/kafka/listings -> HTTP 201
+    sent correlation_id=096721a0-a540-4874-9a99-9b4fdfc042a4
+    {"correlation_id": "096721a0-a540-4874-9a99-9b4fdfc042a4", "success": true, "listing_id": "12ef91ab-7afd-424c-82fc-c87544273f66", "message": "Listing created"}
+
+[OK] missing title: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=2df9c3eb-1352-4512-8c24-46c9da88d16f
+    {"correlation_id": "2df9c3eb-1352-4512-8c24-46c9da88d16f", "success": false, "error": "Invalid listing data: title: Field required"}
+
+[OK] empty address: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=1f8e6dfe-7149-411f-b332-a2236fddb3ad
+    {"correlation_id": "1f8e6dfe-7149-411f-b332-a2236fddb3ad", "success": false, "error": "Invalid listing data: address: String should have at least 1 character"}
+
+[OK] bad listing_code: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=6a26009f-9f29-4cb6-9c09-f14cb62649b2
+    {"correlation_id": "6a26009f-9f29-4cb6-9c09-f14cb62649b2", "success": false, "error": "Invalid listing data: listing_code: String should match pattern '^LST-\\d{5}$'"}
+
+[OK] negative available_units: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=8964538f-bc3d-4590-91e7-5a981a97a7fc
+    {"correlation_id": "8964538f-bc3d-4590-91e7-5a981a97a7fc", "success": false, "error": "Invalid listing data: available_units: Input should be greater than or equal to 0"}
+
+[OK] data is not an object: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=43ad10c7-a58f-446a-b502-0f68dd67be04
+    {"correlation_id": "43ad10c7-a58f-446a-b502-0f68dd67be04", "success": false, "error": "data must be a JSON object"}
+
+[OK] unknown listing_id: GET /api/kafka/listings/00000000-0000-0000-0000-000000000000 -> HTTP 404
+    sent correlation_id=b0e9a09a-e04c-44f9-9d29-72f2ee4277fa
+    {"correlation_id": "b0e9a09a-e04c-44f9-9d29-72f2ee4277fa", "success": false, "error": "Listing not found"}
+
+[OK] unknown operation: POST /api/kafka/requests -> HTTP 400
+    sent correlation_id=07e0010e-5447-4c65-97f4-1fb4a8623836
+    {"correlation_id": "07e0010e-5447-4c65-97f4-1fb4a8623836", "success": false, "error": "Unknown operation"}
+
+8/8 cases gave the expected success flag and echoed the same correlation_id
+
+===== 2026-11-02 00:46:23 pipeline-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 2 three-agent pipeline (model llama3.2:3b)
+run at 2026-11-02T00:46:23 | VERIFY_SEED 269486
+==============================================================================
+  $ kafka_agents/planner.py   [planner]
+  $ kafka_agents/writer.py   [writer]
+  $ kafka_agents/reviewer.py   [reviewer]
+    planner | 2026-11-02 00:46:24.143 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+     writer | 2026-11-02 00:46:24.144 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:46:24.144 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+    planner | 2026-11-02 00:46:24.144 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+   reviewer | 2026-11-02 00:46:24.145 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+   reviewer | 2026-11-02 00:46:24.145 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+  $ kafka_agents/send_question.py --timeout 400   [send]
+       send | 2026-11-02 00:46:24.395 [send_question] sent question to topic=s9486_inbox partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+       send | 2026-11-02 00:46:24.395 [send_question] question = 'I am a student moving to San Jose. What should I check before signing a lease for an apartment?'
+       send | 2026-11-02 00:46:24.395 [send_question] waiting up to 400s for correlation_id=e59eb806-56d8-4382-bd16-78250708281f on s9486_final
+    planner | 2026-11-02 00:46:24.396 [planner] received from topic=s9486_inbox partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+    planner | 2026-11-02 00:46:40.981 [planner] sent to topic=s9486_tasks partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+     writer | 2026-11-02 00:46:40.987 [writer] received from topic=s9486_tasks partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+     writer | 2026-11-02 00:46:41.012 [writer] working on correlation_id=e59eb806-56d8-4382-bd16-78250708281f with llama3.2:3b
+    planner | 2026-11-02 00:46:41.019 [planner] committed offset 1 for s9486_inbox partition 0
+     writer | 2026-11-02 00:47:18.313 [writer] sent to topic=s9486_drafts partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+   reviewer | 2026-11-02 00:47:18.457 [reviewer] received from topic=s9486_drafts partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+     writer | OffsetCommit failed for group s9486_writers due to group error ([Error 25] UnknownMemberIdError: s9486_writers), will rejoin
+     writer | 2026-11-02 00:47:18.857 [writer] partitions revoked [0, 1]
+     writer | 2026-11-02 00:47:18.916 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:47:19.014 [writer] stopped
+     writer | Traceback (most recent call last):
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/group_coordinator.py", line 1009, in commit_offsets
+     writer |     await asyncio.shield(self._do_commit_offsets(assignment, offsets))
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/group_coordinator.py", line 1144, in _do_commit_offsets
+     writer |     raise first_error
+     writer | aiokafka.errors.UnknownMemberIdError: [Error 25] UnknownMemberIdError: s9486_writers
+     writer | 
+     writer | The above exception was the direct cause of the following exception:
+     writer | 
+     writer | Traceback (most recent call last):
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/writer.py", line 69, in <module>
+     writer |     main(Writer)
+     writer |     ~~~~^^^^^^^^
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 222, in main
+     writer |     asyncio.run(agent.run())
+     writer |     ~~~~~~~~~~~^^^^^^^^^^^^^
+     writer |   File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+     writer |     return runner.run(main)
+     writer |            ~~~~~~~~~~^^^^^^
+     writer |   File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+     writer |     return self._loop.run_until_complete(task)
+     writer |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+     writer |   File "/opt/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+     writer |     return future.result()
+     writer |            ~~~~~~~~~~~~~^^
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 109, in run
+     writer |     await self.one_record(record, consumer, producer)
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 173, in one_record
+     writer |     await self.commit(consumer, record)
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/base.py", line 178, in commit
+     writer |     await consumer.commit({TopicPartition(record.topic, record.partition): record.offset + 1})
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/consumer.py", line 595, in commit
+     writer |     await self._coordinator.commit_offsets(assignment, offsets)
+     writer |   File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/group_coordinator.py", line 1015, in commit_offsets
+     writer |     raise Errors.CommitFailedError(
+     writer |     ...<3 lines>...
+     writer |     ) from exc
+     writer | aiokafka.errors.CommitFailedError: CommitFailedError: ('Commit cannot be completed since the group has already\n            rebalanced and assigned the partitions to another member.\n            This means that the time between subsequent calls to poll()\n            was longer than the configured max_poll_interval_ms, which\n            typically implies that the poll loop is spending too much\n            time message processing. You can address this either by\n            increasing the rebalance timeout with max_poll_interval_ms,\n            or by reducing the maximum size of batches returned in poll()\n            with max_poll_records.\n            ', 'Commit cannot be completed since the group has already rebalanced and may have assigned the partitions to another member')
+       send | 2026-11-02 00:47:42.879 [send_question] received final from topic=s9486_final partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+       send | {
+       send |   "correlation_id": "e59eb806-56d8-4382-bd16-78250708281f",
+       send |   "status": "approved",
+       send |   "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neighborhood and ensure it's safe and convenient for you. Consider the commute time to school, public transportation options, and nearby amenities like grocery stores and restaurants.\n\n**Step 2: Verify the lease terms**\nCarefully review the lease agreement to ensure you understand the rent, utilities, and move-in/move-out dates. Ask questions if you're unsure about anything, such as what's included in the rent and what's not.\n\n**Step 3: Inspect the apartment**\nVisit the apartment in person to inspect for any damages or needed repairs. Take photos and notes to document the condition of the apartment.\n\n**Step 4: Review the lease agreement carefully**\nCarefully review the lease agreement and ask questions if you're unsure about anything. Make sure you understand your responsibilities as a tenant and the landlord's responsibilities.",
+       send |   "review": {
+       send |     "approved": true,
+       send |     "notes": "The draft covers the plan and provides a clear step-by-step guide for students moving to San Jose. It emphasizes the importance of researching the location, verifying lease terms, inspecting the apartment, and reviewing the lease agreement carefully.",
+       send |     "mode": "llm",
+       send |     "model": "llama3.2:3b",
+       send |     "seconds": 22.43
+       send |   },
+       send |   "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?",
+       send |   "plan": [
+       send |     "Check the location and commute time to ensure it suits your needs",
+       send |     "Verify the lease terms, including rent, utilities, and move-in/move-out dates",
+       send |     "Inspect the apartment for any damages or needed repairs",
+       send |     "Review the lease agreement carefully and ask questions if you're unsure about anything"
+       send |   ],
+       send |   "writer": {
+       send |     "instance": "writer",
+       send |     "mode": "llm",
+       send |     "model": "llama3.2:3b",
+       send |     "seconds": 33.85
+       send |   },
+       send |   "trace": [
+       send |     {
+       send |       "agent": "send_question",
+       send |       "wrote": "s9486_inbox",
+       send |       "sent_at": "2026-11-02T08:46:24.389+00:00"
+       send |     },
+       send |     {
+       send |       "agent": "planner",
+       send |       "read": "s9486_inbox/0/0",
+       send |       "done_at": "2026-11-02T08:46:40.901+00:00"
+       send |     },
+       send |     {
+       send |       "agent": "writer",
+       send |       "read": "s9486_tasks/0/0",
+       send |       "done_at": "2026-11-02T08:47:14.946+00:00"
+       send |     },
+       send |     {
+       send |       "agent": "reviewer",
+       send |       "read": "s9486_drafts/0/0",
+       send |       "done_at": "2026-11-02T08:47:41.227+00:00"
+       send |     }
+       send |   ]
+       send | }
+   reviewer | 2026-11-02 00:47:42.820 [reviewer] sent to topic=s9486_final partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "status": "approved", "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neigh...(truncated)
+   reviewer | 2026-11-02 00:47:42.863 [reviewer] committed offset 1 for s9486_drafts partition 0
+    planner | 2026-11-02 00:47:43.743 [planner] stopped
+   reviewer | 2026-11-02 00:47:44.146 [reviewer] stopped
+
+--- message journey for correlation_id=e59eb806-56d8-4382-bd16-78250708281f (all processes, time order)
+  2026-11-02 00:46:24.395 [send_question] sent question to topic=s9486_inbox partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+  2026-11-02 00:46:24.395 [send_question] waiting up to 400s for correlation_id=e59eb806-56d8-4382-bd16-78250708281f on s9486_final
+  2026-11-02 00:46:24.396 [planner] received from topic=s9486_inbox partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+  2026-11-02 00:46:40.981 [planner] sent to topic=s9486_tasks partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "question": "I am a student movi ...
+  2026-11-02 00:46:40.987 [writer] received from topic=s9486_tasks partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+  2026-11-02 00:46:41.012 [writer] working on correlation_id=e59eb806-56d8-4382-bd16-78250708281f with llama3.2:3b
+  2026-11-02 00:46:41.019 [planner] committed offset 1 for s9486_inbox partition 0
+  2026-11-02 00:47:18.313 [writer] sent to topic=s9486_drafts partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "question": "I am a student movi ...
+  2026-11-02 00:47:18.457 [reviewer] received from topic=s9486_drafts partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+  2026-11-02 00:47:42.820 [reviewer] sent to topic=s9486_final partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f value={"correlation_id": "e59eb806-56d8-4382-bd16-78250708281f", "status": "approved", "answer": ...
+  2026-11-02 00:47:42.863 [reviewer] committed offset 1 for s9486_drafts partition 0
+  2026-11-02 00:47:42.879 [send_question] received final from topic=s9486_final partition=0 offset=0 correlation_id=e59eb806-56d8-4382-bd16-78250708281f
+
+--- final message on s9486_final: status=approved same correlation_id=True
+    stages in trace: send_question -> planner -> writer -> reviewer
+
+===== 2026-11-02 00:48:45 reset-groups (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | move the Part 2 groups to the end of their topics
+run at 2026-11-02T00:48:46 | VERIFY_SEED 269486
+==============================================================================
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+===== 2026-11-02 00:48:59 pipeline-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 2 three-agent pipeline (model llama3.2:3b)
+run at 2026-11-02T00:48:59 | VERIFY_SEED 269486
+==============================================================================
+  $ kafka_agents/planner.py   [planner]
+  $ kafka_agents/writer.py   [writer]
+  $ kafka_agents/reviewer.py   [reviewer]
+   reviewer | 2026-11-02 00:49:00.911 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+   reviewer | 2026-11-02 00:49:00.912 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 00:49:00.914 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:49:00.915 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+    planner | 2026-11-02 00:49:00.919 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+    planner | 2026-11-02 00:49:00.919 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+  $ kafka_agents/send_question.py --timeout 400   [send]
+       send | 2026-11-02 00:49:01.319 [send_question] sent question to topic=s9486_inbox partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+       send | 2026-11-02 00:49:01.319 [send_question] question = 'I am a student moving to San Jose. What should I check before signing a lease for an apartment?'
+       send | 2026-11-02 00:49:01.319 [send_question] waiting up to 400s for correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df on s9486_final
+    planner | 2026-11-02 00:49:01.321 [planner] received from topic=s9486_inbox partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+    planner | 2026-11-02 00:49:28.911 [planner] sent to topic=s9486_tasks partition=1 offset=0 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+     writer | 2026-11-02 00:49:28.920 [writer] received from topic=s9486_tasks partition=1 offset=0 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+    planner | 2026-11-02 00:49:28.932 [planner] committed offset 2 for s9486_inbox partition 0
+     writer | 2026-11-02 00:49:28.945 [writer] working on correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df with llama3.2:3b
+     writer | Got error produce response on topic-partition TopicPartition(topic='s9486_drafts', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+     writer | 2026-11-02 00:50:02.373 [writer] sent to topic=s9486_drafts partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?", "plan": ["Check the location and commute time to ensure it suits your needs", "Verify the lease terms, including rent, utilities, ...(truncated)
+   reviewer | 2026-11-02 00:50:02.627 [reviewer] received from topic=s9486_drafts partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+     writer | 2026-11-02 00:50:03.505 [writer] committed offset 1 for s9486_tasks partition 1
+   reviewer | 2026-11-02 00:50:15.126 [reviewer] sent to topic=s9486_final partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "status": "approved", "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neigh...(truncated)
+       send | 2026-11-02 00:50:15.150 [send_question] received final from topic=s9486_final partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+   reviewer | 2026-11-02 00:50:15.166 [reviewer] committed offset 2 for s9486_drafts partition 0
+       send | {
+       send |   "correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df",
+       send |   "status": "approved",
+       send |   "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neighborhood and ensure it's safe and convenient for you. Consider the commute time to school, public transportation options, and nearby amenities like grocery stores and restaurants.\n\n**Step 2: Verify the lease terms**\nCarefully review the lease agreement to ensure you understand the rent, utilities, and move-in/move-out dates. Ask questions if you're unsure about anything, such as what's included in the rent and what's not.\n\n**Step 3: Inspect the apartment**\nVisit the apartment in person to inspect for any damages or needed repairs. Take photos and notes to document the condition of the apartment.\n\n**Step 4: Review the lease agreement carefully**\nCarefully review the lease agreement and ask questions if you're unsure about anything. Make sure you understand your responsibilities as a tenant and the landlord's responsibilities.",
+       send |   "review": {
+       send |     "approved": true,
+       send |     "notes": "The draft covers the plan and provides a clear step-by-step guide for students moving to San Jose. It emphasizes the importance of researching the location, verifying lease terms, inspecting the apartment, and reviewing the lease agreement carefully.",
+       send |     "mode": "llm",
+       send |     "model": "llama3.2:3b",
+       send |     "seconds": 12.03
+       send |   },
+       send |   "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?",
+       send |   "plan": [
+       send |     "Check the location and commute time to ensure it suits your needs",
+       send |     "Verify the lease terms, including rent, utilities, and move-in/move-out dates",
+       send |     "Inspect the apartment for any damages or needed repairs",
+       send |     "Review the lease agreement carefully and ask questions if you're unsure about anything"
+       send |   ],
+       send |   "writer": {
+       send |     "instance": "writer",
+       send |     "mode": "llm",
+       send |     "model": "llama3.2:3b",
+       send |     "seconds": 32.48
+       send |   },
+       send |   "trace": [
+       send |     {
+       send |       "agent": "send_question",
+       send |       "wrote": "s9486_inbox",
+       send |       "sent_at": "2026-11-02T08:49:01.302+00:00"
+       send |     },
+       send |     {
+       send |       "agent": "planner",
+       send |       "read": "s9486_inbox/0/1",
+       send |       "done_at": "2026-11-02T08:49:28.753+00:00"
+       send |     },
+       send |     {
+       send |       "agent": "writer",
+       send |       "read": "s9486_tasks/1/0",
+       send |       "done_at": "2026-11-02T08:50:01.458+00:00"
+       send |     },
+       send |     {
+       send |       "agent": "reviewer",
+       send |       "read": "s9486_drafts/0/1",
+       send |       "done_at": "2026-11-02T08:50:14.868+00:00"
+       send |     }
+       send |   ]
+       send | }
+    planner | 2026-11-02 00:50:15.375 [planner] stopped
+     writer | 2026-11-02 00:50:15.664 [writer] stopped
+   reviewer | 2026-11-02 00:50:15.961 [reviewer] stopped
+
+--- message journey for correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df (all processes, time order)
+  2026-11-02 00:49:01.319 [send_question] sent question to topic=s9486_inbox partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+  2026-11-02 00:49:01.319 [send_question] waiting up to 400s for correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df on s9486_final
+  2026-11-02 00:49:01.321 [planner] received from topic=s9486_inbox partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+  2026-11-02 00:49:28.911 [planner] sent to topic=s9486_tasks partition=1 offset=0 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "question": "I am a student movi ...
+  2026-11-02 00:49:28.920 [writer] received from topic=s9486_tasks partition=1 offset=0 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+  2026-11-02 00:49:28.932 [planner] committed offset 2 for s9486_inbox partition 0
+  2026-11-02 00:49:28.945 [writer] working on correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df with llama3.2:3b
+  2026-11-02 00:50:02.373 [writer] sent to topic=s9486_drafts partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "question": "I am a student movi ...
+  2026-11-02 00:50:02.627 [reviewer] received from topic=s9486_drafts partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+  2026-11-02 00:50:03.505 [writer] committed offset 1 for s9486_tasks partition 1
+  2026-11-02 00:50:15.126 [reviewer] sent to topic=s9486_final partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df value={"correlation_id": "d17566c4-8863-45fa-a8b6-be4f3a9fc8df", "status": "approved", "answer": ...
+  2026-11-02 00:50:15.150 [send_question] received final from topic=s9486_final partition=0 offset=1 correlation_id=d17566c4-8863-45fa-a8b6-be4f3a9fc8df
+  2026-11-02 00:50:15.166 [reviewer] committed offset 2 for s9486_drafts partition 0
+
+--- final message on s9486_final: status=approved same correlation_id=True
+    stages in trace: send_question -> planner -> writer -> reviewer
+
+===== 2026-11-02 00:50:39 dup-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3A duplicate delivery (replay the same correlation_id)
+run at 2026-11-02T00:50:40 | VERIFY_SEED 269486
+==============================================================================
+
+=== Worker, before fix: WORKER_IDEMPOTENCY=off
+  worker container recreated (empty dict): 2026-11-02 00:50:59.750 [worker] bootstrap=kafka:29092 group=s9486_entity_worker topic=s9486_entity_requests idempotency=off
+  sent CREATE_LISTING correlation_id=55b02565-51de-4c48-b9bb-b881dc693ef1 to partition=0 offset=12
+  sent CREATE_LISTING correlation_id=55b02565-51de-4c48-b9bb-b881dc693ef1 to partition=0 offset=13
+2026-11-02 00:51:08.439 [check] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+2026-11-02 00:51:08.476 [check] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+  worker | 2026-11-02 00:51:03.291 [worker] received request topic=s9486_entity_requests partition=0 offset=12 value={"correlation_id": "55b02565-51de-4c48-b9bb-b881dc693ef1", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 00:51:03.291 [worker] processing operation=CREATE_LISTING correlation_id=55b02565-51de-4c48-b9bb-b881dc693ef1 data={"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-
+  worker | 2026-11-02 00:51:03.295 [worker] processed correlation_id=55b02565-51de-4c48-b9bb-b881dc693ef1 success=True listings_in_store=1
+  worker | 2026-11-02 00:51:03.307 [worker] sent response to topic=s9486_entity_responses partition=0 offset=12 value={"correlation_id": "55b02565-51de-4c48-b9bb-b881dc693ef1", "success": true, "listing_id": "e76a077c-3d42-43fd-a54
+  worker | 2026-11-02 00:51:05.363 [worker] received request topic=s9486_entity_requests partition=0 offset=13 value={"correlation_id": "55b02565-51de-4c48-b9bb-b881dc693ef1", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 00:51:05.363 [worker] processing operation=CREATE_LISTING correlation_id=55b02565-51de-4c48-b9bb-b881dc693ef1 data={"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-
+  worker | 2026-11-02 00:51:05.363 [worker] processed correlation_id=55b02565-51de-4c48-b9bb-b881dc693ef1 success=True listings_in_store=2
+  worker | 2026-11-02 00:51:05.366 [worker] sent response to topic=s9486_entity_responses partition=0 offset=13 value={"correlation_id": "55b02565-51de-4c48-b9bb-b881dc693ef1", "success": true, "listing_id": "2d0f5018-01df-40f8-97f
+  response: success=True listing_id=e76a077c-3d42-43fd-a547-f3b0c1bc9dbf
+  response: success=True listing_id=2d0f5018-01df-40f8-97f5-4aff8c1c515c
+  -> 2 responses, 2 different listing_id(s), 2 listing(s) exist for this one request
+
+=== Worker, after fix: WORKER_IDEMPOTENCY=on
+  worker container recreated (empty dict): 2026-11-02 00:51:27.833 [worker] bootstrap=kafka:29092 group=s9486_entity_worker topic=s9486_entity_requests idempotency=on
+  sent CREATE_LISTING correlation_id=f4921d1a-82db-462b-b740-07fbb6a36da9 to partition=0 offset=16
+  sent CREATE_LISTING correlation_id=f4921d1a-82db-462b-b740-07fbb6a36da9 to partition=0 offset=17
+2026-11-02 00:51:36.635 [check] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+  worker | 2026-11-02 00:51:31.455 [worker] received request topic=s9486_entity_requests partition=0 offset=16 value={"correlation_id": "f4921d1a-82db-462b-b740-07fbb6a36da9", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 00:51:31.459 [worker] processing operation=CREATE_LISTING correlation_id=f4921d1a-82db-462b-b740-07fbb6a36da9 data={"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-
+  worker | 2026-11-02 00:51:31.484 [worker] processed correlation_id=f4921d1a-82db-462b-b740-07fbb6a36da9 success=True listings_in_store=1
+  worker | 2026-11-02 00:51:31.527 [worker] sent response to topic=s9486_entity_responses partition=0 offset=16 value={"correlation_id": "f4921d1a-82db-462b-b740-07fbb6a36da9", "success": true, "listing_id": "6dc82a0f-2c9f-447a-934
+  worker | 2026-11-02 00:51:33.484 [worker] received request topic=s9486_entity_requests partition=0 offset=17 value={"correlation_id": "f4921d1a-82db-462b-b740-07fbb6a36da9", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 00:51:33.484 [worker] duplicate correlation_id=f4921d1a-82db-462b-b740-07fbb6a36da9 operation=CREATE_LISTING: already answered, sending the saved response again (no new listing)
+  worker | 2026-11-02 00:51:33.488 [worker] sent response to topic=s9486_entity_responses partition=0 offset=17 value={"correlation_id": "f4921d1a-82db-462b-b740-07fbb6a36da9", "success": true, "listing_id": "6dc82a0f-2c9f-447a-934
+  response: success=True listing_id=6dc82a0f-2c9f-447a-934f-81fe06399ccb
+  response: success=True listing_id=6dc82a0f-2c9f-447a-934f-81fe06399ccb
+  -> 2 responses, 1 different listing_id(s), 1 listing(s) exist for this one request
+
+=== Writer, before fix: idempotency off
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_dup_before_005136 --instance writer --from latest --no-idempotency   [writer]
+     writer | 2026-11-02 00:51:38.693 [writer] ready: group=s9486_writers_dup_before_005136 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:51:38.693 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=off, poison=retry-dlq (max 3)
+     writer | 2026-11-02 00:51:38.993 [writer] received from topic=s9486_tasks partition=1 offset=1 correlation_id=116783de-5d2e-4ff7-baf9-35f78f2ffd6e
+  sent the same task twice, correlation_id=116783de-5d2e-4ff7-baf9-35f78f2ffd6e
+     writer | 2026-11-02 00:51:39.006 [writer] sent to topic=s9486_drafts partition=0 offset=2 correlation_id=116783de-5d2e-4ff7-baf9-35f78f2ffd6e value={"correlation_id": "116783de-5d2e-4ff7-baf9-35f78f2ffd6e", "question": "Is a security deposit refundable?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"...(truncated)
+     writer | 2026-11-02 00:51:39.013 [writer] committed offset 2 for s9486_tasks partition 1
+     writer | 2026-11-02 00:51:39.016 [writer] received from topic=s9486_tasks partition=1 offset=2 correlation_id=116783de-5d2e-4ff7-baf9-35f78f2ffd6e
+     writer | 2026-11-02 00:51:39.029 [writer] sent to topic=s9486_drafts partition=0 offset=3 correlation_id=116783de-5d2e-4ff7-baf9-35f78f2ffd6e value={"correlation_id": "116783de-5d2e-4ff7-baf9-35f78f2ffd6e", "question": "Is a security deposit refundable?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"...(truncated)
+     writer | 2026-11-02 00:51:39.034 [writer] committed offset 3 for s9486_tasks partition 1
+     writer | 2026-11-02 00:51:39.223 [writer] stopped
+  -> drafts on s9486_drafts for this correlation_id: 2
+
+=== Writer, after fix: idempotency on
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_dup_after_005139 --instance writer --from latest   [writer]
+     writer | 2026-11-02 00:51:39.891 [writer] ready: group=s9486_writers_dup_after_005139 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:51:39.891 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 00:51:40.101 [writer] received from topic=s9486_tasks partition=0 offset=1 correlation_id=4fe045a5-d8ea-4e9a-98ab-e2f7dcd7a0dc
+  sent the same task twice, correlation_id=4fe045a5-d8ea-4e9a-98ab-e2f7dcd7a0dc
+     writer | 2026-11-02 00:51:40.123 [writer] sent to topic=s9486_drafts partition=0 offset=4 correlation_id=4fe045a5-d8ea-4e9a-98ab-e2f7dcd7a0dc value={"correlation_id": "4fe045a5-d8ea-4e9a-98ab-e2f7dcd7a0dc", "question": "Is a security deposit refundable?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"...(truncated)
+     writer | 2026-11-02 00:51:40.135 [writer] committed offset 2 for s9486_tasks partition 0
+     writer | 2026-11-02 00:51:40.140 [writer] received from topic=s9486_tasks partition=0 offset=2 correlation_id=4fe045a5-d8ea-4e9a-98ab-e2f7dcd7a0dc
+     writer | 2026-11-02 00:51:40.140 [writer] duplicate correlation_id=4fe045a5-d8ea-4e9a-98ab-e2f7dcd7a0dc: already processed, skipping (no second output)
+     writer | 2026-11-02 00:51:40.144 [writer] committed offset 3 for s9486_tasks partition 0
+     writer | 2026-11-02 00:51:40.332 [writer] stopped
+  -> drafts on s9486_drafts for this correlation_id: 1
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+--- summary
+  Part 1 worker  before fix idempotency=off  replay -> 2 listing(s) created
+  Part 1 worker  after fix  idempotency=on   replay -> 1 listing(s) created
+  Writer agent   before fix idempotency=off  replay -> 2 draft(s)
+  Writer agent   after fix  idempotency=on   replay -> 1 draft(s)
+before fix made a second side effect and after fix did not: True
+
+===== 2026-11-02 00:51:49 death-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3B consumer death (SIGKILL the Writer mid-message, then restart)
+run at 2026-11-02T00:51:49 | VERIFY_SEED 269486
+==============================================================================
+
+=== before fix: writer.py --commit auto
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_auto_005149 --commit auto --work-seconds 6 --instance writer --from latest   [writer]
+     writer | 2026-11-02 00:51:49.624 [writer] ready: group=s9486_writers_death_auto_005149 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:51:49.624 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=auto, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 00:51:49.710 [writer] received from topic=s9486_tasks partition=1 offset=3 correlation_id=7672285d-bab8-4b52-8b95-edeb7f3f804a
+     writer | 2026-11-02 00:51:49.710 [writer] working on correlation_id=7672285d-bab8-4b52-8b95-edeb7f3f804a for 0.50s
+  sent task A correlation_id=7672285d-bab8-4b52-8b95-edeb7f3f804a
+     writer | 2026-11-02 00:51:50.225 [writer] sent to topic=s9486_drafts partition=0 offset=5 correlation_id=7672285d-bab8-4b52-8b95-edeb7f3f804a value={"correlation_id": "7672285d-bab8-4b52-8b95-edeb7f3f804a", "question": "Task A: what is a sublease?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.5}, "trace": [{"agent"...(truncated)
+     writer | 2026-11-02 00:51:51.748 [writer] received from topic=s9486_tasks partition=1 offset=4 correlation_id=3aa126a4-cf73-468f-b6db-cefb7084862f
+     writer | 2026-11-02 00:51:51.748 [writer] working on correlation_id=3aa126a4-cf73-468f-b6db-cefb7084862f for 6.00s
+  sent task B correlation_id=3aa126a4-cf73-468f-b6db-cefb7084862f (partition=1 offset=4)
+  >>> killed writer with SIGKILL while it was working on task B (exit code -9)
+  committed offsets right after the kill:
+    topic=s9486_tasks partition=0 committed=3 log_end=3 lag=0
+    topic=s9486_tasks partition=1 committed=5 log_end=5 lag=0
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_auto_005149 --commit auto --work-seconds 6 --instance writer-restarted   [writer*]
+    writer* | 2026-11-02 00:52:23.967 [writer-restarted] ready: group=s9486_writers_death_auto_005149 topic=s9486_tasks assigned partitions=[0, 1]
+    writer* | 2026-11-02 00:52:23.985 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=auto, idempotency=on, poison=retry-dlq (max 3)
+    writer* | 2026-11-02 00:52:40.159 [writer-restarted] stopped
+  committed offsets after the restart:
+    topic=s9486_tasks partition=0 committed=3 log_end=3 lag=0
+    topic=s9486_tasks partition=1 committed=5 log_end=5 lag=0
+  -> drafts: task A 1, task B 0 -> task B lost (never completed) 
+
+=== after fix: writer.py --commit manual
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_manual_005242 --commit manual --work-seconds 6 --instance writer --from latest   [writer]
+     writer | 2026-11-02 00:52:42.624 [writer] ready: group=s9486_writers_death_manual_005242 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:52:42.624 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 00:52:42.724 [writer] received from topic=s9486_tasks partition=1 offset=5 correlation_id=f781193d-60f3-4e42-b51e-896e1932edde
+     writer | 2026-11-02 00:52:42.724 [writer] working on correlation_id=f781193d-60f3-4e42-b51e-896e1932edde for 0.50s
+  sent task A correlation_id=f781193d-60f3-4e42-b51e-896e1932edde
+     writer | 2026-11-02 00:52:43.235 [writer] sent to topic=s9486_drafts partition=0 offset=6 correlation_id=f781193d-60f3-4e42-b51e-896e1932edde value={"correlation_id": "f781193d-60f3-4e42-b51e-896e1932edde", "question": "Task A: what is a sublease?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.5}, "trace": [{"agent"...(truncated)
+     writer | 2026-11-02 00:52:43.236 [writer] committed offset 6 for s9486_tasks partition 1
+  sent task B correlation_id=4aa6eeca-465a-49f7-a004-fcc25cb455a7 (partition=1 offset=6)
+     writer | 2026-11-02 00:52:44.758 [writer] received from topic=s9486_tasks partition=1 offset=6 correlation_id=4aa6eeca-465a-49f7-a004-fcc25cb455a7
+     writer | 2026-11-02 00:52:44.758 [writer] working on correlation_id=4aa6eeca-465a-49f7-a004-fcc25cb455a7 for 6.00s
+  >>> killed writer with SIGKILL while it was working on task B (exit code -9)
+  committed offsets right after the kill:
+    topic=s9486_tasks partition=0 committed=- log_end=3 lag=-
+    topic=s9486_tasks partition=1 committed=6 log_end=7 lag=1
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_manual_005242 --commit manual --work-seconds 6 --instance writer-restarted   [writer*]
+    writer* | 2026-11-02 00:53:13.249 [writer-restarted] ready: group=s9486_writers_death_manual_005242 topic=s9486_tasks assigned partitions=[0, 1]
+    writer* | 2026-11-02 00:53:13.249 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+    writer* | 2026-11-02 00:53:13.257 [writer-restarted] received from topic=s9486_tasks partition=1 offset=6 correlation_id=4aa6eeca-465a-49f7-a004-fcc25cb455a7
+    writer* | 2026-11-02 00:53:13.257 [writer-restarted] working on correlation_id=4aa6eeca-465a-49f7-a004-fcc25cb455a7 for 6.00s
+    writer* | 2026-11-02 00:53:19.290 [writer-restarted] sent to topic=s9486_drafts partition=0 offset=7 correlation_id=4aa6eeca-465a-49f7-a004-fcc25cb455a7 value={"correlation_id": "4aa6eeca-465a-49f7-a004-fcc25cb455a7", "question": "Task B: can my landlord raise rent?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer-restarted", "mode": "fast", "model": null, "seconds": 6.0}, ...(truncated)
+    writer* | 2026-11-02 00:53:19.294 [writer-restarted] committed offset 7 for s9486_tasks partition 1
+    writer* | 2026-11-02 00:53:20.373 [writer-restarted] stopped
+  committed offsets after the restart:
+    topic=s9486_tasks partition=1 committed=7 log_end=7 lag=0
+  -> drafts: task A 1, task B 1 -> task B redelivered and completed ['writer-restarted']
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+--- summary
+  before fix commit=auto   task B after restart: lost (never completed)
+  after fix  commit=manual task B after restart: redelivered and completed
+auto-commit lost task B and manual commit completed it after the restart: True
+
+===== 2026-11-02 00:53:35 poison-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3C poison message (bounded retries + dead-letter topic)
+run at 2026-11-02T00:53:35 | VERIFY_SEED 269486
+==============================================================================
+
+=== before fix: writer.py --poison-handling none
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_poison_before_005335 --poison-handling none --instance writer --from latest   [writer]
+     writer | 2026-11-02 00:53:36.521 [writer] ready: group=s9486_writers_poison_before_005335 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:53:36.521 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=none (max 3)
+     writer | 2026-11-02 00:53:36.541 [writer] received from topic=s9486_tasks partition=1 offset=7 correlation_id=57fcdcef-bade-450e-a041-f9a52e5717bb
+     writer | 2026-11-02 00:53:36.547 [writer] sent to topic=s9486_drafts partition=0 offset=8 correlation_id=57fcdcef-bade-450e-a041-f9a52e5717bb value={"correlation_id": "57fcdcef-bade-450e-a041-f9a52e5717bb", "question": "Warm-up: what is renter's insurance?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": ...(truncated)
+     writer | 2026-11-02 00:53:36.550 [writer] committed offset 8 for s9486_tasks partition 1
+     writer | 2026-11-02 00:53:36.658 [writer] received from topic=s9486_tasks partition=1 offset=8 correlation_id=None
+     writer | 2026-11-02 00:53:36.658 [writer] FAILED on offset 8: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed
+     writer | 2026-11-02 00:53:36.664 [writer] stopped
+  sent poison: not JSON  partition=1 offset=8
+  sent good 1            partition=1 offset=9
+  sent good 2            partition=1 offset=10
+  >>> writer exited with code 1
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_poison_before_005335 --poison-handling none --instance writer-restarted   [writer*]
+    writer* | 2026-11-02 00:53:36.911 [writer-restarted] ready: group=s9486_writers_poison_before_005335 topic=s9486_tasks assigned partitions=[0, 1]
+    writer* | 2026-11-02 00:53:36.911 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=none (max 3)
+    writer* | 2026-11-02 00:53:36.917 [writer-restarted] received from topic=s9486_tasks partition=1 offset=8 correlation_id=None
+    writer* | 2026-11-02 00:53:36.917 [writer-restarted] FAILED on offset 8: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed
+    writer* | 2026-11-02 00:53:36.920 [writer-restarted] stopped
+  >>> restarted writer exited with code 1 (same message again)
+  committed offsets at the end:
+    topic=s9486_tasks partition=1 committed=8 log_end=11 lag=3
+  -> good tasks processed after the poison: 0/2, messages in dead-letter: 0
+
+=== after fix: writer.py --poison-handling retry-dlq
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_poison_after_005338 --poison-handling retry-dlq --instance writer --from latest   [writer]
+     writer | 2026-11-02 00:53:38.987 [writer] ready: group=s9486_writers_poison_after_005338 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 00:53:38.987 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 00:53:39.082 [writer] received from topic=s9486_tasks partition=1 offset=11 correlation_id=eac06762-ebc5-4352-9c5f-9823f539ce5a
+     writer | 2026-11-02 00:53:39.093 [writer] sent to topic=s9486_drafts partition=0 offset=9 correlation_id=eac06762-ebc5-4352-9c5f-9823f539ce5a value={"correlation_id": "eac06762-ebc5-4352-9c5f-9823f539ce5a", "question": "Warm-up: what is renter's insurance?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": ...(truncated)
+     writer | 2026-11-02 00:53:39.096 [writer] committed offset 12 for s9486_tasks partition 1
+     writer | 2026-11-02 00:53:39.198 [writer] received from topic=s9486_tasks partition=1 offset=12 correlation_id=None
+     writer | 2026-11-02 00:53:39.198 [writer] attempt 1/3 failed for offset 12: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)
+  sent poison: not JSON  partition=1 offset=12
+  sent poison: no plan   partition=1 offset=13
+  sent good 1            partition=1 offset=14
+  sent good 2            partition=1 offset=15
+     writer | 2026-11-02 00:53:39.711 [writer] attempt 2/3 failed for offset 12: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)
+     writer | 2026-11-02 00:53:40.712 [writer] attempt 3/3 failed for offset 12: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)
+     writer | 2026-11-02 00:53:40.719 [writer] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=0
+     writer | 2026-11-02 00:53:40.722 [writer] committed offset 13 for s9486_tasks partition 1
+     writer | 2026-11-02 00:53:40.849 [writer] received from topic=s9486_tasks partition=1 offset=13 correlation_id=f0835e84-eb84-4d44-a607-7663f4a43c43
+     writer | 2026-11-02 00:53:40.849 [writer] attempt 1/3 failed for offset 13: ValueError: message is missing plan
+     writer | 2026-11-02 00:53:41.350 [writer] attempt 2/3 failed for offset 13: ValueError: message is missing plan
+     writer | 2026-11-02 00:53:42.352 [writer] attempt 3/3 failed for offset 13: ValueError: message is missing plan
+     writer | 2026-11-02 00:53:42.357 [writer] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=1
+     writer | 2026-11-02 00:53:42.360 [writer] committed offset 14 for s9486_tasks partition 1
+     writer | 2026-11-02 00:53:42.360 [writer] received from topic=s9486_tasks partition=1 offset=14 correlation_id=fdfefa5c-5592-4239-bcf6-bc8b9b627ec4
+     writer | 2026-11-02 00:53:42.361 [writer] sent to topic=s9486_drafts partition=0 offset=10 correlation_id=fdfefa5c-5592-4239-bcf6-bc8b9b627ec4 value={"correlation_id": "fdfefa5c-5592-4239-bcf6-bc8b9b627ec4", "question": "Good task 1", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"agent": "writer", "rea...(truncated)
+     writer | 2026-11-02 00:53:42.363 [writer] committed offset 15 for s9486_tasks partition 1
+     writer | 2026-11-02 00:53:42.363 [writer] received from topic=s9486_tasks partition=1 offset=15 correlation_id=1fc35316-a52a-4e4c-82a8-4b364f80587d
+     writer | 2026-11-02 00:53:42.365 [writer] sent to topic=s9486_drafts partition=0 offset=11 correlation_id=1fc35316-a52a-4e4c-82a8-4b364f80587d value={"correlation_id": "1fc35316-a52a-4e4c-82a8-4b364f80587d", "question": "Good task 2", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"agent": "writer", "rea...(truncated)
+     writer | 2026-11-02 00:53:42.366 [writer] committed offset 16 for s9486_tasks partition 1
+     writer | 2026-11-02 00:53:43.456 [writer] stopped
+  committed offsets at the end:
+    topic=s9486_tasks partition=1 committed=16 log_end=16 lag=0
+  s9486_dead_letter offset=0: error='JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)' attempts=3 source={'topic': 's9486_tasks', 'partition': 1, 'offset': 12}
+  s9486_dead_letter offset=1: error='ValueError: message is missing plan' attempts=3 source={'topic': 's9486_tasks', 'partition': 1, 'offset': 13}
+  -> good tasks processed after the poison: 2/2, messages in dead-letter: 2
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+--- summary
+  before fix good tasks after the poison: 0/2, dead-letter messages: 0, writer exit codes: [1, 1]
+  after fix  good tasks after the poison: 2/2, dead-letter messages: 2, writer exit codes: [0]
+poison blocked the queue before the fix and went to s9486_dead_letter after it: True
+
+===== 2026-11-02 00:53:49 ordering-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3D ordering (20 messages from VERIFY_SEED 269486, 2 partitions, 2 writers)
+run at 2026-11-02T00:53:50 | VERIFY_SEED 269486
+==============================================================================
+  send order: 62000#1 54549#1 98538#1 62000#2 90996#1 62000#3 98538#2 54549#2 54549#3 62000#4 54549#4 54549#5 62000#5 98538#3 98538#4 90996#2 98538#5 90996#3 90996#4 90996#5
+
+=== unkeyed run: key=None
+  consumer group s9486_writers_order_unkeyed_005350: writer-1 has partition [0], writer-2 has partition [1]
+  sent 20 messages: partition 0 got 9, partition 1 got 11
+  processing order: 98538#1(p1) 62000#1(p0) 54549#1(p0) 62000#2(p1) 90996#1(p0) 62000#3(p1) 54549#3(p0) 54549#5(p0) 98538#2(p1) 98538#3(p0) 54549#2(p1) 98538#4(p0) 62000#4(p1) 90996#2(p0) 54549#4(p1) 90996#4(p0) 62000#5(p1) 98538#5(p1) 90996#3(p1) 90996#5(p1)
+  listing    partitions  writers              processed seq order   in order
+  LST-54549  [0, 1]      writer-1, writer-2   [1, 3, 5, 2, 4]       False
+  LST-62000  [0, 1]      writer-1, writer-2   [1, 2, 3, 4, 5]       True
+  LST-90996  [0, 1]      writer-1, writer-2   [1, 2, 4, 3, 5]       False
+  LST-98538  [0, 1]      writer-1, writer-2   [1, 2, 3, 4, 5]       True
+  -> unkeyed: 20/20 processed, 4 listing(s) split across partitions, 2 listing(s) out of order
+
+=== keyed run: key=listing_code
+  consumer group s9486_writers_order_keyed_005354: writer-1 has partition [1], writer-2 has partition [0]
+  sent 20 messages: partition 0 got 0, partition 1 got 20
+  processing order: 62000#1(p1) 54549#1(p1) 98538#1(p1) 62000#2(p1) 90996#1(p1) 62000#3(p1) 98538#2(p1) 54549#2(p1) 54549#3(p1) 62000#4(p1) 54549#4(p1) 54549#5(p1) 62000#5(p1) 98538#3(p1) 98538#4(p1) 90996#2(p1) 98538#5(p1) 90996#3(p1) 90996#4(p1) 90996#5(p1)
+  listing    partitions  writers              processed seq order   in order
+  LST-54549  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  LST-62000  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  LST-90996  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  LST-98538  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  -> keyed: 20/20 processed, 0 listing(s) split across partitions, 0 listing(s) out of order
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+keyed run kept every listing on one partition and in order: True
+
+===== 2026-11-02 00:54:13 test-hw8 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 tests (offline: no Kafka, no LLM, no network)
+run at 2026-11-02T00:54:13 | VERIFY_SEED 269486
+==============================================================================
+PASS   1. test_config_topics
+PASS   2. test_request_schema
+PASS   3. test_create_then_get
+PASS   4. test_validation_errors
+PASS   5. test_unknown_operation_and_id
+PASS   6. test_bad_envelopes
+PASS   7. test_worker_idempotency_switch
+PASS   8. test_agent_steps_fast_mode
+PASS   9. test_agent_steps_reject_bad_input
+PASS  10. test_peek_correlation_id
+PASS  11. test_loop_commits_after_send_and_skips_duplicates
+PASS  12. test_loop_retries_then_dead_letter
+PASS  13. test_loop_crash_mode_does_not_commit
+PASS  14. test_auto_commit_mode_has_no_manual_commit
+PASS  15. test_commit_failure_after_rebalance_does_not_crash
+PASS  16. test_ordering_messages_from_verify_seed
+
+16/16 tests passed
+
+===== 2026-11-02 00:54:59 metrics-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | fill METRICS.md from raw/
+run at 2026-11-02T00:54:59 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled part3-table
+  filled ordering-table
+
+===== 2026-11-02 00:56:07 verify-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | HW8 verification (smoke test)
+run at 2026-11-02T00:56:07 | VERIFY_SEED 269486
+==============================================================================
+[PASS] config_values: PORT_BASE=8486 PREFIX=s9486 DOMAIN_ID=6
+[PASS] docker_containers_running: running: ['s9486_kafka', 's9486_worker', 's9486_api']
+[PASS] kafka_reachable: localhost:9092
+[PASS] topics_created: {'s9486_entity_requests': 1, 's9486_entity_responses': 1, 's9486_inbox': 1, 's9486_tasks': 2, 's9486_drafts': 1, 's9486_final': 1, 's9486_dead_letter': 1}
+2026-11-02 00:56:09.482 [verify] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+[PASS] create_listing_ok: {'correlation_id': 'da28dbb2-5616-4f8d-b320-2a3c151959e1', 'success': True, 'listing_id': '7ece5d69-c3ac-4363-8bf4-3c99fa345ba7', 'message': 'Listing created'}
+[PASS] listing_id_present: listing_id=7ece5d69-c3ac-4363-8bf4-3c99fa345ba7
+[PASS] get_listing_ok: {'correlation_id': 'e8a63799-4024-43bc-a9a5-6fd2d90f0bb3', 'success': True, 'listing': {'listing_id': '7ece5d69-c3ac-4363-8bf4-3c99fa345ba7', 'title': 'Verify studio', 'address': '1 Washington Sq, San Jose, CA', 'listing_code': 'LST-26948', 'available_units': 1, 'landlord_id': 6}}
+[PASS] correlation_id_preserved: create da28dbb2-5616-4f8d-b320-2a3c151959e1 -> da28dbb2-5616-4f8d-b320-2a3c151959e1; get e8a63799-4024-43bc-a9a5-6fd2d90f0bb3 -> e8a63799-4024-43bc-a9a5-6fd2d90f0bb3
+[PASS] unknown_operation_error: {'correlation_id': '1ff92cd9-e27e-4342-9798-e81a634e0fd7', 'success': False, 'error': 'Unknown operation'}
+[PASS] unknown_listing_id_error: {'correlation_id': '74a351cf-2b0b-4632-8a82-5f350d5d0c1a', 'success': False, 'error': 'Listing not found'}
+[PASS] invalid_fields_rejected: {'correlation_id': 'ba3e9051-7196-417c-9496-14f7e98c60f0', 'success': False, 'error': 'Invalid listing data: title: String should have at least 1 character'}
+
+===== 2026-11-02 00:56:26 verify-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | HW8 verification (smoke test)
+run at 2026-11-02T00:56:27 | VERIFY_SEED 269486
+==============================================================================
+[PASS] config_values: PORT_BASE=8486 PREFIX=s9486 DOMAIN_ID=6
+[PASS] docker_containers_running: running: ['s9486_kafka', 's9486_worker', 's9486_api']
+[PASS] kafka_reachable: localhost:9092
+[PASS] topics_created: {'s9486_entity_requests': 1, 's9486_entity_responses': 1, 's9486_inbox': 1, 's9486_tasks': 2, 's9486_drafts': 1, 's9486_final': 1, 's9486_dead_letter': 1}
+2026-11-02 00:56:29.330 [verify] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+[PASS] create_listing_ok: {'correlation_id': 'd141d43e-dee6-4f1f-a19e-1ba35125b7df', 'success': True, 'listing_id': '1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93', 'message': 'Listing created'}
+[PASS] listing_id_present: listing_id=1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93
+[PASS] get_listing_ok: {'correlation_id': 'bf1f6c9d-1b9a-4fd6-b829-183e2f386446', 'success': True, 'listing': {'listing_id': '1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93', 'title': 'Verify studio', 'address': '1 Washington Sq, San Jose, CA', 'listing_code': 'LST-26948', 'available_units': 1, 'landlord_id': 6}}
+[PASS] correlation_id_preserved: create d141d43e-dee6-4f1f-a19e-1ba35125b7df -> d141d43e-dee6-4f1f-a19e-1ba35125b7df; get bf1f6c9d-1b9a-4fd6-b829-183e2f386446 -> bf1f6c9d-1b9a-4fd6-b829-183e2f386446
+[PASS] unknown_operation_error: {'correlation_id': '404e9ddd-e386-44f0-9820-63c3e249196d', 'success': False, 'error': 'Unknown operation'}
+[PASS] unknown_listing_id_error: {'correlation_id': 'c8c1691f-b0de-47b2-a741-da9d7e073d07', 'success': False, 'error': 'Listing not found'}
+[PASS] invalid_fields_rejected: {'correlation_id': 'e8dda1be-e2a8-4a92-b2fe-1a03c2c7d5c1', 'success': False, 'error': 'Invalid listing data: title: String should have at least 1 character'}
+[PASS] duplicate_no_side_effect: 2 responses for one correlation_id, 1 distinct listing_id
+[PASS] fastapi_wrapper_8486: HTTP 201, correlation_id echoed=True
+[PASS] pipeline_reaches_final: status=approved stages=['send_question', 'planner', 'writer', 'reviewer'] correlation_id=a6762b60-51db-41e5-8e8f-32e49ec3880e
+[PASS] poison_reaches_dead_letter: dead-letter entries=1 attempts=3, next task done=True
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+[PASS] ordering_files_exist: missing=[], keyed run: split=0 out_of_order=0
+[PASS] offline_tests_pass: 16/16 tests passed
+[PASS] ruff_clean: All checks passed!
+[PASS] evidence_files_exist: 16 files + 12 raw
+
+19/19 checks passed -> reports/hw08/verification.json
+
+===== 2026-11-02 01:02:51 api-calls (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 error cases through FastAPI on 8486
+run at 2026-11-02T01:02:51 | VERIFY_SEED 269486
+==============================================================================
+[OK] valid CREATE_LISTING: POST /api/kafka/listings -> HTTP 201
+    sent correlation_id=1dd4ba0b-4f6b-43ab-9a78-db6d99d40ea4
+    {"correlation_id": "1dd4ba0b-4f6b-43ab-9a78-db6d99d40ea4", "success": true, "listing_id": "906e9afe-627d-49f5-a93f-aa3e7c845752", "message": "Listing created"}
+
+[OK] missing title: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=b94868a5-b653-4681-8873-fc6b802643a4
+    {"correlation_id": "b94868a5-b653-4681-8873-fc6b802643a4", "success": false, "error": "Invalid listing data: title: Field required"}
+
+[OK] empty address: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=72a322a8-f102-492d-b9bb-58c621bb3eb8
+    {"correlation_id": "72a322a8-f102-492d-b9bb-58c621bb3eb8", "success": false, "error": "Invalid listing data: address: String should have at least 1 character"}
+
+[OK] bad listing_code: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=14bea767-dd3f-4506-9778-966758619be2
+    {"correlation_id": "14bea767-dd3f-4506-9778-966758619be2", "success": false, "error": "Invalid listing data: listing_code: String should match pattern '^LST-\\d{5}$'"}
+
+[OK] negative available_units: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=8850ba39-c3eb-429e-9766-e251668afa39
+    {"correlation_id": "8850ba39-c3eb-429e-9766-e251668afa39", "success": false, "error": "Invalid listing data: available_units: Input should be greater than or equal to 0"}
+
+[OK] data is not an object: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=3c13683a-ddc3-4c34-b9c0-c448f1ec3602
+    {"correlation_id": "3c13683a-ddc3-4c34-b9c0-c448f1ec3602", "success": false, "error": "data must be a JSON object"}
+
+[OK] unknown listing_id: GET /api/kafka/listings/00000000-0000-0000-0000-000000000000 -> HTTP 404
+    sent correlation_id=78610b2d-f32e-42f7-a93e-9d127c07dc81
+    {"correlation_id": "78610b2d-f32e-42f7-a93e-9d127c07dc81", "success": false, "error": "Listing not found"}
+
+[OK] unknown operation: POST /api/kafka/requests -> HTTP 400
+    sent correlation_id=9ad7f8ba-e57a-402b-9516-05ae0994bf0e
+    {"correlation_id": "9ad7f8ba-e57a-402b-9516-05ae0994bf0e", "success": false, "error": "Unknown operation"}
+
+8/8 cases gave the expected success flag and echoed the same correlation_id
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 error cases - done =====
+
+===== 2026-11-02 01:02:51 metrics-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | fill METRICS.md from raw/
+run at 2026-11-02T01:02:51 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled part3-table
+  filled ordering-table
+
+===== 2026-11-02 01:02:51 test-hw8 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 tests (offline: no Kafka, no LLM, no network)
+run at 2026-11-02T01:02:52 | VERIFY_SEED 269486
+==============================================================================
+PASS   1. test_config_topics
+PASS   2. test_request_schema
+PASS   3. test_create_then_get
+PASS   4. test_validation_errors
+PASS   5. test_unknown_operation_and_id
+PASS   6. test_bad_envelopes
+PASS   7. test_worker_idempotency_switch
+PASS   8. test_agent_steps_fast_mode
+PASS   9. test_agent_steps_reject_bad_input
+PASS  10. test_peek_correlation_id
+PASS  11. test_loop_commits_after_send_and_skips_duplicates
+PASS  12. test_loop_retries_then_dead_letter
+PASS  13. test_loop_crash_mode_does_not_commit
+PASS  14. test_auto_commit_mode_has_no_manual_commit
+PASS  15. test_commit_failure_after_rebalance_does_not_crash
+PASS  16. test_ordering_messages_from_verify_seed
+
+16/16 tests passed
+
+===== 2026-11-02 14:20:28 kafka-ps (Kavan Siddesh) =====
+NAMES                   IMAGE                STATUS                  PORTS
+s9486_worker            s9486-hw08-app       Up 13 hours             
+s9486_api               s9486-hw08-app       Up 14 hours             127.0.0.1:8486->8486/tcp
+s9486_kafka             apache/kafka:3.9.2   Up 14 hours (healthy)   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+study_assistant_mongo   mongo:7.0            Up 20 hours (healthy)   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+
+===== 2026-11-02 14:21:06 kafka-logs (Kavan Siddesh) =====
+--- docker logs s9486_worker
+2026-11-02 00:51:27.833 [worker] bootstrap=kafka:29092 group=s9486_entity_worker topic=s9486_entity_requests idempotency=on
+2026-11-02 00:51:27.834 [worker] Consumer is ready and listening...
+2026-11-02 00:51:31.455 [worker] received request topic=s9486_entity_requests partition=0 offset=16 value={"correlation_id": "f4921d1a-82db-462b-b740-07fbb6a36da9", "reply_to": "s9486_entity_responses", "operation": "CREATE_LISTING", "data": {"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-94863", "available_units": 1, "landlord_id": 6}}
+--- docker logs s9486_api
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+FastAPI started at http://127.0.0.1:8486
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8486 (Press CTRL+C to quit)
+
+===== 2026-11-02 14:21:43 kafka-topics (Kavan Siddesh) =====
+creating s9486_entity_requests with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_entity_responses with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_inbox with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_tasks with 2 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_drafts with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_final with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+creating s9486_dead_letter with 1 partition(s)
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+--- s9486 topics on kafka:29092
+Topic: s9486_drafts PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_entity_requests PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_entity_responses PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_inbox PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_tasks PartitionCount: 2 ReplicationFactor: 1
+Topic: s9486_final PartitionCount: 1 ReplicationFactor: 1
+Topic: s9486_dead_letter PartitionCount: 1 ReplicationFactor: 1
+
+===== 2026-11-02 14:22:37 homework-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 Kafka request/response demo (via kafka)
+run at 2026-11-02T14:22:38 | VERIFY_SEED 269486
+==============================================================================
+2026-11-02 14:22:38.333 [client] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+
+--- Step 1: create one correlation_id (used for both requests)
+    correlation_id = 9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+
+--- Step 2: CREATE_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 14:22:38.359 [client] sent request to topic=s9486_entity_requests partition=0 offset=53 operation=CREATE_LISTING correlation_id=9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    request message:
+    {
+      "correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b",
+      "reply_to": "s9486_entity_responses",
+      "operation": "CREATE_LISTING",
+      "data": {
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 3: worker received the request
+    worker | 2026-11-02 14:22:38.389 [worker] received request topic=s9486_entity_requests partition=0 offset=53 value={"correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b", "reply_to": "s9486_entity_responses", "operation": "CREATE_LISTING", "data": {"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+
+--- Step 4: worker processed the request
+    worker | 2026-11-02 14:22:38.403 [worker] processing operation=CREATE_LISTING correlation_id=9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b data={"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}
+    worker | 2026-11-02 14:22:38.421 [worker] processed correlation_id=9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b success=True listings_in_store=9
+
+--- Step 5: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 14:22:38.434 [worker] sent response to topic=s9486_entity_responses partition=0 offset=53 value={"correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b", "success": true, "listing_id": "7c32b4af-b23e-4d04-8c39-1702ab931d6c", "message": "Listing created"}
+    worker | 2026-11-02 14:22:38.472 [worker] committed offset 54 for partition 0
+
+--- Step 6: response received by the client
+    client | 2026-11-02 14:22:38.443 [client] received response from topic=s9486_entity_responses partition=0 offset=53 correlation_id=9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b success=True
+    response message:
+    {
+      "correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b",
+      "success": true,
+      "listing_id": "7c32b4af-b23e-4d04-8c39-1702ab931d6c",
+      "message": "Listing created"
+    }
+
+--- Step 7: extract the generated listing_id from the CREATE_LISTING response
+    listing_id = 7c32b4af-b23e-4d04-8c39-1702ab931d6c
+
+--- Step 8: GET_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 14:22:39.164 [client] sent request to topic=s9486_entity_requests partition=0 offset=54 operation=GET_LISTING correlation_id=9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    request message:
+    {
+      "correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b",
+      "reply_to": "s9486_entity_responses",
+      "operation": "GET_LISTING",
+      "data": {
+        "listing_id": "7c32b4af-b23e-4d04-8c39-1702ab931d6c"
+      }
+    }
+
+--- Step 9: worker received the request
+    (worker: no lines found - is it running in Docker?)
+
+--- Step 10: worker processed the request
+    (worker: no lines found - is it running in Docker?)
+
+--- Step 11: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 14:22:39.161 [worker] sent response to topic=s9486_entity_responses partition=0 offset=54 value={"correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b", "success": true, "listing": {"listing_id": "7c32b4af-b23e-4d04-8c39-1702ab931d6c", "title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+    worker | 2026-11-02 14:22:39.166 [worker] committed offset 55 for partition 0
+
+--- Step 12: response received by the client
+    client | 2026-11-02 14:22:39.172 [client] received response from topic=s9486_entity_responses partition=0 offset=54 correlation_id=9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b success=True
+    response message:
+    {
+      "correlation_id": "9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b",
+      "success": true,
+      "listing": {
+        "listing_id": "7c32b4af-b23e-4d04-8c39-1702ab931d6c",
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 13: retrieved listing
+    listing_id       7c32b4af-b23e-4d04-8c39-1702ab931d6c
+    title            Sunny 2BR near SJSU
+    address          125 E San Fernando St, San Jose, CA
+    listing_code     LST-94861
+    available_units  2
+    landlord_id      6
+
+--- Step 14: correlation_id check
+    client created   9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    CREATE request   9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    CREATE response  9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    GET request      9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    GET response     9cf1f8b7-7818-49b3-98b4-c7188cf2fe0b
+    correlation_id unchanged everywhere: True
+    GET returned the same fields that were created: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | homework_demo.py - done =====
+
+===== 2026-11-02 14:24:30 homework-demo-api (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 Kafka request/response demo (via api)
+run at 2026-11-02T14:24:32 | VERIFY_SEED 269486
+==============================================================================
+
+--- Step 1: create one correlation_id (used for both requests)
+    correlation_id = 34bce634-4e17-43cf-ad46-8dcae4916006
+
+--- Step 2: CREATE_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 14:24:32.432 [client] HTTP POST http://127.0.0.1:8486/api/kafka/listings correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    api    | 2026-11-02 14:24:32.476 [api] HTTP request -> CREATE_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    api    | 2026-11-02 14:24:32.621 [api] sent request to topic=s9486_entity_requests partition=0 offset=55 operation=CREATE_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    request message:
+    {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "reply_to": "s9486_entity_responses",
+      "operation": "CREATE_LISTING",
+      "data": {
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 3: worker received the request
+    worker | 2026-11-02 14:24:32.638 [worker] received request topic=s9486_entity_requests partition=0 offset=55 value={"correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006", "reply_to": "s9486_entity_responses", "operation": "CREATE_LISTING", "data": {"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+
+--- Step 4: worker processed the request
+    worker | 2026-11-02 14:24:32.653 [worker] processing operation=CREATE_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 data={"title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}
+    worker | 2026-11-02 14:24:32.663 [worker] processed correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 success=True listings_in_store=10
+
+--- Step 5: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 14:24:32.773 [worker] sent response to topic=s9486_entity_responses partition=0 offset=55 value={"correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006", "success": true, "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba", "message": "Listing created"}
+    worker | 2026-11-02 14:24:32.803 [worker] committed offset 56 for partition 0
+
+--- Step 6: response received by the FastAPI and returned to the client
+    api    | 2026-11-02 14:24:32.778 [api] received response from topic=s9486_entity_responses partition=0 offset=55 correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 success=True
+    api    | 2026-11-02 14:24:32.779 [api] returning HTTP 201 to caller correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    client | 2026-11-02 14:24:32.788 [client] HTTP 201 from API correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    response message:
+    {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "success": true,
+      "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba",
+      "message": "Listing created"
+    }
+
+--- Step 7: extract the generated listing_id from the CREATE_LISTING response
+    listing_id = 6759ef73-b695-47de-921f-30fa51d32cba
+
+--- Step 8: GET_LISTING request message sent to s9486_entity_requests
+    client | 2026-11-02 14:24:33.374 [client] HTTP GET http://127.0.0.1:8486/api/kafka/listings/6759ef73-b695-47de-921f-30fa51d32cba X-Correlation-ID=34bce634-4e17-43cf-ad46-8dcae4916006
+    api    | 2026-11-02 14:24:33.381 [api] HTTP request -> GET_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    api    | 2026-11-02 14:24:33.384 [api] sent request to topic=s9486_entity_requests partition=0 offset=56 operation=GET_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    request message:
+    {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "reply_to": "s9486_entity_responses",
+      "operation": "GET_LISTING",
+      "data": {
+        "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba"
+      }
+    }
+
+--- Step 9: worker received the request
+    worker | 2026-11-02 14:24:33.384 [worker] received request topic=s9486_entity_requests partition=0 offset=56 value={"correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006", "reply_to": "s9486_entity_responses", "operation": "GET_LISTING", "data": {"listing_id": "6759ef73-b695-47de-921f-30fa51d32cba"}}
+
+--- Step 10: worker processed the request
+    worker | 2026-11-02 14:24:33.384 [worker] processing operation=GET_LISTING correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 data={"listing_id": "6759ef73-b695-47de-921f-30fa51d32cba"}
+    worker | 2026-11-02 14:24:33.384 [worker] processed correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 success=True listings_in_store=10
+
+--- Step 11: worker sent the response to s9486_entity_responses
+    worker | 2026-11-02 14:24:33.385 [worker] sent response to topic=s9486_entity_responses partition=0 offset=56 value={"correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006", "success": true, "listing": {"listing_id": "6759ef73-b695-47de-921f-30fa51d32cba", "title": "Sunny 2BR near SJSU", "address": "125 E San Fernando St, San Jose, CA", "listing_code": "LST-94861", "available_units": 2, "landlord_id": 6}}
+    worker | 2026-11-02 14:24:33.387 [worker] committed offset 57 for partition 0
+
+--- Step 12: response received by the FastAPI and returned to the client
+    api    | 2026-11-02 14:24:33.386 [api] received response from topic=s9486_entity_responses partition=0 offset=56 correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006 success=True
+    api    | 2026-11-02 14:24:33.386 [api] returning HTTP 200 to caller correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    client | 2026-11-02 14:24:33.388 [client] HTTP 200 from API correlation_id=34bce634-4e17-43cf-ad46-8dcae4916006
+    response message:
+    {
+      "correlation_id": "34bce634-4e17-43cf-ad46-8dcae4916006",
+      "success": true,
+      "listing": {
+        "listing_id": "6759ef73-b695-47de-921f-30fa51d32cba",
+        "title": "Sunny 2BR near SJSU",
+        "address": "125 E San Fernando St, San Jose, CA",
+        "listing_code": "LST-94861",
+        "available_units": 2,
+        "landlord_id": 6
+      }
+    }
+
+--- Step 13: retrieved listing
+    listing_id       6759ef73-b695-47de-921f-30fa51d32cba
+    title            Sunny 2BR near SJSU
+    address          125 E San Fernando St, San Jose, CA
+    listing_code     LST-94861
+    available_units  2
+    landlord_id      6
+
+--- Step 14: correlation_id check
+    client created   34bce634-4e17-43cf-ad46-8dcae4916006
+    CREATE request   34bce634-4e17-43cf-ad46-8dcae4916006
+    CREATE response  34bce634-4e17-43cf-ad46-8dcae4916006
+    GET request      34bce634-4e17-43cf-ad46-8dcae4916006
+    GET response     34bce634-4e17-43cf-ad46-8dcae4916006
+    correlation_id unchanged everywhere: True
+    GET returned the same fields that were created: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | homework_demo.py - done =====
+
+===== 2026-11-02 14:25:53 api-calls (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 error cases through FastAPI on 8486
+run at 2026-11-02T14:25:53 | VERIFY_SEED 269486
+==============================================================================
+[OK] valid CREATE_LISTING: POST /api/kafka/listings -> HTTP 201
+    sent correlation_id=5df7d98e-12b5-4a56-8991-8946d06df246
+    {"correlation_id": "5df7d98e-12b5-4a56-8991-8946d06df246", "success": true, "listing_id": "9f38ba26-28ce-461b-979e-a3decda699da", "message": "Listing created"}
+
+[OK] missing title: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=83c77acf-231f-4f99-8b1b-2b9872b9002b
+    {"correlation_id": "83c77acf-231f-4f99-8b1b-2b9872b9002b", "success": false, "error": "Invalid listing data: title: Field required"}
+
+[OK] empty address: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=9400c906-cdd7-4c27-8e44-cf396b9a9590
+    {"correlation_id": "9400c906-cdd7-4c27-8e44-cf396b9a9590", "success": false, "error": "Invalid listing data: address: String should have at least 1 character"}
+
+[OK] bad listing_code: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=0c9b8b52-c055-4f46-8f45-c3a598ffb5bb
+    {"correlation_id": "0c9b8b52-c055-4f46-8f45-c3a598ffb5bb", "success": false, "error": "Invalid listing data: listing_code: String should match pattern '^LST-\\d{5}$'"}
+
+[OK] negative available_units: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=6d5a02b1-fd19-4a69-8673-0193102d4bd3
+    {"correlation_id": "6d5a02b1-fd19-4a69-8673-0193102d4bd3", "success": false, "error": "Invalid listing data: available_units: Input should be greater than or equal to 0"}
+
+[OK] data is not an object: POST /api/kafka/listings -> HTTP 400
+    sent correlation_id=54276a0a-60d5-4481-919f-0f8e576f721c
+    {"correlation_id": "54276a0a-60d5-4481-919f-0f8e576f721c", "success": false, "error": "data must be a JSON object"}
+
+[OK] unknown listing_id: GET /api/kafka/listings/00000000-0000-0000-0000-000000000000 -> HTTP 404
+    sent correlation_id=7b5d11d8-3365-403a-b3ce-849664380f4d
+    {"correlation_id": "7b5d11d8-3365-403a-b3ce-849664380f4d", "success": false, "error": "Listing not found"}
+
+[OK] unknown operation: POST /api/kafka/requests -> HTTP 400
+    sent correlation_id=bbc236bb-dc36-4bfc-9d2a-bd93a7552b57
+    {"correlation_id": "bbc236bb-dc36-4bfc-9d2a-bd93a7552b57", "success": false, "error": "Unknown operation"}
+
+8/8 cases gave the expected success flag and echoed the same correlation_id
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 1 error cases - done =====
+
+===== 2026-11-02 14:27:26 planner (Kavan Siddesh) =====
+
+===== 2026-11-02 14:27:34 writer (Kavan Siddesh) =====
+
+===== 2026-11-02 14:27:43 reviewer (Kavan Siddesh) =====
+
+===== 2026-11-02 14:28:15 send-question (Kavan Siddesh) =====
+2026-11-02 14:28:15.938 [send_question] sent question to topic=s9486_inbox partition=0 offset=3 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143
+2026-11-02 14:28:15.938 [send_question] question = 'I am a student moving to San Jose. What should I check before signing a lease for an apartment?'
+2026-11-02 14:28:15.938 [send_question] waiting up to 300s for correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143 on s9486_final
+2026-11-02 14:29:03.473 [send_question] received final from topic=s9486_final partition=0 offset=3 correlation_id=f59a991c-8d85-44d4-b0d5-682baea56143
+{
+  "correlation_id": "f59a991c-8d85-44d4-b0d5-682baea56143",
+  "status": "approved",
+  "answer": "As a student moving to San Jose, here's a step-by-step guide to help you make an informed decision when signing a lease for an apartment:\n\n**Step 1: Check the location and commute time**\nResearch the neighborhood and ensure it's safe and convenient for you. Consider the commute time to school, public transportation options, and nearby amenities like grocery stores and restaurants.\n\n**Step 2: Verify the lease terms**\nCarefully review the lease agreement to ensure you understand the rent, utilities, and move-in/move-out dates. Ask questions if you're unsure about anything, such as what's included in the rent and what's not.\n\n**Step 3: Inspect the apartment**\nVisit the apartment in person to inspect for any damages or needed repairs. Take photos and notes to document the condition of the apartment.\n\n**Step 4: Review the lease agreement carefully**\nCarefully review the lease agreement and ask questions if you're unsure about anything. Make sure you understand your responsibilities as a tenant and the landlord's responsibilities.",
+  "review": {
+    "approved": true,
+    "notes": "The draft covers the plan and provides a clear step-by-step guide for students moving to San Jose. It emphasizes the importance of researching the location, verifying lease terms, inspecting the apartment, and reviewing the lease agreement carefully.",
+    "mode": "llm",
+    "model": "llama3.2:3b",
+    "seconds": 8.57
+  },
+  "question": "I am a student moving to San Jose. What should I check before signing a lease for an apartment?",
+  "plan": [
+    "Check the location and commute time to ensure it suits your needs",
+    "Verify the lease terms, including rent, utilities, and move-in/move-out dates",
+    "Inspect the apartment for any damages or needed repairs",
+    "Review the lease agreement carefully and ask questions if you're unsure about anything"
+  ],
+  "writer": {
+    "instance": "writer",
+    "mode": "llm",
+    "model": "llama3.2:3b",
+    "seconds": 23.65
+  },
+  "trace": [
+    {
+      "agent": "send_question",
+      "wrote": "s9486_inbox",
+      "sent_at": "2026-11-02T22:28:15.932+00:00"
+    },
+    {
+      "agent": "planner",
+      "read": "s9486_inbox/0/3",
+      "done_at": "2026-11-02T22:28:30.781+00:00"
+    },
+    {
+      "agent": "writer",
+      "read": "s9486_tasks/1/49",
+      "done_at": "2026-11-02T22:28:54.616+00:00"
+    },
+    {
+      "agent": "reviewer",
+      "read": "s9486_drafts/0/54",
+      "done_at": "2026-11-02T22:29:03.402+00:00"
+    }
+  ]
+}
+
+===== 2026-11-02 14:33:14 dup-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3A duplicate delivery (replay the same correlation_id)
+run at 2026-11-02T14:33:15 | VERIFY_SEED 269486
+==============================================================================
+
+=== Worker, before fix: WORKER_IDEMPOTENCY=off
+  worker container recreated (empty dict): 2026-11-02 14:33:34.718 [worker] bootstrap=kafka:29092 group=s9486_entity_worker topic=s9486_entity_requests idempotency=off
+  sent CREATE_LISTING correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 to partition=0 offset=65
+  sent CREATE_LISTING correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 to partition=0 offset=66
+2026-11-02 14:33:43.123 [check] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+2026-11-02 14:33:43.150 [check] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+  worker | 2026-11-02 14:33:38.069 [worker] received request topic=s9486_entity_requests partition=0 offset=65 value={"correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 14:33:38.070 [worker] processing operation=CREATE_LISTING correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 data={"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-
+  worker | 2026-11-02 14:33:38.073 [worker] processed correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 success=True listings_in_store=1
+  worker | 2026-11-02 14:33:38.083 [worker] sent response to topic=s9486_entity_responses partition=0 offset=65 value={"correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44", "success": true, "listing_id": "9d88b34b-e3b6-4bd3-96b
+  worker | 2026-11-02 14:33:40.083 [worker] received request topic=s9486_entity_requests partition=0 offset=66 value={"correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 14:33:40.084 [worker] processing operation=CREATE_LISTING correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 data={"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-
+  worker | 2026-11-02 14:33:40.084 [worker] processed correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 success=True listings_in_store=2
+  worker | 2026-11-02 14:33:40.088 [worker] sent response to topic=s9486_entity_responses partition=0 offset=66 value={"correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44", "success": true, "listing_id": "a6dbbeb7-0bb3-4d4a-9de
+  response: success=True listing_id=9d88b34b-e3b6-4bd3-96bc-e633997b4694
+  response: success=True listing_id=a6dbbeb7-0bb3-4d4a-9de6-84c4c6ee166e
+  -> 2 responses, 2 different listing_id(s), 2 listing(s) exist for this one request
+
+=== Worker, after fix: WORKER_IDEMPOTENCY=on
+  worker container recreated (empty dict): 2026-11-02 14:34:02.788 [worker] bootstrap=kafka:29092 group=s9486_entity_worker topic=s9486_entity_requests idempotency=on
+  sent CREATE_LISTING correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e to partition=0 offset=69
+  sent CREATE_LISTING correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e to partition=0 offset=70
+2026-11-02 14:34:11.733 [check] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+  worker | 2026-11-02 14:34:06.660 [worker] received request topic=s9486_entity_requests partition=0 offset=69 value={"correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 14:34:06.661 [worker] processing operation=CREATE_LISTING correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e data={"title": "Duplicate test 1BR", "address": "1 Replay Ave, San Jose, CA", "listing_code": "LST-
+  worker | 2026-11-02 14:34:06.665 [worker] processed correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e success=True listings_in_store=1
+  worker | 2026-11-02 14:34:06.674 [worker] sent response to topic=s9486_entity_responses partition=0 offset=69 value={"correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e", "success": true, "listing_id": "f087aba0-f168-4d84-b43
+  worker | 2026-11-02 14:34:08.682 [worker] received request topic=s9486_entity_requests partition=0 offset=70 value={"correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e", "reply_to": "s9486_entity_responses", "operation": "CRE
+  worker | 2026-11-02 14:34:08.683 [worker] duplicate correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e operation=CREATE_LISTING: already answered, sending the saved response again (no new listing)
+  worker | 2026-11-02 14:34:08.686 [worker] sent response to topic=s9486_entity_responses partition=0 offset=70 value={"correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e", "success": true, "listing_id": "f087aba0-f168-4d84-b43
+  response: success=True listing_id=f087aba0-f168-4d84-b43c-4b13cb50e840
+  response: success=True listing_id=f087aba0-f168-4d84-b43c-4b13cb50e840
+  -> 2 responses, 1 different listing_id(s), 1 listing(s) exist for this one request
+
+=== Writer, before fix: idempotency off
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_dup_before_143411 --instance writer --from latest --no-idempotency   [writer]
+     writer | 2026-11-02 14:34:12.060 [writer] ready: group=s9486_writers_dup_before_143411 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 14:34:12.060 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=off, poison=retry-dlq (max 3)
+     writer | 2026-11-02 14:34:12.316 [writer] received from topic=s9486_tasks partition=0 offset=13 correlation_id=8604548f-3225-42a9-941e-28245e836533
+  sent the same task twice, correlation_id=8604548f-3225-42a9-941e-28245e836533
+     writer | 2026-11-02 14:34:12.454 [writer] sent to topic=s9486_drafts partition=0 offset=55 correlation_id=8604548f-3225-42a9-941e-28245e836533 value={"correlation_id": "8604548f-3225-42a9-941e-28245e836533", "question": "Is a security deposit refundable?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"...(truncated)
+     writer | 2026-11-02 14:34:12.474 [writer] committed offset 14 for s9486_tasks partition 0
+     writer | 2026-11-02 14:34:12.935 [writer] received from topic=s9486_tasks partition=0 offset=14 correlation_id=8604548f-3225-42a9-941e-28245e836533
+     writer | 2026-11-02 14:34:12.938 [writer] sent to topic=s9486_drafts partition=0 offset=56 correlation_id=8604548f-3225-42a9-941e-28245e836533 value={"correlation_id": "8604548f-3225-42a9-941e-28245e836533", "question": "Is a security deposit refundable?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"...(truncated)
+     writer | 2026-11-02 14:34:12.940 [writer] committed offset 15 for s9486_tasks partition 0
+     writer | 2026-11-02 14:34:13.139 [writer] stopped
+  -> drafts on s9486_drafts for this correlation_id: 2
+
+=== Writer, after fix: idempotency on
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_dup_after_143413 --instance writer --from latest   [writer]
+     writer | 2026-11-02 14:34:13.413 [writer] ready: group=s9486_writers_dup_after_143413 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 14:34:13.413 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 14:34:13.625 [writer] received from topic=s9486_tasks partition=1 offset=50 correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac
+  sent the same task twice, correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac
+     writer | 2026-11-02 14:34:13.630 [writer] sent to topic=s9486_drafts partition=0 offset=57 correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac value={"correlation_id": "3a00da3a-4311-4f25-8fbf-1352fbb21aac", "question": "Is a security deposit refundable?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"...(truncated)
+     writer | 2026-11-02 14:34:13.636 [writer] committed offset 51 for s9486_tasks partition 1
+     writer | 2026-11-02 14:34:13.640 [writer] received from topic=s9486_tasks partition=1 offset=51 correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac
+     writer | 2026-11-02 14:34:13.640 [writer] duplicate correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac: already processed, skipping (no second output)
+     writer | 2026-11-02 14:34:13.642 [writer] committed offset 52 for s9486_tasks partition 1
+     writer | 2026-11-02 14:34:13.837 [writer] stopped
+  -> drafts on s9486_drafts for this correlation_id: 1
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+--- summary
+  Part 1 worker  before fix idempotency=off  replay -> 2 listing(s) created
+  Part 1 worker  after fix  idempotency=on   replay -> 1 listing(s) created
+  Writer agent   before fix idempotency=off  replay -> 2 draft(s)
+  Writer agent   after fix  idempotency=on   replay -> 1 draft(s)
+before fix made a second side effect and after fix did not: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3A duplicate delivery - done =====
+
+===== 2026-11-02 14:34:57 death-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3B consumer death (SIGKILL the Writer mid-message, then restart)
+run at 2026-11-02T14:34:57 | VERIFY_SEED 269486
+==============================================================================
+
+=== before fix: writer.py --commit auto
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_auto_143457 --commit auto --work-seconds 6 --instance writer --from latest   [writer]
+     writer | 2026-11-02 14:34:57.937 [writer] ready: group=s9486_writers_death_auto_143457 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 14:34:57.937 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=auto, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 14:34:57.996 [writer] received from topic=s9486_tasks partition=1 offset=52 correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e
+     writer | 2026-11-02 14:34:57.996 [writer] working on correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e for 0.50s
+  sent task A correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e
+     writer | 2026-11-02 14:34:58.510 [writer] sent to topic=s9486_drafts partition=0 offset=58 correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e value={"correlation_id": "b7107122-7f1c-43d7-b784-ced19a2f228e", "question": "Task A: what is a sublease?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.5}, "trace": [{"agent"...(truncated)
+     writer | 2026-11-02 14:35:00.126 [writer] received from topic=s9486_tasks partition=1 offset=53 correlation_id=0f4f2b91-e0cd-45f7-bd56-89907050bcaf
+     writer | 2026-11-02 14:35:00.127 [writer] working on correlation_id=0f4f2b91-e0cd-45f7-bd56-89907050bcaf for 6.00s
+  sent task B correlation_id=0f4f2b91-e0cd-45f7-bd56-89907050bcaf (partition=1 offset=53)
+  >>> killed writer with SIGKILL while it was working on task B (exit code -9)
+  committed offsets right after the kill:
+    topic=s9486_tasks partition=0 committed=15 log_end=15 lag=0
+    topic=s9486_tasks partition=1 committed=54 log_end=54 lag=0
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_auto_143457 --commit auto --work-seconds 6 --instance writer-restarted   [writer*]
+    writer* | 2026-11-02 14:35:31.958 [writer-restarted] ready: group=s9486_writers_death_auto_143457 topic=s9486_tasks assigned partitions=[0, 1]
+    writer* | 2026-11-02 14:35:31.958 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=auto, idempotency=on, poison=retry-dlq (max 3)
+    writer* | 2026-11-02 14:35:48.114 [writer-restarted] stopped
+  committed offsets after the restart:
+    topic=s9486_tasks partition=0 committed=15 log_end=15 lag=0
+    topic=s9486_tasks partition=1 committed=54 log_end=54 lag=0
+  -> drafts: task A 1, task B 0 -> task B lost (never completed) 
+
+=== after fix: writer.py --commit manual
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_manual_143549 --commit manual --work-seconds 6 --instance writer --from latest   [writer]
+     writer | 2026-11-02 14:35:50.043 [writer] ready: group=s9486_writers_death_manual_143549 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 14:35:50.043 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+  sent task A correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864
+     writer | 2026-11-02 14:35:50.081 [writer] received from topic=s9486_tasks partition=1 offset=54 correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864
+     writer | 2026-11-02 14:35:50.081 [writer] working on correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864 for 0.50s
+     writer | 2026-11-02 14:35:50.598 [writer] sent to topic=s9486_drafts partition=0 offset=59 correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864 value={"correlation_id": "448c05fc-f88f-44f3-9a77-35ed9f8d1864", "question": "Task A: what is a sublease?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.5}, "trace": [{"agent"...(truncated)
+     writer | 2026-11-02 14:35:50.603 [writer] committed offset 55 for s9486_tasks partition 1
+     writer | 2026-11-02 14:35:52.123 [writer] received from topic=s9486_tasks partition=1 offset=55 correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c
+     writer | 2026-11-02 14:35:52.123 [writer] working on correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c for 6.00s
+  sent task B correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c (partition=1 offset=55)
+  >>> killed writer with SIGKILL while it was working on task B (exit code -9)
+  committed offsets right after the kill:
+    topic=s9486_tasks partition=0 committed=- log_end=15 lag=-
+    topic=s9486_tasks partition=1 committed=55 log_end=56 lag=1
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_death_manual_143549 --commit manual --work-seconds 6 --instance writer-restarted   [writer*]
+    writer* | 2026-11-02 14:36:20.629 [writer-restarted] ready: group=s9486_writers_death_manual_143549 topic=s9486_tasks assigned partitions=[0, 1]
+    writer* | 2026-11-02 14:36:20.630 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+    writer* | 2026-11-02 14:36:20.643 [writer-restarted] received from topic=s9486_tasks partition=1 offset=55 correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c
+    writer* | 2026-11-02 14:36:20.644 [writer-restarted] working on correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c for 6.00s
+    writer* | 2026-11-02 14:36:26.664 [writer-restarted] sent to topic=s9486_drafts partition=0 offset=60 correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c value={"correlation_id": "a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c", "question": "Task B: can my landlord raise rent?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer-restarted", "mode": "fast", "model": null, "seconds": 6.0}, ...(truncated)
+    writer* | 2026-11-02 14:36:26.670 [writer-restarted] committed offset 56 for s9486_tasks partition 1
+    writer* | 2026-11-02 14:36:27.751 [writer-restarted] stopped
+  committed offsets after the restart:
+    topic=s9486_tasks partition=1 committed=56 log_end=56 lag=0
+  -> drafts: task A 1, task B 1 -> task B redelivered and completed ['writer-restarted']
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+--- summary
+  before fix commit=auto   task B after restart: lost (never completed)
+  after fix  commit=manual task B after restart: redelivered and completed
+auto-commit lost task B and manual commit completed it after the restart: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3B consumer death - done =====
+
+===== 2026-11-02 14:37:21 poison-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3C poison message (bounded retries + dead-letter topic)
+run at 2026-11-02T14:37:21 | VERIFY_SEED 269486
+==============================================================================
+
+=== before fix: writer.py --poison-handling none
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_poison_before_143721 --poison-handling none --instance writer --from latest   [writer]
+     writer | 2026-11-02 14:37:21.739 [writer] ready: group=s9486_writers_poison_before_143721 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 14:37:21.739 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=none (max 3)
+     writer | 2026-11-02 14:37:21.811 [writer] received from topic=s9486_tasks partition=1 offset=56 correlation_id=65ea5049-4f25-4c0d-8f45-45dcaa3fe483
+     writer | 2026-11-02 14:37:21.817 [writer] sent to topic=s9486_drafts partition=0 offset=61 correlation_id=65ea5049-4f25-4c0d-8f45-45dcaa3fe483 value={"correlation_id": "65ea5049-4f25-4c0d-8f45-45dcaa3fe483", "question": "Warm-up: what is renter's insurance?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": ...(truncated)
+     writer | 2026-11-02 14:37:21.825 [writer] committed offset 57 for s9486_tasks partition 1
+     writer | 2026-11-02 14:37:21.925 [writer] received from topic=s9486_tasks partition=1 offset=57 correlation_id=None
+     writer | 2026-11-02 14:37:21.925 [writer] FAILED on offset 57: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed
+     writer | 2026-11-02 14:37:21.928 [writer] stopped
+  sent poison: not JSON  partition=1 offset=57
+  sent good 1            partition=1 offset=58
+  sent good 2            partition=1 offset=59
+  >>> writer exited with code 1
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_poison_before_143721 --poison-handling none --instance writer-restarted   [writer*]
+    writer* | 2026-11-02 14:37:22.129 [writer-restarted] ready: group=s9486_writers_poison_before_143721 topic=s9486_tasks assigned partitions=[0, 1]
+    writer* | 2026-11-02 14:37:22.129 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=none (max 3)
+    writer* | 2026-11-02 14:37:22.135 [writer-restarted] received from topic=s9486_tasks partition=1 offset=57 correlation_id=None
+    writer* | 2026-11-02 14:37:22.135 [writer-restarted] FAILED on offset 57: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed
+    writer* | 2026-11-02 14:37:22.140 [writer-restarted] stopped
+  >>> restarted writer exited with code 1 (same message again)
+  committed offsets at the end:
+    topic=s9486_tasks partition=1 committed=57 log_end=60 lag=3
+  -> good tasks processed after the poison: 0/2, messages in dead-letter: 0
+
+=== after fix: writer.py --poison-handling retry-dlq
+  $ kafka_agents/writer.py --mode fast --group s9486_writers_poison_after_143723 --poison-handling retry-dlq --instance writer --from latest   [writer]
+     writer | 2026-11-02 14:37:24.043 [writer] ready: group=s9486_writers_poison_after_143723 topic=s9486_tasks assigned partitions=[0, 1]
+     writer | 2026-11-02 14:37:24.043 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+     writer | 2026-11-02 14:37:24.125 [writer] received from topic=s9486_tasks partition=1 offset=60 correlation_id=7e02b37f-2ff0-4645-8a6b-2bf92239ba1e
+     writer | 2026-11-02 14:37:24.130 [writer] sent to topic=s9486_drafts partition=0 offset=62 correlation_id=7e02b37f-2ff0-4645-8a6b-2bf92239ba1e value={"correlation_id": "7e02b37f-2ff0-4645-8a6b-2bf92239ba1e", "question": "Warm-up: what is renter's insurance?", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": ...(truncated)
+     writer | 2026-11-02 14:37:24.132 [writer] committed offset 61 for s9486_tasks partition 1
+     writer | 2026-11-02 14:37:24.245 [writer] received from topic=s9486_tasks partition=1 offset=61 correlation_id=None
+     writer | 2026-11-02 14:37:24.246 [writer] attempt 1/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)
+  sent poison: not JSON  partition=1 offset=61
+  sent poison: no plan   partition=1 offset=62
+  sent good 1            partition=1 offset=63
+  sent good 2            partition=1 offset=64
+     writer | 2026-11-02 14:37:24.747 [writer] attempt 2/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)
+     writer | 2026-11-02 14:37:25.748 [writer] attempt 3/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)
+     writer | 2026-11-02 14:37:25.760 [writer] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=3
+     writer | 2026-11-02 14:37:25.764 [writer] committed offset 62 for s9486_tasks partition 1
+     writer | 2026-11-02 14:37:25.860 [writer] received from topic=s9486_tasks partition=1 offset=62 correlation_id=cd0922d3-0e29-4b88-9f92-94e62d35cf78
+     writer | 2026-11-02 14:37:25.860 [writer] attempt 1/3 failed for offset 62: ValueError: message is missing plan
+     writer | 2026-11-02 14:37:26.362 [writer] attempt 2/3 failed for offset 62: ValueError: message is missing plan
+     writer | 2026-11-02 14:37:27.363 [writer] attempt 3/3 failed for offset 62: ValueError: message is missing plan
+     writer | 2026-11-02 14:37:27.367 [writer] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=4
+     writer | 2026-11-02 14:37:27.371 [writer] committed offset 63 for s9486_tasks partition 1
+     writer | 2026-11-02 14:37:27.371 [writer] received from topic=s9486_tasks partition=1 offset=63 correlation_id=edcdb7cf-97da-477a-8f74-da102f006f38
+     writer | 2026-11-02 14:37:27.374 [writer] sent to topic=s9486_drafts partition=0 offset=63 correlation_id=edcdb7cf-97da-477a-8f74-da102f006f38 value={"correlation_id": "edcdb7cf-97da-477a-8f74-da102f006f38", "question": "Good task 1", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"agent": "writer", "rea...(truncated)
+     writer | 2026-11-02 14:37:27.375 [writer] committed offset 64 for s9486_tasks partition 1
+     writer | 2026-11-02 14:37:27.376 [writer] received from topic=s9486_tasks partition=1 offset=64 correlation_id=202165e7-44e7-4d62-b697-75f737666cbf
+     writer | 2026-11-02 14:37:27.379 [writer] sent to topic=s9486_drafts partition=0 offset=64 correlation_id=202165e7-44e7-4d62-b697-75f737666cbf value={"correlation_id": "202165e7-44e7-4d62-b697-75f737666cbf", "question": "Good task 2", "plan": ["Short answer", "One example"], "draft": "Draft (fast mode): Short answer | One example", "writer": {"instance": "writer", "mode": "fast", "model": null, "seconds": 0.0}, "trace": [{"agent": "writer", "rea...(truncated)
+     writer | 2026-11-02 14:37:27.381 [writer] committed offset 65 for s9486_tasks partition 1
+     writer | 2026-11-02 14:37:28.522 [writer] stopped
+  committed offsets at the end:
+    topic=s9486_tasks partition=1 committed=65 log_end=65 lag=0
+  s9486_dead_letter offset=3: error='JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)' attempts=3 source={'topic': 's9486_tasks', 'partition': 1, 'offset': 61}
+  s9486_dead_letter offset=4: error='ValueError: message is missing plan' attempts=3 source={'topic': 's9486_tasks', 'partition': 1, 'offset': 62}
+  -> good tasks processed after the poison: 2/2, messages in dead-letter: 2
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+--- summary
+  before fix good tasks after the poison: 0/2, dead-letter messages: 0, writer exit codes: [1, 1]
+  after fix  good tasks after the poison: 2/2, dead-letter messages: 2, writer exit codes: [0]
+poison blocked the queue before the fix and went to s9486_dead_letter after it: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3C poison message - done =====
+
+===== 2026-11-02 14:37:52 ordering-test (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3D ordering (20 messages from VERIFY_SEED 269486, 2 partitions, 2 writers)
+run at 2026-11-02T14:37:52 | VERIFY_SEED 269486
+==============================================================================
+  send order: 62000#1 54549#1 98538#1 62000#2 90996#1 62000#3 98538#2 54549#2 54549#3 62000#4 54549#4 54549#5 62000#5 98538#3 98538#4 90996#2 98538#5 90996#3 90996#4 90996#5
+
+=== unkeyed run: key=None
+  consumer group s9486_writers_order_unkeyed_143752: writer-1 has partition [0], writer-2 has partition [1]
+  sent 20 messages: partition 0 got 12, partition 1 got 8
+  processing order: 54549#1(p1) 90996#1(p1) 54549#2(p1) 62000#1(p0) 98538#1(p0) 62000#4(p1) 62000#2(p0) 62000#3(p0) 54549#4(p1) 98538#3(p1) 98538#2(p0) 98538#4(p1) 54549#3(p0) 90996#3(p1) 54549#5(p0) 62000#5(p0) 90996#2(p0) 98538#5(p0) 90996#4(p0) 90996#5(p0)
+  listing    partitions  writers              processed seq order   in order
+  LST-54549  [0, 1]      writer-1, writer-2   [1, 2, 4, 3, 5]       False
+  LST-62000  [0, 1]      writer-1, writer-2   [1, 4, 2, 3, 5]       False
+  LST-90996  [0, 1]      writer-1, writer-2   [1, 3, 2, 4, 5]       False
+  LST-98538  [0, 1]      writer-1, writer-2   [1, 3, 2, 4, 5]       False
+  -> unkeyed: 20/20 processed, 4 listing(s) split across partitions, 4 listing(s) out of order
+
+=== keyed run: key=listing_code
+  consumer group s9486_writers_order_keyed_143759: writer-1 has partition [1], writer-2 has partition [0]
+  sent 20 messages: partition 0 got 0, partition 1 got 20
+  processing order: 62000#1(p1) 54549#1(p1) 98538#1(p1) 62000#2(p1) 90996#1(p1) 62000#3(p1) 98538#2(p1) 54549#2(p1) 54549#3(p1) 62000#4(p1) 54549#4(p1) 54549#5(p1) 62000#5(p1) 98538#3(p1) 98538#4(p1) 90996#2(p1) 98538#5(p1) 90996#3(p1) 90996#4(p1) 90996#5(p1)
+  listing    partitions  writers              processed seq order   in order
+  LST-54549  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  LST-62000  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  LST-90996  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  LST-98538  [1]         writer-1             [1, 2, 3, 4, 5]       True
+  -> keyed: 20/20 processed, 0 listing(s) split across partitions, 0 listing(s) out of order
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+
+keyed run kept every listing on one partition and in order: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | Part 3D ordering - done =====
+
+===== 2026-11-02 14:41:26 metrics-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | fill METRICS.md from raw/
+run at 2026-11-02T14:41:26 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled part3-table
+  filled ordering-table
+
+===== 2026-11-02 14:42:35 metrics-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | fill METRICS.md from raw/
+run at 2026-11-02T14:42:35 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled part3-table
+  filled ordering-table

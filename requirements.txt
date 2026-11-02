@@ -30,3 +30,6 @@ ruff==0.15.6
 pre-commit
 langgraph
 langchain-ollama
+
+# HW8: Kafka client for the request/response service and the agent pipeline
+aiokafka==0.15.0

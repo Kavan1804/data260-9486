@@ -5,14 +5,14 @@ line-length = 120
 target-version = "py311"
 extend-exclude = [
     "Homework1", "Homework2", "Homework3", "Homework4", "Homework5", "Homework7/DATA236_DEMO7",
-    "frontend", "data", "reports",
+    "frontend", "data", "reports", "Homework8/DATA236_DEMO8", "Homework8/multi-agent-demo",
 ]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["backend", "domain_tools", "mcp_servers", "bikeshare", "agent_tools", "config"]
+known-first-party = ["backend", "domain_tools", "mcp_servers", "bikeshare", "agent_tools", "config", "kafka_service", "kafka_agents"]
 
 [tool.ruff.format]
 quote-style = "double"

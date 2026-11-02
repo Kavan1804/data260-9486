@@ -1,0 +1,152 @@
+{
+  "run_at": "2026-11-02T22:37:34+00:00",
+  "runs": [
+    {
+      "run": "before fix",
+      "poison_handling": "none",
+      "max_retries": null,
+      "group": "s9486_writers_poison_before_143721",
+      "sent": [
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 57
+        },
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 58
+        },
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 59
+        }
+      ],
+      "writer_exit_codes": [
+        1,
+        1
+      ],
+      "good_tasks_processed": 0,
+      "dead_letter": [],
+      "retry_log": [
+        "2026-11-02 14:37:21.925 [writer] FAILED on offset 57: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed"
+      ],
+      "offsets_end": [
+        "topic=s9486_tasks partition=1 committed=57 log_end=60 lag=3"
+      ],
+      "log": [
+        "2026-11-02 14:37:21.739 [writer] ready: group=s9486_writers_poison_before_143721 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:37:21.739 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=none (max 3)",
+        "2026-11-02 14:37:21.811 [writer] received from topic=s9486_tasks partition=1 offset=56 correlation_id=65ea5049-4f25-4c0d-8f45-45dcaa3fe483",
+        "2026-11-02 14:37:21.817 [writer] sent to topic=s9486_drafts partition=0 offset=61 correlation_id=65ea5049-4f25-4c0d-8f45-45dcaa3fe483 value={\"correlation_id\": \"65ea5049-4f25-4c0d-8f45-45dcaa3fe483\", \"question\": \"Warm-up: what is renter's insurance?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": ...(truncated)",
+        "2026-11-02 14:37:21.825 [writer] committed offset 57 for s9486_tasks partition 1",
+        "2026-11-02 14:37:21.925 [writer] received from topic=s9486_tasks partition=1 offset=57 correlation_id=None",
+        "2026-11-02 14:37:21.925 [writer] FAILED on offset 57: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed",
+        "2026-11-02 14:37:21.928 [writer] stopped",
+        "2026-11-02 14:37:22.129 [writer-restarted] ready: group=s9486_writers_poison_before_143721 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:37:22.129 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=none (max 3)",
+        "2026-11-02 14:37:22.135 [writer-restarted] received from topic=s9486_tasks partition=1 offset=57 correlation_id=None",
+        "2026-11-02 14:37:22.135 [writer-restarted] FAILED on offset 57: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19) -> crash, exit code 1, nothing committed",
+        "2026-11-02 14:37:22.140 [writer-restarted] stopped"
+      ]
+    },
+    {
+      "run": "after fix",
+      "poison_handling": "retry-dlq",
+      "max_retries": 3,
+      "group": "s9486_writers_poison_after_143723",
+      "sent": [
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 61
+        },
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 62
+        },
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 63
+        },
+        {
+          "topic": "s9486_tasks",
+          "partition": 1,
+          "offset": 64
+        }
+      ],
+      "writer_exit_codes": [
+        0
+      ],
+      "good_tasks_processed": 2,
+      "dead_letter": [
+        {
+          "correlation_id": null,
+          "failed_agent": "writer",
+          "source": {
+            "topic": "s9486_tasks",
+            "partition": 1,
+            "offset": 61
+          },
+          "error": "JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+          "attempts": 3,
+          "raw_value": "{\"correlation_id\": \"not closed...",
+          "failed_at": "2026-11-02T22:37:25.748+00:00"
+        },
+        {
+          "correlation_id": "cd0922d3-0e29-4b88-9f92-94e62d35cf78",
+          "failed_agent": "writer",
+          "source": {
+            "topic": "s9486_tasks",
+            "partition": 1,
+            "offset": 62
+          },
+          "error": "ValueError: message is missing plan",
+          "attempts": 3,
+          "raw_value": "{\"correlation_id\": \"cd0922d3-0e29-4b88-9f92-94e62d35cf78\", \"question\": \"no plan\"}",
+          "failed_at": "2026-11-02T22:37:27.363+00:00"
+        }
+      ],
+      "retry_log": [
+        "2026-11-02 14:37:24.246 [writer] attempt 1/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+        "2026-11-02 14:37:24.747 [writer] attempt 2/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+        "2026-11-02 14:37:25.748 [writer] attempt 3/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+        "2026-11-02 14:37:25.860 [writer] attempt 1/3 failed for offset 62: ValueError: message is missing plan",
+        "2026-11-02 14:37:26.362 [writer] attempt 2/3 failed for offset 62: ValueError: message is missing plan",
+        "2026-11-02 14:37:27.363 [writer] attempt 3/3 failed for offset 62: ValueError: message is missing plan"
+      ],
+      "offsets_end": [
+        "topic=s9486_tasks partition=1 committed=65 log_end=65 lag=0"
+      ],
+      "log": [
+        "2026-11-02 14:37:24.043 [writer] ready: group=s9486_writers_poison_after_143723 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:37:24.043 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)",
+        "2026-11-02 14:37:24.125 [writer] received from topic=s9486_tasks partition=1 offset=60 correlation_id=7e02b37f-2ff0-4645-8a6b-2bf92239ba1e",
+        "2026-11-02 14:37:24.130 [writer] sent to topic=s9486_drafts partition=0 offset=62 correlation_id=7e02b37f-2ff0-4645-8a6b-2bf92239ba1e value={\"correlation_id\": \"7e02b37f-2ff0-4645-8a6b-2bf92239ba1e\", \"question\": \"Warm-up: what is renter's insurance?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": ...(truncated)",
+        "2026-11-02 14:37:24.132 [writer] committed offset 61 for s9486_tasks partition 1",
+        "2026-11-02 14:37:24.245 [writer] received from topic=s9486_tasks partition=1 offset=61 correlation_id=None",
+        "2026-11-02 14:37:24.246 [writer] attempt 1/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+        "2026-11-02 14:37:24.747 [writer] attempt 2/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+        "2026-11-02 14:37:25.748 [writer] attempt 3/3 failed for offset 61: JSONDecodeError: Unterminated string starting at: line 1 column 20 (char 19)",
+        "2026-11-02 14:37:25.760 [writer] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=3",
+        "2026-11-02 14:37:25.764 [writer] committed offset 62 for s9486_tasks partition 1",
+        "2026-11-02 14:37:25.860 [writer] received from topic=s9486_tasks partition=1 offset=62 correlation_id=cd0922d3-0e29-4b88-9f92-94e62d35cf78",
+        "2026-11-02 14:37:25.860 [writer] attempt 1/3 failed for offset 62: ValueError: message is missing plan",
+        "2026-11-02 14:37:26.362 [writer] attempt 2/3 failed for offset 62: ValueError: message is missing plan",
+        "2026-11-02 14:37:27.363 [writer] attempt 3/3 failed for offset 62: ValueError: message is missing plan",
+        "2026-11-02 14:37:27.367 [writer] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=4",
+        "2026-11-02 14:37:27.371 [writer] committed offset 63 for s9486_tasks partition 1",
+        "2026-11-02 14:37:27.371 [writer] received from topic=s9486_tasks partition=1 offset=63 correlation_id=edcdb7cf-97da-477a-8f74-da102f006f38",
+        "2026-11-02 14:37:27.374 [writer] sent to topic=s9486_drafts partition=0 offset=63 correlation_id=edcdb7cf-97da-477a-8f74-da102f006f38 value={\"correlation_id\": \"edcdb7cf-97da-477a-8f74-da102f006f38\", \"question\": \"Good task 1\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": [{\"agent\": \"writer\", \"rea...(truncated)",
+        "2026-11-02 14:37:27.375 [writer] committed offset 64 for s9486_tasks partition 1",
+        "2026-11-02 14:37:27.376 [writer] received from topic=s9486_tasks partition=1 offset=64 correlation_id=202165e7-44e7-4d62-b697-75f737666cbf",
+        "2026-11-02 14:37:27.379 [writer] sent to topic=s9486_drafts partition=0 offset=64 correlation_id=202165e7-44e7-4d62-b697-75f737666cbf value={\"correlation_id\": \"202165e7-44e7-4d62-b697-75f737666cbf\", \"question\": \"Good task 2\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": [{\"agent\": \"writer\", \"rea...(truncated)",
+        "2026-11-02 14:37:27.381 [writer] committed offset 65 for s9486_tasks partition 1",
+        "2026-11-02 14:37:28.522 [writer] stopped"
+      ]
+    }
+  ]
+}

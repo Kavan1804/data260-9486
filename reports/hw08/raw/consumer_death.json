@@ -1,0 +1,80 @@
+{
+  "run_at": "2026-11-02T22:36:34+00:00",
+  "work_seconds": 6,
+  "runs": [
+    {
+      "run": "before fix",
+      "commit": "auto",
+      "group": "s9486_writers_death_auto_143457",
+      "task_a": "b7107122-7f1c-43d7-b784-ced19a2f228e",
+      "task_b": "0f4f2b91-e0cd-45f7-bd56-89907050bcaf",
+      "offsets_after_kill": [
+        "topic=s9486_tasks partition=0 committed=15 log_end=15 lag=0",
+        "topic=s9486_tasks partition=1 committed=54 log_end=54 lag=0"
+      ],
+      "offsets_after_restart": [
+        "topic=s9486_tasks partition=0 committed=15 log_end=15 lag=0",
+        "topic=s9486_tasks partition=1 committed=54 log_end=54 lag=0"
+      ],
+      "drafts_task_a": 1,
+      "drafts_task_b": 0,
+      "task_b_completed_by": [],
+      "restart_completed_b": false,
+      "result_task_b": "lost (never completed)",
+      "log_first_writer": [
+        "2026-11-02 14:34:57.937 [writer] ready: group=s9486_writers_death_auto_143457 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:34:57.937 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=auto, idempotency=on, poison=retry-dlq (max 3)",
+        "2026-11-02 14:34:57.996 [writer] received from topic=s9486_tasks partition=1 offset=52 correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e",
+        "2026-11-02 14:34:57.996 [writer] working on correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e for 0.50s",
+        "2026-11-02 14:34:58.510 [writer] sent to topic=s9486_drafts partition=0 offset=58 correlation_id=b7107122-7f1c-43d7-b784-ced19a2f228e value={\"correlation_id\": \"b7107122-7f1c-43d7-b784-ced19a2f228e\", \"question\": \"Task A: what is a sublease?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.5}, \"trace\": [{\"agent\"...(truncated)",
+        "2026-11-02 14:35:00.126 [writer] received from topic=s9486_tasks partition=1 offset=53 correlation_id=0f4f2b91-e0cd-45f7-bd56-89907050bcaf",
+        "2026-11-02 14:35:00.127 [writer] working on correlation_id=0f4f2b91-e0cd-45f7-bd56-89907050bcaf for 6.00s"
+      ],
+      "log_restarted_writer": [
+        "2026-11-02 14:35:31.958 [writer-restarted] ready: group=s9486_writers_death_auto_143457 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:35:31.958 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=auto, idempotency=on, poison=retry-dlq (max 3)",
+        "2026-11-02 14:35:48.114 [writer-restarted] stopped"
+      ]
+    },
+    {
+      "run": "after fix",
+      "commit": "manual",
+      "group": "s9486_writers_death_manual_143549",
+      "task_a": "448c05fc-f88f-44f3-9a77-35ed9f8d1864",
+      "task_b": "a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c",
+      "offsets_after_kill": [
+        "topic=s9486_tasks partition=0 committed=- log_end=15 lag=-",
+        "topic=s9486_tasks partition=1 committed=55 log_end=56 lag=1"
+      ],
+      "offsets_after_restart": [
+        "topic=s9486_tasks partition=1 committed=56 log_end=56 lag=0"
+      ],
+      "drafts_task_a": 1,
+      "drafts_task_b": 1,
+      "task_b_completed_by": [
+        "writer-restarted"
+      ],
+      "restart_completed_b": true,
+      "result_task_b": "redelivered and completed",
+      "log_first_writer": [
+        "2026-11-02 14:35:50.043 [writer] ready: group=s9486_writers_death_manual_143549 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:35:50.043 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)",
+        "2026-11-02 14:35:50.081 [writer] received from topic=s9486_tasks partition=1 offset=54 correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864",
+        "2026-11-02 14:35:50.081 [writer] working on correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864 for 0.50s",
+        "2026-11-02 14:35:50.598 [writer] sent to topic=s9486_drafts partition=0 offset=59 correlation_id=448c05fc-f88f-44f3-9a77-35ed9f8d1864 value={\"correlation_id\": \"448c05fc-f88f-44f3-9a77-35ed9f8d1864\", \"question\": \"Task A: what is a sublease?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.5}, \"trace\": [{\"agent\"...(truncated)",
+        "2026-11-02 14:35:50.603 [writer] committed offset 55 for s9486_tasks partition 1",
+        "2026-11-02 14:35:52.123 [writer] received from topic=s9486_tasks partition=1 offset=55 correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c",
+        "2026-11-02 14:35:52.123 [writer] working on correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c for 6.00s"
+      ],
+      "log_restarted_writer": [
+        "2026-11-02 14:36:20.629 [writer-restarted] ready: group=s9486_writers_death_manual_143549 topic=s9486_tasks assigned partitions=[0, 1]",
+        "2026-11-02 14:36:20.630 [writer-restarted] started: reads s9486_tasks, writes s9486_drafts, mode=fast, commit=manual, idempotency=on, poison=retry-dlq (max 3)",
+        "2026-11-02 14:36:20.643 [writer-restarted] received from topic=s9486_tasks partition=1 offset=55 correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c",
+        "2026-11-02 14:36:20.644 [writer-restarted] working on correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c for 6.00s",
+        "2026-11-02 14:36:26.664 [writer-restarted] sent to topic=s9486_drafts partition=0 offset=60 correlation_id=a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c value={\"correlation_id\": \"a4c2ebc7-6aeb-4fc6-b108-525eacf6f28c\", \"question\": \"Task B: can my landlord raise rent?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer-restarted\", \"mode\": \"fast\", \"model\": null, \"seconds\": 6.0}, ...(truncated)",
+        "2026-11-02 14:36:26.670 [writer-restarted] committed offset 56 for s9486_tasks partition 1",
+        "2026-11-02 14:36:27.751 [writer-restarted] stopped"
+      ]
+    }
+  ]
+}

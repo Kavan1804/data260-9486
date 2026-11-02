@@ -1,0 +1,122 @@
+{
+  "run_at": "2026-11-02T22:34:18+00:00",
+  "runs": [
+    {
+      "consumer": "Part 1 worker",
+      "run": "before fix",
+      "idempotency": "off",
+      "correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44",
+      "sent": [
+        {
+          "topic": "s9486_entity_requests",
+          "partition": 0,
+          "offset": 65
+        },
+        {
+          "topic": "s9486_entity_requests",
+          "partition": 0,
+          "offset": 66
+        }
+      ],
+      "responses": [
+        {
+          "correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44",
+          "success": true,
+          "listing_id": "9d88b34b-e3b6-4bd3-96bc-e633997b4694",
+          "message": "Listing created"
+        },
+        {
+          "correlation_id": "9403f747-1d59-44eb-bc17-2945a09aab44",
+          "success": true,
+          "listing_id": "a6dbbeb7-0bb3-4d4a-9de6-84c4c6ee166e",
+          "message": "Listing created"
+        }
+      ],
+      "distinct_listing_ids": 2,
+      "listings_created": 2,
+      "worker_log": [
+        "2026-11-02 14:33:38.069 [worker] received request topic=s9486_entity_requests partition=0 offset=65 value={\"correlation_id\": \"9403f747-1d59-44eb-bc17-2945a09aab44\", \"reply_to\": \"s9486_entity_responses\", \"operation\": \"CREATE_LISTING\", \"data\": {\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}}",
+        "2026-11-02 14:33:38.070 [worker] processing operation=CREATE_LISTING correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 data={\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}",
+        "2026-11-02 14:33:38.073 [worker] processed correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 success=True listings_in_store=1",
+        "2026-11-02 14:33:38.083 [worker] sent response to topic=s9486_entity_responses partition=0 offset=65 value={\"correlation_id\": \"9403f747-1d59-44eb-bc17-2945a09aab44\", \"success\": true, \"listing_id\": \"9d88b34b-e3b6-4bd3-96bc-e633997b4694\", \"message\": \"Listing created\"}",
+        "2026-11-02 14:33:40.083 [worker] received request topic=s9486_entity_requests partition=0 offset=66 value={\"correlation_id\": \"9403f747-1d59-44eb-bc17-2945a09aab44\", \"reply_to\": \"s9486_entity_responses\", \"operation\": \"CREATE_LISTING\", \"data\": {\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}}",
+        "2026-11-02 14:33:40.084 [worker] processing operation=CREATE_LISTING correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 data={\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}",
+        "2026-11-02 14:33:40.084 [worker] processed correlation_id=9403f747-1d59-44eb-bc17-2945a09aab44 success=True listings_in_store=2",
+        "2026-11-02 14:33:40.088 [worker] sent response to topic=s9486_entity_responses partition=0 offset=66 value={\"correlation_id\": \"9403f747-1d59-44eb-bc17-2945a09aab44\", \"success\": true, \"listing_id\": \"a6dbbeb7-0bb3-4d4a-9de6-84c4c6ee166e\", \"message\": \"Listing created\"}"
+      ]
+    },
+    {
+      "consumer": "Part 1 worker",
+      "run": "after fix",
+      "idempotency": "on",
+      "correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e",
+      "sent": [
+        {
+          "topic": "s9486_entity_requests",
+          "partition": 0,
+          "offset": 69
+        },
+        {
+          "topic": "s9486_entity_requests",
+          "partition": 0,
+          "offset": 70
+        }
+      ],
+      "responses": [
+        {
+          "correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e",
+          "success": true,
+          "listing_id": "f087aba0-f168-4d84-b43c-4b13cb50e840",
+          "message": "Listing created"
+        },
+        {
+          "correlation_id": "849e9c1c-0366-4e9d-9b0b-9de3e219ea9e",
+          "success": true,
+          "listing_id": "f087aba0-f168-4d84-b43c-4b13cb50e840",
+          "message": "Listing created"
+        }
+      ],
+      "distinct_listing_ids": 1,
+      "listings_created": 1,
+      "worker_log": [
+        "2026-11-02 14:34:06.660 [worker] received request topic=s9486_entity_requests partition=0 offset=69 value={\"correlation_id\": \"849e9c1c-0366-4e9d-9b0b-9de3e219ea9e\", \"reply_to\": \"s9486_entity_responses\", \"operation\": \"CREATE_LISTING\", \"data\": {\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}}",
+        "2026-11-02 14:34:06.661 [worker] processing operation=CREATE_LISTING correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e data={\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}",
+        "2026-11-02 14:34:06.665 [worker] processed correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e success=True listings_in_store=1",
+        "2026-11-02 14:34:06.674 [worker] sent response to topic=s9486_entity_responses partition=0 offset=69 value={\"correlation_id\": \"849e9c1c-0366-4e9d-9b0b-9de3e219ea9e\", \"success\": true, \"listing_id\": \"f087aba0-f168-4d84-b43c-4b13cb50e840\", \"message\": \"Listing created\"}",
+        "2026-11-02 14:34:08.682 [worker] received request topic=s9486_entity_requests partition=0 offset=70 value={\"correlation_id\": \"849e9c1c-0366-4e9d-9b0b-9de3e219ea9e\", \"reply_to\": \"s9486_entity_responses\", \"operation\": \"CREATE_LISTING\", \"data\": {\"title\": \"Duplicate test 1BR\", \"address\": \"1 Replay Ave, San Jose, CA\", \"listing_code\": \"LST-94863\", \"available_units\": 1, \"landlord_id\": 6}}",
+        "2026-11-02 14:34:08.683 [worker] duplicate correlation_id=849e9c1c-0366-4e9d-9b0b-9de3e219ea9e operation=CREATE_LISTING: already answered, sending the saved response again (no new listing)",
+        "2026-11-02 14:34:08.686 [worker] sent response to topic=s9486_entity_responses partition=0 offset=70 value={\"correlation_id\": \"849e9c1c-0366-4e9d-9b0b-9de3e219ea9e\", \"success\": true, \"listing_id\": \"f087aba0-f168-4d84-b43c-4b13cb50e840\", \"message\": \"Listing created\"}"
+      ]
+    },
+    {
+      "consumer": "Writer agent",
+      "run": "before fix",
+      "idempotency": "off",
+      "correlation_id": "8604548f-3225-42a9-941e-28245e836533",
+      "drafts_written": 2,
+      "writer_log": [
+        "2026-11-02 14:34:12.316 [writer] received from topic=s9486_tasks partition=0 offset=13 correlation_id=8604548f-3225-42a9-941e-28245e836533",
+        "2026-11-02 14:34:12.454 [writer] sent to topic=s9486_drafts partition=0 offset=55 correlation_id=8604548f-3225-42a9-941e-28245e836533 value={\"correlation_id\": \"8604548f-3225-42a9-941e-28245e836533\", \"question\": \"Is a security deposit refundable?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": [{\"...(truncated)",
+        "2026-11-02 14:34:12.474 [writer] committed offset 14 for s9486_tasks partition 0",
+        "2026-11-02 14:34:12.935 [writer] received from topic=s9486_tasks partition=0 offset=14 correlation_id=8604548f-3225-42a9-941e-28245e836533",
+        "2026-11-02 14:34:12.938 [writer] sent to topic=s9486_drafts partition=0 offset=56 correlation_id=8604548f-3225-42a9-941e-28245e836533 value={\"correlation_id\": \"8604548f-3225-42a9-941e-28245e836533\", \"question\": \"Is a security deposit refundable?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": [{\"...(truncated)",
+        "2026-11-02 14:34:12.940 [writer] committed offset 15 for s9486_tasks partition 0"
+      ]
+    },
+    {
+      "consumer": "Writer agent",
+      "run": "after fix",
+      "idempotency": "on",
+      "correlation_id": "3a00da3a-4311-4f25-8fbf-1352fbb21aac",
+      "drafts_written": 1,
+      "writer_log": [
+        "2026-11-02 14:34:13.625 [writer] received from topic=s9486_tasks partition=1 offset=50 correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac",
+        "2026-11-02 14:34:13.630 [writer] sent to topic=s9486_drafts partition=0 offset=57 correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac value={\"correlation_id\": \"3a00da3a-4311-4f25-8fbf-1352fbb21aac\", \"question\": \"Is a security deposit refundable?\", \"plan\": [\"Short answer\", \"One example\"], \"draft\": \"Draft (fast mode): Short answer | One example\", \"writer\": {\"instance\": \"writer\", \"mode\": \"fast\", \"model\": null, \"seconds\": 0.0}, \"trace\": [{\"...(truncated)",
+        "2026-11-02 14:34:13.636 [writer] committed offset 51 for s9486_tasks partition 1",
+        "2026-11-02 14:34:13.640 [writer] received from topic=s9486_tasks partition=1 offset=51 correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac",
+        "2026-11-02 14:34:13.640 [writer] duplicate correlation_id=3a00da3a-4311-4f25-8fbf-1352fbb21aac: already processed, skipping (no second output)",
+        "2026-11-02 14:34:13.642 [writer] committed offset 52 for s9486_tasks partition 1"
+      ]
+    }
+  ]
+}

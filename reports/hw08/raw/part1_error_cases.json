@@ -1,0 +1,94 @@
+{
+  "run_at": "2026-11-02T22:25:53+00:00",
+  "cases": [
+    {
+      "case": "valid CREATE_LISTING",
+      "http_status": 201,
+      "sent_correlation_id": "5df7d98e-12b5-4a56-8991-8946d06df246",
+      "response": {
+        "correlation_id": "5df7d98e-12b5-4a56-8991-8946d06df246",
+        "success": true,
+        "listing_id": "9f38ba26-28ce-461b-979e-a3decda699da",
+        "message": "Listing created"
+      },
+      "ok": true
+    },
+    {
+      "case": "missing title",
+      "http_status": 400,
+      "sent_correlation_id": "83c77acf-231f-4f99-8b1b-2b9872b9002b",
+      "response": {
+        "correlation_id": "83c77acf-231f-4f99-8b1b-2b9872b9002b",
+        "success": false,
+        "error": "Invalid listing data: title: Field required"
+      },
+      "ok": true
+    },
+    {
+      "case": "empty address",
+      "http_status": 400,
+      "sent_correlation_id": "9400c906-cdd7-4c27-8e44-cf396b9a9590",
+      "response": {
+        "correlation_id": "9400c906-cdd7-4c27-8e44-cf396b9a9590",
+        "success": false,
+        "error": "Invalid listing data: address: String should have at least 1 character"
+      },
+      "ok": true
+    },
+    {
+      "case": "bad listing_code",
+      "http_status": 400,
+      "sent_correlation_id": "0c9b8b52-c055-4f46-8f45-c3a598ffb5bb",
+      "response": {
+        "correlation_id": "0c9b8b52-c055-4f46-8f45-c3a598ffb5bb",
+        "success": false,
+        "error": "Invalid listing data: listing_code: String should match pattern '^LST-\\d{5}$'"
+      },
+      "ok": true
+    },
+    {
+      "case": "negative available_units",
+      "http_status": 400,
+      "sent_correlation_id": "6d5a02b1-fd19-4a69-8673-0193102d4bd3",
+      "response": {
+        "correlation_id": "6d5a02b1-fd19-4a69-8673-0193102d4bd3",
+        "success": false,
+        "error": "Invalid listing data: available_units: Input should be greater than or equal to 0"
+      },
+      "ok": true
+    },
+    {
+      "case": "data is not an object",
+      "http_status": 400,
+      "sent_correlation_id": "54276a0a-60d5-4481-919f-0f8e576f721c",
+      "response": {
+        "correlation_id": "54276a0a-60d5-4481-919f-0f8e576f721c",
+        "success": false,
+        "error": "data must be a JSON object"
+      },
+      "ok": true
+    },
+    {
+      "case": "unknown listing_id",
+      "http_status": 404,
+      "sent_correlation_id": "7b5d11d8-3365-403a-b3ce-849664380f4d",
+      "response": {
+        "correlation_id": "7b5d11d8-3365-403a-b3ce-849664380f4d",
+        "success": false,
+        "error": "Listing not found"
+      },
+      "ok": true
+    },
+    {
+      "case": "unknown operation",
+      "http_status": 400,
+      "sent_correlation_id": "bbc236bb-dc36-4bfc-9d2a-bd93a7552b57",
+      "response": {
+        "correlation_id": "bbc236bb-dc36-4bfc-9d2a-bd93a7552b57",
+        "success": false,
+        "error": "Unknown operation"
+      },
+      "ok": true
+    }
+  ]
+}

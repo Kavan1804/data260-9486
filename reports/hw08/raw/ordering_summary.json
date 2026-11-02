@@ -1,0 +1,156 @@
+{
+  "run_at": "2026-11-02T22:38:12+00:00",
+  "seed": 269486,
+  "runs": {
+    "unkeyed": {
+      "processed": 20,
+      "listings": {
+        "LST-54549": {
+          "partitions": [
+            0,
+            1
+          ],
+          "writers": [
+            "writer-1",
+            "writer-2"
+          ],
+          "processed_seq_order": [
+            1,
+            2,
+            4,
+            3,
+            5
+          ],
+          "in_order": false
+        },
+        "LST-62000": {
+          "partitions": [
+            0,
+            1
+          ],
+          "writers": [
+            "writer-1",
+            "writer-2"
+          ],
+          "processed_seq_order": [
+            1,
+            4,
+            2,
+            3,
+            5
+          ],
+          "in_order": false
+        },
+        "LST-90996": {
+          "partitions": [
+            0,
+            1
+          ],
+          "writers": [
+            "writer-1",
+            "writer-2"
+          ],
+          "processed_seq_order": [
+            1,
+            3,
+            2,
+            4,
+            5
+          ],
+          "in_order": false
+        },
+        "LST-98538": {
+          "partitions": [
+            0,
+            1
+          ],
+          "writers": [
+            "writer-1",
+            "writer-2"
+          ],
+          "processed_seq_order": [
+            1,
+            3,
+            2,
+            4,
+            5
+          ],
+          "in_order": false
+        }
+      },
+      "listings_split_across_partitions": 4,
+      "listings_out_of_order": 4
+    },
+    "keyed": {
+      "processed": 20,
+      "listings": {
+        "LST-54549": {
+          "partitions": [
+            1
+          ],
+          "writers": [
+            "writer-1"
+          ],
+          "processed_seq_order": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "in_order": true
+        },
+        "LST-62000": {
+          "partitions": [
+            1
+          ],
+          "writers": [
+            "writer-1"
+          ],
+          "processed_seq_order": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "in_order": true
+        },
+        "LST-90996": {
+          "partitions": [
+            1
+          ],
+          "writers": [
+            "writer-1"
+          ],
+          "processed_seq_order": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "in_order": true
+        },
+        "LST-98538": {
+          "partitions": [
+            1
+          ],
+          "writers": [
+            "writer-1"
+          ],
+          "processed_seq_order": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "in_order": true
+        }
+      },
+      "listings_split_across_partitions": 0,
+      "listings_out_of_order": 0
+    }
+  }
+}

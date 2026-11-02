@@ -103,3 +103,18 @@ JWT_ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = _env_int("ACCESS_TOKEN_EXPIRE_MINUTES", 30)
 ROLES = ("reader", "writer", "moderator")
 HW7_REPORT_DIR = ROOT / "reports" / "hw07"
+
+# HW8 - Kafka request/response service (Part 1) and the three-agent pipeline (Parts 2-3).
+# Host scripts use localhost:9092; the worker/api containers get KAFKA_BOOTSTRAP=kafka:29092 from docker-compose.yml.
+KAFKA_BOOTSTRAP = _env_value("KAFKA_BOOTSTRAP") or "localhost:9092"
+TOPIC_REQUESTS = f"{PREFIX}_entity_requests"
+TOPIC_RESPONSES = f"{PREFIX}_entity_responses"
+TOPIC_INBOX = f"{PREFIX}_inbox"
+TOPIC_TASKS = f"{PREFIX}_tasks"  # 2 partitions (Part 3 ordering test)
+TOPIC_DRAFTS = f"{PREFIX}_drafts"
+TOPIC_FINAL = f"{PREFIX}_final"
+TOPIC_DEAD_LETTER = f"{PREFIX}_dead_letter"
+KAFKA_RPC_TIMEOUT_S = 10.0
+AGENT_NUM_CTX = 2048  # agent prompts are short; a smaller context uses less memory on the 8 GB Mac
+WRITER_MAX_RETRIES = 3  # Part 3C: tries per message before it goes to the dead-letter topic
+HW8_REPORT_DIR = ROOT / "reports" / "hw08"

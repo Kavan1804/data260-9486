@@ -6,10 +6,10 @@
   "seed": 9486,
   "verify_seed": 269486,
   "domain_id": 6,
-  "commit_hash": "2ad21c1634be5fe5c1c1467672ec6f817fd2c00f",
-  "tag_hw8": null,
+  "commit_hash": "2a15960d37c9ef75d5a287cfdcc65c5f5006e88f",
+  "tag_hw8": "2a15960d37c9ef75d5a287cfdcc65c5f5006e88f",
   "working_tree_clean": false,
-  "run_at": "2026-11-02T08:57:35+00:00",
+  "run_at": "2026-11-02T22:45:59+00:00",
   "model": {
     "name": "llama3.2:3b",
     "server": "http://localhost:11434",
@@ -65,25 +65,25 @@
       "name": "create_listing_ok",
       "passed": true,
       "detail": {
-        "correlation_id": "d141d43e-dee6-4f1f-a19e-1ba35125b7df",
+        "correlation_id": "b42024a2-3e25-4e47-9efa-1564081e7837",
         "success": true,
-        "listing_id": "1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93",
+        "listing_id": "6c0e8eb5-674e-49cf-8f63-fb0c18ad0524",
         "message": "Listing created"
       }
     },
     {
       "name": "listing_id_present",
       "passed": true,
-      "detail": "listing_id=1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93"
+      "detail": "listing_id=6c0e8eb5-674e-49cf-8f63-fb0c18ad0524"
     },
     {
       "name": "get_listing_ok",
       "passed": true,
       "detail": {
-        "correlation_id": "bf1f6c9d-1b9a-4fd6-b829-183e2f386446",
+        "correlation_id": "32d8df0c-67b1-4172-bde8-d75a981c794a",
         "success": true,
         "listing": {
-          "listing_id": "1b2b3ba2-bb4c-408c-9aa2-6d5a93a63a93",
+          "listing_id": "6c0e8eb5-674e-49cf-8f63-fb0c18ad0524",
           "title": "Verify studio",
           "address": "1 Washington Sq, San Jose, CA",
           "listing_code": "LST-26948",
@@ -95,13 +95,13 @@
     {
       "name": "correlation_id_preserved",
       "passed": true,
-      "detail": "create d141d43e-dee6-4f1f-a19e-1ba35125b7df -> d141d43e-dee6-4f1f-a19e-1ba35125b7df; get bf1f6c9d-1b9a-4fd6-b829-183e2f386446 -> bf1f6c9d-1b9a-4fd6-b829-183e2f386446"
+      "detail": "create b42024a2-3e25-4e47-9efa-1564081e7837 -> b42024a2-3e25-4e47-9efa-1564081e7837; get 32d8df0c-67b1-4172-bde8-d75a981c794a -> 32d8df0c-67b1-4172-bde8-d75a981c794a"
     },
     {
       "name": "unknown_operation_error",
       "passed": true,
       "detail": {
-        "correlation_id": "404e9ddd-e386-44f0-9820-63c3e249196d",
+        "correlation_id": "db2a37bb-6edf-424e-98ea-e46f3c1bf46b",
         "success": false,
         "error": "Unknown operation"
       }
@@ -110,7 +110,7 @@
       "name": "unknown_listing_id_error",
       "passed": true,
       "detail": {
-        "correlation_id": "c8c1691f-b0de-47b2-a741-da9d7e073d07",
+        "correlation_id": "a6e6b3b9-b636-458e-a51c-9caad80d88cc",
         "success": false,
         "error": "Listing not found"
       }
@@ -119,7 +119,7 @@
       "name": "invalid_fields_rejected",
       "passed": true,
       "detail": {
-        "correlation_id": "e8dda1be-e2a8-4a92-b2fe-1a03c2c7d5c1",
+        "correlation_id": "f059c74d-5360-448a-b07b-6a38d4bbabb2",
         "success": false,
         "error": "Invalid listing data: title: String should have at least 1 character"
       }
@@ -137,7 +137,7 @@
     {
       "name": "pipeline_reaches_final",
       "passed": true,
-      "detail": "status=approved stages=['send_question', 'planner', 'writer', 'reviewer'] correlation_id=a6762b60-51db-41e5-8e8f-32e49ec3880e"
+      "detail": "status=approved stages=['send_question', 'planner', 'writer', 'reviewer'] correlation_id=f765a931-f7b3-4b3e-afcc-40770fdf104b"
     },
     {
       "name": "poison_reaches_dead_letter",

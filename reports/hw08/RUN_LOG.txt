@@ -1653,3 +1653,35 @@ run at 2026-11-02T14:42:35 | VERIFY_SEED 269486
   filled part2-table
   filled part3-table
   filled ordering-table
+
+===== 2026-11-02 14:44:56 verify-hw08 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW8 | HW8 verification (smoke test)
+run at 2026-11-02T14:44:58 | VERIFY_SEED 269486
+==============================================================================
+[PASS] config_values: PORT_BASE=8486 PREFIX=s9486 DOMAIN_ID=6
+[PASS] docker_containers_running: running: ['s9486_kafka', 's9486_worker', 's9486_api']
+[PASS] kafka_reachable: localhost:9092
+[PASS] topics_created: {'s9486_entity_requests': 1, 's9486_entity_responses': 1, 's9486_inbox': 1, 's9486_tasks': 2, 's9486_drafts': 1, 's9486_final': 1, 's9486_dead_letter': 1}
+2026-11-02 14:45:01.001 [verify] listening on s9486_entity_responses partitions=[0] (bootstrap=localhost:9092)
+[PASS] create_listing_ok: {'correlation_id': 'b42024a2-3e25-4e47-9efa-1564081e7837', 'success': True, 'listing_id': '6c0e8eb5-674e-49cf-8f63-fb0c18ad0524', 'message': 'Listing created'}
+[PASS] listing_id_present: listing_id=6c0e8eb5-674e-49cf-8f63-fb0c18ad0524
+[PASS] get_listing_ok: {'correlation_id': '32d8df0c-67b1-4172-bde8-d75a981c794a', 'success': True, 'listing': {'listing_id': '6c0e8eb5-674e-49cf-8f63-fb0c18ad0524', 'title': 'Verify studio', 'address': '1 Washington Sq, San Jose, CA', 'listing_code': 'LST-26948', 'available_units': 1, 'landlord_id': 6}}
+[PASS] correlation_id_preserved: create b42024a2-3e25-4e47-9efa-1564081e7837 -> b42024a2-3e25-4e47-9efa-1564081e7837; get 32d8df0c-67b1-4172-bde8-d75a981c794a -> 32d8df0c-67b1-4172-bde8-d75a981c794a
+[PASS] unknown_operation_error: {'correlation_id': 'db2a37bb-6edf-424e-98ea-e46f3c1bf46b', 'success': False, 'error': 'Unknown operation'}
+[PASS] unknown_listing_id_error: {'correlation_id': 'a6e6b3b9-b636-458e-a51c-9caad80d88cc', 'success': False, 'error': 'Listing not found'}
+[PASS] invalid_fields_rejected: {'correlation_id': 'f059c74d-5360-448a-b07b-6a38d4bbabb2', 'success': False, 'error': 'Invalid listing data: title: String should have at least 1 character'}
+[PASS] duplicate_no_side_effect: 2 responses for one correlation_id, 1 distinct listing_id
+[PASS] fastapi_wrapper_8486: HTTP 201, correlation_id echoed=True
+[PASS] pipeline_reaches_final: status=approved stages=['send_question', 'planner', 'writer', 'reviewer'] correlation_id=f765a931-f7b3-4b3e-afcc-40770fdf104b
+[PASS] poison_reaches_dead_letter: dead-letter entries=1 attempts=3, next task done=True
+  cleanup: group s9486_planners on s9486_inbox: moved to the end
+  cleanup: group s9486_writers on s9486_tasks: moved to the end
+  cleanup: group s9486_reviewers on s9486_drafts: moved to the end
+[PASS] ordering_files_exist: missing=[], keyed run: split=0 out_of_order=0
+[PASS] offline_tests_pass: 16/16 tests passed
+[PASS] ruff_clean: All checks passed!
+[PASS] evidence_files_exist: 16 files + 12 raw
+
+19/19 checks passed -> reports/hw08/verification.json
+===== Kavan Siddesh | SID4 9486 | s9486 | HW8 | verification - done =====

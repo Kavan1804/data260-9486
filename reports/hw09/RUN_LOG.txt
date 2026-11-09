@@ -1495,3 +1495,34 @@ PASS  automated HW9 tests  (20/20 HW9 tests passed)
 
 22/22 checks passed   commit 5267b8193e62 (uncommitted changes)
 ===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify - done =====
+
+===== 2026-11-09 13:51:20 verify-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify HW9
+run at 2026-11-09T13:51:20 | VERIFY_SEED 269486
+==============================================================================
+PASS  Redis is up with the query engine  (redis 8.2.2, FT indexes ['s9486:idx:sweep', 's9486:idx:stale', 's9486:idx:semcache'])
+PASS  every Redis key and index starts with s9486:  (16 keys, bad=[])
+PASS  Part 1: 25 accesses, synced at 10 and 20  (synced_at=[10, 20])
+PASS  Part 1: live Redis/MySQL match the saved run  (Redis 25, MySQL view_count 20)
+PASS  Part 2: >=10 queries with new, exact and paraphrase  (12 queries)
+PASS  Part 2: pipeline ran only on misses (never on a hit)  (5 calls, 5 misses)
+PASS  Part 2: every response has is_cached, similarity and latency  (hit rate 58.3%, cached 249.4 ms vs 52400.0 ms)
+PASS  Part 3: cache_cases.yaml committed before the sweep and not changed  (commit 5267b81 at 2026-11-09 11:35:37-08:00, sweep 2026-11-09 20:24:16)
+PASS  Part 3: 5 thresholds with hit rate, false-hit rate, latency, cost  (cheapest 0.95)
+PASS  Part 3: one false hit shown in full
+PASS  Part 3.5: stale hit, then version change detected and refreshed  (LST-00888 versions LST-00888@4dd97538e9a8 -> LST-00888@599f8956dc68)
+PASS  Part 3.5: listing row restored after the demo  (available_units=1)
+PASS  Part 4: training_data.json has questions only  (12 rows)
+PASS  Part 4: validation_data.json has questions only  (10 rows)
+PASS  Part 4: test_data.json has questions only  (12 rows)
+PASS  Part 4: lessons.json has the required fields  (1 lessons)
+PASS  Part 4: lessons only from training questions
+PASS  Part 4: every lesson went through validation
+PASS  Part 4: revision demo REVISE then 2nd attempt, max 2  (final PASS)
+PASS  Part 4: four variants on the same, unchanged test_data.json  (baseline 10/12, evaluator_repair 12/12, lesson_memory 12/12, validated_improvement 12/12)
+PASS  Part 4: no question used more than 2 attempts
+PASS  automated HW9 tests  (20/20 HW9 tests passed)
+
+22/22 checks passed   commit 1ad1314be76e (uncommitted changes)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify - done =====

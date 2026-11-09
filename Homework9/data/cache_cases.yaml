@@ -1,0 +1,75 @@
+# HW9 Part 3.1 - 40 labeled cache cases (rental housing listings, s9486).
+# Written before any threshold sweep was run. Labels are not edited after seeing results;
+# any labeling problem found later is written up in reports/hw09/METRICS.md ("Labeling notes"), not fixed here.
+#
+# How the sweep uses this file (Homework9/scripts/part3_sweep.py):
+#   - the 10 `seed` queries are put in an empty cache first (s9486:sweep:*), each answered by the real HW8 pipeline
+#   - every case is then looked up on its own against those 10 seeds only (cases never add to the cache)
+#   - should_hit cases name the seed they should match (`matches`); a hit on any other seed is a false hit
+#   - should_miss cases: any hit is a false hit. `similar_to` only says which seed they look like.
+# Listing facts behind the similar-looking pairs (checked in s9486_rel when this file was written):
+#   LST-00305 landlord Carmen Chowdhury      vs  LST-00350 landlord Oscar Tran
+#   LST-00418 in Mountain View               vs  LST-00481 in Milpitas
+#   LST-00527 6344 Almaden Blvd, Campbell    vs  LST-00572 7761 Almaden Blvd, Mountain View
+#   LST-00640 Furnished 2BR Apartment        vs  LST-00604 Updated 1BR Condo
+
+seeds:
+  - {id: A01, query: "Who is the landlord for listing LST-00305?"}
+  - {id: A02, query: "What city is listing LST-00418 located in?"}
+  - {id: A03, query: "What is the street address of listing LST-00527?"}
+  - {id: A04, query: "What kind of home is listing LST-00640?"}
+  - {id: A05, query: "How many units are available at listing LST-00753?"}
+  - {id: A06, query: "What should I check before signing a lease for an apartment?"}
+  - {id: A07, query: "How much notice do I need to give before moving out of my apartment?"}
+  - {id: A08, query: "How can I get my security deposit back after I move out?"}
+  - {id: A09, query: "What documents do I need to apply for an apartment rental?"}
+  - {id: A10, query: "How do I ask my landlord to fix a broken heater?"}
+
+cases:
+  # ---- 10 exact duplicates (should hit) ----
+  - {id: E01, category: exact, label: should_hit, matches: A01, query: "Who is the landlord for listing LST-00305?"}
+  - {id: E02, category: exact, label: should_hit, matches: A02, query: "What city is listing LST-00418 located in?"}
+  - {id: E03, category: exact, label: should_hit, matches: A03, query: "What is the street address of listing LST-00527?"}
+  - {id: E04, category: exact, label: should_hit, matches: A04, query: "What kind of home is listing LST-00640?"}
+  - {id: E05, category: exact, label: should_hit, matches: A05, query: "How many units are available at listing LST-00753?"}
+  - {id: E06, category: exact, label: should_hit, matches: A06, query: "What should I check before signing a lease for an apartment?"}
+  - {id: E07, category: exact, label: should_hit, matches: A07, query: "How much notice do I need to give before moving out of my apartment?"}
+  - {id: E08, category: exact, label: should_hit, matches: A08, query: "How can I get my security deposit back after I move out?"}
+  - {id: E09, category: exact, label: should_hit, matches: A09, query: "What documents do I need to apply for an apartment rental?"}
+  - {id: E10, category: exact, label: should_hit, matches: A10, query: "How do I ask my landlord to fix a broken heater?"}
+
+  # ---- 10 paraphrases (should hit the seed they paraphrase) ----
+  - {id: P01, category: paraphrase, label: should_hit, matches: A01, query: "Which landlord manages listing LST-00305?"}
+  - {id: P02, category: paraphrase, label: should_hit, matches: A02, query: "In which city is listing LST-00418?"}
+  - {id: P03, category: paraphrase, label: should_hit, matches: A03, query: "What's the address for listing LST-00527?"}
+  - {id: P04, category: paraphrase, label: should_hit, matches: A04, query: "What type of place is listing LST-00640?"}
+  - {id: P05, category: paraphrase, label: should_hit, matches: A05, query: "How many open units does listing LST-00753 have?"}
+  - {id: P06, category: paraphrase, label: should_hit, matches: A06, query: "Before signing an apartment lease, what should I check?"}
+  - {id: P07, category: paraphrase, label: should_hit, matches: A07, query: "How far in advance must I tell my landlord that I'm moving out?"}
+  - {id: P08, category: paraphrase, label: should_hit, matches: A08, query: "What do I need to do to get my security deposit returned when I leave?"}
+  - {id: P09, category: paraphrase, label: should_hit, matches: A09, query: "Which documents should I prepare for an apartment rental application?"}
+  - {id: P10, category: paraphrase, label: should_hit, matches: A10, query: "My heater is broken. How should I ask the landlord to repair it?"}
+
+  # ---- 10 superficially similar, different correct answer (should miss) ----
+  - {id: S01, category: similar, label: should_miss, similar_to: A01, query: "Who is the landlord for listing LST-00350?"}
+  - {id: S02, category: similar, label: should_miss, similar_to: A02, query: "What city is listing LST-00481 located in?"}
+  - {id: S03, category: similar, label: should_miss, similar_to: A03, query: "What is the street address of listing LST-00572?"}
+  - {id: S04, category: similar, label: should_miss, similar_to: A04, query: "What kind of home is listing LST-00604?"}
+  - {id: S05, category: similar, label: should_miss, similar_to: A05, query: "How many units were rented out at listing LST-00753 last year?"}
+  - {id: S06, category: similar, label: should_miss, similar_to: A06, query: "What should I check before signing a lease for a parking space?"}
+  - {id: S07, category: similar, label: should_miss, similar_to: A07, query: "How much notice does my landlord need to give before entering my apartment?"}
+  - {id: S08, category: similar, label: should_miss, similar_to: A08, query: "What can my landlord deduct from my security deposit after I move out?"}
+  - {id: S09, category: similar, label: should_miss, similar_to: A09, query: "What documents do I need to apply for renters insurance?"}
+  - {id: S10, category: similar, label: should_miss, similar_to: A10, query: "How do I fix a broken heater myself?"}
+
+  # ---- 10 unrelated (should miss) ----
+  - {id: U01, category: unrelated, label: should_miss, query: "What should I do if I get locked out of my apartment?"}
+  - {id: U02, category: unrelated, label: should_miss, query: "What is renters insurance and do I need it as a student?"}
+  - {id: U03, category: unrelated, label: should_miss, query: "How do I report a noisy neighbor in my apartment complex?"}
+  - {id: U04, category: unrelated, label: should_miss, query: "Can I sublet my room over the summer?"}
+  - {id: U05, category: unrelated, label: should_miss, query: "What utilities do I usually pay for in a California apartment?"}
+  - {id: U06, category: unrelated, label: should_miss, query: "How do I set up internet in a new apartment?"}
+  - {id: U07, category: unrelated, label: should_miss, query: "What is a co-signer on a lease?"}
+  - {id: U08, category: unrelated, label: should_miss, query: "How can I tell if a rental listing is a scam?"}
+  - {id: U09, category: unrelated, label: should_miss, query: "Are furnished apartments more expensive near SJSU?"}
+  - {id: U10, category: unrelated, label: should_miss, query: "How do I put the electricity account in my name when I move in?"}

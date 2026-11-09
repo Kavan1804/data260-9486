@@ -1,0 +1,11 @@
+{
+  "threshold": 0.95,
+  "case_id": "S01",
+  "category": "similar",
+  "incoming_query": "Who is the landlord for listing LST-00350?",
+  "cached_query": "Who is the landlord for listing LST-00305?",
+  "cached_seed": "A01",
+  "similarity": 0.97,
+  "cached_answer_returned": "To find the landlord for listing LST-00305, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specific listing LST-00305.\n   The listing LST-00305 is found with the title \"Sunny 3BR House pet friendly\".\n\n2. Check the available_units field to confirm the number of available units.\n   The available_units field shows that there is 1 available unit.\n\n3. Look for the landlord's information in the available_units field to find the name and contact details of the landlord.\n   The available_units field contains the landlord's information: Carmen Chowdhury (Rose Garden Realty).",
+  "correct_answer_pipeline": "To find the landlord for listing LST-00350, I will follow the plan step by step:\n\n1. Checking the available_units field in the s9486_rel listings database, I confirm that LST-00350 has available_units = 1, indicating that there is only one available unit for rent.\n\n2. Looking for the landlord's information in the s9486_rel listings database, I find that the landlord's name is Oscar Tran and the property is managed by Santa Clara Homes.\n\n3. Verifying the landlord's name and contact details, I confirm that Oscar Tran and Santa Clara Homes are indeed the correct landlord and property management company for listing LST-00350."
+}

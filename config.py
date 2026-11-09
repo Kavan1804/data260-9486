@@ -116,5 +116,6 @@ TOPIC_FINAL = f"{PREFIX}_final"
 TOPIC_DEAD_LETTER = f"{PREFIX}_dead_letter"
 KAFKA_RPC_TIMEOUT_S = 10.0
 AGENT_NUM_CTX = 2048  # agent prompts are short; a smaller context uses less memory on the 8 GB Mac
+AGENT_NUM_PREDICT = 512  # HW9: reply-length cap for the agents (llama3.2 JSON mode sometimes never stopped)
 WRITER_MAX_RETRIES = 3  # Part 3C: tries per message before it goes to the dead-letter topic
 HW8_REPORT_DIR = ROOT / "reports" / "hw08"

@@ -1,0 +1,164 @@
+{
+  "run_at": "2026-11-09T21:43:31+00:00",
+  "listing_code": "LST-00042",
+  "listing_id": 42,
+  "redis_key": "s9486:views:listing:42",
+  "accesses": [
+    {
+      "access": 1,
+      "total": 1,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 2,
+      "total": 2,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 3,
+      "total": 3,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 4,
+      "total": 4,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 5,
+      "total": 5,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 6,
+      "total": 6,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 7,
+      "total": 7,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 8,
+      "total": 8,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 9,
+      "total": 9,
+      "synced": false,
+      "db_view_count": 0
+    },
+    {
+      "access": 10,
+      "total": 10,
+      "synced": true,
+      "db_view_count": 10
+    },
+    {
+      "access": 11,
+      "total": 11,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 12,
+      "total": 12,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 13,
+      "total": 13,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 14,
+      "total": 14,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 15,
+      "total": 15,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 16,
+      "total": 16,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 17,
+      "total": 17,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 18,
+      "total": 18,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 19,
+      "total": 19,
+      "synced": false,
+      "db_view_count": 10
+    },
+    {
+      "access": 20,
+      "total": 20,
+      "synced": true,
+      "db_view_count": 20
+    },
+    {
+      "access": 21,
+      "total": 21,
+      "synced": false,
+      "db_view_count": 20
+    },
+    {
+      "access": 22,
+      "total": 22,
+      "synced": false,
+      "db_view_count": 20
+    },
+    {
+      "access": 23,
+      "total": 23,
+      "synced": false,
+      "db_view_count": 20
+    },
+    {
+      "access": 24,
+      "total": 24,
+      "synced": false,
+      "db_view_count": 20
+    },
+    {
+      "access": 25,
+      "total": 25,
+      "synced": false,
+      "db_view_count": 20
+    }
+  ],
+  "final_redis": 25,
+  "final_db": 20,
+  "synced_at": [
+    10,
+    20
+  ]
+}

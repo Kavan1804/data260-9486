@@ -1,0 +1,449 @@
+{
+  "run_at": "2026-11-09T20:52:39+00:00",
+  "summary": {
+    "variant": "baseline",
+    "correct": 10,
+    "incorrect": 2,
+    "avg_attempts": 1.0,
+    "avg_latency_s": 6.46,
+    "lessons_available": [],
+    "test_sha256": "7887ba139d36cbe7bb7a0932f75d5a1c79725682cd48492f47c7528d12f3ad1c"
+  },
+  "rows": [
+    {
+      "id": "te01",
+      "question": "Who is the landlord of listing LST-02040?",
+      "final_answer": "The landlord of listing LST-02040 is Marcus Huang, and his company is Peninsula Leasing Co.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 7.06,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The landlord of listing LST-02040 is Marcus Huang, and his company is Peninsula Leasing Co.",
+          "seconds": 6.99,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "6"
+              },
+              "result": {
+                "landlord_id": 6,
+                "full_name": "Marcus Huang",
+                "company": "Peninsula Leasing Co"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te02",
+      "question": "How many units are available right now at LST-04849?",
+      "final_answer": "There is 1 unit available at LST-04849. The landlord's name is Rosa Jensen and her company is Campbell Rental Group.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 6.27,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "There is 1 unit available at LST-04849. The landlord's name is Rosa Jensen and her company is Campbell Rental Group.",
+          "seconds": 6.22,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "16"
+              },
+              "result": {
+                "landlord_id": 16,
+                "full_name": "Rosa Jensen",
+                "company": "Campbell Rental Group"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te03",
+      "question": "For listing LST-01637, who is the landlord and how many units are open?",
+      "final_answer": "The landlord for listing LST-01637 is Gabriel Fischer, and there is 1 unit available.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 5.46,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The landlord for listing LST-01637 is Gabriel Fischer, and there is 1 unit available.",
+          "seconds": 5.45,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "5"
+              },
+              "result": {
+                "landlord_id": 5,
+                "full_name": "Gabriel Fischer",
+                "company": "Downtown SJ Apartments"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te04",
+      "question": "What does listing LST-00184 charge for rent each month?",
+      "final_answer": "The listing LST-00184 charges $2,200 for rent each month. According to the landlord, Leila Reyes, you can contact her at Willow Glen Residential for more information.",
+      "final_result": "REVISE",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 6.4,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The listing LST-00184 charges $2,200 for rent each month. According to the landlord, Leila Reyes, you can contact her at Willow Glen Residential for more information.",
+          "seconds": 6.39,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "13"
+              },
+              "result": {
+                "landlord_id": 13,
+                "full_name": "Leila Reyes",
+                "company": "Willow Glen Residential"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "REVISE",
+            "explanation": "missing_not_recorded; unsupported_claim",
+            "feedback": "The rent is not in the listing data, but the answer gives a value. Say that the listing data does not include the rent.",
+            "tags": [
+              "missing_not_recorded",
+              "unsupported_claim"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "te05",
+      "question": "In which city is LST-00781 located?",
+      "final_answer": "The LST-00781 apartment is located in Campbell, CA. The landlord, Hana Iyer from Rose Garden Realty, is available to assist with any questions or concerns you may have about the rental.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 7.39,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The LST-00781 apartment is located in Campbell, CA. The landlord, Hana Iyer from Rose Garden Realty, is available to assist with any questions or concerns you may have about the rental.",
+          "seconds": 7.38,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "2"
+              },
+              "result": {
+                "landlord_id": 2,
+                "full_name": "Hana Iyer",
+                "company": "Rose Garden Realty"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te06",
+      "question": "What is the application fee for LST-03159?",
+      "final_answer": "The application fee for LST-03159 is not specified in the provided listing record. However, I can provide you with the contact information of the landlord, Brandon Bennett, who manages the property. You can reach out to him through Bay Area Rentals LLC for more information on the application fee.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 9.07,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The application fee for LST-03159 is not specified in the provided listing record. However, I can provide you with the contact information of the landlord, Brandon Bennett, who manages the property. You can reach out to him through Bay Area Rentals LLC for more information on the application fee.",
+          "seconds": 9.06,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "8"
+              },
+              "result": {
+                "landlord_id": 8,
+                "full_name": "Brandon Bennett",
+                "company": "Bay Area Rentals LLC"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te07",
+      "question": "Which company manages listing LST-03846?",
+      "final_answer": "The company that manages listing LST-03846 is Downtown SJ Apartments, managed by Gabriel Fischer.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 5.36,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The company that manages listing LST-03846 is Downtown SJ Apartments, managed by Gabriel Fischer.",
+          "seconds": 5.35,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "5"
+              },
+              "result": {
+                "landlord_id": 5,
+                "full_name": "Gabriel Fischer",
+                "company": "Downtown SJ Apartments"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te08",
+      "question": "What is the address of LST-02457?",
+      "final_answer": "The address of LST-02457 is 2132 Market St, Milpitas, CA. The landlord's name is Neha Nakamura and she is affiliated with Campbell Rental Group.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 7.82,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The address of LST-02457 is 2132 Market St, Milpitas, CA. The landlord's name is Neha Nakamura and she is affiliated with Campbell Rental Group.",
+          "seconds": 7.82,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "9"
+              },
+              "result": {
+                "landlord_id": 9,
+                "full_name": "Neha Nakamura",
+                "company": "Campbell Rental Group"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te09",
+      "question": "What security deposit does LST-02206 ask for?",
+      "final_answer": "The security deposit for LST-02206 is not specified in the listing record. However, I can suggest contacting the landlord, Quinn Larsen of Santa Clara Homes, directly to inquire about their security deposit requirements.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 6.86,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The security deposit for LST-02206 is not specified in the listing record. However, I can suggest contacting the landlord, Quinn Larsen of Santa Clara Homes, directly to inquire about their security deposit requirements.",
+          "seconds": 6.84,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": 18
+              },
+              "result": {
+                "landlord_id": 18,
+                "full_name": "Quinn Larsen",
+                "company": "Santa Clara Homes"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te10",
+      "question": "What type of home is LST-02854, and how many bedrooms?",
+      "final_answer": "The home at LST-02854 is a studio, and it has 1 bedroom.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 4.84,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The home at LST-02854 is a studio, and it has 1 bedroom.",
+          "seconds": 4.83,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "11"
+              },
+              "result": {
+                "landlord_id": 11,
+                "full_name": "Vivian Estrada",
+                "company": "Silicon Valley Property Mgmt"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te11",
+      "question": "Who is the landlord for LST-03266 and which company do they work for?",
+      "final_answer": "The landlord for LST-03266 is Vivian Estrada, and she works for Silicon Valley Property Mgmt.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 5.44,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The landlord for LST-03266 is Vivian Estrada, and she works for Silicon Valley Property Mgmt.",
+          "seconds": 5.44,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "11"
+              },
+              "result": {
+                "landlord_id": 11,
+                "full_name": "Vivian Estrada",
+                "company": "Silicon Valley Property Mgmt"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "te12",
+      "question": "What city is listing LST-09090 in?",
+      "final_answer": "It appears that LST-09090 is not a valid listing code. The landlord for this listing is not available in the database.",
+      "final_result": "REVISE",
+      "attempts": 1,
+      "lessons_loaded": [],
+      "latency_s": 5.61,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "It appears that LST-09090 is not a valid listing code. The landlord for this listing is not available in the database.",
+          "seconds": 5.59,
+          "lessons_used": [],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "LST-09090"
+              },
+              "result": {
+                "error": "landlord_id must be a number, got 'LST-09090'"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "REVISE",
+            "explanation": "invented_listing",
+            "feedback": "LST-09090 does not exist in the reference data; say no listing was found.",
+            "tags": [
+              "invented_listing"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "run_at": "2026-11-09T20:25:37+00:00",
+  "id": "tr03",
+  "question": "For LST-01510, how many units are available and who is the landlord?",
+  "final_answer": "The Spacious Loft near SJSU has 1 unit available. The landlord is Quinn Larsen of Santa Clara Homes.",
+  "final_result": "PASS",
+  "attempts": 2,
+  "lessons_loaded": [],
+  "latency_s": 5.95,
+  "history": [
+    {
+      "attempt": 1,
+      "answer": "Listing LST-01510 has units open right now.",
+      "seconds": 0.0,
+      "lessons_used": [],
+      "controlled": true,
+      "evaluation": {
+        "result": "REVISE",
+        "explanation": "missing_fact:landlord; missing_fact:units",
+        "feedback": "State the available units: 1. The landlord is Quinn Larsen.",
+        "tags": [
+          "missing_fact:landlord",
+          "missing_fact:units"
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "answer": "The Spacious Loft near SJSU has 1 unit available. The landlord is Quinn Larsen of Santa Clara Homes.",
+      "seconds": 5.87,
+      "lessons_used": [],
+      "evaluation": {
+        "result": "PASS",
+        "explanation": "All facts the question asks for match the reference data.",
+        "feedback": "",
+        "tags": []
+      }
+    }
+  ]
+}

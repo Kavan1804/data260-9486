@@ -1,0 +1,46 @@
+{
+  "run_at": "2026-11-09T20:57:00+00:00",
+  "summary": [
+    {
+      "variant": "baseline",
+      "correct": 10,
+      "incorrect": 2,
+      "avg_attempts": 1.0,
+      "avg_latency_s": 6.46,
+      "lessons_available": [],
+      "test_sha256": "7887ba139d36cbe7bb7a0932f75d5a1c79725682cd48492f47c7528d12f3ad1c"
+    },
+    {
+      "variant": "evaluator_repair",
+      "correct": 12,
+      "incorrect": 0,
+      "avg_attempts": 1.17,
+      "avg_latency_s": 7.23,
+      "lessons_available": [],
+      "test_sha256": "7887ba139d36cbe7bb7a0932f75d5a1c79725682cd48492f47c7528d12f3ad1c"
+    },
+    {
+      "variant": "lesson_memory",
+      "correct": 12,
+      "incorrect": 0,
+      "avg_attempts": 1.17,
+      "avg_latency_s": 7.38,
+      "lessons_available": [
+        "lesson_001"
+      ],
+      "test_sha256": "7887ba139d36cbe7bb7a0932f75d5a1c79725682cd48492f47c7528d12f3ad1c"
+    },
+    {
+      "variant": "validated_improvement",
+      "correct": 12,
+      "incorrect": 0,
+      "avg_attempts": 1.17,
+      "avg_latency_s": 7.12,
+      "lessons_available": [
+        "lesson_001"
+      ],
+      "test_sha256": "7887ba139d36cbe7bb7a0932f75d5a1c79725682cd48492f47c7528d12f3ad1c"
+    }
+  ],
+  "same_test_file": true
+}

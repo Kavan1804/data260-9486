@@ -63,6 +63,7 @@ class OllamaModel:
         num_ctx: int | None = None,
         temperature: float = 0.0,
         seed: int = config.SEED,
+        num_predict: int | None = None,
     ):
         self.name = model
         self.url = url.rstrip("/") + "/api/chat"
@@ -70,13 +71,16 @@ class OllamaModel:
         self.num_ctx = num_ctx  # HW6: None keeps the Ollama default (HW5 behavior)
         self.temperature = temperature  # HW7 reliability runs use > 0 so attempts can differ
         self.seed = seed
+        self.num_predict = num_predict  # HW9: optional reply-length cap; None keeps the HW5-HW8 behavior
 
-    def chat(self, messages: list[dict], tools: list[dict], fmt: str | None = None) -> dict:
+    def chat(self, messages: list[dict], tools: list[dict], fmt: str | None = None, seed: int | None = None) -> dict:
         import httpx
 
-        options = {"temperature": self.temperature, "seed": self.seed}
+        options = {"temperature": self.temperature, "seed": self.seed if seed is None else seed}
         if self.num_ctx:
             options["num_ctx"] = self.num_ctx
+        if self.num_predict:
+            options["num_predict"] = self.num_predict
         body = {
             "model": self.name,
             "messages": messages,

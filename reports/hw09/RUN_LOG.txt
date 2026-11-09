@@ -1,0 +1,1497 @@
+
+===== 2026-11-09 11:17:15 hw9-up (Kavan Siddesh) =====
+ Container s9486_redis  Running
+ Container s9486_kafka  Running
+ Container s9486_kafka  Waiting
+ Container s9486_kafka  Healthy
+ Container s9486_kafka_init  Starting
+ Container s9486_kafka_init  Started
+NAMES                   IMAGE                STATUS                        PORTS
+s9486_redis             redis:8.2.2          Up 4 minutes (healthy)        127.0.0.1:6379->6379/tcp
+s9486_worker            s9486-hw08-app       Up About a minute             
+s9486_api               s9486-hw08-app       Up 6 minutes                  127.0.0.1:8486->8486/tcp
+s9486_kafka_init        apache/kafka:3.9.2   Up Less than a second         9092/tcp
+s9486_kafka             apache/kafka:3.9.2   Up About a minute (healthy)   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+study_assistant_mongo   mongo:7.0            Up 6 minutes (healthy)        0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+
+===== 2026-11-09 11:17:16 hw9-ps (Kavan Siddesh) =====
+NAMES                   IMAGE                STATUS                        PORTS
+s9486_redis             redis:8.2.2          Up 4 minutes (healthy)        127.0.0.1:6379->6379/tcp
+s9486_worker            s9486-hw08-app       Up About a minute             
+s9486_api               s9486-hw08-app       Up 6 minutes                  127.0.0.1:8486->8486/tcp
+s9486_kafka_init        apache/kafka:3.9.2   Up Less than a second         9092/tcp
+s9486_kafka             apache/kafka:3.9.2   Up About a minute (healthy)   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+study_assistant_mongo   mongo:7.0            Up 6 minutes (healthy)        0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+redis_version:8.2.2
+redis_mode:standalone
+redis FT._LIST:  
+NAME                 ID              SIZE      MODIFIED      
+all-minilm:latest    1b226e2802db    45 MB     6 minutes ago    
+llama3.2:3b          a80c4f17acd5    2.0 GB    6 weeks ago      
+
+===== 2026-11-09 11:17:17 migrate-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | migrate: add listings.view_count
+run at 2026-11-09T11:17:17 | VERIFY_SEED 269486
+==============================================================================
+listings.view_count already exists - nothing to do
+column: ('view_count', 'int', 'NO', '', '0', '')
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | migrate - done =====
+
+===== 2026-11-09 11:17:18 counter-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 1 view counter (LST-00042, 25 accesses)
+run at 2026-11-09T11:17:18 | VERIFY_SEED 269486
+==============================================================================
+listing LST-00042 (id=42): Updated 1BR Apartment pet friendly
+Redis key: s9486:views:listing:42    MySQL column: s9486_rel.listings.view_count
+reset: Redis key deleted, view_count set to 0 (DB now 0)
+
+=== Testing Counter ===
+
+Access #1: Total = 1
+Access #2: Total = 2
+Access #3: Total = 3
+Access #4: Total = 4
+Access #5: Total = 5
+Access #6: Total = 6
+Access #7: Total = 7
+Access #8: Total = 8
+Access #9: Total = 9
+Access #10: Total = 10
+✓ Synced views to database (listings.id=42, view_count=10)   [2026-11-09 11:17:18.427]
+Access #11: Total = 11
+Access #12: Total = 12
+Access #13: Total = 13
+Access #14: Total = 14
+Access #15: Total = 15
+Access #16: Total = 16
+Access #17: Total = 17
+Access #18: Total = 18
+Access #19: Total = 19
+Access #20: Total = 20
+✓ Synced views to database (listings.id=42, view_count=20)   [2026-11-09 11:17:18.437]
+Access #21: Total = 21
+Access #22: Total = 22
+Access #23: Total = 23
+Access #24: Total = 24
+Access #25: Total = 25
+
+--- after the run
+Redis  GET s9486:views:listing:42 = 25
+MySQL  SELECT view_count FROM listings WHERE id=42 -> 20
+synced at totals: [10, 20]
+MySQL matches Redis at the last sync (20): True
+views since the last sync (only in Redis until #30): 5
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 1 counter - done =====
+
+===== 2026-11-09 11:17:18 cache-reset (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | reset HW9 cache keys (prefix-scoped)
+run at 2026-11-09T11:17:18 | VERIFY_SEED 269486
+==============================================================================
+  s9486:semcache:*  deleted 0 keys, no index
+  s9486:sweep:*  deleted 0 keys, no index
+  s9486:stale:*  deleted 0 keys, no index
+  s9486:test:*  deleted 0 keys, no index
+keys left in Redis: 1  (all start with s9486: True)
+  s9486:views:listing:42
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | cache reset - done =====
+
+===== 2026-11-09 11:17:27 cache-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 2 semantic cache (12 queries, threshold 0.85)
+run at 2026-11-09T11:17:27 | VERIFY_SEED 269486
+==============================================================================
+cleared 0 old entries under s9486:semcache:entry:*  (index s9486:idx:semcache)
+2026-11-09 11:17:28.312 [pipeline] HW8 agents ready (planner, writer, reviewer) in 0.3s
+
+--- Q1 [new] How many units are available at listing LST-00117?
+2026-11-09 11:17:28.313 [ingress] received query='How many units are available at listing LST-00117?'
+2026-11-09 11:17:28.545 [ingress] CACHE MISS (empty cache) -> running the HW8 agent pipeline
+2026-11-09 11:17:28.761 [send_question] sent question to topic=s9486_inbox partition=0 offset=5 correlation_id=c582f2a7-48b5-427d-a631-c435ac12e61f
+2026-11-09 11:17:28.761 [send_question] question = 'How many units are available at listing LST-00117?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-09 11:17:28.761 [send_question] waiting up to 400s for correlation_id=c582f2a7-48b5-427d-a631-c435ac12e61f on s9486_final
+2026-11-09 11:18:10.310 [send_question] received final from topic=s9486_final partition=0 offset=5 correlation_id=c582f2a7-48b5-427d-a631-c435ac12e61f
+2026-11-09 11:18:10.392 [ingress] CACHE MISS done: pipeline 41.7s, total latency=42081.1 ms
+    is_cached=False  similarity=0.0000  latency_ms=42081.1  pipeline_called=True
+    answer: To answer the question, I will follow the plan step by step:  1. Search the s9486_rel listings database for the available units of listing LST-00117. ...
+
+--- Q2 [exact] How many units are available at listing LST-00117?
+2026-11-09 11:18:10.396 [ingress] received query='How many units are available at listing LST-00117?'
+2026-11-09 11:18:44.903 [ingress] CACHE HIT similarity=1.0000 matched='How many units are available at listing LST-00117?' latency=34507.8 ms
+    is_cached=True  similarity=1.0000  latency_ms=34507.8  pipeline_called=False
+    answer: To answer the question, I will follow the plan step by step:  1. Search the s9486_rel listings database for the available units of listing LST-00117. ...
+
+--- Q3 [new] What should I check before signing a lease for an apartment in San Jose?
+2026-11-09 11:18:44.904 [ingress] received query='What should I check before signing a lease for an apartment in San Jose?'
+2026-11-09 11:18:45.037 [ingress] CACHE MISS (best similarity 0.0846 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 11:18:45.094 [send_question] sent question to topic=s9486_inbox partition=0 offset=6 correlation_id=295cebd7-36df-4cad-95f2-cb1e8520298e
+2026-11-09 11:18:45.094 [send_question] question = 'What should I check before signing a lease for an apartment in San Jose?'
+2026-11-09 11:18:45.094 [send_question] waiting up to 400s for correlation_id=295cebd7-36df-4cad-95f2-cb1e8520298e on s9486_final
+2026-11-09 11:19:29.793 [send_question] received final from topic=s9486_final partition=0 offset=6 correlation_id=295cebd7-36df-4cad-95f2-cb1e8520298e
+2026-11-09 11:19:29.826 [ingress] CACHE MISS done: pipeline 44.8s, total latency=44923.1 ms
+    is_cached=False  similarity=0.0846  latency_ms=44923.1  pipeline_called=True
+    answer: Here's a clear answer to the question, following the plan step by step:  Before signing a lease for an apartment in San Jose, it's essential to take t...
+
+--- Q4 [paraphrase] Before I sign an apartment lease in San Jose, what things should I check?
+2026-11-09 11:19:29.826 [ingress] received query='Before I sign an apartment lease in San Jose, what things should I check?'
+2026-11-09 11:19:29.985 [ingress] CACHE HIT similarity=0.9667 matched='What should I check before signing a lease for an apartment in San Jose?' latency=159.5 ms
+    is_cached=True  similarity=0.9667  latency_ms=159.5  pipeline_called=False
+    answer: Here's a clear answer to the question, following the plan step by step:  Before signing a lease for an apartment in San Jose, it's essential to take t...
+
+--- Q5 [new] Who is the landlord for listing LST-00230?
+2026-11-09 11:19:29.986 [ingress] received query='Who is the landlord for listing LST-00230?'
+2026-11-09 11:19:30.038 [ingress] CACHE MISS (best similarity 0.5420 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 11:19:30.161 [send_question] sent question to topic=s9486_inbox partition=0 offset=7 correlation_id=0d5527e5-1b93-4582-a1ec-1a650e50c968
+2026-11-09 11:19:30.161 [send_question] question = 'Who is the landlord for listing LST-00230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00230: title "Renovated Loft near SJSU", address 1883 Almaden Blvd, Sunnyvale, CA, available_units=1, landlord Neha Nakamura (Campbell Rental Group)'
+2026-11-09 11:19:30.161 [send_question] waiting up to 400s for correlation_id=0d5527e5-1b93-4582-a1ec-1a650e50c968 on s9486_final
+2026-11-09 11:20:08.318 [send_question] received final from topic=s9486_final partition=0 offset=7 correlation_id=0d5527e5-1b93-4582-a1ec-1a650e50c968
+2026-11-09 11:20:08.347 [ingress] CACHE MISS done: pipeline 38.2s, total latency=38363.5 ms
+    is_cached=False  similarity=0.5420  latency_ms=38363.5  pipeline_called=True
+    answer: To find the landlord for LST-00230, I will follow the steps:  1. Check the available_units field in the s9486_rel listings database for the 'available...
+
+--- Q6 [paraphrase] Which landlord manages listing LST-00230?
+2026-11-09 11:20:08.348 [ingress] received query='Which landlord manages listing LST-00230?'
+2026-11-09 11:20:08.613 [ingress] CACHE HIT similarity=0.9697 matched='Who is the landlord for listing LST-00230?' latency=265.4 ms
+    is_cached=True  similarity=0.9697  latency_ms=265.4  pipeline_called=False
+    answer: To find the landlord for LST-00230, I will follow the steps:  1. Check the available_units field in the s9486_rel listings database for the 'available...
+
+--- Q7 [new] How can I get my full security deposit back when I move out?
+2026-11-09 11:20:08.614 [ingress] received query='How can I get my full security deposit back when I move out?'
+2026-11-09 11:20:08.661 [ingress] CACHE MISS (best similarity 0.3055 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 11:20:08.714 [send_question] sent question to topic=s9486_inbox partition=0 offset=8 correlation_id=27c16b28-16aa-4f80-85b1-8f67103d3b00
+2026-11-09 11:20:08.714 [send_question] question = 'How can I get my full security deposit back when I move out?'
+2026-11-09 11:20:08.714 [send_question] waiting up to 400s for correlation_id=27c16b28-16aa-4f80-85b1-8f67103d3b00 on s9486_final
+
+===== 2026-11-09 11:21:03 part4-data (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4 build reference + input datasets
+run at 2026-11-09T11:21:04 | VERIFY_SEED 269486
+==============================================================================
+train      12 questions
+validation 10 questions
+test       12 questions
+reference_data.json: 31 listings, 34 question ids
+  train: e.g. {'id': 'tr01', 'question': 'Who is the landlord for listing LST-02799?'}
+  validation: e.g. {'id': 'va01', 'question': 'Which person manages listing LST-03685?'}
+  test: e.g. {'id': 'te01', 'question': 'Who is the landlord of listing LST-02040?'}
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4 datasets - done =====
+2026-11-09 11:27:09.477 [pipeline] HW8 agents stopped
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/send_question.py", line 59, in send_and_wait
+    async for record in consumer:
+    ...<6 lines>...
+            return final
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/consumer.py", line 1259, in __anext__
+    return await self.getone()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/consumer.py", line 1144, in getone
+    msg = await self._fetcher.next_record(partitions)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/fetcher.py", line 1205, in next_record
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/scripts/part2_cache_demo.py", line 115, in <module>
+    code = main()
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/scripts/part2_cache_demo.py", line 60, in main
+    out = qa.ask(query)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/ingress.py", line 120, in ask
+    final = self.pipeline(question)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/pipeline.py", line 33, in __call__
+    final = asyncio.run(send_and_wait(question, self.timeout_s))
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/send_question.py", line 58, in send_and_wait
+    async with asyncio.timeout(timeout_s):
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/timeouts.py", line 116, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+===== 2026-11-09 11:31:16 cache-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 2 semantic cache (12 queries, threshold 0.85)
+run at 2026-11-09T11:31:16 | VERIFY_SEED 269486
+==============================================================================
+cleared 3 old entries under s9486:semcache:entry:*  (index s9486:idx:semcache)
+2026-11-09 11:31:17.284 [pipeline] HW8 agents ready (planner, writer, reviewer) in 0.3s
+2026-11-09 11:31:17.524 [pipeline] warm-up: all-minilm loaded in 0.24s (not part of any measured latency)
+
+--- Q1 [new] How many units are available at listing LST-00117?
+2026-11-09 11:31:17.524 [ingress] received query='How many units are available at listing LST-00117?'
+2026-11-09 11:31:17.639 [ingress] CACHE MISS (empty cache) -> running the HW8 agent pipeline
+2026-11-09 11:31:17.919 [send_question] sent question to topic=s9486_inbox partition=0 offset=9 correlation_id=9e57d4bf-82d0-4309-8d84-6fae7bbf93d3
+2026-11-09 11:31:17.919 [send_question] question = 'How many units are available at listing LST-00117?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-09 11:31:17.919 [send_question] waiting up to 400s for correlation_id=9e57d4bf-82d0-4309-8d84-6fae7bbf93d3 on s9486_final
+2026-11-09 11:38:18.438 [pipeline] HW8 agents stopped
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/send_question.py", line 59, in send_and_wait
+    async for record in consumer:
+    ...<6 lines>...
+            return final
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/consumer.py", line 1259, in __anext__
+    return await self.getone()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/consumer.py", line 1144, in getone
+    msg = await self._fetcher.next_record(partitions)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/aiokafka/consumer/fetcher.py", line 1205, in next_record
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/scripts/part2_cache_demo.py", line 115, in <module>
+    code = main()
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/scripts/part2_cache_demo.py", line 60, in main
+    out = qa.ask(query)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/ingress.py", line 120, in ask
+    final = self.pipeline(question)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/pipeline.py", line 33, in __call__
+    final = asyncio.run(send_and_wait(question, self.timeout_s))
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/kafka_agents/send_question.py", line 58, in send_and_wait
+    async with asyncio.timeout(timeout_s):
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/timeouts.py", line 116, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+===== 2026-11-09 11:57:38 cache-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 2 semantic cache (12 queries, threshold 0.85)
+run at 2026-11-09T11:57:39 | VERIFY_SEED 269486
+==============================================================================
+cleared 0 old entries under s9486:semcache:entry:*  (index s9486:idx:semcache)
+2026-11-09 11:57:40.344 [pipeline] HW8 agents ready (planner, writer, reviewer) in 0.3s
+2026-11-09 11:57:40.602 [pipeline] warm-up: all-minilm loaded in 0.26s (not part of any measured latency)
+
+--- Q1 [new] How many units are available at listing LST-00117?
+2026-11-09 11:57:40.602 [ingress] received query='How many units are available at listing LST-00117?'
+2026-11-09 11:57:40.661 [ingress] CACHE MISS (empty cache) -> running the HW8 agent pipeline
+2026-11-09 11:57:40.861 [send_question] sent question to topic=s9486_inbox partition=0 offset=10 correlation_id=59e499cd-63f5-4cb6-b69b-8b4c8d160b0f
+2026-11-09 11:57:40.861 [send_question] question = 'How many units are available at listing LST-00117?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-09 11:57:40.861 [send_question] waiting up to 400s for correlation_id=59e499cd-63f5-4cb6-b69b-8b4c8d160b0f on s9486_final
+2026-11-09 11:58:26.105 [send_question] received final from topic=s9486_final partition=0 offset=8 correlation_id=59e499cd-63f5-4cb6-b69b-8b4c8d160b0f
+2026-11-09 11:58:26.267 [ingress] CACHE MISS done: pipeline 45.3s, total latency=45666.3 ms
+    is_cached=False  similarity=0.0000  latency_ms=45666.3  pipeline_called=True
+    answer: To answer the question, I will follow the plan step by step:  1. Search the s9486_rel listings database for the available units of listing LST-00117. ...
+
+--- Q2 [exact] How many units are available at listing LST-00117?
+2026-11-09 11:58:26.267 [ingress] received query='How many units are available at listing LST-00117?'
+2026-11-09 11:58:27.042 [ingress] CACHE HIT similarity=1.0000 matched='How many units are available at listing LST-00117?' latency=774.3 ms
+    is_cached=True  similarity=1.0000  latency_ms=774.3  pipeline_called=False
+    answer: To answer the question, I will follow the plan step by step:  1. Search the s9486_rel listings database for the available units of listing LST-00117. ...
+
+--- Q3 [new] What should I check before signing a lease for an apartment in San Jose?
+2026-11-09 11:58:27.042 [ingress] received query='What should I check before signing a lease for an apartment in San Jose?'
+2026-11-09 11:58:27.219 [ingress] CACHE MISS (best similarity 0.0846 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 11:58:27.295 [send_question] sent question to topic=s9486_inbox partition=0 offset=11 correlation_id=d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d
+2026-11-09 11:58:27.296 [send_question] question = 'What should I check before signing a lease for an apartment in San Jose?'
+2026-11-09 11:58:27.296 [send_question] waiting up to 400s for correlation_id=d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d on s9486_final
+2026-11-09 11:59:08.702 [send_question] received final from topic=s9486_final partition=0 offset=9 correlation_id=d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d
+2026-11-09 11:59:08.734 [ingress] CACHE MISS done: pipeline 41.5s, total latency=41694.1 ms
+    is_cached=False  similarity=0.0846  latency_ms=41694.1  pipeline_called=True
+    answer: Here's a clear answer to the question, following the plan step by step:  Before signing a lease for an apartment in San Jose, it's essential to take t...
+
+--- Q4 [paraphrase] Before I sign an apartment lease in San Jose, what things should I check?
+2026-11-09 11:59:08.735 [ingress] received query='Before I sign an apartment lease in San Jose, what things should I check?'
+2026-11-09 11:59:08.961 [ingress] CACHE HIT similarity=0.9667 matched='What should I check before signing a lease for an apartment in San Jose?' latency=225.6 ms
+    is_cached=True  similarity=0.9667  latency_ms=225.6  pipeline_called=False
+    answer: Here's a clear answer to the question, following the plan step by step:  Before signing a lease for an apartment in San Jose, it's essential to take t...
+
+--- Q5 [new] Who is the landlord for listing LST-00230?
+2026-11-09 11:59:08.961 [ingress] received query='Who is the landlord for listing LST-00230?'
+2026-11-09 11:59:09.008 [ingress] CACHE MISS (best similarity 0.5420 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 11:59:09.096 [send_question] sent question to topic=s9486_inbox partition=0 offset=12 correlation_id=553ac8a1-fc9f-4fc4-bdcd-18653d4456ee
+2026-11-09 11:59:09.096 [send_question] question = 'Who is the landlord for listing LST-00230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00230: title "Renovated Loft near SJSU", address 1883 Almaden Blvd, Sunnyvale, CA, available_units=1, landlord Neha Nakamura (Campbell Rental Group)'
+2026-11-09 11:59:09.096 [send_question] waiting up to 400s for correlation_id=553ac8a1-fc9f-4fc4-bdcd-18653d4456ee on s9486_final
+2026-11-09 11:59:43.568 [send_question] received final from topic=s9486_final partition=0 offset=10 correlation_id=553ac8a1-fc9f-4fc4-bdcd-18653d4456ee
+2026-11-09 11:59:43.583 [ingress] CACHE MISS done: pipeline 34.5s, total latency=34623.7 ms
+    is_cached=False  similarity=0.5420  latency_ms=34623.7  pipeline_called=True
+    answer: To find the landlord for LST-00230, I will follow the steps:  1. Check the available_units field in the s9486_rel listings database for the 'available...
+
+--- Q6 [paraphrase] Which landlord manages listing LST-00230?
+2026-11-09 11:59:43.585 [ingress] received query='Which landlord manages listing LST-00230?'
+2026-11-09 11:59:43.818 [ingress] CACHE HIT similarity=0.9697 matched='Who is the landlord for listing LST-00230?' latency=233.1 ms
+    is_cached=True  similarity=0.9697  latency_ms=233.1  pipeline_called=False
+    answer: To find the landlord for LST-00230, I will follow the steps:  1. Check the available_units field in the s9486_rel listings database for the 'available...
+
+--- Q7 [new] How can I get my full security deposit back when I move out?
+2026-11-09 11:59:43.818 [ingress] received query='How can I get my full security deposit back when I move out?'
+2026-11-09 11:59:43.864 [ingress] CACHE MISS (best similarity 0.3055 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 11:59:43.909 [send_question] sent question to topic=s9486_inbox partition=0 offset=13 correlation_id=532c405b-6f48-4ae8-a15d-65c272d32ecc
+2026-11-09 11:59:43.909 [send_question] question = 'How can I get my full security deposit back when I move out?'
+2026-11-09 11:59:43.909 [send_question] waiting up to 400s for correlation_id=532c405b-6f48-4ae8-a15d-65c272d32ecc on s9486_final
+2026-11-09 12:01:27.810 [send_question] received final from topic=s9486_final partition=0 offset=11 correlation_id=532c405b-6f48-4ae8-a15d-65c272d32ecc
+2026-11-09 12:01:27.840 [ingress] CACHE MISS done: pipeline 104.0s, total latency=104025.7 ms
+    is_cached=False  similarity=0.3055  latency_ms=104025.7  pipeline_called=True
+    answer: To get your full security deposit back when you move out, follow these steps:  1. **Clean and prepare the property**: Leave the rental property in the...
+
+--- Q8 [exact] What should I check before signing a lease for an apartment in San Jose?
+2026-11-09 12:01:27.840 [ingress] received query='What should I check before signing a lease for an apartment in San Jose?'
+2026-11-09 12:01:27.992 [ingress] CACHE HIT similarity=1.0000 matched='What should I check before signing a lease for an apartment in San Jose?' latency=151.9 ms
+    is_cached=True  similarity=1.0000  latency_ms=151.9  pipeline_called=False
+    answer: Here's a clear answer to the question, following the plan step by step:  Before signing a lease for an apartment in San Jose, it's essential to take t...
+
+--- Q9 [new] What is a fair way to split rent and utilities with roommates?
+2026-11-09 12:01:27.992 [ingress] received query='What is a fair way to split rent and utilities with roommates?'
+2026-11-09 12:01:28.051 [ingress] CACHE MISS (best similarity 0.3393 < 0.85) -> running the HW8 agent pipeline
+2026-11-09 12:01:28.077 [send_question] sent question to topic=s9486_inbox partition=0 offset=14 correlation_id=cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3
+2026-11-09 12:01:28.077 [send_question] question = 'What is a fair way to split rent and utilities with roommates?'
+2026-11-09 12:01:28.077 [send_question] waiting up to 400s for correlation_id=cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3 on s9486_final
+2026-11-09 12:02:03.964 [send_question] received final from topic=s9486_final partition=0 offset=12 correlation_id=cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3
+2026-11-09 12:02:03.981 [ingress] CACHE MISS done: pipeline 35.9s, total latency=35990.0 ms
+    is_cached=False  similarity=0.3393  latency_ms=35990.0  pipeline_called=True
+    answer: To split rent and utilities fairly with roommates, follow these steps:  1. **Determine the total rent and utilities**: Calculate the total monthly ren...
+
+--- Q10 [paraphrase] When I move out, how do I make sure my security deposit is returned?
+2026-11-09 12:02:03.981 [ingress] received query='When I move out, how do I make sure my security deposit is returned?'
+2026-11-09 12:02:04.136 [ingress] CACHE HIT similarity=0.8541 matched='How can I get my full security deposit back when I move out?' latency=154.8 ms
+    is_cached=True  similarity=0.8541  latency_ms=154.8  pipeline_called=False
+    answer: To get your full security deposit back when you move out, follow these steps:  1. **Clean and prepare the property**: Leave the rental property in the...
+
+--- Q11 [paraphrase] How many open units does listing LST-00117 have right now?
+2026-11-09 12:02:04.136 [ingress] received query='How many open units does listing LST-00117 have right now?'
+2026-11-09 12:02:04.283 [ingress] CACHE HIT similarity=0.9062 matched='How many units are available at listing LST-00117?' latency=146.9 ms
+    is_cached=True  similarity=0.9062  latency_ms=146.9  pipeline_called=False
+    answer: To answer the question, I will follow the plan step by step:  1. Search the s9486_rel listings database for the available units of listing LST-00117. ...
+
+--- Q12 [exact] What is a fair way to split rent and utilities with roommates?
+2026-11-09 12:02:04.283 [ingress] received query='What is a fair way to split rent and utilities with roommates?'
+2026-11-09 12:02:04.342 [ingress] CACHE HIT similarity=1.0000 matched='What is a fair way to split rent and utilities with roommates?' latency=59.1 ms
+    is_cached=True  similarity=1.0000  latency_ms=59.1  pipeline_called=False
+    answer: To split rent and utilities fairly with roommates, follow these steps:  1. **Determine the total rent and utilities**: Calculate the total monthly ren...
+2026-11-09 12:02:04.804 [pipeline] HW8 agents stopped
+
+=== Results ===
+ # category   is_cached similarity  latency_ms  matched cached query
+ 1 new        False         0.0000     45666.3  -
+ 2 exact      True          1.0000       774.3  How many units are available at listing LST-00117?
+ 3 new        False         0.0846     41694.1  -
+ 4 paraphrase True          0.9667       225.6  What should I check before signing a lease for an apartment in San Jose?
+ 5 new        False         0.5420     34623.7  -
+ 6 paraphrase True          0.9697       233.1  Who is the landlord for listing LST-00230?
+ 7 new        False         0.3055    104025.7  -
+ 8 exact      True          1.0000       151.9  What should I check before signing a lease for an apartment in San Jose?
+ 9 new        False         0.3393     35990.0  -
+10 paraphrase True          0.8541       154.8  How can I get my full security deposit back when I move out?
+11 paraphrase True          0.9062       146.9  How many units are available at listing LST-00117?
+12 exact      True          1.0000        59.1  What is a fair way to split rent and utilities with roommates?
+
+cache hit rate: 7/12 = 58.3%   pipeline calls: 5
+  new        0/5 served from cache
+  exact      3/3 served from cache
+  paraphrase 4/4 served from cache
+avg latency cached:     249.4 ms  (7 queries)
+avg latency non-cached: 52400.0 ms  (5 queries)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 2 semantic cache - done =====
+
+===== 2026-11-09 12:02:27 sweep (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 3 threshold sweep (40 labeled cases x 5 thresholds)
+run at 2026-11-09T12:02:28 | VERIFY_SEED 269486
+==============================================================================
+cases file: Homework9/data/cache_cases.yaml  sha256=db1c36cf54f0f20f...  (labels not edited)
+cost model: miss $0.01, false hit $2.50
+cleared 0 old entries under s9486:sweep:entry:*
+2026-11-09 12:02:28.952 [pipeline] HW8 agents ready (planner, writer, reviewer) in 0.4s
+2026-11-09 12:02:29.264 [pipeline] warm-up: all-minilm loaded in 0.31s (not part of any measured latency)
+
+=== seeding the sweep cache with 10 queries (real HW8 pipeline) ===
+2026-11-09 12:02:29.264 [ingress] received query='Who is the landlord for listing LST-00305?'
+2026-11-09 12:02:29.335 [ingress] CACHE MISS (empty cache) -> running the HW8 agent pipeline
+2026-11-09 12:02:29.592 [send_question] sent question to topic=s9486_inbox partition=0 offset=15 correlation_id=fd077099-a93d-4f01-b53b-e314246f9a30
+2026-11-09 12:02:29.592 [send_question] question = 'Who is the landlord for listing LST-00305?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00305: title "Sunny 3BR House pet friendly", address 7805 Almaden Blvd, San Jose, CA, available_units=1, landlord Carmen Chowdhury (Rose Garden Realty)'
+2026-11-09 12:02:29.592 [send_question] waiting up to 400s for correlation_id=fd077099-a93d-4f01-b53b-e314246f9a30 on s9486_final
+2026-11-09 12:03:05.602 [send_question] received final from topic=s9486_final partition=0 offset=13 correlation_id=fd077099-a93d-4f01-b53b-e314246f9a30
+2026-11-09 12:03:05.685 [ingress] CACHE MISS done: pipeline 36.1s, total latency=36422.1 ms
+  seeded A01 in 36.4s  version=LST-00305@8d577f90992b
+2026-11-09 12:03:05.686 [ingress] received query='What city is listing LST-00418 located in?'
+2026-11-09 12:03:05.903 [ingress] CACHE MISS (best similarity 0.7255 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:03:06.015 [send_question] sent question to topic=s9486_inbox partition=0 offset=16 correlation_id=ca54d0af-7baf-4067-be15-437adef60c80
+2026-11-09 12:03:06.015 [send_question] question = 'What city is listing LST-00418 located in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00418: title "Spacious Studio with in-unit laundry", address 9427 Willow St, Mountain View, CA, available_units=1, landlord Paula Park (Rose Garden Realty)'
+2026-11-09 12:03:06.015 [send_question] waiting up to 400s for correlation_id=ca54d0af-7baf-4067-be15-437adef60c80 on s9486_final
+2026-11-09 12:03:52.325 [send_question] received final from topic=s9486_final partition=0 offset=14 correlation_id=ca54d0af-7baf-4067-be15-437adef60c80
+2026-11-09 12:03:52.389 [ingress] CACHE MISS done: pipeline 46.4s, total latency=46704.9 ms
+  seeded A02 in 46.7s  version=LST-00418@6ff70187ebb2
+2026-11-09 12:03:52.390 [ingress] received query='What is the street address of listing LST-00527?'
+2026-11-09 12:03:52.784 [ingress] CACHE MISS (best similarity 0.8591 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:03:52.973 [send_question] sent question to topic=s9486_inbox partition=0 offset=17 correlation_id=e160ec6f-c9ae-4787-8a29-d510215ac176
+2026-11-09 12:03:52.973 [send_question] question = 'What is the street address of listing LST-00527?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00527: title "Charming 3BR House with yard", address 6344 Almaden Blvd, Campbell, CA, available_units=1, landlord Deepak Shah (Downtown SJ Apartments)'
+2026-11-09 12:03:52.973 [send_question] waiting up to 400s for correlation_id=e160ec6f-c9ae-4787-8a29-d510215ac176 on s9486_final
+2026-11-09 12:04:42.699 [send_question] received final from topic=s9486_final partition=0 offset=15 correlation_id=e160ec6f-c9ae-4787-8a29-d510215ac176
+2026-11-09 12:04:42.771 [ingress] CACHE MISS done: pipeline 49.8s, total latency=50382.9 ms
+  seeded A03 in 50.4s  version=LST-00527@6e6f47449609
+2026-11-09 12:04:42.772 [ingress] received query='What kind of home is listing LST-00640?'
+2026-11-09 12:04:43.102 [ingress] CACHE MISS (best similarity 0.7734 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:04:43.249 [send_question] sent question to topic=s9486_inbox partition=0 offset=18 correlation_id=7cc6d512-491c-4d2b-940b-0ee358405bc4
+2026-11-09 12:04:43.249 [send_question] question = 'What kind of home is listing LST-00640?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00640: title "Furnished 2BR Apartment with balcony", address 8759 Santa Clara St, Campbell, CA, available_units=1, landlord Farah Okafor (SJSU Rentals LLC)'
+2026-11-09 12:04:43.249 [send_question] waiting up to 400s for correlation_id=7cc6d512-491c-4d2b-940b-0ee358405bc4 on s9486_final
+2026-11-09 12:05:26.790 [send_question] received final from topic=s9486_final partition=0 offset=16 correlation_id=7cc6d512-491c-4d2b-940b-0ee358405bc4
+2026-11-09 12:05:26.843 [ingress] CACHE MISS done: pipeline 43.6s, total latency=44072.9 ms
+  seeded A04 in 44.1s  version=LST-00640@9202a2de8ba6
+2026-11-09 12:05:26.844 [ingress] received query='How many units are available at listing LST-00753?'
+2026-11-09 12:05:27.089 [ingress] CACHE MISS (best similarity 0.5532 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:05:27.260 [send_question] sent question to topic=s9486_inbox partition=0 offset=19 correlation_id=813c31e9-1641-4102-8cbc-62dabf20af66
+2026-11-09 12:05:27.260 [send_question] question = 'How many units are available at listing LST-00753?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title "Renovated 1BR Apartment with parking", address 1818 Willow St, Santa Clara, CA, available_units=1, landlord Marcus Huang (Peninsula Leasing Co)'
+2026-11-09 12:05:27.260 [send_question] waiting up to 400s for correlation_id=813c31e9-1641-4102-8cbc-62dabf20af66 on s9486_final
+2026-11-09 12:05:57.631 [send_question] received final from topic=s9486_final partition=0 offset=17 correlation_id=813c31e9-1641-4102-8cbc-62dabf20af66
+2026-11-09 12:05:57.646 [ingress] CACHE MISS done: pipeline 30.4s, total latency=30803.2 ms
+  seeded A05 in 30.8s  version=LST-00753@c4674a1286cf
+2026-11-09 12:05:57.647 [ingress] received query='What should I check before signing a lease for an apartment?'
+2026-11-09 12:05:57.862 [ingress] CACHE MISS (best similarity 0.4171 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:05:57.898 [send_question] sent question to topic=s9486_inbox partition=0 offset=20 correlation_id=2b83e687-ef84-4e2a-96dc-e2900f3f5075
+2026-11-09 12:05:57.898 [send_question] question = 'What should I check before signing a lease for an apartment?'
+2026-11-09 12:05:57.899 [send_question] waiting up to 400s for correlation_id=2b83e687-ef84-4e2a-96dc-e2900f3f5075 on s9486_final
+2026-11-09 12:06:32.882 [send_question] received final from topic=s9486_final partition=0 offset=18 correlation_id=2b83e687-ef84-4e2a-96dc-e2900f3f5075
+2026-11-09 12:06:32.900 [ingress] CACHE MISS done: pipeline 35.0s, total latency=35254.8 ms
+  seeded A06 in 35.3s  version=none
+2026-11-09 12:06:32.900 [ingress] received query='How much notice do I need to give before moving out of my apartment?'
+2026-11-09 12:06:33.018 [ingress] CACHE MISS (best similarity 0.5965 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:06:33.044 [send_question] sent question to topic=s9486_inbox partition=0 offset=21 correlation_id=76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9
+2026-11-09 12:06:33.044 [send_question] question = 'How much notice do I need to give before moving out of my apartment?'
+2026-11-09 12:06:33.045 [send_question] waiting up to 400s for correlation_id=76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9 on s9486_final
+2026-11-09 12:07:09.629 [send_question] received final from topic=s9486_final partition=0 offset=19 correlation_id=76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9
+2026-11-09 12:07:09.653 [ingress] CACHE MISS done: pipeline 36.6s, total latency=36754.3 ms
+  seeded A07 in 36.8s  version=none
+2026-11-09 12:07:09.653 [ingress] received query='How can I get my security deposit back after I move out?'
+2026-11-09 12:07:09.822 [ingress] CACHE MISS (best similarity 0.3953 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:07:09.881 [send_question] sent question to topic=s9486_inbox partition=0 offset=22 correlation_id=ae2cafcb-3d30-42ea-bbb1-790d4f008a05
+2026-11-09 12:07:09.881 [send_question] question = 'How can I get my security deposit back after I move out?'
+2026-11-09 12:07:09.881 [send_question] waiting up to 400s for correlation_id=ae2cafcb-3d30-42ea-bbb1-790d4f008a05 on s9486_final
+2026-11-09 12:08:39.396 [send_question] received final from topic=s9486_final partition=0 offset=20 correlation_id=ae2cafcb-3d30-42ea-bbb1-790d4f008a05
+2026-11-09 12:08:39.452 [ingress] CACHE MISS done: pipeline 89.5s, total latency=89729.7 ms
+  seeded A08 in 89.7s  version=none
+2026-11-09 12:08:39.453 [ingress] received query='What documents do I need to apply for an apartment rental?'
+2026-11-09 12:08:39.621 [ingress] CACHE MISS (best similarity 0.6227 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:08:39.666 [send_question] sent question to topic=s9486_inbox partition=0 offset=23 correlation_id=f808ac13-7c51-4e8a-87bb-d1f3292c1fd5
+2026-11-09 12:08:39.666 [send_question] question = 'What documents do I need to apply for an apartment rental?'
+2026-11-09 12:08:39.667 [send_question] waiting up to 400s for correlation_id=f808ac13-7c51-4e8a-87bb-d1f3292c1fd5 on s9486_final
+2026-11-09 12:09:15.136 [send_question] received final from topic=s9486_final partition=0 offset=21 correlation_id=f808ac13-7c51-4e8a-87bb-d1f3292c1fd5
+2026-11-09 12:09:15.160 [ingress] CACHE MISS done: pipeline 35.5s, total latency=35707.2 ms
+  seeded A09 in 35.7s  version=none
+2026-11-09 12:09:15.169 [ingress] received query='How do I ask my landlord to fix a broken heater?'
+2026-11-09 12:09:15.349 [ingress] CACHE MISS (best similarity 0.4165 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:09:15.373 [send_question] sent question to topic=s9486_inbox partition=0 offset=24 correlation_id=2e19e4ec-8b8a-4047-ac08-186263cc2c99
+2026-11-09 12:09:15.374 [send_question] question = 'How do I ask my landlord to fix a broken heater?'
+2026-11-09 12:09:15.374 [send_question] waiting up to 400s for correlation_id=2e19e4ec-8b8a-4047-ac08-186263cc2c99 on s9486_final
+2026-11-09 12:10:01.771 [send_question] received final from topic=s9486_final partition=0 offset=22 correlation_id=2e19e4ec-8b8a-4047-ac08-186263cc2c99
+2026-11-09 12:10:01.789 [ingress] CACHE MISS done: pipeline 46.4s, total latency=46621.1 ms
+  seeded A10 in 46.6s  version=none
+cache now has 10 entries
+
+=== threshold 0.75 ===
+  E01 should_hit  sim=1.0000 nearest=A01 -> hit           205.5 ms
+  E02 should_hit  sim=1.0000 nearest=A02 -> hit            57.6 ms
+  E03 should_hit  sim=1.0000 nearest=A03 -> hit            44.6 ms
+  E04 should_hit  sim=1.0000 nearest=A04 -> hit            44.2 ms
+  E05 should_hit  sim=1.0000 nearest=A05 -> hit           107.8 ms
+  E06 should_hit  sim=1.0000 nearest=A06 -> hit            95.9 ms
+  E07 should_hit  sim=1.0000 nearest=A07 -> hit            83.1 ms
+  E08 should_hit  sim=1.0000 nearest=A08 -> hit            82.3 ms
+  E09 should_hit  sim=1.0000 nearest=A09 -> hit            85.3 ms
+  E10 should_hit  sim=1.0000 nearest=A10 -> hit            87.8 ms
+  P01 should_hit  sim=0.9638 nearest=A01 -> hit            85.0 ms
+  P02 should_hit  sim=0.9727 nearest=A02 -> hit            78.9 ms
+  P03 should_hit  sim=0.9531 nearest=A03 -> hit            95.2 ms
+  P04 should_hit  sim=0.8687 nearest=A04 -> hit            76.5 ms
+  P05 should_hit  sim=0.8879 nearest=A05 -> hit            55.4 ms
+  P06 should_hit  sim=0.9851 nearest=A06 -> hit            93.0 ms
+2026-11-09 12:10:03.259 [sweep] P07 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:10:03.260 [ingress] received query="How far in advance must I tell my landlord that I'm moving out?"
+2026-11-09 12:10:03.319 [ingress] CACHE MISS (best similarity 0.6818 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:10:03.364 [send_question] sent question to topic=s9486_inbox partition=0 offset=25 correlation_id=f4ebbbfb-8eb0-4461-8884-c839e1f84be1
+2026-11-09 12:10:03.364 [send_question] question = "How far in advance must I tell my landlord that I'm moving out?"
+2026-11-09 12:10:03.364 [send_question] waiting up to 400s for correlation_id=f4ebbbfb-8eb0-4461-8884-c839e1f84be1 on s9486_final
+2026-11-09 12:10:40.095 [send_question] received final from topic=s9486_final partition=0 offset=23 correlation_id=f4ebbbfb-8eb0-4461-8884-c839e1f84be1
+2026-11-09 12:10:40.101 [ingress] CACHE MISS done: pipeline 36.8s, total latency=36841.5 ms
+  P07 should_hit  sim=0.6818 nearest=A07 -> miss        36855.7 ms
+  P08 should_hit  sim=0.8242 nearest=A08 -> hit           151.6 ms
+  P09 should_hit  sim=0.8673 nearest=A09 -> hit            38.7 ms
+  P10 should_hit  sim=0.9661 nearest=A10 -> hit            37.0 ms
+  S01 should_miss sim=0.9700 nearest=A01 -> FALSE HIT      74.3 ms
+  S02 should_miss sim=0.9615 nearest=A02 -> FALSE HIT      40.9 ms
+  S03 should_miss sim=0.9627 nearest=A03 -> FALSE HIT      41.6 ms
+  S04 should_miss sim=0.9589 nearest=A04 -> FALSE HIT      40.1 ms
+  S05 should_miss sim=0.7894 nearest=A05 -> FALSE HIT      41.2 ms
+  S06 should_miss sim=0.8172 nearest=A06 -> FALSE HIT      38.3 ms
+  S07 should_miss sim=0.8548 nearest=A07 -> FALSE HIT      36.8 ms
+2026-11-09 12:10:40.684 [sweep] S08 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:10:40.684 [ingress] received query='What can my landlord deduct from my security deposit after I move out?'
+2026-11-09 12:10:40.723 [ingress] CACHE MISS (best similarity 0.6766 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:10:40.744 [send_question] sent question to topic=s9486_inbox partition=0 offset=26 correlation_id=7a46a794-13e1-40a3-9603-ea63e6d34308
+2026-11-09 12:10:40.745 [send_question] question = 'What can my landlord deduct from my security deposit after I move out?'
+2026-11-09 12:10:40.745 [send_question] waiting up to 400s for correlation_id=7a46a794-13e1-40a3-9603-ea63e6d34308 on s9486_final
+2026-11-09 12:11:15.538 [send_question] received final from topic=s9486_final partition=0 offset=24 correlation_id=7a46a794-13e1-40a3-9603-ea63e6d34308
+2026-11-09 12:11:15.551 [ingress] CACHE MISS done: pipeline 34.8s, total latency=34867.7 ms
+  S08 should_miss sim=0.6766 nearest=A08 -> miss        34868.5 ms
+  S09 should_miss sim=0.8557 nearest=A09 -> FALSE HIT     732.4 ms
+  S10 should_miss sim=0.7590 nearest=A10 -> FALSE HIT      90.3 ms
+2026-11-09 12:11:16.443 [sweep] U01 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:11:16.443 [ingress] received query='What should I do if I get locked out of my apartment?'
+2026-11-09 12:11:16.490 [ingress] CACHE MISS (best similarity 0.5017 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:11:16.605 [send_question] sent question to topic=s9486_inbox partition=0 offset=27 correlation_id=41ee265b-c12b-4f81-b685-10d9c8d1b139
+2026-11-09 12:11:16.605 [send_question] question = 'What should I do if I get locked out of my apartment?'
+2026-11-09 12:11:16.606 [send_question] waiting up to 400s for correlation_id=41ee265b-c12b-4f81-b685-10d9c8d1b139 on s9486_final
+2026-11-09 12:11:52.766 [send_question] received final from topic=s9486_final partition=0 offset=25 correlation_id=41ee265b-c12b-4f81-b685-10d9c8d1b139
+2026-11-09 12:11:52.862 [ingress] CACHE MISS done: pipeline 36.4s, total latency=36419.7 ms
+  U01 should_miss sim=0.5017 nearest=A07 -> miss        36426.5 ms
+2026-11-09 12:11:53.311 [sweep] U02 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:11:53.311 [ingress] received query='What is renters insurance and do I need it as a student?'
+2026-11-09 12:11:53.367 [ingress] CACHE MISS (best similarity 0.4644 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:11:53.429 [send_question] sent question to topic=s9486_inbox partition=0 offset=28 correlation_id=71252e4e-3ddd-408d-8f19-e93b64ea90df
+2026-11-09 12:11:53.429 [send_question] question = 'What is renters insurance and do I need it as a student?'
+2026-11-09 12:11:53.430 [send_question] waiting up to 400s for correlation_id=71252e4e-3ddd-408d-8f19-e93b64ea90df on s9486_final
+2026-11-09 12:12:34.006 [send_question] received final from topic=s9486_final partition=0 offset=26 correlation_id=71252e4e-3ddd-408d-8f19-e93b64ea90df
+2026-11-09 12:12:34.020 [ingress] CACHE MISS done: pipeline 40.7s, total latency=40708.9 ms
+  U02 should_miss sim=0.4644 nearest=A09 -> miss        41071.9 ms
+2026-11-09 12:12:34.205 [sweep] U03 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:12:34.205 [ingress] received query='How do I report a noisy neighbor in my apartment complex?'
+2026-11-09 12:12:34.246 [ingress] CACHE MISS (best similarity 0.4348 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:12:34.333 [send_question] sent question to topic=s9486_inbox partition=0 offset=29 correlation_id=c6ab6822-0ab4-4438-8240-bc161145ac34
+2026-11-09 12:12:34.333 [send_question] question = 'How do I report a noisy neighbor in my apartment complex?'
+2026-11-09 12:12:34.333 [send_question] waiting up to 400s for correlation_id=c6ab6822-0ab4-4438-8240-bc161145ac34 on s9486_final
+2026-11-09 12:13:14.174 [send_question] received final from topic=s9486_final partition=0 offset=27 correlation_id=c6ab6822-0ab4-4438-8240-bc161145ac34
+2026-11-09 12:13:14.183 [ingress] CACHE MISS done: pipeline 39.9s, total latency=39978.4 ms
+  U03 should_miss sim=0.4348 nearest=A01 -> miss        40119.0 ms
+2026-11-09 12:13:14.412 [sweep] U04 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:13:14.412 [ingress] received query='Can I sublet my room over the summer?'
+2026-11-09 12:13:14.466 [ingress] CACHE MISS (best similarity 0.2775 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:13:14.521 [send_question] sent question to topic=s9486_inbox partition=0 offset=30 correlation_id=87704aea-e388-469e-b73a-ed1ca156c0aa
+2026-11-09 12:13:14.521 [send_question] question = 'Can I sublet my room over the summer?'
+2026-11-09 12:13:14.522 [send_question] waiting up to 400s for correlation_id=87704aea-e388-469e-b73a-ed1ca156c0aa on s9486_final
+2026-11-09 12:13:47.727 [send_question] received final from topic=s9486_final partition=0 offset=28 correlation_id=87704aea-e388-469e-b73a-ed1ca156c0aa
+2026-11-09 12:13:47.732 [ingress] CACHE MISS done: pipeline 33.3s, total latency=33320.1 ms
+  U04 should_miss sim=0.2775 nearest=A07 -> miss        33493.4 ms
+2026-11-09 12:13:47.904 [sweep] U05 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:13:47.904 [ingress] received query='What utilities do I usually pay for in a California apartment?'
+2026-11-09 12:13:47.951 [ingress] CACHE MISS (best similarity 0.3957 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:13:47.977 [send_question] sent question to topic=s9486_inbox partition=0 offset=31 correlation_id=0fdafc36-4b2f-414c-a866-d6ef9eada640
+2026-11-09 12:13:47.977 [send_question] question = 'What utilities do I usually pay for in a California apartment?'
+2026-11-09 12:13:47.978 [send_question] waiting up to 400s for correlation_id=0fdafc36-4b2f-414c-a866-d6ef9eada640 on s9486_final
+2026-11-09 12:14:19.385 [send_question] received final from topic=s9486_final partition=0 offset=29 correlation_id=0fdafc36-4b2f-414c-a866-d6ef9eada640
+2026-11-09 12:14:19.391 [ingress] CACHE MISS done: pipeline 31.4s, total latency=31487.4 ms
+  U05 should_miss sim=0.3957 nearest=A09 -> miss        31610.0 ms
+2026-11-09 12:14:19.552 [sweep] U06 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:14:19.553 [ingress] received query='How do I set up internet in a new apartment?'
+2026-11-09 12:14:19.594 [ingress] CACHE MISS (best similarity 0.4404 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:14:19.621 [send_question] sent question to topic=s9486_inbox partition=0 offset=32 correlation_id=c639189c-2c7e-4e83-97d3-07b0be6a54d6
+2026-11-09 12:14:19.621 [send_question] question = 'How do I set up internet in a new apartment?'
+2026-11-09 12:14:19.621 [send_question] waiting up to 400s for correlation_id=c639189c-2c7e-4e83-97d3-07b0be6a54d6 on s9486_final
+2026-11-09 12:14:51.980 [send_question] received final from topic=s9486_final partition=0 offset=30 correlation_id=c639189c-2c7e-4e83-97d3-07b0be6a54d6
+2026-11-09 12:14:51.995 [ingress] CACHE MISS done: pipeline 32.4s, total latency=32441.7 ms
+  U06 should_miss sim=0.4404 nearest=A09 -> miss        32560.5 ms
+2026-11-09 12:14:52.179 [sweep] U07 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:14:52.179 [ingress] received query='What is a co-signer on a lease?'
+2026-11-09 12:14:52.222 [ingress] CACHE MISS (best similarity 0.5544 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:14:52.247 [send_question] sent question to topic=s9486_inbox partition=0 offset=33 correlation_id=49ca9b70-6ccc-4919-9d00-434904c83c80
+2026-11-09 12:14:52.247 [send_question] question = 'What is a co-signer on a lease?'
+2026-11-09 12:14:52.248 [send_question] waiting up to 400s for correlation_id=49ca9b70-6ccc-4919-9d00-434904c83c80 on s9486_final
+2026-11-09 12:15:29.236 [send_question] received final from topic=s9486_final partition=0 offset=31 correlation_id=49ca9b70-6ccc-4919-9d00-434904c83c80
+2026-11-09 12:15:29.241 [ingress] CACHE MISS done: pipeline 37.0s, total latency=37061.7 ms
+  U07 should_miss sim=0.5544 nearest=A06 -> miss        37194.8 ms
+2026-11-09 12:15:29.394 [sweep] U08 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:15:29.394 [ingress] received query='How can I tell if a rental listing is a scam?'
+2026-11-09 12:15:29.437 [ingress] CACHE MISS (best similarity 0.5396 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:15:29.471 [send_question] sent question to topic=s9486_inbox partition=0 offset=34 correlation_id=c67ca4c4-55de-4502-83bc-81abb6abad40
+2026-11-09 12:15:29.471 [send_question] question = 'How can I tell if a rental listing is a scam?'
+2026-11-09 12:15:29.471 [send_question] waiting up to 400s for correlation_id=c67ca4c4-55de-4502-83bc-81abb6abad40 on s9486_final
+2026-11-09 12:16:06.133 [send_question] received final from topic=s9486_final partition=0 offset=32 correlation_id=c67ca4c4-55de-4502-83bc-81abb6abad40
+2026-11-09 12:16:06.142 [ingress] CACHE MISS done: pipeline 36.7s, total latency=36748.4 ms
+  U08 should_miss sim=0.5396 nearest=A01 -> miss        36856.5 ms
+2026-11-09 12:16:06.308 [sweep] U09 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:16:06.308 [ingress] received query='Are furnished apartments more expensive near SJSU?'
+2026-11-09 12:16:06.355 [ingress] CACHE MISS (best similarity 0.2974 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:16:06.385 [send_question] sent question to topic=s9486_inbox partition=0 offset=35 correlation_id=b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed
+2026-11-09 12:16:06.385 [send_question] question = 'Are furnished apartments more expensive near SJSU?'
+2026-11-09 12:16:06.386 [send_question] waiting up to 400s for correlation_id=b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed on s9486_final
+2026-11-09 12:16:49.333 [send_question] received final from topic=s9486_final partition=0 offset=33 correlation_id=b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed
+2026-11-09 12:16:49.339 [ingress] CACHE MISS done: pipeline 43.0s, total latency=43031.5 ms
+  U09 should_miss sim=0.2974 nearest=A04 -> miss        43146.6 ms
+2026-11-09 12:16:49.555 [sweep] U10 miss at 0.75 -> running the HW8 pipeline once for this case
+2026-11-09 12:16:49.555 [ingress] received query='How do I put the electricity account in my name when I move in?'
+2026-11-09 12:16:49.599 [ingress] CACHE MISS (best similarity 0.4282 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:16:49.624 [send_question] sent question to topic=s9486_inbox partition=0 offset=36 correlation_id=c957539a-4909-4d59-bda7-2e84d3741ca0
+2026-11-09 12:16:49.624 [send_question] question = 'How do I put the electricity account in my name when I move in?'
+2026-11-09 12:16:49.624 [send_question] waiting up to 400s for correlation_id=c957539a-4909-4d59-bda7-2e84d3741ca0 on s9486_final
+2026-11-09 12:17:51.870 [send_question] received final from topic=s9486_final partition=0 offset=34 correlation_id=c957539a-4909-4d59-bda7-2e84d3741ca0
+2026-11-09 12:17:51.885 [ingress] CACHE MISS done: pipeline 62.3s, total latency=62329.7 ms
+  U10 should_miss sim=0.4282 nearest=A08 -> miss        62500.2 ms
+
+=== threshold 0.80 ===
+  E01 should_hit  sim=1.0000 nearest=A01 -> hit           342.3 ms
+  E02 should_hit  sim=1.0000 nearest=A02 -> hit            44.2 ms
+  E03 should_hit  sim=1.0000 nearest=A03 -> hit            44.0 ms
+  E04 should_hit  sim=1.0000 nearest=A04 -> hit            45.2 ms
+  E05 should_hit  sim=1.0000 nearest=A05 -> hit            60.1 ms
+  E06 should_hit  sim=1.0000 nearest=A06 -> hit           111.9 ms
+  E07 should_hit  sim=1.0000 nearest=A07 -> hit            47.7 ms
+  E08 should_hit  sim=1.0000 nearest=A08 -> hit            42.5 ms
+  E09 should_hit  sim=1.0000 nearest=A09 -> hit            37.7 ms
+  E10 should_hit  sim=1.0000 nearest=A10 -> hit            38.4 ms
+  P01 should_hit  sim=0.9638 nearest=A01 -> hit            44.2 ms
+  P02 should_hit  sim=0.9727 nearest=A02 -> hit            43.0 ms
+  P03 should_hit  sim=0.9531 nearest=A03 -> hit            41.4 ms
+  P04 should_hit  sim=0.8687 nearest=A04 -> hit            39.6 ms
+  P05 should_hit  sim=0.8879 nearest=A05 -> hit            39.9 ms
+  P06 should_hit  sim=0.9851 nearest=A06 -> hit            38.5 ms
+  P07 should_hit  sim=0.6818 nearest=A07 -> miss        36820.8 ms (pipeline time reused)
+  P08 should_hit  sim=0.8242 nearest=A08 -> hit            50.7 ms
+  P09 should_hit  sim=0.8673 nearest=A09 -> hit            46.7 ms
+  P10 should_hit  sim=0.9661 nearest=A10 -> hit            42.6 ms
+  S01 should_miss sim=0.9700 nearest=A01 -> FALSE HIT      43.8 ms
+  S02 should_miss sim=0.9615 nearest=A02 -> FALSE HIT      38.1 ms
+  S03 should_miss sim=0.9627 nearest=A03 -> FALSE HIT      40.3 ms
+  S04 should_miss sim=0.9589 nearest=A04 -> FALSE HIT      42.3 ms
+2026-11-09 12:17:53.332 [sweep] S05 miss at 0.80 -> running the HW8 pipeline once for this case
+2026-11-09 12:17:53.332 [ingress] received query='How many units were rented out at listing LST-00753 last year?'
+2026-11-09 12:17:53.373 [ingress] CACHE MISS (best similarity 0.7894 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:17:53.440 [send_question] sent question to topic=s9486_inbox partition=0 offset=37 correlation_id=c29f6a1e-561b-4fdd-93fd-6a980fd8fca2
+2026-11-09 12:17:53.440 [send_question] question = 'How many units were rented out at listing LST-00753 last year?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title "Renovated 1BR Apartment with parking", address 1818 Willow St, Santa Clara, CA, available_units=1, landlord Marcus Huang (Peninsula Leasing Co)'
+2026-11-09 12:17:53.440 [send_question] waiting up to 400s for correlation_id=c29f6a1e-561b-4fdd-93fd-6a980fd8fca2 on s9486_final
+2026-11-09 12:18:49.697 [send_question] received final from topic=s9486_final partition=0 offset=35 correlation_id=c29f6a1e-561b-4fdd-93fd-6a980fd8fca2
+2026-11-09 12:18:49.717 [ingress] CACHE MISS done: pipeline 56.3s, total latency=56385.3 ms
+  S05 should_miss sim=0.7894 nearest=A05 -> miss        56381.0 ms
+  S06 should_miss sim=0.8172 nearest=A06 -> FALSE HIT     413.7 ms
+  S07 should_miss sim=0.8548 nearest=A07 -> FALSE HIT     162.1 ms
+  S08 should_miss sim=0.6766 nearest=A08 -> miss        34898.6 ms (pipeline time reused)
+  S09 should_miss sim=0.8557 nearest=A09 -> FALSE HIT      70.0 ms
+2026-11-09 12:18:50.499 [sweep] S10 miss at 0.80 -> running the HW8 pipeline once for this case
+2026-11-09 12:18:50.499 [ingress] received query='How do I fix a broken heater myself?'
+2026-11-09 12:18:50.549 [ingress] CACHE MISS (best similarity 0.7590 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:18:50.718 [send_question] sent question to topic=s9486_inbox partition=0 offset=38 correlation_id=4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83
+2026-11-09 12:18:50.718 [send_question] question = 'How do I fix a broken heater myself?'
+2026-11-09 12:18:50.718 [send_question] waiting up to 400s for correlation_id=4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83 on s9486_final
+2026-11-09 12:19:32.688 [send_question] received final from topic=s9486_final partition=0 offset=36 correlation_id=4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83
+2026-11-09 12:19:32.694 [ingress] CACHE MISS done: pipeline 42.1s, total latency=42195.3 ms
+  S10 should_miss sim=0.7590 nearest=A10 -> miss        42207.3 ms
+  U01 should_miss sim=0.5017 nearest=A07 -> miss        36535.5 ms (pipeline time reused)
+  U02 should_miss sim=0.4644 nearest=A09 -> miss        40695.5 ms (pipeline time reused)
+  U03 should_miss sim=0.4348 nearest=A01 -> miss        39987.2 ms (pipeline time reused)
+  U04 should_miss sim=0.2775 nearest=A07 -> miss        33320.3 ms (pipeline time reused)
+  U05 should_miss sim=0.3957 nearest=A09 -> miss        31486.3 ms (pipeline time reused)
+  U06 should_miss sim=0.4404 nearest=A09 -> miss        32446.2 ms (pipeline time reused)
+  U07 should_miss sim=0.5544 nearest=A06 -> miss        37063.9 ms (pipeline time reused)
+  U08 should_miss sim=0.5396 nearest=A01 -> miss        36743.8 ms (pipeline time reused)
+  U09 should_miss sim=0.2974 nearest=A04 -> miss        43030.0 ms (pipeline time reused)
+  U10 should_miss sim=0.4282 nearest=A08 -> miss        62322.7 ms (pipeline time reused)
+
+=== threshold 0.85 ===
+  E01 should_hit  sim=1.0000 nearest=A01 -> hit           101.4 ms
+  E02 should_hit  sim=1.0000 nearest=A02 -> hit            57.5 ms
+  E03 should_hit  sim=1.0000 nearest=A03 -> hit            41.7 ms
+  E04 should_hit  sim=1.0000 nearest=A04 -> hit            38.0 ms
+  E05 should_hit  sim=1.0000 nearest=A05 -> hit            42.6 ms
+  E06 should_hit  sim=1.0000 nearest=A06 -> hit            36.9 ms
+  E07 should_hit  sim=1.0000 nearest=A07 -> hit            44.8 ms
+  E08 should_hit  sim=1.0000 nearest=A08 -> hit            36.2 ms
+  E09 should_hit  sim=1.0000 nearest=A09 -> hit            36.5 ms
+  E10 should_hit  sim=1.0000 nearest=A10 -> hit            40.1 ms
+  P01 should_hit  sim=0.9638 nearest=A01 -> hit            42.2 ms
+  P02 should_hit  sim=0.9727 nearest=A02 -> hit            39.7 ms
+  P03 should_hit  sim=0.9531 nearest=A03 -> hit            39.5 ms
+  P04 should_hit  sim=0.8687 nearest=A04 -> hit            40.0 ms
+  P05 should_hit  sim=0.8879 nearest=A05 -> hit            40.5 ms
+  P06 should_hit  sim=0.9851 nearest=A06 -> hit            37.5 ms
+  P07 should_hit  sim=0.6818 nearest=A07 -> miss        36818.3 ms (pipeline time reused)
+2026-11-09 12:19:34.066 [sweep] P08 miss at 0.85 -> running the HW8 pipeline once for this case
+2026-11-09 12:19:34.066 [ingress] received query='What do I need to do to get my security deposit returned when I leave?'
+2026-11-09 12:19:34.108 [ingress] CACHE MISS (best similarity 0.8242 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:19:34.176 [send_question] sent question to topic=s9486_inbox partition=0 offset=39 correlation_id=df409808-af97-432b-a620-13160fa53260
+2026-11-09 12:19:34.176 [send_question] question = 'What do I need to do to get my security deposit returned when I leave?'
+2026-11-09 12:19:34.176 [send_question] waiting up to 400s for correlation_id=df409808-af97-432b-a620-13160fa53260 on s9486_final
+2026-11-09 12:20:11.299 [send_question] received final from topic=s9486_final partition=0 offset=37 correlation_id=df409808-af97-432b-a620-13160fa53260
+2026-11-09 12:20:11.306 [ingress] CACHE MISS done: pipeline 37.2s, total latency=37240.1 ms
+  P08 should_hit  sim=0.8242 nearest=A08 -> miss        37243.9 ms
+  P09 should_hit  sim=0.8673 nearest=A09 -> hit           137.1 ms
+  P10 should_hit  sim=0.9661 nearest=A10 -> hit            42.6 ms
+  S01 should_miss sim=0.9700 nearest=A01 -> FALSE HIT     102.6 ms
+  S02 should_miss sim=0.9615 nearest=A02 -> FALSE HIT      48.2 ms
+  S03 should_miss sim=0.9627 nearest=A03 -> FALSE HIT      46.0 ms
+  S04 should_miss sim=0.9589 nearest=A04 -> FALSE HIT      43.1 ms
+  S05 should_miss sim=0.7894 nearest=A05 -> miss        56381.6 ms (pipeline time reused)
+2026-11-09 12:20:11.803 [sweep] S06 miss at 0.85 -> running the HW8 pipeline once for this case
+2026-11-09 12:20:11.803 [ingress] received query='What should I check before signing a lease for a parking space?'
+2026-11-09 12:20:11.841 [ingress] CACHE MISS (best similarity 0.8172 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:20:11.864 [send_question] sent question to topic=s9486_inbox partition=0 offset=40 correlation_id=56942491-23c0-4856-b32f-877dc59556c3
+2026-11-09 12:20:11.864 [send_question] question = 'What should I check before signing a lease for a parking space?'
+2026-11-09 12:20:11.864 [send_question] waiting up to 400s for correlation_id=56942491-23c0-4856-b32f-877dc59556c3 on s9486_final
+2026-11-09 12:20:49.457 [send_question] received final from topic=s9486_final partition=0 offset=38 correlation_id=56942491-23c0-4856-b32f-877dc59556c3
+2026-11-09 12:20:49.461 [ingress] CACHE MISS done: pipeline 37.6s, total latency=37658.3 ms
+  S06 should_miss sim=0.8172 nearest=A06 -> miss        37656.4 ms
+  S07 should_miss sim=0.8548 nearest=A07 -> FALSE HIT     172.7 ms
+  S08 should_miss sim=0.6766 nearest=A08 -> miss        34869.3 ms (pipeline time reused)
+  S09 should_miss sim=0.8557 nearest=A09 -> FALSE HIT      42.4 ms
+  S10 should_miss sim=0.7590 nearest=A10 -> miss        42183.5 ms (pipeline time reused)
+  U01 should_miss sim=0.5017 nearest=A07 -> miss        36407.7 ms (pipeline time reused)
+  U02 should_miss sim=0.4644 nearest=A09 -> miss        40691.1 ms (pipeline time reused)
+  U03 should_miss sim=0.4348 nearest=A01 -> miss        39974.5 ms (pipeline time reused)
+  U04 should_miss sim=0.2775 nearest=A07 -> miss        33304.2 ms (pipeline time reused)
+  U05 should_miss sim=0.3957 nearest=A09 -> miss        31478.5 ms (pipeline time reused)
+  U06 should_miss sim=0.4404 nearest=A09 -> miss        32438.9 ms (pipeline time reused)
+  U07 should_miss sim=0.5544 nearest=A06 -> miss        37055.4 ms (pipeline time reused)
+  U08 should_miss sim=0.5396 nearest=A01 -> miss        36740.9 ms (pipeline time reused)
+  U09 should_miss sim=0.2974 nearest=A04 -> miss        43020.7 ms (pipeline time reused)
+  U10 should_miss sim=0.4282 nearest=A08 -> miss        62325.6 ms (pipeline time reused)
+
+=== threshold 0.90 ===
+  E01 should_hit  sim=1.0000 nearest=A01 -> hit           114.5 ms
+  E02 should_hit  sim=1.0000 nearest=A02 -> hit           105.5 ms
+  E03 should_hit  sim=1.0000 nearest=A03 -> hit            66.3 ms
+  E04 should_hit  sim=1.0000 nearest=A04 -> hit            66.3 ms
+  E05 should_hit  sim=1.0000 nearest=A05 -> hit            63.7 ms
+  E06 should_hit  sim=1.0000 nearest=A06 -> hit            51.4 ms
+  E07 should_hit  sim=1.0000 nearest=A07 -> hit           124.2 ms
+  E08 should_hit  sim=1.0000 nearest=A08 -> hit            60.1 ms
+  E09 should_hit  sim=1.0000 nearest=A09 -> hit            44.1 ms
+  E10 should_hit  sim=1.0000 nearest=A10 -> hit            44.7 ms
+  P01 should_hit  sim=0.9638 nearest=A01 -> hit            51.1 ms
+  P02 should_hit  sim=0.9727 nearest=A02 -> hit            55.8 ms
+  P03 should_hit  sim=0.9531 nearest=A03 -> hit            60.8 ms
+2026-11-09 12:20:51.111 [sweep] P04 miss at 0.90 -> running the HW8 pipeline once for this case
+2026-11-09 12:20:51.111 [ingress] received query='What type of place is listing LST-00640?'
+2026-11-09 12:20:51.164 [ingress] CACHE MISS (best similarity 0.8687 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:20:51.202 [send_question] sent question to topic=s9486_inbox partition=0 offset=41 correlation_id=b1835110-6f82-4458-942c-ebcec1b152c3
+2026-11-09 12:20:51.202 [send_question] question = 'What type of place is listing LST-00640?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00640: title "Furnished 2BR Apartment with balcony", address 8759 Santa Clara St, Campbell, CA, available_units=1, landlord Farah Okafor (SJSU Rentals LLC)'
+2026-11-09 12:20:51.202 [send_question] waiting up to 400s for correlation_id=b1835110-6f82-4458-942c-ebcec1b152c3 on s9486_final
+2026-11-09 12:21:26.400 [send_question] received final from topic=s9486_final partition=0 offset=39 correlation_id=b1835110-6f82-4458-942c-ebcec1b152c3
+2026-11-09 12:21:26.406 [ingress] CACHE MISS done: pipeline 35.2s, total latency=35295.4 ms
+  P04 should_hit  sim=0.8687 nearest=A04 -> miss        35306.7 ms
+2026-11-09 12:21:26.585 [sweep] P05 miss at 0.90 -> running the HW8 pipeline once for this case
+2026-11-09 12:21:26.585 [ingress] received query='How many open units does listing LST-00753 have?'
+2026-11-09 12:21:26.627 [ingress] CACHE MISS (best similarity 0.8879 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:21:26.727 [send_question] sent question to topic=s9486_inbox partition=0 offset=42 correlation_id=7cb7884e-84de-4f4f-b3ea-14f28e670b3d
+2026-11-09 12:21:26.727 [send_question] question = 'How many open units does listing LST-00753 have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title "Renovated 1BR Apartment with parking", address 1818 Willow St, Santa Clara, CA, available_units=1, landlord Marcus Huang (Peninsula Leasing Co)'
+2026-11-09 12:21:26.727 [send_question] waiting up to 400s for correlation_id=7cb7884e-84de-4f4f-b3ea-14f28e670b3d on s9486_final
+2026-11-09 12:21:54.820 [send_question] received final from topic=s9486_final partition=0 offset=40 correlation_id=7cb7884e-84de-4f4f-b3ea-14f28e670b3d
+2026-11-09 12:21:54.827 [ingress] CACHE MISS done: pipeline 28.1s, total latency=28242.2 ms
+  P05 should_hit  sim=0.8879 nearest=A05 -> miss        28316.9 ms
+  P06 should_hit  sim=0.9851 nearest=A06 -> hit           150.0 ms
+  P07 should_hit  sim=0.6818 nearest=A07 -> miss        36822.8 ms (pipeline time reused)
+  P08 should_hit  sim=0.8242 nearest=A08 -> miss        37239.7 ms (pipeline time reused)
+2026-11-09 12:21:55.100 [sweep] P09 miss at 0.90 -> running the HW8 pipeline once for this case
+2026-11-09 12:21:55.100 [ingress] received query='Which documents should I prepare for an apartment rental application?'
+2026-11-09 12:21:55.136 [ingress] CACHE MISS (best similarity 0.8673 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:21:55.160 [send_question] sent question to topic=s9486_inbox partition=0 offset=43 correlation_id=ba672bd8-cc76-48b2-8c31-590bda8d6022
+2026-11-09 12:21:55.160 [send_question] question = 'Which documents should I prepare for an apartment rental application?'
+2026-11-09 12:21:55.160 [send_question] waiting up to 400s for correlation_id=ba672bd8-cc76-48b2-8c31-590bda8d6022 on s9486_final
+2026-11-09 12:22:27.419 [send_question] received final from topic=s9486_final partition=0 offset=41 correlation_id=ba672bd8-cc76-48b2-8c31-590bda8d6022
+2026-11-09 12:22:27.425 [ingress] CACHE MISS done: pipeline 32.3s, total latency=32324.6 ms
+  P09 should_hit  sim=0.8673 nearest=A09 -> miss        32327.9 ms
+  P10 should_hit  sim=0.9661 nearest=A10 -> hit           293.4 ms
+  S01 should_miss sim=0.9700 nearest=A01 -> FALSE HIT     152.8 ms
+  S02 should_miss sim=0.9615 nearest=A02 -> FALSE HIT      72.0 ms
+  S03 should_miss sim=0.9627 nearest=A03 -> FALSE HIT      67.0 ms
+  S04 should_miss sim=0.9589 nearest=A04 -> FALSE HIT      48.2 ms
+  S05 should_miss sim=0.7894 nearest=A05 -> miss        56388.6 ms (pipeline time reused)
+  S06 should_miss sim=0.8172 nearest=A06 -> miss        37662.1 ms (pipeline time reused)
+2026-11-09 12:22:28.188 [sweep] S07 miss at 0.90 -> running the HW8 pipeline once for this case
+2026-11-09 12:22:28.188 [ingress] received query='How much notice does my landlord need to give before entering my apartment?'
+2026-11-09 12:22:28.227 [ingress] CACHE MISS (best similarity 0.8548 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:22:28.310 [send_question] sent question to topic=s9486_inbox partition=0 offset=44 correlation_id=ce91e3fe-f9e9-46f3-a85f-08671560e4be
+2026-11-09 12:22:28.310 [send_question] question = 'How much notice does my landlord need to give before entering my apartment?'
+2026-11-09 12:22:28.310 [send_question] waiting up to 400s for correlation_id=ce91e3fe-f9e9-46f3-a85f-08671560e4be on s9486_final
+2026-11-09 12:23:06.391 [send_question] received final from topic=s9486_final partition=0 offset=42 correlation_id=ce91e3fe-f9e9-46f3-a85f-08671560e4be
+2026-11-09 12:23:06.397 [ingress] CACHE MISS done: pipeline 38.2s, total latency=38210.2 ms
+  S07 should_miss sim=0.8548 nearest=A07 -> miss        38210.3 ms
+  S08 should_miss sim=0.6766 nearest=A08 -> miss        34998.3 ms (pipeline time reused)
+2026-11-09 12:23:06.613 [sweep] S09 miss at 0.90 -> running the HW8 pipeline once for this case
+2026-11-09 12:23:06.613 [ingress] received query='What documents do I need to apply for renters insurance?'
+2026-11-09 12:23:06.652 [ingress] CACHE MISS (best similarity 0.8557 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:23:06.677 [send_question] sent question to topic=s9486_inbox partition=0 offset=45 correlation_id=bb9c5a7e-2040-4af2-8022-cb6966beb339
+2026-11-09 12:23:06.677 [send_question] question = 'What documents do I need to apply for renters insurance?'
+2026-11-09 12:23:06.677 [send_question] waiting up to 400s for correlation_id=bb9c5a7e-2040-4af2-8022-cb6966beb339 on s9486_final
+2026-11-09 12:23:38.483 [send_question] received final from topic=s9486_final partition=0 offset=43 correlation_id=bb9c5a7e-2040-4af2-8022-cb6966beb339
+2026-11-09 12:23:38.493 [ingress] CACHE MISS done: pipeline 31.8s, total latency=31879.5 ms
+  S09 should_miss sim=0.8557 nearest=A09 -> miss        31884.7 ms
+  S10 should_miss sim=0.7590 nearest=A10 -> miss        42333.6 ms (pipeline time reused)
+  U01 should_miss sim=0.5017 nearest=A07 -> miss        36411.6 ms (pipeline time reused)
+  U02 should_miss sim=0.4644 nearest=A09 -> miss        40694.0 ms (pipeline time reused)
+  U03 should_miss sim=0.4348 nearest=A01 -> miss        39975.1 ms (pipeline time reused)
+  U04 should_miss sim=0.2775 nearest=A07 -> miss        33309.4 ms (pipeline time reused)
+  U05 should_miss sim=0.3957 nearest=A09 -> miss        31476.6 ms (pipeline time reused)
+  U06 should_miss sim=0.4404 nearest=A09 -> miss        32437.2 ms (pipeline time reused)
+  U07 should_miss sim=0.5544 nearest=A06 -> miss        37056.9 ms (pipeline time reused)
+  U08 should_miss sim=0.5396 nearest=A01 -> miss        36743.6 ms (pipeline time reused)
+  U09 should_miss sim=0.2974 nearest=A04 -> miss        43026.8 ms (pipeline time reused)
+  U10 should_miss sim=0.4282 nearest=A08 -> miss        62321.6 ms (pipeline time reused)
+
+=== threshold 0.95 ===
+  E01 should_hit  sim=1.0000 nearest=A01 -> hit            78.1 ms
+  E02 should_hit  sim=1.0000 nearest=A02 -> hit            41.1 ms
+  E03 should_hit  sim=1.0000 nearest=A03 -> hit            39.2 ms
+  E04 should_hit  sim=1.0000 nearest=A04 -> hit            39.8 ms
+  E05 should_hit  sim=1.0000 nearest=A05 -> hit            43.7 ms
+  E06 should_hit  sim=1.0000 nearest=A06 -> hit            37.1 ms
+  E07 should_hit  sim=1.0000 nearest=A07 -> hit            40.5 ms
+  E08 should_hit  sim=1.0000 nearest=A08 -> hit            37.6 ms
+  E09 should_hit  sim=1.0000 nearest=A09 -> hit            38.4 ms
+  E10 should_hit  sim=1.0000 nearest=A10 -> hit            40.5 ms
+  P01 should_hit  sim=0.9638 nearest=A01 -> hit            37.5 ms
+  P02 should_hit  sim=0.9727 nearest=A02 -> hit            37.7 ms
+  P03 should_hit  sim=0.9531 nearest=A03 -> hit            38.4 ms
+  P04 should_hit  sim=0.8687 nearest=A04 -> miss        35280.2 ms (pipeline time reused)
+  P05 should_hit  sim=0.8879 nearest=A05 -> miss        28176.3 ms (pipeline time reused)
+  P06 should_hit  sim=0.9851 nearest=A06 -> hit            69.5 ms
+  P07 should_hit  sim=0.6818 nearest=A07 -> miss        36821.9 ms (pipeline time reused)
+  P08 should_hit  sim=0.8242 nearest=A08 -> miss        37234.3 ms (pipeline time reused)
+  P09 should_hit  sim=0.8673 nearest=A09 -> miss        32323.6 ms (pipeline time reused)
+  P10 should_hit  sim=0.9661 nearest=A10 -> hit            36.9 ms
+  S01 should_miss sim=0.9700 nearest=A01 -> FALSE HIT      38.6 ms
+  S02 should_miss sim=0.9615 nearest=A02 -> FALSE HIT      41.0 ms
+  S03 should_miss sim=0.9627 nearest=A03 -> FALSE HIT      41.0 ms
+  S04 should_miss sim=0.9589 nearest=A04 -> FALSE HIT      36.3 ms
+  S05 should_miss sim=0.7894 nearest=A05 -> miss        56383.8 ms (pipeline time reused)
+  S06 should_miss sim=0.8172 nearest=A06 -> miss        37656.6 ms (pipeline time reused)
+  S07 should_miss sim=0.8548 nearest=A07 -> miss        38214.9 ms (pipeline time reused)
+  S08 should_miss sim=0.6766 nearest=A08 -> miss        34869.2 ms (pipeline time reused)
+  S09 should_miss sim=0.8557 nearest=A09 -> miss        31881.0 ms (pipeline time reused)
+  S10 should_miss sim=0.7590 nearest=A10 -> miss        42479.3 ms (pipeline time reused)
+  U01 should_miss sim=0.5017 nearest=A07 -> miss        36460.2 ms (pipeline time reused)
+  U02 should_miss sim=0.4644 nearest=A09 -> miss        40716.4 ms (pipeline time reused)
+  U03 should_miss sim=0.4348 nearest=A01 -> miss        40001.4 ms (pipeline time reused)
+  U04 should_miss sim=0.2775 nearest=A07 -> miss        33322.5 ms (pipeline time reused)
+  U05 should_miss sim=0.3957 nearest=A09 -> miss        31494.0 ms (pipeline time reused)
+  U06 should_miss sim=0.4404 nearest=A09 -> miss        32450.6 ms (pipeline time reused)
+  U07 should_miss sim=0.5544 nearest=A06 -> miss        37069.3 ms (pipeline time reused)
+  U08 should_miss sim=0.5396 nearest=A01 -> miss        36750.5 ms (pipeline time reused)
+  U09 should_miss sim=0.2974 nearest=A04 -> miss        43159.8 ms (pipeline time reused)
+  U10 should_miss sim=0.4282 nearest=A08 -> miss        62335.6 ms (pipeline time reused)
+
+=== Threshold sweep (40 cases each) ===
+threshold  hit rate        false-hit rate   mean latency (ms)  total cost
+  0.75    28/40 = 70.0%    9/28 = 32.1%          11736.1     $22.62  (misses 12 x $0.01 + false hits 9 x $2.5)
+  0.80    26/40 = 65.0%    7/26 = 26.9%          14148.8     $17.64  (misses 14 x $0.01 + false hits 7 x $2.5)
+  0.85    24/40 = 60.0%    6/24 = 25.0%          15998.5     $15.16  (misses 16 x $0.01 + false hits 6 x $2.5)
+  0.90    19/40 = 47.5%    4/19 = 21.1%          20165.9     $10.21  (misses 21 x $0.01 + false hits 4 x $2.5)
+  0.95    19/40 = 47.5%    4/19 = 21.1%          20147.4     $10.21  (misses 21 x $0.01 + false hits 4 x $2.5)
+lowest total cost: threshold 0.95 ($10.21)
+2026-11-09 12:23:41.321 [sweep] running the HW8 pipeline for S01 to get its correct answer
+2026-11-09 12:23:41.321 [ingress] received query='Who is the landlord for listing LST-00350?'
+2026-11-09 12:23:41.361 [ingress] CACHE MISS (best similarity 0.9700 < 1.01) -> running the HW8 agent pipeline
+2026-11-09 12:23:41.389 [send_question] sent question to topic=s9486_inbox partition=0 offset=46 correlation_id=b5fc7743-5a3b-4244-8270-0ec3473eb21f
+2026-11-09 12:23:41.389 [send_question] question = 'Who is the landlord for listing LST-00350?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00350: title "Renovated 1BR Condo near downtown", address 9972 Market St, San Jose, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-09 12:23:41.389 [send_question] waiting up to 400s for correlation_id=b5fc7743-5a3b-4244-8270-0ec3473eb21f on s9486_final
+2026-11-09 12:24:15.832 [send_question] received final from topic=s9486_final partition=0 offset=44 correlation_id=b5fc7743-5a3b-4244-8270-0ec3473eb21f
+2026-11-09 12:24:15.838 [ingress] CACHE MISS done: pipeline 34.5s, total latency=34517.2 ms
+
+=== one false hit in full (threshold 0.95) ===
+incoming query : Who is the landlord for listing LST-00350?   [S01, labeled should_miss/other seed]
+cached query   : Who is the landlord for listing LST-00305?   [A01]
+similarity     : 0.9700
+cached answer returned:
+  To find the landlord for listing LST-00305, I will follow the plan step by step:
+
+1. Search the s9486_rel listings database for the specific listing LST-00305.
+   The listing LST-00305 is found with the title "Sunny 3BR House pet friendly".
+
+2. Check the available_units field to confirm the number of available units.
+   The available_units field shows that there is 1 available unit.
+
+3. Look for the landlord's information in the available_units field to find the name and contact details of the landlord.
+   The available_units field contains the landlord's information: Carmen Chowdhury (Rose Ga
+correct answer (fresh HW8 pipeline run for the incoming query):
+  To find the landlord for listing LST-00350, I will follow the plan step by step:
+
+1. Checking the available_units field in the s9486_rel listings database, I confirm that LST-00350 has available_units = 1, indicating that there is only one available unit for rent.
+
+2. Looking for the landlord's information in the s9486_rel listings database, I find that the landlord's name is Oscar Tran and the property is managed by Santa Clara Homes.
+
+3. Verifying the landlord's name and contact details, I confirm that Oscar Tran and Santa Clara Homes are indeed the correct landlord and property management c
+2026-11-09 12:24:16.305 [pipeline] HW8 agents stopped
+
+pipeline runs: 10 seeds + 21 cases; raw rows in reports/hw09/raw/sweep_cases.csv
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 3 threshold sweep - done =====
+
+===== 2026-11-09 12:24:36 stale-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 3.5 stale answer + data-version invalidation (LST-00888)
+run at 2026-11-09T12:24:36 | VERIFY_SEED 269486
+==============================================================================
+cleared 0 old entries under s9486:stale:entry:*
+LST-00888 in s9486_rel: available_units=1  fingerprint=4dd97538e9a8
+2026-11-09 12:24:37.430 [pipeline] HW8 agents ready (planner, writer, reviewer) in 0.3s
+2026-11-09 12:24:37.616 [pipeline] warm-up: all-minilm loaded in 0.19s (not part of any measured latency)
+
+[1] first ask (cache empty): How many units are available at listing LST-00888?
+2026-11-09 12:24:37.616 [ingress] received query='How many units are available at listing LST-00888?'
+2026-11-09 12:24:37.660 [ingress] CACHE MISS (empty cache) -> running the HW8 agent pipeline
+2026-11-09 12:24:37.713 [send_question] sent question to topic=s9486_inbox partition=0 offset=47 correlation_id=898cef57-50ca-48d1-9ad8-8474f7df234f
+2026-11-09 12:24:37.713 [send_question] question = 'How many units are available at listing LST-00888?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00888: title "Renovated Studio with parking", address 8111 Almaden Blvd, Santa Clara, CA, available_units=1, landlord Alicia Vasquez (Bay Area Rentals LLC)'
+2026-11-09 12:24:37.713 [send_question] waiting up to 400s for correlation_id=898cef57-50ca-48d1-9ad8-8474f7df234f on s9486_final
+2026-11-09 12:25:03.128 [send_question] received final from topic=s9486_final partition=0 offset=45 correlation_id=898cef57-50ca-48d1-9ad8-8474f7df234f
+2026-11-09 12:25:03.145 [ingress] CACHE MISS done: pipeline 25.5s, total latency=25528.9 ms
+    -> is_cached=False similarity=0.0000 latency_ms=25528.9 data_version=LST-00888@4dd97538e9a8
+    answer: To answer the question, I will follow the plan step by step:  1. Retrieve the available units information for listing LST-00888 from the s9486_rel listings database.    The available units information for LST-00888 is: available_units=1.  2. Extract the availa
+
+[2] ask again before any change
+2026-11-09 12:25:03.145 [ingress] received query='How many units are available at listing LST-00888?'
+2026-11-09 12:25:03.350 [ingress] CACHE HIT similarity=1.0000 matched='How many units are available at listing LST-00888?' latency=205.4 ms
+    -> is_cached=True similarity=1.0000 latency_ms=205.4 data_version=LST-00888@4dd97538e9a8
+    answer: To answer the question, I will follow the plan step by step:  1. Retrieve the available units information for listing LST-00888 from the s9486_rel listings database.    The available units information for LST-00888 is: available_units=1.  2. Extract the availa
+
+[3] UPDATE listings SET available_units = 0 WHERE listing_code = 'LST-00888'
+2026-11-09 12:25:03.371 [stale] LST-00888 available_units is now 0 in MySQL
+    new fingerprint=599f8956dc68 (cache entry still has the old one)
+
+[4] ask with the version check OFF (plain semantic cache)
+2026-11-09 12:25:03.372 [ingress] received query='How many units are available at listing LST-00888?'
+2026-11-09 12:25:03.422 [ingress] CACHE HIT similarity=1.0000 matched='How many units are available at listing LST-00888?' latency=50.2 ms
+    -> is_cached=True similarity=1.0000 latency_ms=50.2 data_version=LST-00888@4dd97538e9a8
+    answer: To answer the question, I will follow the plan step by step:  1. Retrieve the available units information for listing LST-00888 from the s9486_rel listings database.    The available units information for LST-00888 is: available_units=1.  2. Extract the availa
+    STALE: MySQL says 0 units, the cached answer was written when it was 1
+
+[5] ask with the data-version check ON
+2026-11-09 12:25:03.422 [ingress] received query='How many units are available at listing LST-00888?'
+2026-11-09 12:25:03.468 [ingress] STALE entry for 'How many units are available at listing LST-00888?': stored version LST-00888@4dd97538e9a8 != current LST-00888@599f8956dc68 -> entry deleted, treating as a miss
+2026-11-09 12:25:03.468 [ingress] CACHE MISS (stale (data-version changed)) -> running the HW8 agent pipeline
+2026-11-09 12:25:03.486 [send_question] sent question to topic=s9486_inbox partition=0 offset=48 correlation_id=c9e83ec6-8ae0-485e-9fcd-e49787967ded
+2026-11-09 12:25:03.486 [send_question] question = 'How many units are available at listing LST-00888?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00888: title "Renovated Studio with parking", address 8111 Almaden Blvd, Santa Clara, CA, available_units=0, landlord Alicia Vasquez (Bay Area Rentals LLC)'
+2026-11-09 12:25:03.486 [send_question] waiting up to 400s for correlation_id=c9e83ec6-8ae0-485e-9fcd-e49787967ded on s9486_final
+2026-11-09 12:25:23.636 [send_question] received final from topic=s9486_final partition=0 offset=46 correlation_id=c9e83ec6-8ae0-485e-9fcd-e49787967ded
+2026-11-09 12:25:23.705 [ingress] CACHE MISS done: pipeline 20.2s, total latency=20282.8 ms
+    -> is_cached=False similarity=1.0000 latency_ms=20282.8 data_version=LST-00888@599f8956dc68
+    answer: To answer the question, I will follow the plan step by step:  1. Retrieve the available units count for listing LST-00888 from the s9486_rel listings database.    The available units count for listing LST-00888 is 0.  2. Extract the available_units value from 
+    pipeline called again: True
+
+[6] ask again after the refresh
+2026-11-09 12:25:23.710 [ingress] received query='How many units are available at listing LST-00888?'
+2026-11-09 12:25:23.972 [ingress] CACHE HIT similarity=1.0000 matched='How many units are available at listing LST-00888?' latency=262.6 ms
+    -> is_cached=True similarity=1.0000 latency_ms=262.6 data_version=LST-00888@599f8956dc68
+    answer: To answer the question, I will follow the plan step by step:  1. Retrieve the available units count for listing LST-00888 from the s9486_rel listings database.    The available units count for listing LST-00888 is 0.  2. Extract the available_units value from 
+2026-11-09 12:25:24.312 [pipeline] HW8 agents stopped
+2026-11-09 12:25:24.335 [stale] restored LST-00888 available_units=1 (end of demo)
+cleared 1 demo entries under s9486:stale:entry:*
+
+stale hit shown, then detected and refreshed: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 3.5 stale answers - done =====
+
+===== 2026-11-09 12:25:30 revision-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.1 revision sequence (controlled incomplete first answer)
+run at 2026-11-09T12:25:30 | VERIFY_SEED 269486
+==============================================================================
+2026-11-09 12:25:31.162 [evaluator] tr03 attempt 1: REVISE missing_fact:landlord; missing_fact:units
+2026-11-09 12:25:37.107 [evaluator] tr03 attempt 2: PASS All facts the question asks for match the reference data.
+
+Question (tr03): For LST-01510, how many units are available and who is the landlord?
+
+[attempt 1] Initial answer (controlled, written on purpose):
+    Listing LST-01510 has units open right now.
+  Evaluator: REVISE - missing_fact:landlord; missing_fact:units
+  Feedback : State the available units: 1. The landlord is Quinn Larsen.
+
+[attempt 2] Revised answer (Answering Agent, 5.87s):
+    The Spacious Loft near SJSU has 1 unit available. The landlord is Quinn Larsen of Santa Clara Homes.
+  Evaluator: PASS - All facts the question asks for match the reference data.
+
+Final evaluation: PASS   attempts: 2 (max 2)
+Final response:
+    The Spacious Loft near SJSU has 1 unit available. The landlord is Quinn Larsen of Santa Clara Homes.
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.1 revision - done =====
+
+===== 2026-11-09 12:25:40 part4-train (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.2-4.3 training lessons + validation gate
+run at 2026-11-09T12:25:41 | VERIFY_SEED 269486
+==============================================================================
+
+=== Phase A: training (12 questions, repair on, lessons created when a failure repeats) ===
+  tr01 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr02 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr03 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr04 lessons=-  attempt1=REVISE final=REVISE attempts=2  missing_not_recorded
+  tr05 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr06 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr07 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr08 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr09 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr10 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr11 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr12 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+failure tags on first attempts: {'missing_not_recorded': ['tr04']}
+lessons created: none
+
+=== Phase B: validation gate (10 validation questions, single attempt) ===
+    before any lesson            pass 9/10   failing: ['va06']
+
+=== lessons.json ===
+  (no repeated failure pattern in training, so no lesson was created)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4 training + validation - done =====
+
+===== 2026-11-09 12:42:36 part4-train (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.2-4.3 training lessons + validation gate
+run at 2026-11-09T12:42:36 | VERIFY_SEED 269486
+==============================================================================
+
+=== Phase A: training (12 questions, repair on, lessons created when a failure repeats) ===
+  tr01 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr02 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr03 lessons=-  attempt1=REVISE final=PASS   attempts=2  missing_fact:units
+  tr04 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr05 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr06 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr07 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr08 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr09 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr10 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr11 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/scripts/part4_train.py", line 161, in <module>
+    code = main()
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/scripts/part4_train.py", line 75, in main
+    res = run_question(q["id"], q["question"], answerer, evaluator, 2, lessons, ("candidate", "kept"), quiet=True)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/agents.py", line 435, in run_question
+    out = answerer.answer(question, loaded, feedback)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/agents.py", line 124, in answer
+    result = self.get_landlord((c.get("arguments") or {}).get("landlord_id", 0))
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/agents.py", line 100, in get_landlord
+    row = self.store.get_landlord(int(landlord_id))
+                                  ~~~^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'null'
+
+===== 2026-11-09 12:44:11 part4-train (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.2-4.3 training lessons + validation gate
+run at 2026-11-09T12:44:12 | VERIFY_SEED 269486
+==============================================================================
+
+=== Phase A: training (12 questions, repair on, lessons created when a failure repeats) ===
+  tr01 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr02 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr03 lessons=-  attempt1=REVISE final=PASS   attempts=2  missing_fact:units
+  tr04 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr05 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr06 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr07 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr08 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr09 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr10 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr11 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr12 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+failure tags on first attempts: {'missing_fact:units': ['tr03']}
+lessons created: none
+
+=== Phase B: validation gate (10 validation questions, single attempt) ===
+    before any lesson            pass 10/10   failing: -
+
+=== lessons.json ===
+  (no repeated failure pattern in training, so no lesson was created)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4 training + validation - done =====
+
+===== 2026-11-09 12:47:26 part4-train (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.2-4.3 training lessons + validation gate
+run at 2026-11-09T12:47:27 | VERIFY_SEED 269486
+==============================================================================
+
+=== Phase A: training (12 questions, repair on) ===
+a lesson is created after 1 failed first answer(s) with the same evaluator tag
+  tr01 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr02 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr03 lessons=-  attempt1=REVISE final=PASS   attempts=2  missing_fact:units
+2026-11-09 12:47:57.956 [lessons] LESSON CREATED lesson_001 after failure pattern 'missing_fact:units' in ['tr03']: When the question asks about available or open units, state the available_units number from the listing.
+  tr04 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr05 lessons=['lesson_001']  attempt1=PASS   final=PASS   attempts=1  
+  tr06 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr07 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr08 lessons=['lesson_001']  attempt1=PASS   final=PASS   attempts=1  
+  tr09 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr10 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr11 lessons=-  attempt1=PASS   final=PASS   attempts=1  
+  tr12 lessons=['lesson_001']  attempt1=PASS   final=PASS   attempts=1  
+failure tags on first attempts: {'missing_fact:units': ['tr03']}
+lessons created: ['lesson_001']
+
+=== Phase B: validation gate (10 validation questions, single attempt) ===
+    before any lesson            pass 10/10   failing: -
+    with lesson_001 added        pass 10/10   failing: -
+  lesson_001 (missing_fact:units): failing 0 -> 0, broke none, new unsupported none => KEPT
+
+=== Phase C: a later related question loads a stored lesson ===
+  question va01: Which person manages listing LST-03685?
+  loaded lesson_001: "When the question asks about available or open units, state the available_units number from the listing."
+    use_count 7 -> 8
+  answer: The person managing listing LST-03685 is Farah Okafor, and there is 1 available unit.
+  evaluator: PASS in 1 attempt(s)
+
+=== lessons.json ===
+  lesson_001 [kept] use_count=8 applies_to=['landlord', 'units'] from ['tr03']: The answer omits the number of available units.
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4 training + validation - done =====
+
+===== 2026-11-09 12:51:21 variants (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.4 four variants on the unchanged test set
+run at 2026-11-09T12:51:21 | VERIFY_SEED 269486
+==============================================================================
+
+=== baseline: max attempts 1, lessons none  (test_data.json sha256 7887ba139d36cbe7..., 12 questions) ===
+  te01 PASS   attempts=1   7.1s lessons=-  The landlord of listing LST-02040 is Marcus Huang, and his company is Peninsula Leasing Co
+  te02 PASS   attempts=1   6.3s lessons=-  There is 1 unit available at LST-04849. The landlord's name is Rosa Jensen and her company
+  te03 PASS   attempts=1   5.5s lessons=-  The landlord for listing LST-01637 is Gabriel Fischer, and there is 1 unit available.
+  te04 REVISE attempts=1   6.4s lessons=-  The listing LST-00184 charges $2,200 for rent each month. According to the landlord, Leila
+  te05 PASS   attempts=1   7.4s lessons=-  The LST-00781 apartment is located in Campbell, CA. The landlord, Hana Iyer from Rose Gard
+  te06 PASS   attempts=1   9.1s lessons=-  The application fee for LST-03159 is not specified in the provided listing record. However
+  te07 PASS   attempts=1   5.4s lessons=-  The company that manages listing LST-03846 is Downtown SJ Apartments, managed by Gabriel F
+  te08 PASS   attempts=1   7.8s lessons=-  The address of LST-02457 is 2132 Market St, Milpitas, CA. The landlord's name is Neha Naka
+  te09 PASS   attempts=1   6.9s lessons=-  The security deposit for LST-02206 is not specified in the listing record. However, I can 
+  te10 PASS   attempts=1   4.8s lessons=-  The home at LST-02854 is a studio, and it has 1 bedroom.
+  te11 PASS   attempts=1   5.4s lessons=-  The landlord for LST-03266 is Vivian Estrada, and she works for Silicon Valley Property Mg
+  te12 REVISE attempts=1   5.6s lessons=-  It appears that LST-09090 is not a valid listing code. The landlord for this listing is no
+
+=== evaluator_repair: max attempts 2, lessons none  (test_data.json sha256 7887ba139d36cbe7..., 12 questions) ===
+  te01 PASS   attempts=1   5.7s lessons=-  The landlord of listing LST-02040 is Marcus Huang, and his company is Peninsula Leasing Co
+  te02 PASS   attempts=1   5.5s lessons=-  There is 1 unit available at LST-04849. The landlord's name is Rosa Jensen and her company
+  te03 PASS   attempts=1   5.6s lessons=-  The landlord for listing LST-01637 is Gabriel Fischer, and there is 1 unit available.
+  te04 PASS   attempts=2  15.0s lessons=-  The rent for the listing LST-00184 is not included in the provided listing data. You can c
+  te05 PASS   attempts=1   7.2s lessons=-  The LST-00781 apartment is located in Campbell, CA. The landlord, Hana Iyer from Rose Gard
+  te06 PASS   attempts=1   8.5s lessons=-  The application fee for LST-03159 is not specified in the provided listing record. However
+  te07 PASS   attempts=1   4.7s lessons=-  The company that manages listing LST-03846 is Downtown SJ Apartments, managed by Gabriel F
+  te08 PASS   attempts=1   7.4s lessons=-  The address of LST-02457 is 2132 Market St, Milpitas, CA. The landlord's name is Neha Naka
+  te09 PASS   attempts=1   7.0s lessons=-  The security deposit for LST-02206 is not specified in the listing record. However, I can 
+  te10 PASS   attempts=1   4.7s lessons=-  The home at LST-02854 is a studio, and it has 1 bedroom.
+  te11 PASS   attempts=1   5.6s lessons=-  The landlord for LST-03266 is Vivian Estrada, and she works for Silicon Valley Property Mg
+  te12 PASS   attempts=2   9.9s lessons=-  No listing was found for LST-09090.
+
+=== lesson_memory: max attempts 2, lessons ['lesson_001']  (test_data.json sha256 7887ba139d36cbe7..., 12 questions) ===
+  te01 PASS   attempts=1   6.5s lessons=['lesson_001']  The landlord of listing LST-02040 is Marcus Huang, who can be contacted through Peninsula 
+  te02 PASS   attempts=1   6.8s lessons=['lesson_001']  There is 1 unit available right now at LST-04849. The landlord's name is Rosa Jensen and h
+  te03 PASS   attempts=1   5.7s lessons=['lesson_001']  The landlord for listing LST-01637 is Gabriel Fischer, and there is 1 open unit available.
+  te04 PASS   attempts=2  13.0s lessons=-  The rent for the listing LST-00184 is not included in the provided listing data. You can c
+  te05 PASS   attempts=1   7.0s lessons=-  The LST-00781 apartment is located in Campbell, CA. The landlord, Hana Iyer from Rose Gard
+  te06 PASS   attempts=1   7.8s lessons=-  The application fee for LST-03159 is not specified in the provided listing record. However
+  te07 PASS   attempts=1   5.3s lessons=['lesson_001']  The company that manages listing LST-03846 is Downtown SJ Apartments, managed by Gabriel F
+  te08 PASS   attempts=1   8.0s lessons=-  The address of LST-02457 is 2132 Market St, Milpitas, CA. The landlord's name is Neha Naka
+  te09 PASS   attempts=1   8.0s lessons=-  The security deposit for LST-02206 is not specified in the listing record. However, I can 
+  te10 PASS   attempts=1   5.3s lessons=-  The home at LST-02854 is a studio, and it has 1 bedroom.
+  te11 PASS   attempts=1   6.0s lessons=['lesson_001']  The landlord for LST-03266 is Vivian Estrada, and she works for Silicon Valley Property Mg
+  te12 PASS   attempts=2   9.3s lessons=-  No listing was found for LST-09090.
+
+=== validated_improvement: max attempts 2, lessons ['lesson_001']  (test_data.json sha256 7887ba139d36cbe7..., 12 questions) ===
+  te01 PASS   attempts=1   6.2s lessons=['lesson_001']  The landlord of listing LST-02040 is Marcus Huang, who can be contacted through Peninsula 
+  te02 PASS   attempts=1   6.5s lessons=['lesson_001']  There is 1 unit available right now at LST-04849. The landlord's name is Rosa Jensen and h
+  te03 PASS   attempts=1   4.8s lessons=['lesson_001']  The landlord for listing LST-01637 is Gabriel Fischer, and there is 1 open unit available.
+  te04 PASS   attempts=2  13.0s lessons=-  The rent for the listing LST-00184 is not included in the provided listing data. You can c
+  te05 PASS   attempts=1   6.5s lessons=-  The LST-00781 apartment is located in Campbell, CA. The landlord, Hana Iyer from Rose Gard
+  te06 PASS   attempts=1   9.7s lessons=-  The application fee for LST-03159 is not specified in the provided listing record. However
+  te07 PASS   attempts=1   5.5s lessons=['lesson_001']  The company that manages listing LST-03846 is Downtown SJ Apartments, managed by Gabriel F
+  te08 PASS   attempts=1   6.2s lessons=-  The address of LST-02457 is 2132 Market St, Milpitas, CA. The landlord's name is Neha Naka
+  te09 PASS   attempts=1   7.7s lessons=-  The security deposit for LST-02206 is not specified in the listing record. However, I can 
+  te10 PASS   attempts=1   4.8s lessons=-  The home at LST-02854 is a studio, and it has 1 bedroom.
+  te11 PASS   attempts=1   5.8s lessons=['lesson_001']  The landlord for LST-03266 is Vivian Estrada, and she works for Silicon Valley Property Mg
+  te12 PASS   attempts=2   8.9s lessons=-  No listing was found for LST-09090.
+
+=== Results on test_data.json ===
+variant                   correct  incorrect  avg attempts  avg latency
+baseline                    10/12          2          1.00       6.46 s
+evaluator_repair            12/12          0          1.17       7.23 s
+lesson_memory               12/12          0          1.17       7.38 s
+validated_improvement       12/12          0          1.17       7.12 s
+test_data.json identical for all four runs: True
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 4.4 variants - done =====
+
+===== 2026-11-09 12:57:18 metrics-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | fill METRICS.md from raw/
+run at 2026-11-09T12:57:18 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled sweep-table
+  filled false-hit
+  filled stale-table
+  filled lessons-table
+  filled variants-table
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | metrics - done =====
+
+===== 2026-11-09 12:57:18 test-hw9 (Kavan Siddesh) =====
+PASS  test_counter_increments_and_syncs_at_10_and_20
+PASS  test_counter_uses_redis_incr_on_prefixed_key
+PASS  test_cache_miss_then_exact_hit_flags_and_similarity
+PASS  test_agent_pipeline_not_rerun_on_valid_hit
+PASS  test_new_question_misses
+PASS  test_data_version_marker_stored_and_invalidation_refreshes
+PASS  test_every_redis_key_starts_with_prefix
+PASS  test_prefix_cleanup_refuses_other_keys
+PASS  test_hw9_source_has_no_unprefixed_redis_keys
+PASS  test_max_two_attempts_enforced
+PASS  test_revision_uses_feedback_and_passes
+PASS  test_evaluator_not_recorded_and_missing_listing
+PASS  test_lessons_saved_and_reloaded_with_use_count
+PASS  test_lessons_are_put_in_the_answer_prompt
+PASS  test_answering_agent_runs_the_landlord_tool
+PASS  test_validation_gate_rejects_regression_and_keeps_improvement
+PASS  test_test_data_not_used_to_create_lessons
+PASS  test_four_variants_run_independently
+PASS  test_input_datasets_have_no_answers
+PASS  test_cache_cases_has_40_labeled_cases
+
+20/20 HW9 tests passed
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | tests - done =====
+
+===== 2026-11-09 12:57:19 verify-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify HW9
+run at 2026-11-09T12:57:19 | VERIFY_SEED 269486
+==============================================================================
+PASS  Redis is up with the query engine  (redis 8.2.2, FT indexes ['s9486:idx:sweep', 's9486:idx:stale', 's9486:idx:semcache'])
+PASS  every Redis key and index starts with s9486:  (16 keys, bad=[])
+PASS  Part 1: 25 accesses, synced at 10 and 20  (synced_at=[10, 20])
+PASS  Part 1: live Redis/MySQL match the saved run  (Redis 25, MySQL view_count 20)
+PASS  Part 2: >=10 queries with new, exact and paraphrase  (12 queries)
+PASS  Part 2: pipeline ran only on misses (never on a hit)  (5 calls, 5 misses)
+PASS  Part 2: every response has is_cached, similarity and latency  (hit rate 58.3%, cached 249.4 ms vs 52400.0 ms)
+PASS  Part 3: cache_cases.yaml committed before the sweep and not changed  (commit 5267b81 at 2026-11-09 11:35:37-08:00, sweep 2026-11-09 20:24:16)
+PASS  Part 3: 5 thresholds with hit rate, false-hit rate, latency, cost  (cheapest 0.95)
+PASS  Part 3: one false hit shown in full
+PASS  Part 3.5: stale hit, then version change detected and refreshed  (LST-00888 versions LST-00888@4dd97538e9a8 -> LST-00888@599f8956dc68)
+PASS  Part 3.5: listing row restored after the demo  (available_units=1)
+PASS  Part 4: training_data.json has questions only  (12 rows)
+PASS  Part 4: validation_data.json has questions only  (10 rows)
+PASS  Part 4: test_data.json has questions only  (12 rows)
+PASS  Part 4: lessons.json has the required fields  (1 lessons)
+PASS  Part 4: lessons only from training questions
+PASS  Part 4: every lesson went through validation
+PASS  Part 4: revision demo REVISE then 2nd attempt, max 2  (final PASS)
+PASS  Part 4: four variants on the same, unchanged test_data.json  (baseline 10/12, evaluator_repair 12/12, lesson_memory 12/12, validated_improvement 12/12)
+PASS  Part 4: no question used more than 2 attempts
+PASS  automated HW9 tests  (20/20 HW9 tests passed)
+
+22/22 checks passed   commit 5267b8193e62 (uncommitted changes)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify - done =====
+
+===== 2026-11-09 12:57:34 metrics-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | fill METRICS.md from raw/
+run at 2026-11-09T12:57:34 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled sweep-table
+  filled false-hit
+  filled stale-table
+  filled lessons-table
+  filled variants-table
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | metrics - done =====
+
+===== 2026-11-09 12:57:46 metrics-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | fill METRICS.md from raw/
+run at 2026-11-09T12:57:46 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled sweep-table
+  filled false-hit
+  filled stale-table
+  filled lessons-table
+  filled variants-table
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | metrics - done =====
+
+===== 2026-11-09 13:01:23 metrics-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | fill METRICS.md from raw/
+run at 2026-11-09T13:01:23 | VERIFY_SEED 269486
+==============================================================================
+  filled part1-table
+  filled part2-table
+  filled sweep-table
+  filled false-hit
+  filled stale-table
+  filled lessons-table
+  filled variants-table
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | metrics - done =====
+
+===== 2026-11-09 13:01:38 test-hw9 (Kavan Siddesh) =====
+PASS  test_counter_increments_and_syncs_at_10_and_20
+PASS  test_counter_uses_redis_incr_on_prefixed_key
+PASS  test_cache_miss_then_exact_hit_flags_and_similarity
+PASS  test_agent_pipeline_not_rerun_on_valid_hit
+PASS  test_new_question_misses
+PASS  test_data_version_marker_stored_and_invalidation_refreshes
+PASS  test_every_redis_key_starts_with_prefix
+PASS  test_prefix_cleanup_refuses_other_keys
+PASS  test_hw9_source_has_no_unprefixed_redis_keys
+PASS  test_max_two_attempts_enforced
+PASS  test_revision_uses_feedback_and_passes
+PASS  test_evaluator_not_recorded_and_missing_listing
+PASS  test_lessons_saved_and_reloaded_with_use_count
+PASS  test_lessons_are_put_in_the_answer_prompt
+PASS  test_answering_agent_runs_the_landlord_tool
+PASS  test_validation_gate_rejects_regression_and_keeps_improvement
+PASS  test_test_data_not_used_to_create_lessons
+PASS  test_four_variants_run_independently
+PASS  test_input_datasets_have_no_answers
+PASS  test_cache_cases_has_40_labeled_cases
+
+20/20 HW9 tests passed
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | tests - done =====
+
+===== 2026-11-09 13:01:39 verify-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify HW9
+run at 2026-11-09T13:01:39 | VERIFY_SEED 269486
+==============================================================================
+PASS  Redis is up with the query engine  (redis 8.2.2, FT indexes ['s9486:idx:sweep', 's9486:idx:stale', 's9486:idx:semcache'])
+PASS  every Redis key and index starts with s9486:  (16 keys, bad=[])
+PASS  Part 1: 25 accesses, synced at 10 and 20  (synced_at=[10, 20])
+PASS  Part 1: live Redis/MySQL match the saved run  (Redis 25, MySQL view_count 20)
+PASS  Part 2: >=10 queries with new, exact and paraphrase  (12 queries)
+PASS  Part 2: pipeline ran only on misses (never on a hit)  (5 calls, 5 misses)
+PASS  Part 2: every response has is_cached, similarity and latency  (hit rate 58.3%, cached 249.4 ms vs 52400.0 ms)
+PASS  Part 3: cache_cases.yaml committed before the sweep and not changed  (commit 5267b81 at 2026-11-09 11:35:37-08:00, sweep 2026-11-09 20:24:16)
+PASS  Part 3: 5 thresholds with hit rate, false-hit rate, latency, cost  (cheapest 0.95)
+PASS  Part 3: one false hit shown in full
+PASS  Part 3.5: stale hit, then version change detected and refreshed  (LST-00888 versions LST-00888@4dd97538e9a8 -> LST-00888@599f8956dc68)
+PASS  Part 3.5: listing row restored after the demo  (available_units=1)
+PASS  Part 4: training_data.json has questions only  (12 rows)
+PASS  Part 4: validation_data.json has questions only  (10 rows)
+PASS  Part 4: test_data.json has questions only  (12 rows)
+PASS  Part 4: lessons.json has the required fields  (1 lessons)
+PASS  Part 4: lessons only from training questions
+PASS  Part 4: every lesson went through validation
+PASS  Part 4: revision demo REVISE then 2nd attempt, max 2  (final PASS)
+PASS  Part 4: four variants on the same, unchanged test_data.json  (baseline 10/12, evaluator_repair 12/12, lesson_memory 12/12, validated_improvement 12/12)
+PASS  Part 4: no question used more than 2 attempts
+PASS  automated HW9 tests  (20/20 HW9 tests passed)
+
+22/22 checks passed   commit 5267b8193e62 (uncommitted changes)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify - done =====
+
+===== 2026-11-09 13:42:53 hw9-ps (Kavan Siddesh) =====
+NAMES                   IMAGE                STATUS                 PORTS
+s9486_redis             redis:8.2.2          Up 2 hours (healthy)   127.0.0.1:6379->6379/tcp
+s9486_kafka             apache/kafka:3.9.2   Up 2 hours (healthy)   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+study_assistant_mongo   mongo:7.0            Up 3 hours (healthy)   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+redis_version:8.2.2
+redis_mode:standalone
+redis FT._LIST: s9486:idx:sweep s9486:idx:stale s9486:idx:semcache 
+NAME                 ID              SIZE      MODIFIED    
+all-minilm:latest    1b226e2802db    45 MB     3 hours ago    
+llama3.2:3b          a80c4f17acd5    2.0 GB    6 weeks ago    
+
+===== 2026-11-09 13:43:30 counter-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 1 view counter (LST-00042, 25 accesses)
+run at 2026-11-09T13:43:30 | VERIFY_SEED 269486
+==============================================================================
+listing LST-00042 (id=42): Updated 1BR Apartment pet friendly
+Redis key: s9486:views:listing:42    MySQL column: s9486_rel.listings.view_count
+reset: Redis key deleted, view_count set to 0 (DB now 0)
+
+=== Testing Counter ===
+
+Access #1: Total = 1
+Access #2: Total = 2
+Access #3: Total = 3
+Access #4: Total = 4
+Access #5: Total = 5
+Access #6: Total = 6
+Access #7: Total = 7
+Access #8: Total = 8
+Access #9: Total = 9
+Access #10: Total = 10
+✓ Synced views to database (listings.id=42, view_count=10)   [2026-11-09 13:43:31.233]
+Access #11: Total = 11
+Access #12: Total = 12
+Access #13: Total = 13
+Access #14: Total = 14
+Access #15: Total = 15
+Access #16: Total = 16
+Access #17: Total = 17
+Access #18: Total = 18
+Access #19: Total = 19
+Access #20: Total = 20
+✓ Synced views to database (listings.id=42, view_count=20)   [2026-11-09 13:43:31.244]
+Access #21: Total = 21
+Access #22: Total = 22
+Access #23: Total = 23
+Access #24: Total = 24
+Access #25: Total = 25
+
+--- after the run
+Redis  GET s9486:views:listing:42 = 25
+MySQL  SELECT view_count FROM listings WHERE id=42 -> 20
+synced at totals: [10, 20]
+MySQL matches Redis at the last sync (20): True
+views since the last sync (only in Redis until #30): 5
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | Part 1 counter - done =====
+
+===== 2026-11-09 13:48:39 test-hw9 (Kavan Siddesh) =====
+PASS  test_counter_increments_and_syncs_at_10_and_20
+PASS  test_counter_uses_redis_incr_on_prefixed_key
+PASS  test_cache_miss_then_exact_hit_flags_and_similarity
+PASS  test_agent_pipeline_not_rerun_on_valid_hit
+PASS  test_new_question_misses
+PASS  test_data_version_marker_stored_and_invalidation_refreshes
+PASS  test_every_redis_key_starts_with_prefix
+PASS  test_prefix_cleanup_refuses_other_keys
+PASS  test_hw9_source_has_no_unprefixed_redis_keys
+PASS  test_max_two_attempts_enforced
+PASS  test_revision_uses_feedback_and_passes
+PASS  test_evaluator_not_recorded_and_missing_listing
+PASS  test_lessons_saved_and_reloaded_with_use_count
+PASS  test_lessons_are_put_in_the_answer_prompt
+PASS  test_answering_agent_runs_the_landlord_tool
+PASS  test_validation_gate_rejects_regression_and_keeps_improvement
+PASS  test_test_data_not_used_to_create_lessons
+PASS  test_four_variants_run_independently
+PASS  test_input_datasets_have_no_answers
+PASS  test_cache_cases_has_40_labeled_cases
+
+20/20 HW9 tests passed
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | tests - done =====
+
+===== 2026-11-09 13:48:56 verify-hw09 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify HW9
+run at 2026-11-09T13:48:57 | VERIFY_SEED 269486
+==============================================================================
+PASS  Redis is up with the query engine  (redis 8.2.2, FT indexes ['s9486:idx:sweep', 's9486:idx:stale', 's9486:idx:semcache'])
+PASS  every Redis key and index starts with s9486:  (16 keys, bad=[])
+PASS  Part 1: 25 accesses, synced at 10 and 20  (synced_at=[10, 20])
+PASS  Part 1: live Redis/MySQL match the saved run  (Redis 25, MySQL view_count 20)
+PASS  Part 2: >=10 queries with new, exact and paraphrase  (12 queries)
+PASS  Part 2: pipeline ran only on misses (never on a hit)  (5 calls, 5 misses)
+PASS  Part 2: every response has is_cached, similarity and latency  (hit rate 58.3%, cached 249.4 ms vs 52400.0 ms)
+PASS  Part 3: cache_cases.yaml committed before the sweep and not changed  (commit 5267b81 at 2026-11-09 11:35:37-08:00, sweep 2026-11-09 20:24:16)
+PASS  Part 3: 5 thresholds with hit rate, false-hit rate, latency, cost  (cheapest 0.95)
+PASS  Part 3: one false hit shown in full
+PASS  Part 3.5: stale hit, then version change detected and refreshed  (LST-00888 versions LST-00888@4dd97538e9a8 -> LST-00888@599f8956dc68)
+PASS  Part 3.5: listing row restored after the demo  (available_units=1)
+PASS  Part 4: training_data.json has questions only  (12 rows)
+PASS  Part 4: validation_data.json has questions only  (10 rows)
+PASS  Part 4: test_data.json has questions only  (12 rows)
+PASS  Part 4: lessons.json has the required fields  (1 lessons)
+PASS  Part 4: lessons only from training questions
+PASS  Part 4: every lesson went through validation
+PASS  Part 4: revision demo REVISE then 2nd attempt, max 2  (final PASS)
+PASS  Part 4: four variants on the same, unchanged test_data.json  (baseline 10/12, evaluator_repair 12/12, lesson_memory 12/12, validated_improvement 12/12)
+PASS  Part 4: no question used more than 2 attempts
+PASS  automated HW9 tests  (20/20 HW9 tests passed)
+
+22/22 checks passed   commit 5267b8193e62 (uncommitted changes)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW9 | verify - done =====

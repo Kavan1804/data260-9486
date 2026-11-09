@@ -1,0 +1,42 @@
+[
+  {
+    "id": "va01",
+    "question": "Which person manages listing LST-03685?"
+  },
+  {
+    "id": "va02",
+    "question": "How many vacant units does listing LST-00256 have?"
+  },
+  {
+    "id": "va03",
+    "question": "How many units can I still rent at LST-00728, and who is its landlord?"
+  },
+  {
+    "id": "va04",
+    "question": "What is the minimum lease length at LST-01628?"
+  },
+  {
+    "id": "va05",
+    "question": "What city would I live in if I rent LST-01150?"
+  },
+  {
+    "id": "va06",
+    "question": "Are utilities included in the rent at LST-02578?"
+  },
+  {
+    "id": "va07",
+    "question": "What management company is behind listing LST-04939?"
+  },
+  {
+    "id": "va08",
+    "question": "Where exactly is listing LST-02850? Give the street address."
+  },
+  {
+    "id": "va09",
+    "question": "How many bedrooms does LST-01490 have and what type of place is it?"
+  },
+  {
+    "id": "va10",
+    "question": "How many units are available at listing LST-08123?"
+  }
+]

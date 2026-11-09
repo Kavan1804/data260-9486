@@ -268,3 +268,77 @@ verify-hw08:
 
 report-hw08:
 	$(PYTHON) $(HW8)/render_report_hw08.py
+
+# ---------- HW9 (Redis view counter, semantic cache, threshold sweep, two-agent self-improvement) ----------
+LOG9 := reports/hw09/RUN_LOG.txt
+STAMP9 = mkdir -p reports/hw09/raw; echo -e "\n===== $$(date '+%Y-%m-%d %H:%M:%S') $@ (Kavan Siddesh) =====" | tee -a $(LOG9)
+HW9 := Homework9/scripts
+
+.PHONY: hw9-up hw9-down hw9-ps migrate-hw09 counter-demo cache-demo cache-reset sweep stale-demo \
+        part4-data revision-demo part4-train variants metrics-hw09 test-hw9 verify-hw09 report-hw09
+
+# Redis (Homework9/docker-compose.yml) + the HW8 Kafka broker and topics (the cache-miss path)
+hw9-up:
+	@$(STAMP9); (docker compose -f Homework9/docker-compose.yml up -d && docker compose up -d kafka kafka-init \
+	  && docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}') 2>&1 | tee -a $(LOG9)
+
+hw9-down:
+	docker compose -f Homework9/docker-compose.yml down
+
+# Containers, Redis version + modules (search = vector index), and the Ollama models
+hw9-ps:
+	@$(STAMP9); (docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'; \
+	  docker exec s9486_redis redis-cli INFO server | grep -E 'redis_version|redis_mode'; \
+	  echo "redis FT._LIST: $$(docker exec s9486_redis redis-cli FT._LIST | tr '\n' ' ')"; \
+	  ollama list) 2>&1 | tee -a $(LOG9)
+
+migrate-hw09:
+	@$(STAMP9); $(PYTHON) $(HW9)/migrate_hw09.py 2>&1 | tee -a $(LOG9)
+
+# Part 1
+counter-demo:
+	@$(STAMP9); $(PYTHON) $(HW9)/part1_counter.py 2>&1 | tee -a $(LOG9)
+
+# Part 2 (starts the three HW8 agents itself)
+cache-demo:
+	@$(STAMP9); $(PYTHON) $(HW9)/part2_cache_demo.py 2>&1 | tee -a $(LOG9)
+
+# Deletes only s9486:semcache / s9486:sweep / s9486:stale keys and their indexes (never FLUSHALL)
+cache-reset:
+	@$(STAMP9); $(PYTHON) $(HW9)/reset_hw09.py 2>&1 | tee -a $(LOG9)
+
+# Part 3
+sweep:
+	@$(STAMP9); $(PYTHON) $(HW9)/part3_sweep.py 2>&1 | tee -a $(LOG9)
+
+stale-demo:
+	@$(STAMP9); $(PYTHON) $(HW9)/part3_stale.py 2>&1 | tee -a $(LOG9)
+
+# Part 4
+part4-data:
+	@$(STAMP9); $(PYTHON) $(HW9)/part4_build_data.py 2>&1 | tee -a $(LOG9)
+
+revision-demo:
+	@$(STAMP9); $(PYTHON) $(HW9)/part4_revision_demo.py 2>&1 | tee -a $(LOG9)
+
+part4-train:
+	@$(STAMP9); $(PYTHON) $(HW9)/part4_train.py 2>&1 | tee -a $(LOG9)
+
+variants:
+	@$(STAMP9); $(PYTHON) $(HW9)/part4_variants.py 2>&1 | tee -a $(LOG9)
+
+metrics-hw09:
+	@$(STAMP9); $(PYTHON) $(HW9)/build_metrics.py 2>&1 | tee -a $(LOG9)
+
+test-hw9:
+	@$(STAMP9); $(PYTHON) Homework9/tests/run_hw9_tests.py 2>/dev/null | tee -a $(LOG9)
+
+verify-hw09:
+	@$(STAMP9); $(PYTHON) $(HW9)/verify_hw09.py 2>/dev/null | tee -a $(LOG9)
+
+report-hw09:
+	$(PYTHON) $(HW9)/render_report_hw09.py
+
+# Screenshot helper: reprints the last logged run of a target from RUN_LOG.txt (no new run), e.g. make show-run T=sweep
+show-run:
+	@$(PYTHON) $(HW9)/show_run.py $(T)

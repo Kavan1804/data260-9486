@@ -1,0 +1,13 @@
+n,category,query,is_cached,similarity,latency_ms,matched_query,status
+1,new,How many units are available at listing LST-00117?,False,0.0,45666.3,,approved
+2,exact,How many units are available at listing LST-00117?,True,1.0,774.3,How many units are available at listing LST-00117?,approved
+3,new,What should I check before signing a lease for an apartment in San Jose?,False,0.0846,41694.1,How many units are available at listing LST-00117?,approved
+4,paraphrase,"Before I sign an apartment lease in San Jose, what things should I check?",True,0.9667,225.6,What should I check before signing a lease for an apartment in San Jose?,approved
+5,new,Who is the landlord for listing LST-00230?,False,0.542,34623.7,How many units are available at listing LST-00117?,approved
+6,paraphrase,Which landlord manages listing LST-00230?,True,0.9697,233.1,Who is the landlord for listing LST-00230?,approved
+7,new,How can I get my full security deposit back when I move out?,False,0.3055,104025.7,What should I check before signing a lease for an apartment in San Jose?,approved
+8,exact,What should I check before signing a lease for an apartment in San Jose?,True,1.0,151.9,What should I check before signing a lease for an apartment in San Jose?,approved
+9,new,What is a fair way to split rent and utilities with roommates?,False,0.3393,35990.0,What should I check before signing a lease for an apartment in San Jose?,approved
+10,paraphrase,"When I move out, how do I make sure my security deposit is returned?",True,0.8541,154.8,How can I get my full security deposit back when I move out?,approved
+11,paraphrase,How many open units does listing LST-00117 have right now?,True,0.9062,146.9,How many units are available at listing LST-00117?,approved
+12,exact,What is a fair way to split rent and utilities with roommates?,True,1.0,59.1,What is a fair way to split rent and utilities with roommates?,approved

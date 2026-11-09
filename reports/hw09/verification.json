@@ -1,0 +1,119 @@
+{
+  "run_at": "2026-11-09T21:48:59+00:00",
+  "commit": "5267b8193e62",
+  "dirty_tree": true,
+  "passed": 22,
+  "total": 22,
+  "checks": [
+    {
+      "check": "Redis is up with the query engine",
+      "ok": true,
+      "detail": "redis 8.2.2, FT indexes ['s9486:idx:sweep', 's9486:idx:stale', 's9486:idx:semcache']"
+    },
+    {
+      "check": "every Redis key and index starts with s9486:",
+      "ok": true,
+      "detail": "16 keys, bad=[]"
+    },
+    {
+      "check": "Part 1: 25 accesses, synced at 10 and 20",
+      "ok": true,
+      "detail": "synced_at=[10, 20]"
+    },
+    {
+      "check": "Part 1: live Redis/MySQL match the saved run",
+      "ok": true,
+      "detail": "Redis 25, MySQL view_count 20"
+    },
+    {
+      "check": "Part 2: >=10 queries with new, exact and paraphrase",
+      "ok": true,
+      "detail": "12 queries"
+    },
+    {
+      "check": "Part 2: pipeline ran only on misses (never on a hit)",
+      "ok": true,
+      "detail": "5 calls, 5 misses"
+    },
+    {
+      "check": "Part 2: every response has is_cached, similarity and latency",
+      "ok": true,
+      "detail": "hit rate 58.3%, cached 249.4 ms vs 52400.0 ms"
+    },
+    {
+      "check": "Part 3: cache_cases.yaml committed before the sweep and not changed",
+      "ok": true,
+      "detail": "commit 5267b81 at 2026-11-09 11:35:37-08:00, sweep 2026-11-09 20:24:16"
+    },
+    {
+      "check": "Part 3: 5 thresholds with hit rate, false-hit rate, latency, cost",
+      "ok": true,
+      "detail": "cheapest 0.95"
+    },
+    {
+      "check": "Part 3: one false hit shown in full",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 3.5: stale hit, then version change detected and refreshed",
+      "ok": true,
+      "detail": "LST-00888 versions LST-00888@4dd97538e9a8 -> LST-00888@599f8956dc68"
+    },
+    {
+      "check": "Part 3.5: listing row restored after the demo",
+      "ok": true,
+      "detail": "available_units=1"
+    },
+    {
+      "check": "Part 4: training_data.json has questions only",
+      "ok": true,
+      "detail": "12 rows"
+    },
+    {
+      "check": "Part 4: validation_data.json has questions only",
+      "ok": true,
+      "detail": "10 rows"
+    },
+    {
+      "check": "Part 4: test_data.json has questions only",
+      "ok": true,
+      "detail": "12 rows"
+    },
+    {
+      "check": "Part 4: lessons.json has the required fields",
+      "ok": true,
+      "detail": "1 lessons"
+    },
+    {
+      "check": "Part 4: lessons only from training questions",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 4: every lesson went through validation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 4: revision demo REVISE then 2nd attempt, max 2",
+      "ok": true,
+      "detail": "final PASS"
+    },
+    {
+      "check": "Part 4: four variants on the same, unchanged test_data.json",
+      "ok": true,
+      "detail": "baseline 10/12, evaluator_repair 12/12, lesson_memory 12/12, validated_improvement 12/12"
+    },
+    {
+      "check": "Part 4: no question used more than 2 attempts",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "automated HW9 tests",
+      "ok": true,
+      "detail": "20/20 HW9 tests passed"
+    }
+  ]
+}

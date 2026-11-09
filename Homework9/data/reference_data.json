@@ -1,0 +1,508 @@
+{
+  "built_at": "2026-11-09T19:21:05+00:00",
+  "source": "s9486_rel.listings JOIN landlords, picked with random.Random(269486)",
+  "listings": {
+    "LST-02799": {
+      "listing_code": "LST-02799",
+      "title": "Renovated Studio near light rail",
+      "address": "4829 Santa Clara St, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Elena Morales",
+      "landlord_company": "Santa Clara Homes"
+    },
+    "LST-03265": {
+      "listing_code": "LST-03265",
+      "title": "Furnished 4BR House with balcony",
+      "address": "7627 Willow St, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "available_units": 1,
+      "landlord_name": "Isaac Alvarez",
+      "landlord_company": "Silicon Valley Property Mgmt"
+    },
+    "LST-01510": {
+      "listing_code": "LST-01510",
+      "title": "Spacious Loft near SJSU",
+      "address": "142 Willow St, Santa Clara, CA",
+      "city": "Santa Clara",
+      "available_units": 1,
+      "landlord_name": "Quinn Larsen",
+      "landlord_company": "Santa Clara Homes"
+    },
+    "LST-01717": {
+      "listing_code": "LST-01717",
+      "title": "Spacious Loft with balcony",
+      "address": "8381 Willow St, Santa Clara, CA",
+      "city": "Santa Clara",
+      "available_units": 1,
+      "landlord_name": "Isaac Alvarez",
+      "landlord_company": "Silicon Valley Property Mgmt"
+    },
+    "LST-02953": {
+      "listing_code": "LST-02953",
+      "title": "Quiet 4BR House with balcony",
+      "address": "9042 Almaden Blvd, Mountain View, CA",
+      "city": "Mountain View",
+      "available_units": 1,
+      "landlord_name": "Farah Okafor",
+      "landlord_company": "SJSU Rentals LLC"
+    },
+    "LST-00764": {
+      "listing_code": "LST-00764",
+      "title": "Cozy 4BR House with balcony",
+      "address": "3163 Willow St, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Jasmine Kaur",
+      "landlord_company": "Silicon Valley Property Mgmt"
+    },
+    "LST-03672": {
+      "listing_code": "LST-03672",
+      "title": "Spacious Studio near downtown",
+      "address": "1323 Willow St, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "available_units": 1,
+      "landlord_name": "Oscar Tran",
+      "landlord_company": "Santa Clara Homes"
+    },
+    "LST-03319": {
+      "listing_code": "LST-03319",
+      "title": "Spacious 3BR House with yard",
+      "address": "1101 Taylor St, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "available_units": 1,
+      "landlord_name": "Farah Okafor",
+      "landlord_company": "SJSU Rentals LLC"
+    },
+    "LST-00410": {
+      "listing_code": "LST-00410",
+      "title": "Bright 1BR Apartment with balcony",
+      "address": "8454 San Carlos St, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Alicia Vasquez",
+      "landlord_company": "Bay Area Rentals LLC"
+    },
+    "LST-02391": {
+      "listing_code": "LST-02391",
+      "title": "Renovated 2BR Apartment near downtown",
+      "address": "5884 Almaden Blvd, San Jose, CA",
+      "city": "San Jose",
+      "available_units": 1,
+      "landlord_name": "Farah Okafor",
+      "landlord_company": "SJSU Rentals LLC"
+    },
+    "LST-03579": {
+      "listing_code": "LST-03579",
+      "title": "Charming 2BR Apartment with in-unit laundry",
+      "address": "9400 4th St, San Jose, CA",
+      "city": "San Jose",
+      "available_units": 1,
+      "landlord_name": "Hana Iyer",
+      "landlord_company": "Rose Garden Realty"
+    },
+    "LST-03685": {
+      "listing_code": "LST-03685",
+      "title": "Renovated 1BR Condo with in-unit laundry",
+      "address": "9896 San Carlos St, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Farah Okafor",
+      "landlord_company": "SJSU Rentals LLC"
+    },
+    "LST-00256": {
+      "listing_code": "LST-00256",
+      "title": "Charming 2BR Apartment near SJSU",
+      "address": "6464 Taylor St, Mountain View, CA",
+      "city": "Mountain View",
+      "available_units": 1,
+      "landlord_name": "Alicia Vasquez",
+      "landlord_company": "Bay Area Rentals LLC"
+    },
+    "LST-00728": {
+      "listing_code": "LST-00728",
+      "title": "Furnished 1BR Condo with in-unit laundry",
+      "address": "1252 Alameda, Milpitas, CA",
+      "city": "Milpitas",
+      "available_units": 1,
+      "landlord_name": "Jasmine Kaur",
+      "landlord_company": "Silicon Valley Property Mgmt"
+    },
+    "LST-01628": {
+      "listing_code": "LST-01628",
+      "title": "Furnished 3BR House near light rail",
+      "address": "5932 Taylor St, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Tariq Gupta",
+      "landlord_company": "Bay Area Rentals LLC"
+    },
+    "LST-01150": {
+      "listing_code": "LST-01150",
+      "title": "Spacious 2BR Apartment with yard",
+      "address": "5003 4th St, Mountain View, CA",
+      "city": "Mountain View",
+      "available_units": 1,
+      "landlord_name": "Elena Morales",
+      "landlord_company": "Santa Clara Homes"
+    },
+    "LST-02578": {
+      "listing_code": "LST-02578",
+      "title": "Updated 1BR Apartment with parking",
+      "address": "3664 Almaden Blvd, Santa Clara, CA",
+      "city": "Santa Clara",
+      "available_units": 1,
+      "landlord_name": "Alicia Vasquez",
+      "landlord_company": "Bay Area Rentals LLC"
+    },
+    "LST-04939": {
+      "listing_code": "LST-04939",
+      "title": "Cozy 4BR House near light rail",
+      "address": "5057 Alameda, Mountain View, CA",
+      "city": "Mountain View",
+      "available_units": 1,
+      "landlord_name": "Oscar Tran",
+      "landlord_company": "Santa Clara Homes"
+    },
+    "LST-02850": {
+      "listing_code": "LST-02850",
+      "title": "Modern 2BR Townhouse with yard",
+      "address": "1047 Almaden Blvd, Mountain View, CA",
+      "city": "Mountain View",
+      "available_units": 1,
+      "landlord_name": "Brandon Bennett",
+      "landlord_company": "Bay Area Rentals LLC"
+    },
+    "LST-01490": {
+      "listing_code": "LST-01490",
+      "title": "Renovated 1BR Apartment near light rail",
+      "address": "3802 Santa Clara St, Milpitas, CA",
+      "city": "Milpitas",
+      "available_units": 1,
+      "landlord_name": "Kevin Dang",
+      "landlord_company": "Rose Garden Realty"
+    },
+    "LST-02040": {
+      "listing_code": "LST-02040",
+      "title": "Quiet 3BR House with balcony",
+      "address": "5497 Willow St, Milpitas, CA",
+      "city": "Milpitas",
+      "available_units": 1,
+      "landlord_name": "Marcus Huang",
+      "landlord_company": "Peninsula Leasing Co"
+    },
+    "LST-04849": {
+      "listing_code": "LST-04849",
+      "title": "Bright 2BR Townhouse with yard",
+      "address": "1937 Taylor St, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "available_units": 1,
+      "landlord_name": "Rosa Jensen",
+      "landlord_company": "Campbell Rental Group"
+    },
+    "LST-01637": {
+      "listing_code": "LST-01637",
+      "title": "Modern Studio near light rail",
+      "address": "4070 Taylor St, San Jose, CA",
+      "city": "San Jose",
+      "available_units": 1,
+      "landlord_name": "Gabriel Fischer",
+      "landlord_company": "Downtown SJ Apartments"
+    },
+    "LST-00184": {
+      "listing_code": "LST-00184",
+      "title": "Quiet 4BR House near light rail",
+      "address": "878 Santa Clara St, Sunnyvale, CA",
+      "city": "Sunnyvale",
+      "available_units": 1,
+      "landlord_name": "Leila Reyes",
+      "landlord_company": "Willow Glen Residential"
+    },
+    "LST-00781": {
+      "listing_code": "LST-00781",
+      "title": "Bright 2BR Apartment near downtown",
+      "address": "5075 Market St, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Hana Iyer",
+      "landlord_company": "Rose Garden Realty"
+    },
+    "LST-03159": {
+      "listing_code": "LST-03159",
+      "title": "Cozy 1BR Condo pet friendly",
+      "address": "6301 Santa Clara St, San Jose, CA",
+      "city": "San Jose",
+      "available_units": 1,
+      "landlord_name": "Brandon Bennett",
+      "landlord_company": "Bay Area Rentals LLC"
+    },
+    "LST-03846": {
+      "listing_code": "LST-03846",
+      "title": "Spacious 1BR Condo with yard",
+      "address": "627 Almaden Blvd, Milpitas, CA",
+      "city": "Milpitas",
+      "available_units": 1,
+      "landlord_name": "Gabriel Fischer",
+      "landlord_company": "Downtown SJ Apartments"
+    },
+    "LST-02457": {
+      "listing_code": "LST-02457",
+      "title": "Sunny 2BR Apartment with yard",
+      "address": "2132 Market St, Milpitas, CA",
+      "city": "Milpitas",
+      "available_units": 1,
+      "landlord_name": "Neha Nakamura",
+      "landlord_company": "Campbell Rental Group"
+    },
+    "LST-02206": {
+      "listing_code": "LST-02206",
+      "title": "Sunny 4BR House with balcony",
+      "address": "4961 Taylor St, San Jose, CA",
+      "city": "San Jose",
+      "available_units": 1,
+      "landlord_name": "Quinn Larsen",
+      "landlord_company": "Santa Clara Homes"
+    },
+    "LST-02854": {
+      "listing_code": "LST-02854",
+      "title": "Furnished Studio near light rail",
+      "address": "3073 San Carlos St, San Jose, CA",
+      "city": "San Jose",
+      "available_units": 1,
+      "landlord_name": "Vivian Estrada",
+      "landlord_company": "Silicon Valley Property Mgmt"
+    },
+    "LST-03266": {
+      "listing_code": "LST-03266",
+      "title": "Charming 3BR House with yard",
+      "address": "3956 Lincoln Ave, Campbell, CA",
+      "city": "Campbell",
+      "available_units": 1,
+      "landlord_name": "Vivian Estrada",
+      "landlord_company": "Silicon Valley Property Mgmt"
+    }
+  },
+  "missing_listing_codes": [
+    "LST-07777",
+    "LST-08123",
+    "LST-09090"
+  ],
+  "not_recorded_fields": [
+    "monthly rent",
+    "security deposit",
+    "application fee",
+    "lease length",
+    "utilities"
+  ],
+  "questions": {
+    "tr01": {
+      "listing_code": "LST-02799",
+      "asks": [
+        "landlord"
+      ]
+    },
+    "tr02": {
+      "listing_code": "LST-03265",
+      "asks": [
+        "city"
+      ]
+    },
+    "tr03": {
+      "listing_code": "LST-01510",
+      "asks": [
+        "units",
+        "landlord"
+      ]
+    },
+    "tr04": {
+      "listing_code": "LST-01717",
+      "asks": [
+        "rent"
+      ]
+    },
+    "tr05": {
+      "listing_code": "LST-02953",
+      "asks": [
+        "landlord"
+      ]
+    },
+    "tr06": {
+      "listing_code": "LST-00764",
+      "asks": [
+        "address"
+      ]
+    },
+    "tr07": {
+      "listing_code": "LST-03672",
+      "asks": [
+        "deposit"
+      ]
+    },
+    "tr08": {
+      "listing_code": "LST-03319",
+      "asks": [
+        "units",
+        "landlord"
+      ]
+    },
+    "tr09": {
+      "listing_code": "LST-00410",
+      "asks": [
+        "home_type"
+      ]
+    },
+    "tr10": {
+      "listing_code": "LST-02391",
+      "asks": [
+        "rent"
+      ]
+    },
+    "tr11": {
+      "listing_code": "LST-03579",
+      "asks": [
+        "company"
+      ]
+    },
+    "tr12": {
+      "listing_code": "LST-07777",
+      "asks": [
+        "missing"
+      ]
+    },
+    "va01": {
+      "listing_code": "LST-03685",
+      "asks": [
+        "landlord"
+      ]
+    },
+    "va02": {
+      "listing_code": "LST-00256",
+      "asks": [
+        "units"
+      ]
+    },
+    "va03": {
+      "listing_code": "LST-00728",
+      "asks": [
+        "units",
+        "landlord"
+      ]
+    },
+    "va04": {
+      "listing_code": "LST-01628",
+      "asks": [
+        "lease_length"
+      ]
+    },
+    "va05": {
+      "listing_code": "LST-01150",
+      "asks": [
+        "city"
+      ]
+    },
+    "va06": {
+      "listing_code": "LST-02578",
+      "asks": [
+        "utilities"
+      ]
+    },
+    "va07": {
+      "listing_code": "LST-04939",
+      "asks": [
+        "company"
+      ]
+    },
+    "va08": {
+      "listing_code": "LST-02850",
+      "asks": [
+        "address"
+      ]
+    },
+    "va09": {
+      "listing_code": "LST-01490",
+      "asks": [
+        "home_type"
+      ]
+    },
+    "va10": {
+      "listing_code": "LST-08123",
+      "asks": [
+        "missing"
+      ]
+    },
+    "te01": {
+      "listing_code": "LST-02040",
+      "asks": [
+        "landlord"
+      ]
+    },
+    "te02": {
+      "listing_code": "LST-04849",
+      "asks": [
+        "units"
+      ]
+    },
+    "te03": {
+      "listing_code": "LST-01637",
+      "asks": [
+        "units",
+        "landlord"
+      ]
+    },
+    "te04": {
+      "listing_code": "LST-00184",
+      "asks": [
+        "rent"
+      ]
+    },
+    "te05": {
+      "listing_code": "LST-00781",
+      "asks": [
+        "city"
+      ]
+    },
+    "te06": {
+      "listing_code": "LST-03159",
+      "asks": [
+        "application_fee"
+      ]
+    },
+    "te07": {
+      "listing_code": "LST-03846",
+      "asks": [
+        "company"
+      ]
+    },
+    "te08": {
+      "listing_code": "LST-02457",
+      "asks": [
+        "address"
+      ]
+    },
+    "te09": {
+      "listing_code": "LST-02206",
+      "asks": [
+        "deposit"
+      ]
+    },
+    "te10": {
+      "listing_code": "LST-02854",
+      "asks": [
+        "home_type"
+      ]
+    },
+    "te11": {
+      "listing_code": "LST-03266",
+      "asks": [
+        "landlord",
+        "company"
+      ]
+    },
+    "te12": {
+      "listing_code": "LST-09090",
+      "asks": [
+        "missing"
+      ]
+    }
+  }
+}

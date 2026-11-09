@@ -1,0 +1,80 @@
+{
+  "run_at": "2026-11-09T20:51:12+00:00",
+  "reuse": {
+    "question": {
+      "id": "va01",
+      "question": "Which person manages listing LST-03685?"
+    },
+    "lessons": [
+      {
+        "lesson_id": "lesson_001",
+        "failure_pattern": "The answer omits the number of available units.",
+        "correction": "When the question asks about available or open units, state the available_units number from the listing.",
+        "created_at": "2026-11-09",
+        "use_count": 8,
+        "tag": "missing_fact:units",
+        "applies_to": [
+          "landlord",
+          "units"
+        ],
+        "status": "kept",
+        "source": [
+          "tr03"
+        ],
+        "validation": {
+          "failing_before": [],
+          "failing_after": [],
+          "previously_correct_now_wrong": [],
+          "new_unsupported_answers": [],
+          "decision": "kept"
+        }
+      }
+    ],
+    "use_count_before": {
+      "lesson_001": 7
+    },
+    "use_count_after": {
+      "lesson_001": 8
+    },
+    "result": {
+      "id": "va01",
+      "question": "Which person manages listing LST-03685?",
+      "final_answer": "The person managing listing LST-03685 is Farah Okafor, and there is 1 available unit.",
+      "final_result": "PASS",
+      "attempts": 1,
+      "lessons_loaded": [
+        "lesson_001"
+      ],
+      "latency_s": 6.74,
+      "history": [
+        {
+          "attempt": 1,
+          "answer": "The person managing listing LST-03685 is Farah Okafor, and there is 1 available unit.",
+          "seconds": 6.74,
+          "lessons_used": [
+            "lesson_001"
+          ],
+          "tools_called": [
+            {
+              "tool": "get_landlord",
+              "arguments": {
+                "landlord_id": "1"
+              },
+              "result": {
+                "landlord_id": 1,
+                "full_name": "Farah Okafor",
+                "company": "SJSU Rentals LLC"
+              }
+            }
+          ],
+          "evaluation": {
+            "result": "PASS",
+            "explanation": "All facts the question asks for match the reference data.",
+            "feedback": "",
+            "tags": []
+          }
+        }
+      ]
+    }
+  }
+}

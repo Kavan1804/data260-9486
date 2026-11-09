@@ -1,0 +1,147 @@
+{
+  "run_at": "2026-11-09T20:51:05+00:00",
+  "gate": [
+    {
+      "lesson_id": "lesson_001",
+      "before": {
+        "rows": {
+          "va01": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The person managing listing LST-03685 is Farah Okafor, who is associated with SJSU Rentals LLC."
+          },
+          "va02": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The vacant units for listing LST-00256 is 1."
+          },
+          "va03": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The LST-00728 listing has 1 available unit, and its landlord is Jasmine Kaur of Silicon Valley Property Mgmt."
+          },
+          "va04": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The minimum lease length for the furnished 3BR house near light rail at LST-01628 is not specified in the listing record. However, I can provide you with the contact information for the landlord, Tariq Gupta of Bay Area Rentals LLC, who can assist you with the lease length requirements."
+          },
+          "va05": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "You would live in Mountain View, CA, in the apartment located at 5003 4th St."
+          },
+          "va06": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "According to the landlord, Alicia Vasquez of Bay Area Rentals LLC, utilities are not included in the rent at LST-02578."
+          },
+          "va07": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The management company behind listing LST-04939 is Santa Clara Homes, managed by Oscar Tran."
+          },
+          "va08": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The listing LST-02850 is located at 1047 Almaden Blvd, Mountain View, CA. The landlord's name is Brandon Bennett and he is associated with Bay Area Rentals LLC."
+          },
+          "va09": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The LST-01490 apartment has 1 bedroom and is a renovated 1BR apartment. It is listed by Kevin Dang of Rose Garden Realty."
+          },
+          "va10": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "Unfortunately, I couldn't find any information on a unit with the code LST-08123. It's possible that the code is incorrect or the unit doesn't exist."
+          }
+        },
+        "failed": []
+      },
+      "after": {
+        "rows": {
+          "va01": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [
+              "lesson_001"
+            ],
+            "answer": "The person managing listing LST-03685 is Farah Okafor, and there is 1 available unit."
+          },
+          "va02": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [
+              "lesson_001"
+            ],
+            "answer": "Listing LST-00256 has 1 vacant unit available."
+          },
+          "va03": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [
+              "lesson_001"
+            ],
+            "answer": "There is 1 available unit at LST-00728, and its landlord is Jasmine Kaur through Silicon Valley Property Mgmt."
+          },
+          "va04": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The minimum lease length for the furnished 3BR house near light rail at LST-01628 is not specified in the listing record. However, I can provide you with the contact information for the landlord, Tariq Gupta of Bay Area Rentals LLC, who can assist you with the lease length requirements."
+          },
+          "va05": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "You would live in Mountain View, CA, in the apartment located at 5003 4th St."
+          },
+          "va06": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "According to the landlord, Alicia Vasquez of Bay Area Rentals LLC, utilities are not included in the rent at LST-02578."
+          },
+          "va07": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The management company behind listing LST-04939 is Santa Clara Homes, managed by Oscar Tran."
+          },
+          "va08": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The listing LST-02850 is located at 1047 Almaden Blvd, Mountain View, CA. The landlord's name is Brandon Bennett and he is associated with Bay Area Rentals LLC."
+          },
+          "va09": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [],
+            "answer": "The LST-01490 apartment has 1 bedroom and is a renovated 1BR apartment. It is listed by Kevin Dang of Rose Garden Realty."
+          },
+          "va10": {
+            "result": "PASS",
+            "tags": [],
+            "lessons": [
+              "lesson_001"
+            ],
+            "answer": "Unfortunately, there are no units available at listing LST-08123 as it does not exist in the database."
+          }
+        },
+        "failed": []
+      },
+      "decision": "kept"
+    }
+  ]
+}

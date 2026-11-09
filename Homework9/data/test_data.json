@@ -1,0 +1,50 @@
+[
+  {
+    "id": "te01",
+    "question": "Who is the landlord of listing LST-02040?"
+  },
+  {
+    "id": "te02",
+    "question": "How many units are available right now at LST-04849?"
+  },
+  {
+    "id": "te03",
+    "question": "For listing LST-01637, who is the landlord and how many units are open?"
+  },
+  {
+    "id": "te04",
+    "question": "What does listing LST-00184 charge for rent each month?"
+  },
+  {
+    "id": "te05",
+    "question": "In which city is LST-00781 located?"
+  },
+  {
+    "id": "te06",
+    "question": "What is the application fee for LST-03159?"
+  },
+  {
+    "id": "te07",
+    "question": "Which company manages listing LST-03846?"
+  },
+  {
+    "id": "te08",
+    "question": "What is the address of LST-02457?"
+  },
+  {
+    "id": "te09",
+    "question": "What security deposit does LST-02206 ask for?"
+  },
+  {
+    "id": "te10",
+    "question": "What type of home is LST-02854, and how many bedrooms?"
+  },
+  {
+    "id": "te11",
+    "question": "Who is the landlord for LST-03266 and which company do they work for?"
+  },
+  {
+    "id": "te12",
+    "question": "What city is listing LST-09090 in?"
+  }
+]

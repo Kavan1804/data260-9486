@@ -1,0 +1,201 @@
+2026-11-09 11:17:28.210 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-09 11:17:28.210 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-09 11:17:45.775 [writer] received from topic=s9486_tasks partition=0 offset=28 correlation_id=c582f2a7-48b5-427d-a631-c435ac12e61f
+2026-11-09 11:17:45.797 [writer] working on correlation_id=c582f2a7-48b5-427d-a631-c435ac12e61f with llama3.2:3b
+2026-11-09 11:18:02.767 [writer] sent to topic=s9486_drafts partition=0 offset=107 correlation_id=c582f2a7-48b5-427d-a631-c435ac12e61f value={"correlation_id": "c582f2a7-48b5-427d-a631-c435ac12e61f", "question": "How many units are available at listing LST-00117?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", address 6659 Park Ave, Mounta...(truncated)
+2026-11-09 11:18:02.792 [writer] committed offset 29 for s9486_tasks partition 0
+2026-11-09 11:18:53.374 [writer] received from topic=s9486_tasks partition=1 offset=95 correlation_id=295cebd7-36df-4cad-95f2-cb1e8520298e
+2026-11-09 11:18:53.385 [writer] working on correlation_id=295cebd7-36df-4cad-95f2-cb1e8520298e with llama3.2:3b
+2026-11-09 11:19:21.460 [writer] sent to topic=s9486_drafts partition=0 offset=108 correlation_id=295cebd7-36df-4cad-95f2-cb1e8520298e value={"correlation_id": "295cebd7-36df-4cad-95f2-cb1e8520298e", "question": "What should I check before signing a lease for an apartment in San Jose?", "plan": ["Check the lease agreement for any hidden fees or penalties", "Verify the rent amount and payment terms", "Research the landlord and property ma...(truncated)
+2026-11-09 11:19:21.494 [writer] committed offset 96 for s9486_tasks partition 1
+2026-11-09 11:19:40.324 [writer] received from topic=s9486_tasks partition=0 offset=29 correlation_id=0d5527e5-1b93-4582-a1ec-1a650e50c968
+2026-11-09 11:19:40.329 [writer] working on correlation_id=0d5527e5-1b93-4582-a1ec-1a650e50c968 with llama3.2:3b
+2026-11-09 11:19:59.116 [writer] sent to topic=s9486_drafts partition=0 offset=109 correlation_id=0d5527e5-1b93-4582-a1ec-1a650e50c968 value={"correlation_id": "0d5527e5-1b93-4582-a1ec-1a650e50c968", "question": "Who is the landlord for listing LST-00230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00230: title \"Renovated Loft near SJSU\", address 1883 Almaden Blvd, Sunnyvale, CA, ...(truncated)
+2026-11-09 11:19:59.157 [writer] committed offset 30 for s9486_tasks partition 0
+2026-11-09 11:27:08.919 [writer] stopped
+2026-11-09 11:31:17.242 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-09 11:31:17.242 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+Heartbeat failed for group s9486_writers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_writers.
+2026-11-09 11:38:18.139 [writer] stopped
+2026-11-09 11:57:40.269 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-09 11:57:40.269 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-09 11:57:55.342 [writer] received from topic=s9486_tasks partition=1 offset=96 correlation_id=59e499cd-63f5-4cb6-b69b-8b4c8d160b0f
+2026-11-09 11:57:55.360 [writer] working on correlation_id=59e499cd-63f5-4cb6-b69b-8b4c8d160b0f with llama3.2:3b
+2026-11-09 11:58:15.837 [writer] sent to topic=s9486_drafts partition=0 offset=110 correlation_id=59e499cd-63f5-4cb6-b69b-8b4c8d160b0f value={"correlation_id": "59e499cd-63f5-4cb6-b69b-8b4c8d160b0f", "question": "How many units are available at listing LST-00117?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", address 6659 Park Ave, Mounta...(truncated)
+2026-11-09 11:58:15.893 [writer] committed offset 97 for s9486_tasks partition 1
+2026-11-09 11:58:34.536 [writer] received from topic=s9486_tasks partition=1 offset=97 correlation_id=d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d
+2026-11-09 11:58:34.538 [writer] working on correlation_id=d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d with llama3.2:3b
+2026-11-09 11:59:00.184 [writer] sent to topic=s9486_drafts partition=0 offset=111 correlation_id=d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d value={"correlation_id": "d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d", "question": "What should I check before signing a lease for an apartment in San Jose?", "plan": ["Check the lease agreement for any hidden fees or penalties", "Verify the rent amount and payment terms", "Research the landlord and property ma...(truncated)
+2026-11-09 11:59:00.202 [writer] committed offset 98 for s9486_tasks partition 1
+2026-11-09 11:59:18.946 [writer] received from topic=s9486_tasks partition=1 offset=98 correlation_id=553ac8a1-fc9f-4fc4-bdcd-18653d4456ee
+2026-11-09 11:59:18.958 [writer] working on correlation_id=553ac8a1-fc9f-4fc4-bdcd-18653d4456ee with llama3.2:3b
+2026-11-09 11:59:34.211 [writer] sent to topic=s9486_drafts partition=0 offset=112 correlation_id=553ac8a1-fc9f-4fc4-bdcd-18653d4456ee value={"correlation_id": "553ac8a1-fc9f-4fc4-bdcd-18653d4456ee", "question": "Who is the landlord for listing LST-00230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00230: title \"Renovated Loft near SJSU\", address 1883 Almaden Blvd, Sunnyvale, CA, ...(truncated)
+2026-11-09 11:59:34.219 [writer] committed offset 99 for s9486_tasks partition 1
+2026-11-09 12:00:50.365 [writer] received from topic=s9486_tasks partition=1 offset=99 correlation_id=532c405b-6f48-4ae8-a15d-65c272d32ecc
+2026-11-09 12:00:50.370 [writer] working on correlation_id=532c405b-6f48-4ae8-a15d-65c272d32ecc with llama3.2:3b
+2026-11-09 12:01:16.850 [writer] sent to topic=s9486_drafts partition=0 offset=113 correlation_id=532c405b-6f48-4ae8-a15d-65c272d32ecc value={"correlation_id": "532c405b-6f48-4ae8-a15d-65c272d32ecc", "question": "How can I get my full security deposit back when I move out?", "plan": ["“Before moving out, make sure to leave the rental property in the same condition as when you moved in, minus normal wear and tear.\", \"Take photos and vid...(truncated)
+2026-11-09 12:01:16.858 [writer] committed offset 100 for s9486_tasks partition 1
+2026-11-09 12:01:38.349 [writer] received from topic=s9486_tasks partition=1 offset=100 correlation_id=cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3
+2026-11-09 12:01:38.354 [writer] working on correlation_id=cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3 with llama3.2:3b
+2026-11-09 12:01:56.847 [writer] sent to topic=s9486_drafts partition=0 offset=114 correlation_id=cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3 value={"correlation_id": "cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3", "question": "What is a fair way to split rent and utilities with roommates?", "plan": ["1. Determine the total rent and utilities for the month, including any additional expenses such as internet and cable.", "2. Calculate each roommate's sh...(truncated)
+2026-11-09 12:01:56.876 [writer] committed offset 101 for s9486_tasks partition 1
+2026-11-09 12:02:04.545 [writer] stopped
+2026-11-09 12:02:28.920 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-09 12:02:28.921 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-09 12:02:39.885 [writer] received from topic=s9486_tasks partition=0 offset=30 correlation_id=fd077099-a93d-4f01-b53b-e314246f9a30
+2026-11-09 12:02:39.904 [writer] working on correlation_id=fd077099-a93d-4f01-b53b-e314246f9a30 with llama3.2:3b
+2026-11-09 12:02:56.583 [writer] sent to topic=s9486_drafts partition=0 offset=115 correlation_id=fd077099-a93d-4f01-b53b-e314246f9a30 value={"correlation_id": "fd077099-a93d-4f01-b53b-e314246f9a30", "question": "Who is the landlord for listing LST-00305?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00305: title \"Sunny 3BR House pet friendly\", address 7805 Almaden Blvd, San Jose, C...(truncated)
+2026-11-09 12:02:56.591 [writer] committed offset 31 for s9486_tasks partition 0
+2026-11-09 12:03:15.668 [writer] received from topic=s9486_tasks partition=0 offset=31 correlation_id=ca54d0af-7baf-4067-be15-437adef60c80
+2026-11-09 12:03:15.669 [writer] working on correlation_id=ca54d0af-7baf-4067-be15-437adef60c80 with llama3.2:3b
+2026-11-09 12:03:42.470 [writer] sent to topic=s9486_drafts partition=0 offset=116 correlation_id=ca54d0af-7baf-4067-be15-437adef60c80 value={"correlation_id": "ca54d0af-7baf-4067-be15-437adef60c80", "question": "What city is listing LST-00418 located in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00418: title \"Spacious Studio with in-unit laundry\", address 9427 Willow St, Mounta...(truncated)
+2026-11-09 12:03:42.566 [writer] committed offset 32 for s9486_tasks partition 0
+2026-11-09 12:04:04.043 [writer] received from topic=s9486_tasks partition=1 offset=101 correlation_id=e160ec6f-c9ae-4787-8a29-d510215ac176
+2026-11-09 12:04:04.047 [writer] working on correlation_id=e160ec6f-c9ae-4787-8a29-d510215ac176 with llama3.2:3b
+2026-11-09 12:04:31.575 [writer] sent to topic=s9486_drafts partition=0 offset=117 correlation_id=e160ec6f-c9ae-4787-8a29-d510215ac176 value={"correlation_id": "e160ec6f-c9ae-4787-8a29-d510215ac176", "question": "What is the street address of listing LST-00527?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00527: title \"Charming 3BR House with yard\", address 6344 Almaden Blvd, Campb...(truncated)
+2026-11-09 12:04:31.624 [writer] committed offset 102 for s9486_tasks partition 1
+2026-11-09 12:04:57.554 [writer] received from topic=s9486_tasks partition=1 offset=102 correlation_id=7cc6d512-491c-4d2b-940b-0ee358405bc4
+2026-11-09 12:04:57.559 [writer] working on correlation_id=7cc6d512-491c-4d2b-940b-0ee358405bc4 with llama3.2:3b
+2026-11-09 12:05:18.717 [writer] sent to topic=s9486_drafts partition=0 offset=118 correlation_id=7cc6d512-491c-4d2b-940b-0ee358405bc4 value={"correlation_id": "7cc6d512-491c-4d2b-940b-0ee358405bc4", "question": "What kind of home is listing LST-00640?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00640: title \"Furnished 2BR Apartment with balcony\", address 8759 Santa Clara St, Camp...(truncated)
+2026-11-09 12:05:18.739 [writer] committed offset 103 for s9486_tasks partition 1
+2026-11-09 12:05:34.561 [writer] received from topic=s9486_tasks partition=1 offset=103 correlation_id=813c31e9-1641-4102-8cbc-62dabf20af66
+2026-11-09 12:05:34.563 [writer] working on correlation_id=813c31e9-1641-4102-8cbc-62dabf20af66 with llama3.2:3b
+2026-11-09 12:05:52.589 [writer] sent to topic=s9486_drafts partition=0 offset=119 correlation_id=813c31e9-1641-4102-8cbc-62dabf20af66 value={"correlation_id": "813c31e9-1641-4102-8cbc-62dabf20af66", "question": "How many units are available at listing LST-00753?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title \"Renovated 1BR Apartment with parking\", address 1818 Willow St...(truncated)
+2026-11-09 12:05:52.607 [writer] committed offset 104 for s9486_tasks partition 1
+2026-11-09 12:06:02.724 [writer] received from topic=s9486_tasks partition=0 offset=32 correlation_id=2b83e687-ef84-4e2a-96dc-e2900f3f5075
+2026-11-09 12:06:02.725 [writer] working on correlation_id=2b83e687-ef84-4e2a-96dc-e2900f3f5075 with llama3.2:3b
+2026-11-09 12:06:25.126 [writer] sent to topic=s9486_drafts partition=0 offset=120 correlation_id=2b83e687-ef84-4e2a-96dc-e2900f3f5075 value={"correlation_id": "2b83e687-ef84-4e2a-96dc-e2900f3f5075", "question": "What should I check before signing a lease for an apartment?", "plan": ["Check the lease agreement for any hidden fees or penalties", "Verify the rent amount and payment terms", "Inspect the apartment for any damages or needed r...(truncated)
+2026-11-09 12:06:25.142 [writer] committed offset 33 for s9486_tasks partition 0
+2026-11-09 12:06:42.078 [writer] received from topic=s9486_tasks partition=0 offset=33 correlation_id=76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9
+2026-11-09 12:06:42.079 [writer] working on correlation_id=76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9 with llama3.2:3b
+2026-11-09 12:07:00.647 [writer] sent to topic=s9486_drafts partition=0 offset=121 correlation_id=76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9 value={"correlation_id": "76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9", "question": "How much notice do I need to give before moving out of my apartment?", "plan": ["Check your lease agreement to see if it specifies a required notice period for moving out.", "Typically, most leases require 30-60 days' notice.", ...(truncated)
+2026-11-09 12:07:00.794 [writer] committed offset 34 for s9486_tasks partition 0
+2026-11-09 12:08:12.154 [writer] received from topic=s9486_tasks partition=0 offset=34 correlation_id=ae2cafcb-3d30-42ea-bbb1-790d4f008a05
+2026-11-09 12:08:12.158 [writer] working on correlation_id=ae2cafcb-3d30-42ea-bbb1-790d4f008a05 with llama3.2:3b
+2026-11-09 12:08:30.493 [writer] sent to topic=s9486_drafts partition=0 offset=122 correlation_id=ae2cafcb-3d30-42ea-bbb1-790d4f008a05 value={"correlation_id": "ae2cafcb-3d30-42ea-bbb1-790d4f008a05", "question": "How can I get my security deposit back after I move out?", "plan": ["Check your lease agreement to see if it outlines the process for getting your security deposit back", "Notify your landlord in writing as soon as possible afte...(truncated)
+2026-11-09 12:08:30.502 [writer] committed offset 35 for s9486_tasks partition 0
+2026-11-09 12:08:50.060 [writer] received from topic=s9486_tasks partition=0 offset=35 correlation_id=f808ac13-7c51-4e8a-87bb-d1f3292c1fd5
+2026-11-09 12:08:50.061 [writer] working on correlation_id=f808ac13-7c51-4e8a-87bb-d1f3292c1fd5 with llama3.2:3b
+2026-11-09 12:09:08.288 [writer] sent to topic=s9486_drafts partition=0 offset=123 correlation_id=f808ac13-7c51-4e8a-87bb-d1f3292c1fd5 value={"correlation_id": "f808ac13-7c51-4e8a-87bb-d1f3292c1fd5", "question": "What documents do I need to apply for an apartment rental?", "plan": ["Gather required documents such as a valid government-issued ID (driver's license or passport), proof of income (pay stubs or W-2 forms), and proof of employm...(truncated)
+2026-11-09 12:09:08.311 [writer] committed offset 36 for s9486_tasks partition 0
+2026-11-09 12:09:26.013 [writer] received from topic=s9486_tasks partition=0 offset=36 correlation_id=2e19e4ec-8b8a-4047-ac08-186263cc2c99
+2026-11-09 12:09:26.014 [writer] working on correlation_id=2e19e4ec-8b8a-4047-ac08-186263cc2c99 with llama3.2:3b
+2026-11-09 12:09:52.085 [writer] sent to topic=s9486_drafts partition=0 offset=124 correlation_id=2e19e4ec-8b8a-4047-ac08-186263cc2c99 value={"correlation_id": "2e19e4ec-8b8a-4047-ac08-186263cc2c99", "question": "How do I ask my landlord to fix a broken heater?", "plan": ["Step 1: Review your lease agreement to understand your responsibilities and your landlord's obligations regarding maintenance and repairs.", "Step 2: Document the issu...(truncated)
+2026-11-09 12:09:52.094 [writer] committed offset 37 for s9486_tasks partition 0
+2026-11-09 12:10:11.890 [writer] received from topic=s9486_tasks partition=1 offset=104 correlation_id=f4ebbbfb-8eb0-4461-8884-c839e1f84be1
+2026-11-09 12:10:11.891 [writer] working on correlation_id=f4ebbbfb-8eb0-4461-8884-c839e1f84be1 with llama3.2:3b
+2026-11-09 12:10:31.521 [writer] sent to topic=s9486_drafts partition=0 offset=125 correlation_id=f4ebbbfb-8eb0-4461-8884-c839e1f84be1 value={"correlation_id": "f4ebbbfb-8eb0-4461-8884-c839e1f84be1", "question": "How far in advance must I tell my landlord that I'm moving out?", "plan": ["Check your lease agreement to see if it specifies a minimum notice period for terminating the tenancy.", "Typically, this notice period is 30-60 days, b...(truncated)
+2026-11-09 12:10:31.531 [writer] committed offset 105 for s9486_tasks partition 1
+2026-11-09 12:10:48.516 [writer] received from topic=s9486_tasks partition=0 offset=37 correlation_id=7a46a794-13e1-40a3-9603-ea63e6d34308
+2026-11-09 12:10:48.517 [writer] working on correlation_id=7a46a794-13e1-40a3-9603-ea63e6d34308 with llama3.2:3b
+2026-11-09 12:11:08.137 [writer] sent to topic=s9486_drafts partition=0 offset=126 correlation_id=7a46a794-13e1-40a3-9603-ea63e6d34308 value={"correlation_id": "7a46a794-13e1-40a3-9603-ea63e6d34308", "question": "What can my landlord deduct from my security deposit after I move out?", "plan": ["Check your lease agreement to see what damages or issues are allowed to be deducted from your security deposit.", "Document all damages or issues...(truncated)
+2026-11-09 12:11:08.180 [writer] committed offset 38 for s9486_tasks partition 0
+2026-11-09 12:11:23.906 [writer] received from topic=s9486_tasks partition=0 offset=38 correlation_id=41ee265b-c12b-4f81-b685-10d9c8d1b139
+2026-11-09 12:11:23.910 [writer] working on correlation_id=41ee265b-c12b-4f81-b685-10d9c8d1b139 with llama3.2:3b
+2026-11-09 12:11:44.224 [writer] sent to topic=s9486_drafts partition=0 offset=127 correlation_id=41ee265b-c12b-4f81-b685-10d9c8d1b139 value={"correlation_id": "41ee265b-c12b-4f81-b685-10d9c8d1b139", "question": "What should I do if I get locked out of my apartment?", "plan": ["Check if you have a spare key with a neighbor or a contact number for the landlord or property manager.", "Call the landlord or property manager to report the iss...(truncated)
+2026-11-09 12:11:44.250 [writer] committed offset 39 for s9486_tasks partition 0
+2026-11-09 12:12:09.997 [writer] received from topic=s9486_tasks partition=1 offset=105 correlation_id=71252e4e-3ddd-408d-8f19-e93b64ea90df
+2026-11-09 12:12:09.999 [writer] working on correlation_id=71252e4e-3ddd-408d-8f19-e93b64ea90df with llama3.2:3b
+2026-11-09 12:12:26.215 [writer] sent to topic=s9486_drafts partition=0 offset=128 correlation_id=71252e4e-3ddd-408d-8f19-e93b64ea90df value={"correlation_id": "71252e4e-3ddd-408d-8f19-e93b64ea90df", "question": "What is renters insurance and do I need it as a student?", "plan": ["Renters insurance is a type of insurance policy that protects you and your belongings from damage or loss in your rental property. It typically covers theft, f...(truncated)
+2026-11-09 12:12:26.223 [writer] committed offset 106 for s9486_tasks partition 1
+2026-11-09 12:12:44.596 [writer] received from topic=s9486_tasks partition=1 offset=106 correlation_id=c6ab6822-0ab4-4438-8240-bc161145ac34
+2026-11-09 12:12:44.597 [writer] working on correlation_id=c6ab6822-0ab4-4438-8240-bc161145ac34 with llama3.2:3b
+2026-11-09 12:13:05.904 [writer] sent to topic=s9486_drafts partition=0 offset=129 correlation_id=c6ab6822-0ab4-4438-8240-bc161145ac34 value={"correlation_id": "c6ab6822-0ab4-4438-8240-bc161145ac34", "question": "How do I report a noisy neighbor in my apartment complex?", "plan": ["Step 1: Review your lease agreement to understand your responsibilities and the process for reporting noise disturbances.", "Step 2: Document the issue by kee...(truncated)
+2026-11-09 12:13:05.911 [writer] committed offset 107 for s9486_tasks partition 1
+2026-11-09 12:13:23.217 [writer] received from topic=s9486_tasks partition=0 offset=39 correlation_id=87704aea-e388-469e-b73a-ed1ca156c0aa
+2026-11-09 12:13:23.219 [writer] working on correlation_id=87704aea-e388-469e-b73a-ed1ca156c0aa with llama3.2:3b
+2026-11-09 12:13:39.810 [writer] sent to topic=s9486_drafts partition=0 offset=130 correlation_id=87704aea-e388-469e-b73a-ed1ca156c0aa value={"correlation_id": "87704aea-e388-469e-b73a-ed1ca156c0aa", "question": "Can I sublet my room over the summer?", "plan": ["Check your lease agreement to see if it allows subletting or subleasing", "Contact your landlord to get their approval and obtain a sublease agreement", "Find a suitable subtenan...(truncated)
+2026-11-09 12:13:39.817 [writer] committed offset 40 for s9486_tasks partition 0
+2026-11-09 12:13:55.949 [writer] received from topic=s9486_tasks partition=1 offset=107 correlation_id=0fdafc36-4b2f-414c-a866-d6ef9eada640
+2026-11-09 12:13:55.950 [writer] working on correlation_id=0fdafc36-4b2f-414c-a866-d6ef9eada640 with llama3.2:3b
+2026-11-09 12:14:12.357 [writer] sent to topic=s9486_drafts partition=0 offset=131 correlation_id=0fdafc36-4b2f-414c-a866-d6ef9eada640 value={"correlation_id": "0fdafc36-4b2f-414c-a866-d6ef9eada640", "question": "What utilities do I usually pay for in a California apartment?", "plan": ["Check your lease agreement to see what utilities are included in the rent.", "Typically, in a California apartment, you may be responsible for paying for...(truncated)
+2026-11-09 12:14:12.379 [writer] committed offset 108 for s9486_tasks partition 1
+2026-11-09 12:14:26.979 [writer] received from topic=s9486_tasks partition=1 offset=108 correlation_id=c639189c-2c7e-4e83-97d3-07b0be6a54d6
+2026-11-09 12:14:26.980 [writer] working on correlation_id=c639189c-2c7e-4e83-97d3-07b0be6a54d6 with llama3.2:3b
+2026-11-09 12:14:44.844 [writer] sent to topic=s9486_drafts partition=0 offset=132 correlation_id=c639189c-2c7e-4e83-97d3-07b0be6a54d6 value={"correlation_id": "c639189c-2c7e-4e83-97d3-07b0be6a54d6", "question": "How do I set up internet in a new apartment?", "plan": ["Check if the apartment complex has a preferred internet provider or if you can bring your own device (BYOD) with a compatible plan", "Contact the internet provider to sche...(truncated)
+2026-11-09 12:14:44.852 [writer] committed offset 109 for s9486_tasks partition 1
+2026-11-09 12:15:01.987 [writer] received from topic=s9486_tasks partition=1 offset=109 correlation_id=49ca9b70-6ccc-4919-9d00-434904c83c80
+2026-11-09 12:15:01.987 [writer] working on correlation_id=49ca9b70-6ccc-4919-9d00-434904c83c80 with llama3.2:3b
+2026-11-09 12:15:22.334 [writer] sent to topic=s9486_drafts partition=0 offset=133 correlation_id=49ca9b70-6ccc-4919-9d00-434904c83c80 value={"correlation_id": "49ca9b70-6ccc-4919-9d00-434904c83c80", "question": "What is a co-signer on a lease?", "plan": ["A co-signer on a lease is a person who agrees to be financially responsible for the rent and any damages to the property.", "They typically have a good credit score and are willing to ...(truncated)
+2026-11-09 12:15:22.343 [writer] committed offset 110 for s9486_tasks partition 1
+2026-11-09 12:15:40.113 [writer] received from topic=s9486_tasks partition=0 offset=40 correlation_id=c67ca4c4-55de-4502-83bc-81abb6abad40
+2026-11-09 12:15:40.114 [writer] working on correlation_id=c67ca4c4-55de-4502-83bc-81abb6abad40 with llama3.2:3b
+2026-11-09 12:15:59.004 [writer] sent to topic=s9486_drafts partition=0 offset=134 correlation_id=c67ca4c4-55de-4502-83bc-81abb6abad40 value={"correlation_id": "c67ca4c4-55de-4502-83bc-81abb6abad40", "question": "How can I tell if a rental listing is a scam?", "plan": ["Check the listing for generic or overly promotional language, such as 'perfect opportunity' or 'must see'.", "Verify the landlord's contact information and ensure it matc...(truncated)
+2026-11-09 12:15:59.013 [writer] committed offset 41 for s9486_tasks partition 0
+2026-11-09 12:16:14.918 [writer] received from topic=s9486_tasks partition=0 offset=41 correlation_id=b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed
+2026-11-09 12:16:14.919 [writer] working on correlation_id=b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed with llama3.2:3b
+2026-11-09 12:16:38.556 [writer] sent to topic=s9486_drafts partition=0 offset=135 correlation_id=b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed value={"correlation_id": "b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed", "question": "Are furnished apartments more expensive near SJSU?", "plan": ["Check online listings for furnished apartments near San Jose State University (SJSU) to compare prices.", "Look for apartments that offer furnished options and filte...(truncated)
+2026-11-09 12:16:38.586 [writer] committed offset 42 for s9486_tasks partition 0
+2026-11-09 12:16:57.427 [writer] received from topic=s9486_tasks partition=0 offset=42 correlation_id=c957539a-4909-4d59-bda7-2e84d3741ca0
+2026-11-09 12:16:57.428 [writer] working on correlation_id=c957539a-4909-4d59-bda7-2e84d3741ca0 with llama3.2:3b
+2026-11-09 12:17:28.528 [writer] sent to topic=s9486_drafts partition=0 offset=136 correlation_id=c957539a-4909-4d59-bda7-2e84d3741ca0 value={"correlation_id": "c957539a-4909-4d59-bda7-2e84d3741ca0", "question": "How do I put the electricity account in my name when I move in?", "plan": ["Check your lease agreement to see if it specifies who is responsible for setting up utilities in their name.", "Contact your landlord or property manage...(truncated)
+2026-11-09 12:17:28.943 [writer] committed offset 43 for s9486_tasks partition 0
+2026-11-09 12:18:09.040 [writer] received from topic=s9486_tasks partition=1 offset=110 correlation_id=c29f6a1e-561b-4fdd-93fd-6a980fd8fca2
+2026-11-09 12:18:09.055 [writer] working on correlation_id=c29f6a1e-561b-4fdd-93fd-6a980fd8fca2 with llama3.2:3b
+2026-11-09 12:18:38.322 [writer] sent to topic=s9486_drafts partition=0 offset=137 correlation_id=c29f6a1e-561b-4fdd-93fd-6a980fd8fca2 value={"correlation_id": "c29f6a1e-561b-4fdd-93fd-6a980fd8fca2", "question": "How many units were rented out at listing LST-00753 last year?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title \"Renovated 1BR Apartment with parking\", address 18...(truncated)
+2026-11-09 12:18:38.523 [writer] committed offset 111 for s9486_tasks partition 1
+2026-11-09 12:19:05.135 [writer] received from topic=s9486_tasks partition=1 offset=111 correlation_id=4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83
+2026-11-09 12:19:05.136 [writer] working on correlation_id=4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83 with llama3.2:3b
+2026-11-09 12:19:25.718 [writer] sent to topic=s9486_drafts partition=0 offset=138 correlation_id=4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83 value={"correlation_id": "4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83", "question": "How do I fix a broken heater myself?", "plan": ["Check the user manual or manufacturer's instructions to see if they provide guidance on repairing a broken heater.", "Turn off the power to the heater at the circuit breaker or fu...(truncated)
+2026-11-09 12:19:25.726 [writer] committed offset 112 for s9486_tasks partition 1
+2026-11-09 12:19:43.554 [writer] received from topic=s9486_tasks partition=1 offset=112 correlation_id=df409808-af97-432b-a620-13160fa53260
+2026-11-09 12:19:43.555 [writer] working on correlation_id=df409808-af97-432b-a620-13160fa53260 with llama3.2:3b
+2026-11-09 12:20:03.953 [writer] sent to topic=s9486_drafts partition=0 offset=139 correlation_id=df409808-af97-432b-a620-13160fa53260 value={"correlation_id": "df409808-af97-432b-a620-13160fa53260", "question": "What do I need to do to get my security deposit returned when I leave?", "plan": ["Check your lease agreement to see if there are any specific requirements for returning your security deposit", "Clean and repair any damages to t...(truncated)
+2026-11-09 12:20:03.971 [writer] committed offset 113 for s9486_tasks partition 1
+2026-11-09 12:20:19.587 [writer] received from topic=s9486_tasks partition=1 offset=113 correlation_id=56942491-23c0-4856-b32f-877dc59556c3
+2026-11-09 12:20:19.588 [writer] working on correlation_id=56942491-23c0-4856-b32f-877dc59556c3 with llama3.2:3b
+2026-11-09 12:20:41.337 [writer] sent to topic=s9486_drafts partition=0 offset=140 correlation_id=56942491-23c0-4856-b32f-877dc59556c3 value={"correlation_id": "56942491-23c0-4856-b32f-877dc59556c3", "question": "What should I check before signing a lease for a parking space?", "plan": ["Check the parking space's size and layout to ensure it meets your vehicle's needs", "Review the lease agreement to understand the parking space's usage ...(truncated)
+2026-11-09 12:20:41.354 [writer] committed offset 114 for s9486_tasks partition 1
+2026-11-09 12:21:01.061 [writer] received from topic=s9486_tasks partition=1 offset=114 correlation_id=b1835110-6f82-4458-942c-ebcec1b152c3
+2026-11-09 12:21:01.063 [writer] working on correlation_id=b1835110-6f82-4458-942c-ebcec1b152c3 with llama3.2:3b
+2026-11-09 12:21:19.716 [writer] sent to topic=s9486_drafts partition=0 offset=141 correlation_id=b1835110-6f82-4458-942c-ebcec1b152c3 value={"correlation_id": "b1835110-6f82-4458-942c-ebcec1b152c3", "question": "What type of place is listing LST-00640?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00640: title \"Furnished 2BR Apartment with balcony\", address 8759 Santa Clara St, Cam...(truncated)
+2026-11-09 12:21:19.726 [writer] committed offset 115 for s9486_tasks partition 1
+2026-11-09 12:21:33.303 [writer] received from topic=s9486_tasks partition=1 offset=115 correlation_id=7cb7884e-84de-4f4f-b3ea-14f28e670b3d
+2026-11-09 12:21:33.303 [writer] working on correlation_id=7cb7884e-84de-4f4f-b3ea-14f28e670b3d with llama3.2:3b
+2026-11-09 12:21:47.628 [writer] sent to topic=s9486_drafts partition=0 offset=142 correlation_id=7cb7884e-84de-4f4f-b3ea-14f28e670b3d value={"correlation_id": "7cb7884e-84de-4f4f-b3ea-14f28e670b3d", "question": "How many open units does listing LST-00753 have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title \"Renovated 1BR Apartment with parking\", address 1818 Willow St, ...(truncated)
+2026-11-09 12:21:47.636 [writer] committed offset 116 for s9486_tasks partition 1
+2026-11-09 12:22:02.300 [writer] received from topic=s9486_tasks partition=0 offset=43 correlation_id=ba672bd8-cc76-48b2-8c31-590bda8d6022
+2026-11-09 12:22:02.301 [writer] working on correlation_id=ba672bd8-cc76-48b2-8c31-590bda8d6022 with llama3.2:3b
+2026-11-09 12:22:19.737 [writer] sent to topic=s9486_drafts partition=0 offset=143 correlation_id=ba672bd8-cc76-48b2-8c31-590bda8d6022 value={"correlation_id": "ba672bd8-cc76-48b2-8c31-590bda8d6022", "question": "Which documents should I prepare for an apartment rental application?", "plan": ["Gather required identification documents (e.g. passport, driver's license, ID card)", "Collect proof of income (e.g. pay stubs, bank statements, t...(truncated)
+2026-11-09 12:22:19.746 [writer] committed offset 44 for s9486_tasks partition 0
+2026-11-09 12:22:38.610 [writer] received from topic=s9486_tasks partition=0 offset=44 correlation_id=ce91e3fe-f9e9-46f3-a85f-08671560e4be
+2026-11-09 12:22:38.611 [writer] working on correlation_id=ce91e3fe-f9e9-46f3-a85f-08671560e4be with llama3.2:3b
+2026-11-09 12:22:58.454 [writer] sent to topic=s9486_drafts partition=0 offset=144 correlation_id=ce91e3fe-f9e9-46f3-a85f-08671560e4be value={"correlation_id": "ce91e3fe-f9e9-46f3-a85f-08671560e4be", "question": "How much notice does my landlord need to give before entering my apartment?", "plan": ["Check your lease agreement to see if it specifies the notice period required for entry by the landlord.", "Typically, landlords are required...(truncated)
+2026-11-09 12:22:58.464 [writer] committed offset 45 for s9486_tasks partition 0
+2026-11-09 12:23:13.132 [writer] received from topic=s9486_tasks partition=1 offset=116 correlation_id=bb9c5a7e-2040-4af2-8022-cb6966beb339
+2026-11-09 12:23:13.134 [writer] working on correlation_id=bb9c5a7e-2040-4af2-8022-cb6966beb339 with llama3.2:3b
+2026-11-09 12:23:30.647 [writer] sent to topic=s9486_drafts partition=0 offset=145 correlation_id=bb9c5a7e-2040-4af2-8022-cb6966beb339 value={"correlation_id": "bb9c5a7e-2040-4af2-8022-cb6966beb339", "question": "What documents do I need to apply for renters insurance?", "plan": ["Check the insurance provider's requirements", "Gather necessary identification documents (e.g. driver's license, passport, state ID)", "Collect proof of income...(truncated)
+2026-11-09 12:23:30.677 [writer] committed offset 117 for s9486_tasks partition 1
+2026-11-09 12:23:51.414 [writer] received from topic=s9486_tasks partition=1 offset=117 correlation_id=b5fc7743-5a3b-4244-8270-0ec3473eb21f
+2026-11-09 12:23:51.415 [writer] working on correlation_id=b5fc7743-5a3b-4244-8270-0ec3473eb21f with llama3.2:3b
+2026-11-09 12:24:07.254 [writer] sent to topic=s9486_drafts partition=0 offset=146 correlation_id=b5fc7743-5a3b-4244-8270-0ec3473eb21f value={"correlation_id": "b5fc7743-5a3b-4244-8270-0ec3473eb21f", "question": "Who is the landlord for listing LST-00350?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00350: title \"Renovated 1BR Condo near downtown\", address 9972 Market St, San Jose,...(truncated)
+2026-11-09 12:24:07.264 [writer] committed offset 118 for s9486_tasks partition 1
+2026-11-09 12:24:16.038 [writer] stopped
+2026-11-09 12:24:37.325 [writer] ready: group=s9486_writers topic=s9486_tasks assigned partitions=[0, 1]
+2026-11-09 12:24:37.325 [writer] started: reads s9486_tasks, writes s9486_drafts, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-09 12:24:45.576 [writer] received from topic=s9486_tasks partition=0 offset=45 correlation_id=898cef57-50ca-48d1-9ad8-8474f7df234f
+2026-11-09 12:24:45.585 [writer] working on correlation_id=898cef57-50ca-48d1-9ad8-8474f7df234f with llama3.2:3b
+2026-11-09 12:24:57.051 [writer] sent to topic=s9486_drafts partition=0 offset=147 correlation_id=898cef57-50ca-48d1-9ad8-8474f7df234f value={"correlation_id": "898cef57-50ca-48d1-9ad8-8474f7df234f", "question": "How many units are available at listing LST-00888?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00888: title \"Renovated Studio with parking\", address 8111 Almaden Blvd, Sa...(truncated)
+2026-11-09 12:24:57.058 [writer] committed offset 46 for s9486_tasks partition 0
+2026-11-09 12:25:08.233 [writer] received from topic=s9486_tasks partition=0 offset=46 correlation_id=c9e83ec6-8ae0-485e-9fcd-e49787967ded
+2026-11-09 12:25:08.233 [writer] working on correlation_id=c9e83ec6-8ae0-485e-9fcd-e49787967ded with llama3.2:3b
+2026-11-09 12:25:18.659 [writer] sent to topic=s9486_drafts partition=0 offset=148 correlation_id=c9e83ec6-8ae0-485e-9fcd-e49787967ded value={"correlation_id": "c9e83ec6-8ae0-485e-9fcd-e49787967ded", "question": "How many units are available at listing LST-00888?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00888: title \"Renovated Studio with parking\", address 8111 Almaden Blvd, Sa...(truncated)
+2026-11-09 12:25:18.669 [writer] committed offset 47 for s9486_tasks partition 0
+2026-11-09 12:25:24.168 [writer] stopped

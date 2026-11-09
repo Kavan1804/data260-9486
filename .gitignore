@@ -22,6 +22,7 @@ Homework7/*.docx
 Homework8/DATA236_DEMO8/
 Homework8/multi-agent-demo/
 Homework8/*.pdf
+Homework9/*.pdf
 
 # Tool caches
 .ruff_cache/
@@ -39,3 +40,4 @@ reports/hw05/screenshots/
 reports/hw06/screenshots/
 reports/hw07/screenshots/
 reports/hw08/screenshots/
+reports/hw09/screenshots/

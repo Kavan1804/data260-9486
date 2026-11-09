@@ -1,0 +1,48 @@
+{
+  "run_at": "2026-11-09T20:25:24+00:00",
+  "listing_code": "LST-00888",
+  "query": "How many units are available at listing LST-00888?",
+  "original_units": 1,
+  "steps": [
+    {
+      "step": "first ask",
+      "is_cached": false,
+      "similarity": 0.0,
+      "latency_ms": 25528.9,
+      "data_version": "LST-00888@4dd97538e9a8",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Retrieve the available units information for listing LST-00888 from the s9486_rel listings database.\n   The available units information for LST-00888 is: available_units=1.\n\n2. Extract the available_units value from the retrieved information.\n   The available_units value is 1.\n\n3. Return the extracted available_units value as the answer.\n   The available units available at listing LST-00888 is 1."
+    },
+    {
+      "step": "repeat before update",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 205.4,
+      "data_version": "LST-00888@4dd97538e9a8",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Retrieve the available units information for listing LST-00888 from the s9486_rel listings database.\n   The available units information for LST-00888 is: available_units=1.\n\n2. Extract the available_units value from the retrieved information.\n   The available_units value is 1.\n\n3. Return the extracted available_units value as the answer.\n   The available units available at listing LST-00888 is 1."
+    },
+    {
+      "step": "stale hit (check off)",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 50.2,
+      "data_version": "LST-00888@4dd97538e9a8",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Retrieve the available units information for listing LST-00888 from the s9486_rel listings database.\n   The available units information for LST-00888 is: available_units=1.\n\n2. Extract the available_units value from the retrieved information.\n   The available_units value is 1.\n\n3. Return the extracted available_units value as the answer.\n   The available units available at listing LST-00888 is 1."
+    },
+    {
+      "step": "version check on",
+      "is_cached": false,
+      "similarity": 1.0,
+      "latency_ms": 20282.8,
+      "data_version": "LST-00888@599f8956dc68",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Retrieve the available units count for listing LST-00888 from the s9486_rel listings database.\n   The available units count for listing LST-00888 is 0.\n\n2. Extract the available_units value from the retrieved data.\n   The available_units value is 0.\n\n3. Return the extracted available_units value as the answer.\n   The available units available at listing LST-00888 is 0."
+    },
+    {
+      "step": "repeat after refresh",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 262.6,
+      "data_version": "LST-00888@599f8956dc68",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Retrieve the available units count for listing LST-00888 from the s9486_rel listings database.\n   The available units count for listing LST-00888 is 0.\n\n2. Extract the available_units value from the retrieved data.\n   The available_units value is 0.\n\n3. Return the extracted available_units value as the answer.\n   The available units available at listing LST-00888 is 0."
+    }
+  ]
+}

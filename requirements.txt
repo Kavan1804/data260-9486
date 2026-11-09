@@ -33,3 +33,7 @@ langchain-ollama
 
 # HW8: Kafka client for the request/response service and the agent pipeline
 aiokafka==0.15.0
+
+# HW9: Redis view counter + semantic cache (vector index), embeddings as float32 vectors
+redis==6.4.0
+numpy==2.3.3

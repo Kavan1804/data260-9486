@@ -1,0 +1,267 @@
+{
+  "run_at": "2026-11-09T20:02:04+00:00",
+  "summary": {
+    "queries": 12,
+    "by_category": {
+      "new": {
+        "queries": 5,
+        "hits": 0
+      },
+      "exact": {
+        "queries": 3,
+        "hits": 3
+      },
+      "paraphrase": {
+        "queries": 4,
+        "hits": 4
+      }
+    },
+    "hits": 7,
+    "hit_rate_pct": 58.3,
+    "avg_cached_ms": 249.4,
+    "avg_non_cached_ms": 52400.0,
+    "pipeline_calls": 5,
+    "threshold": 0.85
+  },
+  "rows": [
+    {
+      "query": "How many units are available at listing LST-00117?",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the available units of listing LST-00117. The search results show that listing LST-00117 has available units.\n\n2. Filter the search results to show only the available units of listing LST-00117. The filtered search results confirm that listing LST-00117 has available units.\n\n3. Extract the available units count from the filtered search results. The available units count is 1.\n\n4. Output the available units count as the final answer. The available units count for listing LST-00117 is 1.",
+      "is_cached": false,
+      "similarity": 0.0,
+      "matched_query": null,
+      "latency_ms": 45666.3,
+      "timings": {
+        "embed_ms": 55.7,
+        "search_ms": 3.4,
+        "pipeline_ms": 45331.7,
+        "store_ms": 133.3
+      },
+      "data_version": "LST-00117@d9f483c330ed",
+      "cache_key": "s9486:semcache:entry:0fbb9bde1c23",
+      "status": "approved",
+      "miss_reason": "empty cache",
+      "correlation_id": "59e499cd-63f5-4cb6-b69b-8b4c8d160b0f",
+      "n": 1,
+      "category": "new",
+      "pipeline_called": true
+    },
+    {
+      "query": "How many units are available at listing LST-00117?",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the available units of listing LST-00117. The search results show that listing LST-00117 has available units.\n\n2. Filter the search results to show only the available units of listing LST-00117. The filtered search results confirm that listing LST-00117 has available units.\n\n3. Extract the available units count from the filtered search results. The available units count is 1.\n\n4. Output the available units count as the final answer. The available units count for listing LST-00117 is 1.",
+      "is_cached": true,
+      "similarity": 1.0,
+      "matched_query": "How many units are available at listing LST-00117?",
+      "latency_ms": 774.3,
+      "timings": {
+        "embed_ms": 690.4,
+        "search_ms": 4.9,
+        "version_ms": 78.9
+      },
+      "data_version": "LST-00117@d9f483c330ed",
+      "cache_key": "s9486:semcache:entry:0fbb9bde1c23",
+      "status": "approved",
+      "n": 2,
+      "category": "exact",
+      "pipeline_called": false
+    },
+    {
+      "query": "What should I check before signing a lease for an apartment in San Jose?",
+      "answer": "Here's a clear answer to the question, following the plan step by step:\n\nBefore signing a lease for an apartment in San Jose, it's essential to take the following steps to ensure you're making an informed decision.\n\n**Step 1: Review the Lease Agreement**\nCarefully read the lease agreement to check for any hidden fees or penalties. Make sure you understand the terms and conditions, including the rent amount, payment terms, and any responsibilities or obligations.\n\n**Step 2: Verify the Rent Amount and Payment Terms**\nConfirm the rent amount and payment terms, including the payment method, frequency, and any late payment fees. Ensure you understand how rent increases will be handled.\n\n**Step 3: Research the Landlord and Property Management Company**\nResearch the landlord and property management company's reputation online to ensure they have a good track record of treating tenants fairly and maintaining the property.\n\n**Step 4: Inspect the Apartment and Surrounding Area**\nFinally, inspect the apartment and surrounding area to ensure it meets your needs and expectations. Take note of any potential issues or concerns that may impact your living experience.",
+      "is_cached": false,
+      "similarity": 0.0846,
+      "matched_query": "How many units are available at listing LST-00117?",
+      "latency_ms": 41694.1,
+      "timings": {
+        "embed_ms": 170.5,
+        "search_ms": 6.2,
+        "pipeline_ms": 41495.6,
+        "store_ms": 21.5
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:5f7d4ca90c0d",
+      "status": "approved",
+      "miss_reason": "best similarity 0.0846 < 0.85",
+      "correlation_id": "d8eac5f1-e92a-4d9d-b189-b88f1ae53a0d",
+      "n": 3,
+      "category": "new",
+      "pipeline_called": true
+    },
+    {
+      "query": "Before I sign an apartment lease in San Jose, what things should I check?",
+      "answer": "Here's a clear answer to the question, following the plan step by step:\n\nBefore signing a lease for an apartment in San Jose, it's essential to take the following steps to ensure you're making an informed decision.\n\n**Step 1: Review the Lease Agreement**\nCarefully read the lease agreement to check for any hidden fees or penalties. Make sure you understand the terms and conditions, including the rent amount, payment terms, and any responsibilities or obligations.\n\n**Step 2: Verify the Rent Amount and Payment Terms**\nConfirm the rent amount and payment terms, including the payment method, frequency, and any late payment fees. Ensure you understand how rent increases will be handled.\n\n**Step 3: Research the Landlord and Property Management Company**\nResearch the landlord and property management company's reputation online to ensure they have a good track record of treating tenants fairly and maintaining the property.\n\n**Step 4: Inspect the Apartment and Surrounding Area**\nFinally, inspect the apartment and surrounding area to ensure it meets your needs and expectations. Take note of any potential issues or concerns that may impact your living experience.",
+      "is_cached": true,
+      "similarity": 0.9667,
+      "matched_query": "What should I check before signing a lease for an apartment in San Jose?",
+      "latency_ms": 225.6,
+      "timings": {
+        "embed_ms": 220.0,
+        "search_ms": 5.4
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:5f7d4ca90c0d",
+      "status": "approved",
+      "n": 4,
+      "category": "paraphrase",
+      "pipeline_called": false
+    },
+    {
+      "query": "Who is the landlord for listing LST-00230?",
+      "answer": "To find the landlord for LST-00230, I will follow the steps:\n\n1. Check the available_units field in the s9486_rel listings database for the 'available_units' value of LST-00230. The available_units field shows that there is 1 available unit.\n\n2. Extract the landlord's name from the available_units field. The landlord's name is Neha Nakamura.\n\n3. Look up the landlord's contact information or details from the extracted name. Unfortunately, the database does not provide contact information for Neha Nakamura.\n\n4. Find the landlord's name for LST-00230, which is Neha Nakamura (Campbell Rental Group).",
+      "is_cached": false,
+      "similarity": 0.542,
+      "matched_query": "How many units are available at listing LST-00117?",
+      "latency_ms": 34623.7,
+      "timings": {
+        "embed_ms": 45.6,
+        "search_ms": 1.5,
+        "pipeline_ms": 34505.8,
+        "store_ms": 9.0
+      },
+      "data_version": "LST-00230@5c3c28323744",
+      "cache_key": "s9486:semcache:entry:066428582c13",
+      "status": "approved",
+      "miss_reason": "best similarity 0.5420 < 0.85",
+      "correlation_id": "553ac8a1-fc9f-4fc4-bdcd-18653d4456ee",
+      "n": 5,
+      "category": "new",
+      "pipeline_called": true
+    },
+    {
+      "query": "Which landlord manages listing LST-00230?",
+      "answer": "To find the landlord for LST-00230, I will follow the steps:\n\n1. Check the available_units field in the s9486_rel listings database for the 'available_units' value of LST-00230. The available_units field shows that there is 1 available unit.\n\n2. Extract the landlord's name from the available_units field. The landlord's name is Neha Nakamura.\n\n3. Look up the landlord's contact information or details from the extracted name. Unfortunately, the database does not provide contact information for Neha Nakamura.\n\n4. Find the landlord's name for LST-00230, which is Neha Nakamura (Campbell Rental Group).",
+      "is_cached": true,
+      "similarity": 0.9697,
+      "matched_query": "Who is the landlord for listing LST-00230?",
+      "latency_ms": 233.1,
+      "timings": {
+        "embed_ms": 168.7,
+        "search_ms": 3.0,
+        "version_ms": 61.3
+      },
+      "data_version": "LST-00230@5c3c28323744",
+      "cache_key": "s9486:semcache:entry:066428582c13",
+      "status": "approved",
+      "n": 6,
+      "category": "paraphrase",
+      "pipeline_called": false
+    },
+    {
+      "query": "How can I get my full security deposit back when I move out?",
+      "answer": "To get your full security deposit back when you move out, follow these steps:\n\n1. **Clean and prepare the property**: Leave the rental property in the same condition as when you moved in, minus normal wear and tear. This includes cleaning the property, repairing any damages, and removing all personal belongings.\n\n2. **Document the property's condition**: Take photos and videos of the property to show its condition before you move out. This will help you and the landlord or property manager to identify any damages or issues.\n\n3. **Conduct a walk-through**: Provide a detailed walk-through of the property with you to the landlord or property manager, pointing out any damages or issues you've found.\n\n4. **Return all keys and access devices**: Return all keys and access devices to the landlord or property manager, as required.\n\n5. **Submit a move-out report**: Submit a move-out report and any necessary documentation to the landlord or property manager, including the photos and videos you took.\n\n6. **Follow the landlord's instructions**: Follow the landlord's or property manager's instructions for returning the security deposit, and be prepared to negotiate and provide additional information if necessary.\n\nBy following these steps, you can increase the chances of getting your full security deposit back when you move out.",
+      "is_cached": false,
+      "similarity": 0.3055,
+      "matched_query": "What should I check before signing a lease for an apartment in San Jose?",
+      "latency_ms": 104025.7,
+      "timings": {
+        "embed_ms": 43.4,
+        "search_ms": 2.5,
+        "pipeline_ms": 103962.1,
+        "store_ms": 17.6
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:3294e0d0e38b",
+      "status": "approved",
+      "miss_reason": "best similarity 0.3055 < 0.85",
+      "correlation_id": "532c405b-6f48-4ae8-a15d-65c272d32ecc",
+      "n": 7,
+      "category": "new",
+      "pipeline_called": true
+    },
+    {
+      "query": "What should I check before signing a lease for an apartment in San Jose?",
+      "answer": "Here's a clear answer to the question, following the plan step by step:\n\nBefore signing a lease for an apartment in San Jose, it's essential to take the following steps to ensure you're making an informed decision.\n\n**Step 1: Review the Lease Agreement**\nCarefully read the lease agreement to check for any hidden fees or penalties. Make sure you understand the terms and conditions, including the rent amount, payment terms, and any responsibilities or obligations.\n\n**Step 2: Verify the Rent Amount and Payment Terms**\nConfirm the rent amount and payment terms, including the payment method, frequency, and any late payment fees. Ensure you understand how rent increases will be handled.\n\n**Step 3: Research the Landlord and Property Management Company**\nResearch the landlord and property management company's reputation online to ensure they have a good track record of treating tenants fairly and maintaining the property.\n\n**Step 4: Inspect the Apartment and Surrounding Area**\nFinally, inspect the apartment and surrounding area to ensure it meets your needs and expectations. Take note of any potential issues or concerns that may impact your living experience.",
+      "is_cached": true,
+      "similarity": 1.0,
+      "matched_query": "What should I check before signing a lease for an apartment in San Jose?",
+      "latency_ms": 151.9,
+      "timings": {
+        "embed_ms": 145.0,
+        "search_ms": 6.6
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:5f7d4ca90c0d",
+      "status": "approved",
+      "n": 8,
+      "category": "exact",
+      "pipeline_called": false
+    },
+    {
+      "query": "What is a fair way to split rent and utilities with roommates?",
+      "answer": "To split rent and utilities fairly with roommates, follow these steps:\n\n1. **Determine the total rent and utilities**: Calculate the total monthly rent and utilities, including internet and cable, to understand the overall expenses.\n\n2. **Calculate each roommate's share**: Divide the total rent and utilities by the number of roommates to determine each person's share. This will give you a basic split.\n\n3. **Adjust for differences**: Consider any differences in utility usage or rent payments among roommates. If one person uses more utilities or pays more rent, adjust their share accordingly to ensure fairness.\n\n4. **Agree on the split**: Discuss and agree on the split with your roommates, making sure everyone is comfortable with the arrangement. This will help prevent conflicts and ensure a harmonious living environment.",
+      "is_cached": false,
+      "similarity": 0.3393,
+      "matched_query": "What should I check before signing a lease for an apartment in San Jose?",
+      "latency_ms": 35990.0,
+      "timings": {
+        "embed_ms": 53.0,
+        "search_ms": 5.7,
+        "pipeline_ms": 35920.1,
+        "store_ms": 11.0
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:f6bef6c4adb6",
+      "status": "approved",
+      "miss_reason": "best similarity 0.3393 < 0.85",
+      "correlation_id": "cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3",
+      "n": 9,
+      "category": "new",
+      "pipeline_called": true
+    },
+    {
+      "query": "When I move out, how do I make sure my security deposit is returned?",
+      "answer": "To get your full security deposit back when you move out, follow these steps:\n\n1. **Clean and prepare the property**: Leave the rental property in the same condition as when you moved in, minus normal wear and tear. This includes cleaning the property, repairing any damages, and removing all personal belongings.\n\n2. **Document the property's condition**: Take photos and videos of the property to show its condition before you move out. This will help you and the landlord or property manager to identify any damages or issues.\n\n3. **Conduct a walk-through**: Provide a detailed walk-through of the property with you to the landlord or property manager, pointing out any damages or issues you've found.\n\n4. **Return all keys and access devices**: Return all keys and access devices to the landlord or property manager, as required.\n\n5. **Submit a move-out report**: Submit a move-out report and any necessary documentation to the landlord or property manager, including the photos and videos you took.\n\n6. **Follow the landlord's instructions**: Follow the landlord's or property manager's instructions for returning the security deposit, and be prepared to negotiate and provide additional information if necessary.\n\nBy following these steps, you can increase the chances of getting your full security deposit back when you move out.",
+      "is_cached": true,
+      "similarity": 0.8541,
+      "matched_query": "How can I get my full security deposit back when I move out?",
+      "latency_ms": 154.8,
+      "timings": {
+        "embed_ms": 151.1,
+        "search_ms": 3.6
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:3294e0d0e38b",
+      "status": "approved",
+      "n": 10,
+      "category": "paraphrase",
+      "pipeline_called": false
+    },
+    {
+      "query": "How many open units does listing LST-00117 have right now?",
+      "answer": "To answer the question, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the available units of listing LST-00117. The search results show that listing LST-00117 has available units.\n\n2. Filter the search results to show only the available units of listing LST-00117. The filtered search results confirm that listing LST-00117 has available units.\n\n3. Extract the available units count from the filtered search results. The available units count is 1.\n\n4. Output the available units count as the final answer. The available units count for listing LST-00117 is 1.",
+      "is_cached": true,
+      "similarity": 0.9062,
+      "matched_query": "How many units are available at listing LST-00117?",
+      "latency_ms": 146.9,
+      "timings": {
+        "embed_ms": 52.3,
+        "search_ms": 1.5,
+        "version_ms": 93.0
+      },
+      "data_version": "LST-00117@d9f483c330ed",
+      "cache_key": "s9486:semcache:entry:0fbb9bde1c23",
+      "status": "approved",
+      "n": 11,
+      "category": "paraphrase",
+      "pipeline_called": false
+    },
+    {
+      "query": "What is a fair way to split rent and utilities with roommates?",
+      "answer": "To split rent and utilities fairly with roommates, follow these steps:\n\n1. **Determine the total rent and utilities**: Calculate the total monthly rent and utilities, including internet and cable, to understand the overall expenses.\n\n2. **Calculate each roommate's share**: Divide the total rent and utilities by the number of roommates to determine each person's share. This will give you a basic split.\n\n3. **Adjust for differences**: Consider any differences in utility usage or rent payments among roommates. If one person uses more utilities or pays more rent, adjust their share accordingly to ensure fairness.\n\n4. **Agree on the split**: Discuss and agree on the split with your roommates, making sure everyone is comfortable with the arrangement. This will help prevent conflicts and ensure a harmonious living environment.",
+      "is_cached": true,
+      "similarity": 1.0,
+      "matched_query": "What is a fair way to split rent and utilities with roommates?",
+      "latency_ms": 59.1,
+      "timings": {
+        "embed_ms": 57.1,
+        "search_ms": 2.0
+      },
+      "data_version": "none",
+      "cache_key": "s9486:semcache:entry:f6bef6c4adb6",
+      "status": "approved",
+      "n": 12,
+      "category": "exact",
+      "pipeline_called": false
+    }
+  ]
+}

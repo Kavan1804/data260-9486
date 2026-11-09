@@ -1,0 +1,201 @@
+threshold,id,category,label,query,similarity,nearest_seed,hit,false_hit,lookup_ms,pipeline_ms,pipeline_time_reused,latency_ms
+0.75,E01,exact,should_hit,Who is the landlord for listing LST-00305?,1.0,A01,True,False,205.5,,False,205.5
+0.75,E02,exact,should_hit,What city is listing LST-00418 located in?,1.0,A02,True,False,57.6,,False,57.6
+0.75,E03,exact,should_hit,What is the street address of listing LST-00527?,1.0,A03,True,False,44.6,,False,44.6
+0.75,E04,exact,should_hit,What kind of home is listing LST-00640?,1.0,A04,True,False,44.2,,False,44.2
+0.75,E05,exact,should_hit,How many units are available at listing LST-00753?,1.0,A05,True,False,107.8,,False,107.8
+0.75,E06,exact,should_hit,What should I check before signing a lease for an apartment?,1.0,A06,True,False,95.9,,False,95.9
+0.75,E07,exact,should_hit,How much notice do I need to give before moving out of my apartment?,1.0,A07,True,False,83.1,,False,83.1
+0.75,E08,exact,should_hit,How can I get my security deposit back after I move out?,1.0,A08,True,False,82.3,,False,82.3
+0.75,E09,exact,should_hit,What documents do I need to apply for an apartment rental?,1.0,A09,True,False,85.3,,False,85.3
+0.75,E10,exact,should_hit,How do I ask my landlord to fix a broken heater?,1.0,A10,True,False,87.8,,False,87.8
+0.75,P01,paraphrase,should_hit,Which landlord manages listing LST-00305?,0.9638,A01,True,False,85.0,,False,85.0
+0.75,P02,paraphrase,should_hit,In which city is listing LST-00418?,0.9727,A02,True,False,78.9,,False,78.9
+0.75,P03,paraphrase,should_hit,What's the address for listing LST-00527?,0.9531,A03,True,False,95.2,,False,95.2
+0.75,P04,paraphrase,should_hit,What type of place is listing LST-00640?,0.8687,A04,True,False,76.5,,False,76.5
+0.75,P05,paraphrase,should_hit,How many open units does listing LST-00753 have?,0.8879,A05,True,False,55.4,,False,55.4
+0.75,P06,paraphrase,should_hit,"Before signing an apartment lease, what should I check?",0.9851,A06,True,False,93.0,,False,93.0
+0.75,P07,paraphrase,should_hit,How far in advance must I tell my landlord that I'm moving out?,0.6818,A07,False,False,73.9,36781.8,False,36855.7
+0.75,P08,paraphrase,should_hit,What do I need to do to get my security deposit returned when I leave?,0.8242,A08,True,False,151.6,,False,151.6
+0.75,P09,paraphrase,should_hit,Which documents should I prepare for an apartment rental application?,0.8673,A09,True,False,38.7,,False,38.7
+0.75,P10,paraphrase,should_hit,My heater is broken. How should I ask the landlord to repair it?,0.9661,A10,True,False,37.0,,False,37.0
+0.75,S01,similar,should_miss,Who is the landlord for listing LST-00350?,0.97,A01,True,True,74.3,,False,74.3
+0.75,S02,similar,should_miss,What city is listing LST-00481 located in?,0.9615,A02,True,True,40.9,,False,40.9
+0.75,S03,similar,should_miss,What is the street address of listing LST-00572?,0.9627,A03,True,True,41.6,,False,41.6
+0.75,S04,similar,should_miss,What kind of home is listing LST-00604?,0.9589,A04,True,True,40.1,,False,40.1
+0.75,S05,similar,should_miss,How many units were rented out at listing LST-00753 last year?,0.7894,A05,True,True,41.2,,False,41.2
+0.75,S06,similar,should_miss,What should I check before signing a lease for a parking space?,0.8172,A06,True,True,38.3,,False,38.3
+0.75,S07,similar,should_miss,How much notice does my landlord need to give before entering my apartment?,0.8548,A07,True,True,36.8,,False,36.8
+0.75,S08,similar,should_miss,What can my landlord deduct from my security deposit after I move out?,0.6766,A08,False,False,40.5,34828.0,False,34868.5
+0.75,S09,similar,should_miss,What documents do I need to apply for renters insurance?,0.8557,A09,True,True,732.4,,False,732.4
+0.75,S10,similar,should_miss,How do I fix a broken heater myself?,0.759,A10,True,True,90.3,,False,90.3
+0.75,U01,unrelated,should_miss,What should I do if I get locked out of my apartment?,0.5017,A07,False,False,56.9,36369.6,False,36426.5
+0.75,U02,unrelated,should_miss,What is renters insurance and do I need it as a student?,0.4644,A09,False,False,419.0,40652.9,False,41071.9
+0.75,U03,unrelated,should_miss,How do I report a noisy neighbor in my apartment complex?,0.4348,A01,False,False,182.4,39936.6,False,40119.0
+0.75,U04,unrelated,should_miss,Can I sublet my room over the summer?,0.2775,A07,False,False,227.5,33265.9,False,33493.4
+0.75,U05,unrelated,should_miss,What utilities do I usually pay for in a California apartment?,0.3957,A09,False,False,169.6,31440.4,False,31610.0
+0.75,U06,unrelated,should_miss,How do I set up internet in a new apartment?,0.4404,A09,False,False,159.9,32400.6,False,32560.5
+0.75,U07,unrelated,should_miss,What is a co-signer on a lease?,0.5544,A06,False,False,176.2,37018.6,False,37194.8
+0.75,U08,unrelated,should_miss,How can I tell if a rental listing is a scam?,0.5396,A01,False,False,151.6,36704.9,False,36856.5
+0.75,U09,unrelated,should_miss,Are furnished apartments more expensive near SJSU?,0.2974,A04,False,False,162.5,42984.1,False,43146.6
+0.75,U10,unrelated,should_miss,How do I put the electricity account in my name when I move in?,0.4282,A08,False,False,214.3,62285.9,False,62500.2
+0.8,E01,exact,should_hit,Who is the landlord for listing LST-00305?,1.0,A01,True,False,342.3,,False,342.3
+0.8,E02,exact,should_hit,What city is listing LST-00418 located in?,1.0,A02,True,False,44.2,,False,44.2
+0.8,E03,exact,should_hit,What is the street address of listing LST-00527?,1.0,A03,True,False,44.0,,False,44.0
+0.8,E04,exact,should_hit,What kind of home is listing LST-00640?,1.0,A04,True,False,45.2,,False,45.2
+0.8,E05,exact,should_hit,How many units are available at listing LST-00753?,1.0,A05,True,False,60.1,,False,60.1
+0.8,E06,exact,should_hit,What should I check before signing a lease for an apartment?,1.0,A06,True,False,111.9,,False,111.9
+0.8,E07,exact,should_hit,How much notice do I need to give before moving out of my apartment?,1.0,A07,True,False,47.7,,False,47.7
+0.8,E08,exact,should_hit,How can I get my security deposit back after I move out?,1.0,A08,True,False,42.5,,False,42.5
+0.8,E09,exact,should_hit,What documents do I need to apply for an apartment rental?,1.0,A09,True,False,37.7,,False,37.7
+0.8,E10,exact,should_hit,How do I ask my landlord to fix a broken heater?,1.0,A10,True,False,38.4,,False,38.4
+0.8,P01,paraphrase,should_hit,Which landlord manages listing LST-00305?,0.9638,A01,True,False,44.2,,False,44.2
+0.8,P02,paraphrase,should_hit,In which city is listing LST-00418?,0.9727,A02,True,False,43.0,,False,43.0
+0.8,P03,paraphrase,should_hit,What's the address for listing LST-00527?,0.9531,A03,True,False,41.4,,False,41.4
+0.8,P04,paraphrase,should_hit,What type of place is listing LST-00640?,0.8687,A04,True,False,39.6,,False,39.6
+0.8,P05,paraphrase,should_hit,How many open units does listing LST-00753 have?,0.8879,A05,True,False,39.9,,False,39.9
+0.8,P06,paraphrase,should_hit,"Before signing an apartment lease, what should I check?",0.9851,A06,True,False,38.5,,False,38.5
+0.8,P07,paraphrase,should_hit,How far in advance must I tell my landlord that I'm moving out?,0.6818,A07,False,False,39.0,36781.8,True,36820.8
+0.8,P08,paraphrase,should_hit,What do I need to do to get my security deposit returned when I leave?,0.8242,A08,True,False,50.7,,False,50.7
+0.8,P09,paraphrase,should_hit,Which documents should I prepare for an apartment rental application?,0.8673,A09,True,False,46.7,,False,46.7
+0.8,P10,paraphrase,should_hit,My heater is broken. How should I ask the landlord to repair it?,0.9661,A10,True,False,42.6,,False,42.6
+0.8,S01,similar,should_miss,Who is the landlord for listing LST-00350?,0.97,A01,True,True,43.8,,False,43.8
+0.8,S02,similar,should_miss,What city is listing LST-00481 located in?,0.9615,A02,True,True,38.1,,False,38.1
+0.8,S03,similar,should_miss,What is the street address of listing LST-00572?,0.9627,A03,True,True,40.3,,False,40.3
+0.8,S04,similar,should_miss,What kind of home is listing LST-00604?,0.9589,A04,True,True,42.3,,False,42.3
+0.8,S05,similar,should_miss,How many units were rented out at listing LST-00753 last year?,0.7894,A05,False,False,38.9,56342.1,False,56381.0
+0.8,S06,similar,should_miss,What should I check before signing a lease for a parking space?,0.8172,A06,True,True,413.7,,False,413.7
+0.8,S07,similar,should_miss,How much notice does my landlord need to give before entering my apartment?,0.8548,A07,True,True,162.1,,False,162.1
+0.8,S08,similar,should_miss,What can my landlord deduct from my security deposit after I move out?,0.6766,A08,False,False,70.6,34828.0,True,34898.6
+0.8,S09,similar,should_miss,What documents do I need to apply for renters insurance?,0.8557,A09,True,True,70.0,,False,70.0
+0.8,S10,similar,should_miss,How do I fix a broken heater myself?,0.759,A10,False,False,62.0,42145.3,False,42207.3
+0.8,U01,unrelated,should_miss,What should I do if I get locked out of my apartment?,0.5017,A07,False,False,165.9,36369.6,True,36535.5
+0.8,U02,unrelated,should_miss,What is renters insurance and do I need it as a student?,0.4644,A09,False,False,42.6,40652.9,True,40695.5
+0.8,U03,unrelated,should_miss,How do I report a noisy neighbor in my apartment complex?,0.4348,A01,False,False,50.6,39936.6,True,39987.2
+0.8,U04,unrelated,should_miss,Can I sublet my room over the summer?,0.2775,A07,False,False,54.4,33265.9,True,33320.3
+0.8,U05,unrelated,should_miss,What utilities do I usually pay for in a California apartment?,0.3957,A09,False,False,45.9,31440.4,True,31486.3
+0.8,U06,unrelated,should_miss,How do I set up internet in a new apartment?,0.4404,A09,False,False,45.6,32400.6,True,32446.2
+0.8,U07,unrelated,should_miss,What is a co-signer on a lease?,0.5544,A06,False,False,45.3,37018.6,True,37063.9
+0.8,U08,unrelated,should_miss,How can I tell if a rental listing is a scam?,0.5396,A01,False,False,38.9,36704.9,True,36743.8
+0.8,U09,unrelated,should_miss,Are furnished apartments more expensive near SJSU?,0.2974,A04,False,False,45.9,42984.1,True,43030.0
+0.8,U10,unrelated,should_miss,How do I put the electricity account in my name when I move in?,0.4282,A08,False,False,36.8,62285.9,True,62322.7
+0.85,E01,exact,should_hit,Who is the landlord for listing LST-00305?,1.0,A01,True,False,101.4,,False,101.4
+0.85,E02,exact,should_hit,What city is listing LST-00418 located in?,1.0,A02,True,False,57.5,,False,57.5
+0.85,E03,exact,should_hit,What is the street address of listing LST-00527?,1.0,A03,True,False,41.7,,False,41.7
+0.85,E04,exact,should_hit,What kind of home is listing LST-00640?,1.0,A04,True,False,38.0,,False,38.0
+0.85,E05,exact,should_hit,How many units are available at listing LST-00753?,1.0,A05,True,False,42.6,,False,42.6
+0.85,E06,exact,should_hit,What should I check before signing a lease for an apartment?,1.0,A06,True,False,36.9,,False,36.9
+0.85,E07,exact,should_hit,How much notice do I need to give before moving out of my apartment?,1.0,A07,True,False,44.8,,False,44.8
+0.85,E08,exact,should_hit,How can I get my security deposit back after I move out?,1.0,A08,True,False,36.2,,False,36.2
+0.85,E09,exact,should_hit,What documents do I need to apply for an apartment rental?,1.0,A09,True,False,36.5,,False,36.5
+0.85,E10,exact,should_hit,How do I ask my landlord to fix a broken heater?,1.0,A10,True,False,40.1,,False,40.1
+0.85,P01,paraphrase,should_hit,Which landlord manages listing LST-00305?,0.9638,A01,True,False,42.2,,False,42.2
+0.85,P02,paraphrase,should_hit,In which city is listing LST-00418?,0.9727,A02,True,False,39.7,,False,39.7
+0.85,P03,paraphrase,should_hit,What's the address for listing LST-00527?,0.9531,A03,True,False,39.5,,False,39.5
+0.85,P04,paraphrase,should_hit,What type of place is listing LST-00640?,0.8687,A04,True,False,40.0,,False,40.0
+0.85,P05,paraphrase,should_hit,How many open units does listing LST-00753 have?,0.8879,A05,True,False,40.5,,False,40.5
+0.85,P06,paraphrase,should_hit,"Before signing an apartment lease, what should I check?",0.9851,A06,True,False,37.5,,False,37.5
+0.85,P07,paraphrase,should_hit,How far in advance must I tell my landlord that I'm moving out?,0.6818,A07,False,False,36.5,36781.8,True,36818.3
+0.85,P08,paraphrase,should_hit,What do I need to do to get my security deposit returned when I leave?,0.8242,A08,False,False,46.0,37197.9,False,37243.9
+0.85,P09,paraphrase,should_hit,Which documents should I prepare for an apartment rental application?,0.8673,A09,True,False,137.1,,False,137.1
+0.85,P10,paraphrase,should_hit,My heater is broken. How should I ask the landlord to repair it?,0.9661,A10,True,False,42.6,,False,42.6
+0.85,S01,similar,should_miss,Who is the landlord for listing LST-00350?,0.97,A01,True,True,102.6,,False,102.6
+0.85,S02,similar,should_miss,What city is listing LST-00481 located in?,0.9615,A02,True,True,48.2,,False,48.2
+0.85,S03,similar,should_miss,What is the street address of listing LST-00572?,0.9627,A03,True,True,46.0,,False,46.0
+0.85,S04,similar,should_miss,What kind of home is listing LST-00604?,0.9589,A04,True,True,43.1,,False,43.1
+0.85,S05,similar,should_miss,How many units were rented out at listing LST-00753 last year?,0.7894,A05,False,False,39.5,56342.1,True,56381.6
+0.85,S06,similar,should_miss,What should I check before signing a lease for a parking space?,0.8172,A06,False,False,36.0,37620.4,False,37656.4
+0.85,S07,similar,should_miss,How much notice does my landlord need to give before entering my apartment?,0.8548,A07,True,True,172.7,,False,172.7
+0.85,S08,similar,should_miss,What can my landlord deduct from my security deposit after I move out?,0.6766,A08,False,False,41.3,34828.0,True,34869.3
+0.85,S09,similar,should_miss,What documents do I need to apply for renters insurance?,0.8557,A09,True,True,42.4,,False,42.4
+0.85,S10,similar,should_miss,How do I fix a broken heater myself?,0.759,A10,False,False,38.2,42145.3,True,42183.5
+0.85,U01,unrelated,should_miss,What should I do if I get locked out of my apartment?,0.5017,A07,False,False,38.1,36369.6,True,36407.7
+0.85,U02,unrelated,should_miss,What is renters insurance and do I need it as a student?,0.4644,A09,False,False,38.2,40652.9,True,40691.1
+0.85,U03,unrelated,should_miss,How do I report a noisy neighbor in my apartment complex?,0.4348,A01,False,False,37.9,39936.6,True,39974.5
+0.85,U04,unrelated,should_miss,Can I sublet my room over the summer?,0.2775,A07,False,False,38.3,33265.9,True,33304.2
+0.85,U05,unrelated,should_miss,What utilities do I usually pay for in a California apartment?,0.3957,A09,False,False,38.1,31440.4,True,31478.5
+0.85,U06,unrelated,should_miss,How do I set up internet in a new apartment?,0.4404,A09,False,False,38.3,32400.6,True,32438.9
+0.85,U07,unrelated,should_miss,What is a co-signer on a lease?,0.5544,A06,False,False,36.8,37018.6,True,37055.4
+0.85,U08,unrelated,should_miss,How can I tell if a rental listing is a scam?,0.5396,A01,False,False,36.0,36704.9,True,36740.9
+0.85,U09,unrelated,should_miss,Are furnished apartments more expensive near SJSU?,0.2974,A04,False,False,36.6,42984.1,True,43020.7
+0.85,U10,unrelated,should_miss,How do I put the electricity account in my name when I move in?,0.4282,A08,False,False,39.7,62285.9,True,62325.6
+0.9,E01,exact,should_hit,Who is the landlord for listing LST-00305?,1.0,A01,True,False,114.5,,False,114.5
+0.9,E02,exact,should_hit,What city is listing LST-00418 located in?,1.0,A02,True,False,105.5,,False,105.5
+0.9,E03,exact,should_hit,What is the street address of listing LST-00527?,1.0,A03,True,False,66.3,,False,66.3
+0.9,E04,exact,should_hit,What kind of home is listing LST-00640?,1.0,A04,True,False,66.3,,False,66.3
+0.9,E05,exact,should_hit,How many units are available at listing LST-00753?,1.0,A05,True,False,63.7,,False,63.7
+0.9,E06,exact,should_hit,What should I check before signing a lease for an apartment?,1.0,A06,True,False,51.4,,False,51.4
+0.9,E07,exact,should_hit,How much notice do I need to give before moving out of my apartment?,1.0,A07,True,False,124.2,,False,124.2
+0.9,E08,exact,should_hit,How can I get my security deposit back after I move out?,1.0,A08,True,False,60.1,,False,60.1
+0.9,E09,exact,should_hit,What documents do I need to apply for an apartment rental?,1.0,A09,True,False,44.1,,False,44.1
+0.9,E10,exact,should_hit,How do I ask my landlord to fix a broken heater?,1.0,A10,True,False,44.7,,False,44.7
+0.9,P01,paraphrase,should_hit,Which landlord manages listing LST-00305?,0.9638,A01,True,False,51.1,,False,51.1
+0.9,P02,paraphrase,should_hit,In which city is listing LST-00418?,0.9727,A02,True,False,55.8,,False,55.8
+0.9,P03,paraphrase,should_hit,What's the address for listing LST-00527?,0.9531,A03,True,False,60.8,,False,60.8
+0.9,P04,paraphrase,should_hit,What type of place is listing LST-00640?,0.8687,A04,False,False,65.6,35241.1,False,35306.7
+0.9,P05,paraphrase,should_hit,How many open units does listing LST-00753 have?,0.8879,A05,False,False,178.3,28138.6,False,28316.9
+0.9,P06,paraphrase,should_hit,"Before signing an apartment lease, what should I check?",0.9851,A06,True,False,150.0,,False,150.0
+0.9,P07,paraphrase,should_hit,How far in advance must I tell my landlord that I'm moving out?,0.6818,A07,False,False,41.0,36781.8,True,36822.8
+0.9,P08,paraphrase,should_hit,What do I need to do to get my security deposit returned when I leave?,0.8242,A08,False,False,41.8,37197.9,True,37239.7
+0.9,P09,paraphrase,should_hit,Which documents should I prepare for an apartment rental application?,0.8673,A09,False,False,38.8,32289.1,False,32327.9
+0.9,P10,paraphrase,should_hit,My heater is broken. How should I ask the landlord to repair it?,0.9661,A10,True,False,293.4,,False,293.4
+0.9,S01,similar,should_miss,Who is the landlord for listing LST-00350?,0.97,A01,True,True,152.8,,False,152.8
+0.9,S02,similar,should_miss,What city is listing LST-00481 located in?,0.9615,A02,True,True,72.0,,False,72.0
+0.9,S03,similar,should_miss,What is the street address of listing LST-00572?,0.9627,A03,True,True,67.0,,False,67.0
+0.9,S04,similar,should_miss,What kind of home is listing LST-00604?,0.9589,A04,True,True,48.2,,False,48.2
+0.9,S05,similar,should_miss,How many units were rented out at listing LST-00753 last year?,0.7894,A05,False,False,46.5,56342.1,True,56388.6
+0.9,S06,similar,should_miss,What should I check before signing a lease for a parking space?,0.8172,A06,False,False,41.7,37620.4,True,37662.1
+0.9,S07,similar,should_miss,How much notice does my landlord need to give before entering my apartment?,0.8548,A07,False,False,39.3,38171.0,False,38210.3
+0.9,S08,similar,should_miss,What can my landlord deduct from my security deposit after I move out?,0.6766,A08,False,False,170.3,34828.0,True,34998.3
+0.9,S09,similar,should_miss,What documents do I need to apply for renters insurance?,0.8557,A09,False,False,43.6,31841.1,False,31884.7
+0.9,S10,similar,should_miss,How do I fix a broken heater myself?,0.759,A10,False,False,188.3,42145.3,True,42333.6
+0.9,U01,unrelated,should_miss,What should I do if I get locked out of my apartment?,0.5017,A07,False,False,42.0,36369.6,True,36411.6
+0.9,U02,unrelated,should_miss,What is renters insurance and do I need it as a student?,0.4644,A09,False,False,41.1,40652.9,True,40694.0
+0.9,U03,unrelated,should_miss,How do I report a noisy neighbor in my apartment complex?,0.4348,A01,False,False,38.5,39936.6,True,39975.1
+0.9,U04,unrelated,should_miss,Can I sublet my room over the summer?,0.2775,A07,False,False,43.5,33265.9,True,33309.4
+0.9,U05,unrelated,should_miss,What utilities do I usually pay for in a California apartment?,0.3957,A09,False,False,36.2,31440.4,True,31476.6
+0.9,U06,unrelated,should_miss,How do I set up internet in a new apartment?,0.4404,A09,False,False,36.6,32400.6,True,32437.2
+0.9,U07,unrelated,should_miss,What is a co-signer on a lease?,0.5544,A06,False,False,38.3,37018.6,True,37056.9
+0.9,U08,unrelated,should_miss,How can I tell if a rental listing is a scam?,0.5396,A01,False,False,38.7,36704.9,True,36743.6
+0.9,U09,unrelated,should_miss,Are furnished apartments more expensive near SJSU?,0.2974,A04,False,False,42.7,42984.1,True,43026.8
+0.9,U10,unrelated,should_miss,How do I put the electricity account in my name when I move in?,0.4282,A08,False,False,35.7,62285.9,True,62321.6
+0.95,E01,exact,should_hit,Who is the landlord for listing LST-00305?,1.0,A01,True,False,78.1,,False,78.1
+0.95,E02,exact,should_hit,What city is listing LST-00418 located in?,1.0,A02,True,False,41.1,,False,41.1
+0.95,E03,exact,should_hit,What is the street address of listing LST-00527?,1.0,A03,True,False,39.2,,False,39.2
+0.95,E04,exact,should_hit,What kind of home is listing LST-00640?,1.0,A04,True,False,39.8,,False,39.8
+0.95,E05,exact,should_hit,How many units are available at listing LST-00753?,1.0,A05,True,False,43.7,,False,43.7
+0.95,E06,exact,should_hit,What should I check before signing a lease for an apartment?,1.0,A06,True,False,37.1,,False,37.1
+0.95,E07,exact,should_hit,How much notice do I need to give before moving out of my apartment?,1.0,A07,True,False,40.5,,False,40.5
+0.95,E08,exact,should_hit,How can I get my security deposit back after I move out?,1.0,A08,True,False,37.6,,False,37.6
+0.95,E09,exact,should_hit,What documents do I need to apply for an apartment rental?,1.0,A09,True,False,38.4,,False,38.4
+0.95,E10,exact,should_hit,How do I ask my landlord to fix a broken heater?,1.0,A10,True,False,40.5,,False,40.5
+0.95,P01,paraphrase,should_hit,Which landlord manages listing LST-00305?,0.9638,A01,True,False,37.5,,False,37.5
+0.95,P02,paraphrase,should_hit,In which city is listing LST-00418?,0.9727,A02,True,False,37.7,,False,37.7
+0.95,P03,paraphrase,should_hit,What's the address for listing LST-00527?,0.9531,A03,True,False,38.4,,False,38.4
+0.95,P04,paraphrase,should_hit,What type of place is listing LST-00640?,0.8687,A04,False,False,39.1,35241.1,True,35280.2
+0.95,P05,paraphrase,should_hit,How many open units does listing LST-00753 have?,0.8879,A05,False,False,37.7,28138.6,True,28176.3
+0.95,P06,paraphrase,should_hit,"Before signing an apartment lease, what should I check?",0.9851,A06,True,False,69.5,,False,69.5
+0.95,P07,paraphrase,should_hit,How far in advance must I tell my landlord that I'm moving out?,0.6818,A07,False,False,40.1,36781.8,True,36821.9
+0.95,P08,paraphrase,should_hit,What do I need to do to get my security deposit returned when I leave?,0.8242,A08,False,False,36.4,37197.9,True,37234.3
+0.95,P09,paraphrase,should_hit,Which documents should I prepare for an apartment rental application?,0.8673,A09,False,False,34.5,32289.1,True,32323.6
+0.95,P10,paraphrase,should_hit,My heater is broken. How should I ask the landlord to repair it?,0.9661,A10,True,False,36.9,,False,36.9
+0.95,S01,similar,should_miss,Who is the landlord for listing LST-00350?,0.97,A01,True,True,38.6,,False,38.6
+0.95,S02,similar,should_miss,What city is listing LST-00481 located in?,0.9615,A02,True,True,41.0,,False,41.0
+0.95,S03,similar,should_miss,What is the street address of listing LST-00572?,0.9627,A03,True,True,41.0,,False,41.0
+0.95,S04,similar,should_miss,What kind of home is listing LST-00604?,0.9589,A04,True,True,36.3,,False,36.3
+0.95,S05,similar,should_miss,How many units were rented out at listing LST-00753 last year?,0.7894,A05,False,False,41.7,56342.1,True,56383.8
+0.95,S06,similar,should_miss,What should I check before signing a lease for a parking space?,0.8172,A06,False,False,36.2,37620.4,True,37656.6
+0.95,S07,similar,should_miss,How much notice does my landlord need to give before entering my apartment?,0.8548,A07,False,False,43.9,38171.0,True,38214.9
+0.95,S08,similar,should_miss,What can my landlord deduct from my security deposit after I move out?,0.6766,A08,False,False,41.2,34828.0,True,34869.2
+0.95,S09,similar,should_miss,What documents do I need to apply for renters insurance?,0.8557,A09,False,False,39.9,31841.1,True,31881.0
+0.95,S10,similar,should_miss,How do I fix a broken heater myself?,0.759,A10,False,False,334.0,42145.3,True,42479.3
+0.95,U01,unrelated,should_miss,What should I do if I get locked out of my apartment?,0.5017,A07,False,False,90.6,36369.6,True,36460.2
+0.95,U02,unrelated,should_miss,What is renters insurance and do I need it as a student?,0.4644,A09,False,False,63.5,40652.9,True,40716.4
+0.95,U03,unrelated,should_miss,How do I report a noisy neighbor in my apartment complex?,0.4348,A01,False,False,64.8,39936.6,True,40001.4
+0.95,U04,unrelated,should_miss,Can I sublet my room over the summer?,0.2775,A07,False,False,56.6,33265.9,True,33322.5
+0.95,U05,unrelated,should_miss,What utilities do I usually pay for in a California apartment?,0.3957,A09,False,False,53.6,31440.4,True,31494.0
+0.95,U06,unrelated,should_miss,How do I set up internet in a new apartment?,0.4404,A09,False,False,50.0,32400.6,True,32450.6
+0.95,U07,unrelated,should_miss,What is a co-signer on a lease?,0.5544,A06,False,False,50.7,37018.6,True,37069.3
+0.95,U08,unrelated,should_miss,How can I tell if a rental listing is a scam?,0.5396,A01,False,False,45.6,36704.9,True,36750.5
+0.95,U09,unrelated,should_miss,Are furnished apartments more expensive near SJSU?,0.2974,A04,False,False,175.7,42984.1,True,43159.8
+0.95,U10,unrelated,should_miss,How do I put the electricity account in my name when I move in?,0.4282,A08,False,False,49.7,62285.9,True,62335.6

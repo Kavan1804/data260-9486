@@ -1,0 +1,65 @@
+{
+  "run_at": "2026-11-09T20:24:16+00:00",
+  "cases_sha256": "db1c36cf54f0f20f4cf8c815301bf7590da218389c35c527a2be0ad62500e605",
+  "miss_cost": 0.01,
+  "false_hit_cost": 2.5,
+  "summary": [
+    {
+      "threshold": 0.75,
+      "hits": 28,
+      "hit_rate": 0.7,
+      "false_hits": 9,
+      "false_hit_rate": 0.321,
+      "misses": 12,
+      "missed_should_hit": 1,
+      "mean_latency_ms": 11736.1,
+      "total_cost": 22.62
+    },
+    {
+      "threshold": 0.8,
+      "hits": 26,
+      "hit_rate": 0.65,
+      "false_hits": 7,
+      "false_hit_rate": 0.269,
+      "misses": 14,
+      "missed_should_hit": 1,
+      "mean_latency_ms": 14148.8,
+      "total_cost": 17.64
+    },
+    {
+      "threshold": 0.85,
+      "hits": 24,
+      "hit_rate": 0.6,
+      "false_hits": 6,
+      "false_hit_rate": 0.25,
+      "misses": 16,
+      "missed_should_hit": 2,
+      "mean_latency_ms": 15998.5,
+      "total_cost": 15.16
+    },
+    {
+      "threshold": 0.9,
+      "hits": 19,
+      "hit_rate": 0.475,
+      "false_hits": 4,
+      "false_hit_rate": 0.211,
+      "misses": 21,
+      "missed_should_hit": 5,
+      "mean_latency_ms": 20165.9,
+      "total_cost": 10.21
+    },
+    {
+      "threshold": 0.95,
+      "hits": 19,
+      "hit_rate": 0.475,
+      "false_hits": 4,
+      "false_hit_rate": 0.211,
+      "misses": 21,
+      "missed_should_hit": 5,
+      "mean_latency_ms": 20147.4,
+      "total_cost": 10.21
+    }
+  ],
+  "lowest_cost_threshold": 0.95,
+  "pipeline_runs_for_cases": 21
+}

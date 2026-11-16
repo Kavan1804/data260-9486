@@ -1,0 +1,505 @@
+{
+  "frozen_at": "2026-11-16T05:23:39+00:00",
+  "source": "s9486_drafts (HW8/HW9 runs)",
+  "seed": 269486,
+  "cases": [
+    {
+      "case_id": "c01",
+      "trace_id": "c582f2a7-48b5-427d-a631-c435ac12e61f",
+      "question": "How many units are available at listing LST-00117?",
+      "question_with_facts": "How many units are available at listing LST-00117?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)",
+      "plan": [
+        "Search the s9486_rel listings database for the available units of listing LST-00117",
+        "Filter the search results to show only the available units of listing LST-00117",
+        "Extract the available units count from the filtered search results",
+        "Output the available units count as the final answer"
+      ],
+      "draft": "To answer the question, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the available units of listing LST-00117. The search results show that listing LST-00117 has available units.\n\n2. Filter the search results to show only the available units of listing LST-00117. The filtered search results confirm that listing LST-00117 has available units.\n\n3. Extract the available units count from the filtered search results. The available units count is 1.\n\n4. Output the available units count as the final answer. The available units count for listing LST-00117 is 1.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 16.92
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 107,
+        "timestamp_ms": 1794251882753
+      }
+    },
+    {
+      "case_id": "c02",
+      "trace_id": "295cebd7-36df-4cad-95f2-cb1e8520298e",
+      "question": "What should I check before signing a lease for an apartment in San Jose?",
+      "question_with_facts": "What should I check before signing a lease for an apartment in San Jose?",
+      "plan": [
+        "Check the lease agreement for any hidden fees or penalties",
+        "Verify the rent amount and payment terms",
+        "Research the landlord and property management company's reputation online",
+        "Inspect the apartment and surrounding area to ensure it meets your needs and expectations"
+      ],
+      "draft": "Here's a clear answer to the question, following the plan step by step:\n\nBefore signing a lease for an apartment in San Jose, it's essential to take the following steps to ensure you're making an informed decision.\n\n**Step 1: Review the Lease Agreement**\nCarefully read the lease agreement to check for any hidden fees or penalties. Make sure you understand the terms and conditions, including the rent amount, payment terms, and any responsibilities or obligations.\n\n**Step 2: Verify the Rent Amount and Payment Terms**\nConfirm the rent amount and payment terms, including the payment method, frequency, and any late payment fees. Ensure you understand how rent increases will be handled.\n\n**Step 3: Research the Landlord and Property Management Company**\nResearch the landlord and property management company's reputation online to ensure they have a good track record of treating tenants fairly and maintaining the property.\n\n**Step 4: Inspect the Apartment and Surrounding Area**\nFinally, inspect the apartment and surrounding area to ensure it meets your needs and expectations. Take note of any potential issues or concerns that may impact your living experience.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 28.04
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 108,
+        "timestamp_ms": 1794251961435
+      }
+    },
+    {
+      "case_id": "c03",
+      "trace_id": "0d5527e5-1b93-4582-a1ec-1a650e50c968",
+      "question": "Who is the landlord for listing LST-00230?",
+      "question_with_facts": "Who is the landlord for listing LST-00230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00230: title \"Renovated Loft near SJSU\", address 1883 Almaden Blvd, Sunnyvale, CA, available_units=1, landlord Neha Nakamura (Campbell Rental Group)",
+      "plan": [
+        "Check the available_units field in the s9486_rel listings database for the 'available_units' value of LST-00230.",
+        "Extract the landlord's name from the available_units field.",
+        "Look up the landlord's contact information or details from the extracted name.",
+        "Find the landlord's name for LST-00230, which is Neha Nakamura (Campbell Rental Group)."
+      ],
+      "draft": "To find the landlord for LST-00230, I will follow the steps:\n\n1. Check the available_units field in the s9486_rel listings database for the 'available_units' value of LST-00230. The available_units field shows that there is 1 available unit.\n\n2. Extract the landlord's name from the available_units field. The landlord's name is Neha Nakamura.\n\n3. Look up the landlord's contact information or details from the extracted name. Unfortunately, the database does not provide contact information for Neha Nakamura.\n\n4. Find the landlord's name for LST-00230, which is Neha Nakamura (Campbell Rental Group).",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 18.66
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 109,
+        "timestamp_ms": 1794251999010
+      }
+    },
+    {
+      "case_id": "c04",
+      "trace_id": "cbeeaafd-3f0d-4167-b42b-cf7a1ada71e3",
+      "question": "What is a fair way to split rent and utilities with roommates?",
+      "question_with_facts": "What is a fair way to split rent and utilities with roommates?",
+      "plan": [
+        "1. Determine the total rent and utilities for the month, including any additional expenses such as internet and cable.",
+        "2. Calculate each roommate's share based on the total amount and the number of roommates.",
+        "3. Consider any differences in utility usage or rent payments among roommates and adjust the split accordingly.",
+        "4. Agree on the split with your roommates and make sure everyone is comfortable with the arrangement."
+      ],
+      "draft": "To split rent and utilities fairly with roommates, follow these steps:\n\n1. **Determine the total rent and utilities**: Calculate the total monthly rent and utilities, including internet and cable, to understand the overall expenses.\n\n2. **Calculate each roommate's share**: Divide the total rent and utilities by the number of roommates to determine each person's share. This will give you a basic split.\n\n3. **Adjust for differences**: Consider any differences in utility usage or rent payments among roommates. If one person uses more utilities or pays more rent, adjust their share accordingly to ensure fairness.\n\n4. **Agree on the split**: Discuss and agree on the split with your roommates, making sure everyone is comfortable with the arrangement. This will help prevent conflicts and ensure a harmonious living environment.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 18.46
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 114,
+        "timestamp_ms": 1794254516820
+      }
+    },
+    {
+      "case_id": "c05",
+      "trace_id": "fd077099-a93d-4f01-b53b-e314246f9a30",
+      "question": "Who is the landlord for listing LST-00305?",
+      "question_with_facts": "Who is the landlord for listing LST-00305?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00305: title \"Sunny 3BR House pet friendly\", address 7805 Almaden Blvd, San Jose, CA, available_units=1, landlord Carmen Chowdhury (Rose Garden Realty)",
+      "plan": [
+        "Search the s9486_rel listings database for the specific listing LST-00305.",
+        "Check the available_units field to confirm the number of available units.",
+        "Look for the landlord's information in the available_units field to find the name and contact details of the landlord."
+      ],
+      "draft": "To find the landlord for listing LST-00305, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specific listing LST-00305.\n   The listing LST-00305 is found with the title \"Sunny 3BR House pet friendly\".\n\n2. Check the available_units field to confirm the number of available units.\n   The available_units field shows that there is 1 available unit.\n\n3. Look for the landlord's information in the available_units field to find the name and contact details of the landlord.\n   The available_units field contains the landlord's information: Carmen Chowdhury (Rose Garden Realty).",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 16.63
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 115,
+        "timestamp_ms": 1794254576558
+      }
+    },
+    {
+      "case_id": "c06",
+      "trace_id": "ca54d0af-7baf-4067-be15-437adef60c80",
+      "question": "What city is listing LST-00418 located in?",
+      "question_with_facts": "What city is listing LST-00418 located in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00418: title \"Spacious Studio with in-unit laundry\", address 9427 Willow St, Mountain View, CA, available_units=1, landlord Paula Park (Rose Garden Realty)",
+      "plan": [
+        "Search the s9486_rel listings database for the location of LST-00418",
+        "Filter the search results by 'available_units' to find the correct listing",
+        "Check the 'available_units' value to confirm the location is correct",
+        "Verify the 'address' value to confirm the location is correct"
+      ],
+      "draft": "To find the city where LST-00418 is located, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the location of LST-00418.\n   The search results show that LST-00418 is located in Mountain View, CA.\n\n2. Filter the search results by 'available_units' to find the correct listing.\n   The filtered results still show that LST-00418 is located in Mountain View, CA.\n\n3. Check the 'available_units' value to confirm the location is correct.\n   The 'available_units' value is 1, which confirms that LST-00418 is indeed located in Mountain View, CA.\n\n4. Verify the 'address' value to confirm the location is correct.\n   The 'address' value is 9427 Willow St, which is also located in Mountain View, CA.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 26.62
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 116,
+        "timestamp_ms": 1794254622328
+      }
+    },
+    {
+      "case_id": "c07",
+      "trace_id": "813c31e9-1641-4102-8cbc-62dabf20af66",
+      "question": "How many units are available at listing LST-00753?",
+      "question_with_facts": "How many units are available at listing LST-00753?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00753: title \"Renovated 1BR Apartment with parking\", address 1818 Willow St, Santa Clara, CA, available_units=1, landlord Marcus Huang (Peninsula Leasing Co)",
+      "plan": [
+        "Search the s9486_rel listings database for the specified listing LST-00753",
+        "Extract the available_units value from the database for listing LST-00753",
+        "Return the value of available_units as the number of units available at listing LST-00753"
+      ],
+      "draft": "To answer the question, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specified listing LST-00753.\n   The search results show that LST-00753 is indeed a valid listing with the title \"Renovated 1BR Apartment with parking\" and address 1818 Willow St, Santa Clara, CA.\n\n2. Extract the available_units value from the database for listing LST-00753.\n   The available_units value for LST-00753 is 1.\n\n3. Return the value of available_units as the number of units available at listing LST-00753.\n   Therefore, the number of units available at listing LST-00753 is 1.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 18.01
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 119,
+        "timestamp_ms": 1794254752580
+      }
+    },
+    {
+      "case_id": "c08",
+      "trace_id": "2b83e687-ef84-4e2a-96dc-e2900f3f5075",
+      "question": "What should I check before signing a lease for an apartment?",
+      "question_with_facts": "What should I check before signing a lease for an apartment?",
+      "plan": [
+        "Check the lease agreement for any hidden fees or penalties",
+        "Verify the rent amount and payment terms",
+        "Inspect the apartment for any damages or needed repairs",
+        "Research the landlord and property management company's reputation online"
+      ],
+      "draft": "Here's a clear answer to the question, following the plan step by step:\n\nBefore signing a lease for an apartment, it's essential to take a few crucial steps to ensure you're making an informed decision. Here's what you should check:\n\n**Step 1: Review the Lease Agreement**\nCarefully read the lease agreement to understand any hidden fees or penalties that may not be immediately apparent. Make sure you understand the terms and conditions of the lease, including the rent amount and payment terms.\n\n**Step 2: Verify the Rent Amount and Payment Terms**\nConfirm the rent amount and payment terms, including the frequency and method of payment. Ensure you understand any late payment fees or penalties.\n\n**Step 3: Inspect the Apartment**\nConduct a thorough inspection of the apartment to identify any damages or needed repairs. Take photos and document any issues to avoid being charged for them when you move out.\n\n**Step 4: Research the Landlord and Property Management Company**\nResearch the landlord and property management company's reputation online to ensure they have a good track record of treating tenants fairly and maintaining the property.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 22.37
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 120,
+        "timestamp_ms": 1794254785101
+      }
+    },
+    {
+      "case_id": "c09",
+      "trace_id": "76a0688d-e1cd-4dea-be4d-b6d2cecaf2d9",
+      "question": "How much notice do I need to give before moving out of my apartment?",
+      "question_with_facts": "How much notice do I need to give before moving out of my apartment?",
+      "plan": [
+        "Check your lease agreement to see if it specifies a required notice period for moving out.",
+        "Typically, most leases require 30-60 days' notice.",
+        "If you're unsure, contact your landlord or property manager to confirm the notice period.",
+        "Keep in mind that some leases may have different requirements, so it's always best to review your agreement carefully."
+      ],
+      "draft": "Here's a clear answer to the question:\n\nTo determine how much notice you need to give before moving out of your apartment, follow these steps:\n\n1. Check your lease agreement to see if it specifies a required notice period for moving out. This is usually stated in the terms of your rental contract.\n\n2. Typically, most leases require 30-60 days' notice. This is a general guideline, but it's essential to review your specific lease agreement for any variations.\n\n3. If you're unsure about the notice period or have questions, contact your landlord or property manager to confirm the requirements. They can provide you with the necessary information to ensure a smooth transition.\n\n4. Always review your lease agreement carefully to avoid any misunderstandings or penalties. By following these steps, you can ensure you're providing the required notice and avoiding any potential issues when moving out.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 18.33
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 121,
+        "timestamp_ms": 1794254820416
+      }
+    },
+    {
+      "case_id": "c10",
+      "trace_id": "ae2cafcb-3d30-42ea-bbb1-790d4f008a05",
+      "question": "How can I get my security deposit back after I move out?",
+      "question_with_facts": "How can I get my security deposit back after I move out?",
+      "plan": [
+        "Check your lease agreement to see if it outlines the process for getting your security deposit back",
+        "Notify your landlord in writing as soon as possible after you move out",
+        "Provide a walk-through inspection report to document the condition of the property",
+        "Follow up with your landlord to ensure your deposit is being processed and returned to you"
+      ],
+      "draft": "To get your security deposit back after moving out, follow these steps:\n\n1. **Review your lease agreement**: Carefully read your lease to understand the terms and conditions for returning your security deposit. This will help you know what to expect and what is required of you.\n\n2. **Notify your landlord in writing**: As soon as you move out, send a written notice to your landlord stating that you have vacated the property. This will help establish a record of your departure.\n\n3. **Conduct a walk-through inspection**: Schedule a walk-through inspection with your landlord to document the condition of the property. Take photos and notes to show the property's condition before and after your departure.\n\n4. **Follow up with your landlord**: After the walk-through inspection, follow up with your landlord to ensure that your deposit is being processed and returned to you. This will help prevent any delays or disputes.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 18.32
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 122,
+        "timestamp_ms": 1794254910481
+      }
+    },
+    {
+      "case_id": "c11",
+      "trace_id": "f808ac13-7c51-4e8a-87bb-d1f3292c1fd5",
+      "question": "What documents do I need to apply for an apartment rental?",
+      "question_with_facts": "What documents do I need to apply for an apartment rental?",
+      "plan": [
+        "Gather required documents such as a valid government-issued ID (driver's license or passport), proof of income (pay stubs or W-2 forms), and proof of employment (letter from employer or contract).",
+        "Collect rental application forms from the landlord or property manager, and fill them out completely and accurately.",
+        "Get references (previous landlords or roommates) and provide their contact information, if required by the landlord.",
+        "Prepare for potential additional documentation, such as credit reports or rental history checks."
+      ],
+      "draft": "To apply for an apartment rental, you will need the following documents:\n\n1. **Valid Government-Issued ID**: A driver's license or passport that proves your identity.\n2. **Proof of Income**: Recent pay stubs or W-2 forms that show your income and employment status.\n3. **Proof of Employment**: A letter from your employer or a contract that confirms your employment.\n4. **Rental Application Forms**: Completed and accurate forms provided by the landlord or property manager.\n5. **References**: Contact information for previous landlords or roommates, if required by the landlord.\n\nAdditionally, you may be asked to provide other documents, such as:\n\n* Credit reports or credit scores\n* Rental history or previous landlord references\n* Proof of employment or income verification\n\nBe prepared to provide these documents to support your rental application.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 18.2
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 123,
+        "timestamp_ms": 1794254948258
+      }
+    },
+    {
+      "case_id": "c12",
+      "trace_id": "2e19e4ec-8b8a-4047-ac08-186263cc2c99",
+      "question": "How do I ask my landlord to fix a broken heater?",
+      "question_with_facts": "How do I ask my landlord to fix a broken heater?",
+      "plan": [
+        "Step 1: Review your lease agreement to understand your responsibilities and your landlord's obligations regarding maintenance and repairs.",
+        "Step 2: Document the issue with photos and details, including the date and time you noticed the problem.",
+        "Step 3: Write a clear and concise letter or email to your landlord, stating the issue and requesting a repair, and keep a copy for yourself.",
+        "Step 4: Follow up with your landlord to ensure they receive your request and to confirm a timeline for the repair."
+      ],
+      "draft": "Here's a step-by-step guide on how to ask your landlord to fix a broken heater:\n\n**Step 1: Review your lease agreement**\nCheck your lease agreement to understand your responsibilities and your landlord's obligations regarding maintenance and repairs. This will help you know what to expect and what you need to do.\n\n**Step 2: Document the issue**\nTake photos and notes of the broken heater, including the date and time you noticed the problem. This will serve as evidence when you report the issue to your landlord.\n\n**Step 3: Write a clear request**\nWrite a clear and concise letter or email to your landlord, stating the issue with the heater and requesting a repair. Be specific about the problem and provide any relevant details. For example: \"Dear [Landlord's Name], I am writing to report that the heater in my unit is not working properly. I have attached photos of the issue. Please arrange for a repair as soon as possible.\"\n\n**Step 4: Follow up**\nSend a follow-up email or letter to your landlord to ensure they receive your request and to confirm a timeline for the repair. This will help you stay on top of the situation and ensure that your issue is addressed in a timely manner.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 26.06
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 124,
+        "timestamp_ms": 1794254992076
+      }
+    },
+    {
+      "case_id": "c13",
+      "trace_id": "c6ab6822-0ab4-4438-8240-bc161145ac34",
+      "question": "How do I report a noisy neighbor in my apartment complex?",
+      "question_with_facts": "How do I report a noisy neighbor in my apartment complex?",
+      "plan": [
+        "Step 1: Review your lease agreement to understand your responsibilities and the process for reporting noise disturbances.",
+        "Step 2: Document the issue by keeping a record of the dates, times, and duration of the noise, as well as any witnesses or contact information for them.",
+        "Step 3: Contact your apartment complex's management or maintenance team to report the issue and request their assistance in resolving the problem.",
+        "Step 4: Follow up with the management team to ensure that the issue is being addressed and to provide any additional information or support as needed."
+      ],
+      "draft": "Here's a clear answer to the question:\n\nTo report a noisy neighbor in your apartment complex, follow these steps:\n\n**Step 1: Review your lease agreement**\nCheck your lease agreement to understand your responsibilities and the process for reporting noise disturbances. This will help you know what to expect and what you need to do.\n\n**Step 2: Document the issue**\nKeep a record of the dates, times, and duration of the noise, as well as any witnesses or their contact information. This will be helpful when you report the issue.\n\n**Step 3: Contact management**\nReach out to your apartment complex's management or maintenance team to report the issue and request their assistance in resolving the problem. They will be able to address the issue and take necessary actions.\n\n**Step 4: Follow up**\nFollow up with the management team to ensure that the issue is being addressed and to provide any additional information or support as needed.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 21.29
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 129,
+        "timestamp_ms": 1794255185887
+      }
+    },
+    {
+      "case_id": "c14",
+      "trace_id": "0fdafc36-4b2f-414c-a866-d6ef9eada640",
+      "question": "What utilities do I usually pay for in a California apartment?",
+      "question_with_facts": "What utilities do I usually pay for in a California apartment?",
+      "plan": [
+        "Check your lease agreement to see what utilities are included in the rent.",
+        "Typically, in a California apartment, you may be responsible for paying for electricity, gas, water, and internet.",
+        "Some apartments may also include a utility bill for trash removal or other services.",
+        "It's a good idea to review your lease and ask your landlord or property manager if you're unsure about what utilities you're responsible for."
+      ],
+      "draft": "Here's a clear answer to the question:\n\nIn a California apartment, you can typically expect to pay for the following utilities:\n\n1. Electricity: This is usually the most significant utility expense, and you can expect to pay for the electricity used in your apartment.\n2. Gas: If your apartment has a gas stove or heating system, you may be responsible for paying for gas.\n3. Water: You will likely be responsible for paying for water used in your apartment, including for drinking, cooking, and cleaning.\n4. Internet: Many apartments include internet service, but you may still be responsible for paying for it.\n\nIt's also possible that your apartment may include a utility bill for trash removal or other services. To confirm what utilities you're responsible for, be sure to review your lease agreement and ask your landlord or property manager if you're unsure.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 16.38
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 131,
+        "timestamp_ms": 1794255252336
+      }
+    },
+    {
+      "case_id": "c15",
+      "trace_id": "c639189c-2c7e-4e83-97d3-07b0be6a54d6",
+      "question": "How do I set up internet in a new apartment?",
+      "question_with_facts": "How do I set up internet in a new apartment?",
+      "plan": [
+        "Check if the apartment complex has a preferred internet provider or if you can bring your own device (BYOD) with a compatible plan",
+        "Contact the internet provider to schedule an installation appointment or activate your service",
+        "Schedule a time for the installation appointment and ensure you have all necessary equipment and information",
+        "Verify that the internet is working properly after installation and report any issues to the provider"
+      ],
+      "draft": "Here's a step-by-step guide to setting up internet in a new apartment:\n\n**Step 1: Check with the Apartment Complex**\nContact your apartment complex's management office to ask if they have a preferred internet provider or if you can bring your own device (BYOD) with a compatible plan. This will help you determine the best option for your needs.\n\n**Step 2: Contact the Internet Provider**\nReach out to the internet provider to schedule an installation appointment or activate your service. They will guide you through the process and provide you with the necessary information.\n\n**Step 3: Schedule and Prepare for Installation**\nSchedule a time for the installation appointment and ensure you have all necessary equipment and information, such as your account details and any required paperwork.\n\n**Step 4: Verify Internet Connection**\nAfter installation, verify that the internet is working properly and report any issues to the provider. This ensures a smooth and reliable internet connection in your new apartment.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 17.85
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 132,
+        "timestamp_ms": 1794255284833
+      }
+    },
+    {
+      "case_id": "c16",
+      "trace_id": "b8dfaf51-d14c-45c9-bb64-5f58ad32a5ed",
+      "question": "Are furnished apartments more expensive near SJSU?",
+      "question_with_facts": "Are furnished apartments more expensive near SJSU?",
+      "plan": [
+        "Check online listings for furnished apartments near San Jose State University (SJSU) to compare prices.",
+        "Look for apartments that offer furnished options and filter by 'near SJSU' or 'San Jose' to get relevant results.",
+        "Compare prices and amenities of furnished apartments with unfurnished options to determine which is more expensive.",
+        "Consider factors like lease duration, utilities, and inclusions to make an informed decision."
+      ],
+      "draft": "To answer the question, let's follow the plan step by step:\n\n1. **Check online listings**: I've searched online platforms like Zillow, Trulia, and Apartment Finder for furnished apartments near SJSU. The results show a mix of prices, but most furnished apartments are priced between $1,800 and $2,500 per month.\n\n2. **Compare prices**: Upon comparing prices, I found that furnished apartments are generally more expensive than unfurnished options. The average price for a furnished apartment is around $2,200 per month, while unfurnished apartments range from $1,500 to $2,000 per month.\n\n3. **Consider factors**: After analyzing the lease duration, utilities, and inclusions, I found that furnished apartments often come with additional costs, such as utility deposits and furniture fees. However, some apartments offer bundled services, which can make the overall cost more competitive.\n\n4. **Conclusion**: Based on my research, furnished apartments near SJSU are indeed more expensive than unfurnished options, with prices ranging from $1,800 to $2,500 per month. However, the additional costs and benefits of furnished apartments should be carefully considered when making a decision.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 23.58
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 135,
+        "timestamp_ms": 1794255398513
+      }
+    },
+    {
+      "case_id": "c17",
+      "trace_id": "4d19d8c9-8e58-44e7-bfa3-1e5d3aa8ab83",
+      "question": "How do I fix a broken heater myself?",
+      "question_with_facts": "How do I fix a broken heater myself?",
+      "plan": [
+        "Check the user manual or manufacturer's instructions to see if they provide guidance on repairing a broken heater.",
+        "Turn off the power to the heater at the circuit breaker or fuse box to ensure your safety while working on it.",
+        "Inspect the heater's components, such as the thermostat, heating element, or fan, to identify the source of the problem and determine if it can be repaired or if it needs to be replaced.",
+        "If you're not comfortable with DIY repairs or if the issue is complex, consider contacting a professional HVAC technician for assistance."
+      ],
+      "draft": "Here's a step-by-step guide to fixing a broken heater yourself:\n\n**Step 1: Check the User Manual**\nConsult the user manual or manufacturer's instructions to see if they provide guidance on repairing a broken heater. Look for troubleshooting tips, repair procedures, or replacement parts information.\n\n**Step 2: Turn Off Power**\nTurn off the power to the heater at the circuit breaker or fuse box to ensure your safety while working on it.\n\n**Step 3: Inspect the Heater**\nInspect the heater's components, such as the thermostat, heating element, or fan, to identify the source of the problem. Determine if it can be repaired or if it needs to be replaced.\n\n**Step 4: Seek Professional Help**\nIf you're not comfortable with DIY repairs or if the issue is complex, consider contacting a professional HVAC technician for assistance.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 20.56
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 138,
+        "timestamp_ms": 1794255565703
+      }
+    },
+    {
+      "case_id": "c18",
+      "trace_id": "56942491-23c0-4856-b32f-877dc59556c3",
+      "question": "What should I check before signing a lease for a parking space?",
+      "question_with_facts": "What should I check before signing a lease for a parking space?",
+      "plan": [
+        "Check the parking space's size and layout to ensure it meets your vehicle's needs",
+        "Review the lease agreement to understand the parking space's usage restrictions and any additional fees",
+        "Verify the parking space's location and proximity to your residence",
+        "Check if the parking space is assigned or unassigned and what the implications are for your lease"
+      ],
+      "draft": "Here's a clear answer to the question, following the plan step by step:\n\nBefore signing a lease for a parking space, it's essential to check the following:\n\n1. **Size and layout**: Ensure the parking space is large enough for your vehicle to fit comfortably. Consider the dimensions of your car and the space's layout to avoid any inconvenience.\n\n2. **Lease agreement**: Review the lease to understand the parking space's usage restrictions, such as time limits, guest policies, and any additional fees for extended stays or special events.\n\n3. **Location and proximity**: Verify the parking space's location and proximity to your residence. Consider the distance, accessibility, and any potential noise or disturbance issues.\n\n4. **Assignment status**: Check if the parking space is assigned or unassigned. If it's assigned, ensure you'll have priority access to the space. If it's unassigned, understand the implications for your lease, such as the possibility of being reassigned to another space.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 21.71
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 140,
+        "timestamp_ms": 1794255641309
+      }
+    },
+    {
+      "case_id": "c19",
+      "trace_id": "ba672bd8-cc76-48b2-8c31-590bda8d6022",
+      "question": "Which documents should I prepare for an apartment rental application?",
+      "question_with_facts": "Which documents should I prepare for an apartment rental application?",
+      "plan": [
+        "Gather required identification documents (e.g. passport, driver's license, ID card)",
+        "Collect proof of income (e.g. pay stubs, bank statements, tax returns)",
+        "Prepare proof of rental history (e.g. previous landlord references, rental agreements)",
+        "Get ready to fill out the rental application form"
+      ],
+      "draft": "To prepare for an apartment rental application, follow these steps:\n\n1. **Gather required identification documents**: Collect a valid government-issued ID, such as a passport, driver's license, or national ID card, to prove your identity.\n\n2. **Collect proof of income**: Gather recent pay stubs, bank statements, or tax returns to demonstrate your income stability.\n\n3. **Prepare proof of rental history**: Collect previous landlord references, rental agreements, or letters of recommendation to show your rental history.\n\n4. **Get ready to fill out the rental application form**: Make sure you have all the necessary documents and information ready to complete the application form accurately and efficiently.\n\nAdditionally, be prepared to provide any additional information or documentation requested by the landlord or property manager.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 17.42
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 143,
+        "timestamp_ms": 1794255739726
+      }
+    },
+    {
+      "case_id": "c20",
+      "trace_id": "ce91e3fe-f9e9-46f3-a85f-08671560e4be",
+      "question": "How much notice does my landlord need to give before entering my apartment?",
+      "question_with_facts": "How much notice does my landlord need to give before entering my apartment?",
+      "plan": [
+        "Check your lease agreement to see if it specifies the notice period required for entry by the landlord.",
+        "Typically, landlords are required to provide 24-48 hours' notice before entering a rental property.",
+        "If you're unsure, contact your landlord or property manager to confirm the notice period.",
+        "If the notice period is not specified, it may be considered a breach of the lease agreement."
+      ],
+      "draft": "Here's a clear answer to the question:\n\nTo determine how much notice your landlord needs to give before entering your apartment, follow these steps:\n\n1. Check your lease agreement: Review your rental contract to see if it outlines the notice period required for entry by the landlord. This information is usually specified in the agreement.\n\n2. Typical notice period: In most cases, landlords are required to provide 24-48 hours' notice before entering a rental property. However, this may vary depending on your specific lease agreement.\n\n3. Confirm with your landlord: If you're unsure about the notice period, contact your landlord or property manager to confirm the required notice period. They should be able to provide you with the necessary information.\n\n4. Breach of lease: If the notice period is not specified in your lease agreement, it may be considered a breach of the agreement.",
+      "writer": {
+        "instance": "writer",
+        "mode": "llm",
+        "model": "llama3.2:3b",
+        "seconds": 19.83
+      },
+      "kafka": {
+        "topic": "s9486_drafts",
+        "partition": 0,
+        "offset": 144,
+        "timestamp_ms": 1794255778445
+      }
+    }
+  ]
+}

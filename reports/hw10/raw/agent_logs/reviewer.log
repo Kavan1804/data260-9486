@@ -1,0 +1,587 @@
+2026-11-15 21:26:29.324 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-15 21:26:29.324 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:27:31.188 [reviewer] received from topic=s9486_drafts partition=0 offset=149 correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3
+2026-11-15 21:27:41.638 [reviewer] sent to topic=s9486_final partition=0 offset=47 correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3 value={"correlation_id": "11c147ea-f978-4692-ab75-0c02276ec6f3", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the landlord of LST-00117.\n   The landlord of LST-00117 is found to be Oscar Tran.\n\n2. Extract the landlord's name and conta...(truncated)
+2026-11-15 21:27:41.711 [reviewer] committed offset 150 for s9486_drafts partition 0
+2026-11-15 21:27:42.088 [reviewer] stopped
+2026-11-15 21:28:02.390 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-15 21:28:02.390 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:28:38.195 [reviewer] received from topic=s9486_drafts partition=0 offset=150 correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d
+2026-11-15 21:28:45.993 [reviewer] sent to topic=s9486_final partition=0 offset=48 correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d value={"correlation_id": "4cafc3df-6813-4c17-9ec4-f6f59cc15f6d", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the landlord of LST-00117.\n   The landlord of LST-00117 is found to be Oscar Tran.\n\n2. Extract the landlord's name and conta...(truncated)
+2026-11-15 21:28:46.247 [reviewer] committed offset 151 for s9486_drafts partition 0
+2026-11-15 21:30:54.169 [reviewer] stopped
+2026-11-15 21:31:48.019 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-15 21:31:48.019 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:32:51.340 [reviewer] received from topic=s9486_drafts partition=0 offset=151 correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe
+2026-11-15 21:33:06.406 [reviewer] sent to topic=s9486_final partition=0 offset=49 correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe value={"correlation_id": "4d8b94e8-b1cb-4026-be7b-8f013931ccbe", "status": "approved", "answer": "Here's a clear answer to the question:\n\nA landlord is required to fix any damages or needed repairs within a reasonable time frame. The specific timeframe can vary depending on the jurisdiction, but a commo...(truncated)
+2026-11-15 21:33:06.463 [reviewer] committed offset 152 for s9486_drafts partition 0
+Failed fetch messages from 1: [Error 7] RequestTimedOutError
+Error sending HeartbeatRequest to node 1 [[Error 7] RequestTimedOutError] -- marking coordinator dead
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat send request failed: [Error 7] RequestTimedOutError. Will retry.
+Heartbeat session expired - marking coordinator dead
+Unable connect to node with id 1: 
+Unable to update metadata from [1]
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 21:36:46.207 [reviewer] received from topic=s9486_drafts partition=0 offset=152 correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat session expired - marking coordinator dead
+2026-11-15 21:37:03.723 [reviewer] sent to topic=s9486_final partition=0 offset=50 correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f value={"correlation_id": "57f1f4ac-678a-4250-87a3-e08559439b5f", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the specific listing LST-01040.\n\n2. Filter the search results by 'available_units' to find the correct listing. The search re...(truncated)
+2026-11-15 21:37:03.915 [reviewer] committed offset 153 for s9486_drafts partition 0
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 21:38:29.357 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-15 21:38:29.358 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:39:11.145 [reviewer] received from topic=s9486_drafts partition=0 offset=153 correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288
+2026-11-15 21:39:22.927 [reviewer] sent to topic=s9486_final partition=0 offset=51 correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288 value={"correlation_id": "a791b5a3-399f-4f43-bfb8-48b97b212288", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the landlord of LST-00117.\n   The landlord of LST-00117 is found to be Oscar Tran.\n\n2. Extract the landlord's name and conta...(truncated)
+2026-11-15 21:39:22.964 [reviewer] committed offset 154 for s9486_drafts partition 0
+2026-11-15 21:41:29.075 [reviewer] stopped
+2026-11-15 21:41:43.855 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-15 21:41:43.855 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:42:28.871 [reviewer] received from topic=s9486_drafts partition=0 offset=154 correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb
+2026-11-15 21:42:43.983 [reviewer] sent to topic=s9486_final partition=0 offset=52 correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb value={"correlation_id": "4718ff29-856f-496d-8abf-78ecea64d0fb", "status": "approved", "answer": "Here's a clear answer to the question:\n\nA landlord is required to fix any damages or needed repairs within a reasonable time frame. The specific timeframe can vary depending on the jurisdiction, but a commo...(truncated)
+2026-11-15 21:42:44.230 [reviewer] committed offset 155 for s9486_drafts partition 0
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 21:44:06.949 [reviewer] received from topic=s9486_drafts partition=0 offset=155 correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 21:44:33.675 [reviewer] sent to topic=s9486_final partition=0 offset=53 correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be value={"correlation_id": "bbef106a-601c-49a8-9e5c-062c80a138be", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the specific listing LST-01040.\n\n2. Filter the search results by 'available_units' to find the correct listing. The search re...(truncated)
+2026-11-15 21:44:34.269 [reviewer] committed offset 156 for s9486_drafts partition 0
+2026-11-15 21:47:01.270 [reviewer] received from topic=s9486_drafts partition=0 offset=156 correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 21:47:50.465 [reviewer] sent to topic=s9486_final partition=0 offset=54 correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d value={"correlation_id": "15c74ecb-249d-4dcb-96c9-7e4f28bc473d", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the city associated with LST-04733.\n   The search results show that the city associated with LST-04733 is Sunnyvale, CA.\n\n2....(truncated)
+2026-11-15 21:47:50.719 [reviewer] committed offset 157 for s9486_drafts partition 0
+2026-11-15 21:49:17.880 [reviewer] received from topic=s9486_drafts partition=0 offset=157 correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b
+2026-11-15 21:49:29.290 [reviewer] sent to topic=s9486_final partition=0 offset=55 correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b value={"correlation_id": "1a50db8f-9443-4ecd-824a-5bd07cd0b75b", "status": "approved", "answer": "Handling a Stolen Package from Your Apartment Lobby:\n\n**Step 1: Report the Incident**\nNotify your landlord or property manager immediately about the stolen package. Provide them with as much detail as poss...(truncated)
+2026-11-15 21:49:29.487 [reviewer] committed offset 158 for s9486_drafts partition 0
+2026-11-15 21:50:46.869 [reviewer] received from topic=s9486_drafts partition=0 offset=158 correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 21:51:13.568 [reviewer] sent to topic=s9486_final partition=0 offset=56 correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1 value={"correlation_id": "69ab6a70-c9e8-439f-9395-948dc38bb8e1", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the specific listing LST-04791.\n\n2. Check the available_units field in the database to confirm the number of bedrooms in the ...(truncated)
+2026-11-15 21:51:13.609 [reviewer] committed offset 159 for s9486_drafts partition 0
+2026-11-15 21:52:18.580 [reviewer] received from topic=s9486_drafts partition=0 offset=159 correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee
+2026-11-15 21:52:25.605 [reviewer] sent to topic=s9486_final partition=0 offset=57 correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee value={"correlation_id": "6fa3c47b-234f-4472-9969-0c68ee022eee", "status": "approved", "answer": "A written roommate agreement is a crucial document that outlines the terms and expectations of living with roommates. Here's what should be included in a written roommate agreement:\n\n**1. Basic Information*...(truncated)
+2026-11-15 21:52:25.735 [reviewer] committed offset 160 for s9486_drafts partition 0
+2026-11-15 21:53:11.485 [reviewer] received from topic=s9486_drafts partition=0 offset=160 correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff
+2026-11-15 21:53:16.642 [reviewer] sent to topic=s9486_final partition=0 offset=58 correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff value={"correlation_id": "9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the specified listing ID, LST-01230.\n\n2. Filter the search results by 'LST-01230' to find the correct listing. The search res...(truncated)
+2026-11-15 21:53:16.665 [reviewer] committed offset 161 for s9486_drafts partition 0
+2026-11-15 21:53:45.951 [reviewer] received from topic=s9486_drafts partition=0 offset=161 correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa
+2026-11-15 21:53:50.681 [reviewer] sent to topic=s9486_final partition=0 offset=59 correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa value={"correlation_id": "4cded1cf-7606-47e3-b6a5-931f4737e5aa", "status": "approved", "answer": "To find the city in the address, I will follow the steps:\n\n1. The address is 8111 Park Ave, San Jose, CA.\n2. Extracting the city from the address, I see that San Jose is the city.\n3. Therefore, the city i...(truncated)
+2026-11-15 21:53:50.690 [reviewer] committed offset 162 for s9486_drafts partition 0
+2026-11-15 21:54:36.249 [reviewer] received from topic=s9486_drafts partition=0 offset=162 correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8
+2026-11-15 21:54:42.710 [reviewer] sent to topic=s9486_final partition=0 offset=60 correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8 value={"correlation_id": "8559473a-b70b-4e91-a6d8-e3235fd4dbd8", "status": "approved", "answer": "To lower your electricity bill in a small apartment, follow these steps:\n\n1. Assess your current energy usage: Review your past electricity bills to identify areas where you can make changes. This will help...(truncated)
+2026-11-15 21:54:42.740 [reviewer] committed offset 163 for s9486_drafts partition 0
+2026-11-15 21:55:11.645 [reviewer] received from topic=s9486_drafts partition=0 offset=163 correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72
+2026-11-15 21:55:15.496 [reviewer] sent to topic=s9486_final partition=0 offset=61 correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72 value={"correlation_id": "2e875f71-cafd-4a34-b5e4-f0e33af1cc72", "status": "approved", "answer": "To find the city in the address, I will follow the steps:\n\n1. The address is 4071 San Carlos St, Campbell, CA.\n2. The city is the part of the address that comes before the state abbreviation (CA). In this ...(truncated)
+2026-11-15 21:55:15.513 [reviewer] committed offset 164 for s9486_drafts partition 0
+2026-11-15 21:56:13.575 [reviewer] received from topic=s9486_drafts partition=0 offset=164 correlation_id=50600325-6d45-490e-939d-b4d500f05653
+2026-11-15 21:56:21.495 [reviewer] sent to topic=s9486_final partition=0 offset=62 correlation_id=50600325-6d45-490e-939d-b4d500f05653 value={"correlation_id": "50600325-6d45-490e-939d-b4d500f05653", "status": "approved", "answer": "Here's a clear answer to the question about the pros and cons of living in a furnished apartment, following the plan step by step:\n\n**Pros of Living in a Furnished Apartment:**\n\n1. **Reduced Moving Costs*...(truncated)
+2026-11-15 21:56:21.511 [reviewer] committed offset 165 for s9486_drafts partition 0
+2026-11-15 21:56:56.989 [reviewer] received from topic=s9486_drafts partition=0 offset=165 correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2
+2026-11-15 21:57:02.363 [reviewer] sent to topic=s9486_final partition=0 offset=63 correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2 value={"correlation_id": "2f80f8df-56ae-469c-9565-11dace17bac2", "status": "approved", "answer": "To find the city in the address, I will follow the steps:\n\n1. Find the city in the address: The address is 5327 San Carlos St, Sunnyvale, CA. The city is likely to be the last part of the address, which is ...(truncated)
+2026-11-15 21:57:02.374 [reviewer] committed offset 166 for s9486_drafts partition 0
+2026-11-15 21:57:56.104 [reviewer] received from topic=s9486_drafts partition=0 offset=166 correlation_id=666c0b59-ae58-4553-a098-fba60b738872
+2026-11-15 21:58:03.910 [reviewer] sent to topic=s9486_final partition=0 offset=64 correlation_id=666c0b59-ae58-4553-a098-fba60b738872 value={"correlation_id": "666c0b59-ae58-4553-a098-fba60b738872", "status": "approved", "answer": "Here's a clear answer to the question about subletting rules in California, following the plan step by step:\n\n**Step 1: Check the California Civil Code Section 1950.5**\nIn California, the subletting rules ...(truncated)
+2026-11-15 21:58:03.919 [reviewer] committed offset 167 for s9486_drafts partition 0
+2026-11-15 21:58:48.961 [reviewer] received from topic=s9486_drafts partition=0 offset=167 correlation_id=f468a061-d468-419f-b18a-804b758bd920
+2026-11-15 21:58:54.556 [reviewer] sent to topic=s9486_final partition=0 offset=65 correlation_id=f468a061-d468-419f-b18a-804b758bd920 value={"correlation_id": "f468a061-d468-419f-b18a-804b758bd920", "status": "approved", "answer": "To find the street address of listing LST-00745, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specified listing ID: LST-00745.\n\nSearch results show the listing d...(truncated)
+2026-11-15 21:58:54.565 [reviewer] committed offset 168 for s9486_drafts partition 0
+2026-11-15 21:59:44.290 [reviewer] received from topic=s9486_drafts partition=0 offset=168 correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab
+2026-11-15 21:59:50.117 [reviewer] sent to topic=s9486_final partition=0 offset=66 correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab value={"correlation_id": "3dae79cc-e814-4118-9978-77dba40de7ab", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the specific listing LST-04112.\n\n2. Filter the search results by 'available_units' to find the correct information about the ...(truncated)
+2026-11-15 21:59:50.127 [reviewer] committed offset 169 for s9486_drafts partition 0
+2026-11-15 22:00:35.953 [reviewer] received from topic=s9486_drafts partition=0 offset=169 correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0
+2026-11-15 22:00:43.040 [reviewer] sent to topic=s9486_final partition=0 offset=67 correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0 value={"correlation_id": "b82005b1-45f4-4ef6-afbb-fa3ebf6518a0", "status": "approved", "answer": "Here's a clear answer to the question:\n\nA reasonable commute time from an apartment to campus can vary depending on individual circumstances. However, for most students, a commute time of 30 minutes to 1 ho...(truncated)
+2026-11-15 22:00:43.057 [reviewer] committed offset 170 for s9486_drafts partition 0
+2026-11-15 22:01:25.816 [reviewer] received from topic=s9486_drafts partition=0 offset=170 correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7
+2026-11-15 22:01:29.792 [reviewer] sent to topic=s9486_final partition=0 offset=68 correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7 value={"correlation_id": "6cba1e0c-1366-4aef-8920-b183d8c9e6a7", "status": "approved", "answer": "To find the city in the address, I will follow the steps:\n\n1. The address is 6247 Alameda, Sunnyvale, CA.\n2. The city in the address is Sunnyvale.\n3. The city is indeed Sunnyvale, CA.", "review": {"approv...(truncated)
+2026-11-15 22:01:29.801 [reviewer] committed offset 171 for s9486_drafts partition 0
+2026-11-15 22:02:12.924 [reviewer] received from topic=s9486_drafts partition=0 offset=171 correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f
+2026-11-15 22:02:18.613 [reviewer] sent to topic=s9486_final partition=0 offset=69 correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f value={"correlation_id": "3e5a113b-0b14-4d48-993b-50f03767dc3f", "status": "approved", "answer": "To find the street address of listing LST-02137, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specified listing ID: LST-02137.\n   The search results show the deta...(truncated)
+2026-11-15 22:02:18.622 [reviewer] committed offset 172 for s9486_drafts partition 0
+2026-11-15 22:03:02.400 [reviewer] received from topic=s9486_drafts partition=0 offset=172 correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651
+2026-11-15 22:03:08.264 [reviewer] sent to topic=s9486_final partition=0 offset=70 correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651 value={"correlation_id": "97b832fe-d4b3-4890-b7e5-a4421f319651", "status": "approved", "answer": "Here's a clear answer to the question:\n\nWhen it comes to student apartments, the pet policy varies by landlord or property manager. Some complexes allow pets, while others do not. If you're interested in br...(truncated)
+2026-11-15 22:03:08.295 [reviewer] committed offset 173 for s9486_drafts partition 0
+2026-11-15 22:04:27.334 [reviewer] received from topic=s9486_drafts partition=0 offset=173 correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879
+2026-11-15 22:04:39.924 [reviewer] sent to topic=s9486_final partition=0 offset=71 correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879 value={"correlation_id": "6d2220d3-08b0-4c2e-9c21-16dc27568879", "status": "approved", "answer": "Here's a clear answer to the question:\n\nQ: Can my landlord raise the rent in the middle of my lease?\n\nA: It depends on your lease agreement and local laws.\n\n1. Check your lease agreement: Review your le...(truncated)
+2026-11-15 22:04:40.298 [reviewer] committed offset 174 for s9486_drafts partition 0
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 22:07:13.230 [reviewer] received from topic=s9486_drafts partition=0 offset=174 correlation_id=04c76d02-1fdb-4755-9c12-062f37350305
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+Heartbeat failed for group s9486_reviewers: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_reviewers.
+2026-11-15 22:07:33.359 [reviewer] sent to topic=s9486_final partition=0 offset=72 correlation_id=04c76d02-1fdb-4755-9c12-062f37350305 value={"correlation_id": "04c76d02-1fdb-4755-9c12-062f37350305", "status": "approved", "answer": "To find the city in the address, I will follow the steps:\n\n1. The address is 1530 Market St, Milpitas, CA.\n2. Extracting the city from the address, I see that it is \"Milpitas\".\n3. Therefore, the city li...(truncated)
+2026-11-15 22:07:33.413 [reviewer] committed offset 175 for s9486_drafts partition 0
+2026-11-15 22:08:17.719 [reviewer] stopped
+2026-11-16 03:27:47.496 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-16 03:27:47.496 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-16 03:28:27.505 [reviewer] received from topic=s9486_drafts partition=0 offset=175 correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8
+2026-11-16 03:28:36.633 [reviewer] sent to topic=s9486_final partition=0 offset=73 correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8 value={"correlation_id": "92e13aac-84eb-49e1-a623-6f25e27559c8", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the landlord of LST-00117.\n   The landlord of LST-00117 is found to be Oscar Tran.\n\n2. Extract the landlord's name and conta...(truncated)
+2026-11-16 03:28:36.669 [reviewer] committed offset 176 for s9486_drafts partition 0
+2026-11-16 03:29:01.469 [reviewer] stopped
+2026-11-16 03:29:05.004 [reviewer] ready: group=s9486_reviewers topic=s9486_drafts assigned partitions=[0]
+2026-11-16 03:29:05.004 [reviewer] started: reads s9486_drafts, writes s9486_final, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-16 03:29:18.306 [reviewer] received from topic=s9486_drafts partition=0 offset=176 correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f
+2026-11-16 03:29:22.147 [reviewer] sent to topic=s9486_final partition=0 offset=74 correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f value={"correlation_id": "b0bb9afa-b067-4c07-b0a8-7e74079fb28f", "status": "approved", "answer": "To find the city in the address, I will follow the steps:\n\n1. The address is 1530 Market St, Milpitas, CA.\n2. Extracting the city from the address, I see that it is \"Milpitas\".\n3. Therefore, the city li...(truncated)
+2026-11-16 03:29:22.154 [reviewer] committed offset 177 for s9486_drafts partition 0
+2026-11-16 03:30:32.783 [reviewer] received from topic=s9486_drafts partition=0 offset=177 correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef
+2026-11-16 03:30:41.338 [reviewer] sent to topic=s9486_final partition=0 offset=75 correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef value={"correlation_id": "46402d81-bdc6-4618-b113-1db7cd47f6ef", "status": "approved", "answer": "To find the street address of listing LST-00775, follow these steps:\n\n1. Search the s9486_rel listings database for the specified listing ID: LST-00775.\n   The search results show the title \"Bright 3BR Ho...(truncated)
+2026-11-16 03:30:41.346 [reviewer] committed offset 178 for s9486_drafts partition 0
+2026-11-16 03:31:34.101 [reviewer] received from topic=s9486_drafts partition=0 offset=178 correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536
+2026-11-16 03:31:42.843 [reviewer] sent to topic=s9486_final partition=0 offset=76 correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536 value={"correlation_id": "6d5e6837-660b-4373-9653-e2b87fb06536", "status": "approved", "answer": "Here's a clear answer to the question:\n\n**What is a guarantor and when do students need one?**\n\nA guarantor is a person who agrees to be financially responsible for a student's rent if they fail to pay. T...(truncated)
+2026-11-16 03:31:42.875 [reviewer] committed offset 179 for s9486_drafts partition 0
+2026-11-16 03:32:53.633 [reviewer] received from topic=s9486_drafts partition=0 offset=179 correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4
+2026-11-16 03:33:14.189 [reviewer] sent to topic=s9486_final partition=0 offset=77 correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4 value={"correlation_id": "a6efeefd-7283-4f3b-8c9b-6c684bdf29c4", "status": "approved", "answer": "If you find mold in your bathroom, follow these steps:\n\n**Step 1: Assess the Situation**\nCheck if the mold is widespread or just a small patch. If it's a small patch, you can likely handle it yourself. How...(truncated)
+2026-11-16 03:33:14.701 [reviewer] committed offset 180 for s9486_drafts partition 0
+2026-11-16 03:34:21.755 [reviewer] received from topic=s9486_drafts partition=0 offset=180 correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f
+2026-11-16 03:34:31.479 [reviewer] sent to topic=s9486_final partition=0 offset=78 correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f value={"correlation_id": "ec0ddacd-f08e-458b-8ca9-406bf56a571f", "status": "approved", "answer": "To ask for a lease renewal with the same rent, follow these steps:\n\n1. Review your lease agreement to understand the renewal process and any required notice periods. Typically, this involves reviewing the l...(truncated)
+2026-11-16 03:34:31.502 [reviewer] committed offset 181 for s9486_drafts partition 0
+2026-11-16 03:35:29.678 [reviewer] received from topic=s9486_drafts partition=0 offset=181 correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784
+2026-11-16 03:35:40.507 [reviewer] sent to topic=s9486_final partition=0 offset=79 correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784 value={"correlation_id": "075e4adb-ea42-4ddd-9102-7a7e66f19784", "status": "approved", "answer": "To find an apartment for the fall semester, it's recommended to start looking early. Here's a step-by-step guide to help you get started:\n\n**Step 1: Research and Budget (February-March)**\nStart researching...(truncated)
+2026-11-16 03:35:40.573 [reviewer] committed offset 182 for s9486_drafts partition 0
+2026-11-16 03:36:25.335 [reviewer] received from topic=s9486_drafts partition=0 offset=182 correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8
+2026-11-16 03:36:30.684 [reviewer] sent to topic=s9486_final partition=0 offset=80 correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8 value={"correlation_id": "4b0814ab-925d-4cc7-abd8-f0fb275fc1e8", "status": "needs_revision", "answer": "To answer the question, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specific listing LST-01667.\n2. The available_units field for LST-01667 is 2.\n\nThe ava...(truncated)
+2026-11-16 03:36:30.694 [reviewer] committed offset 183 for s9486_drafts partition 0
+2026-11-16 03:37:14.767 [reviewer] received from topic=s9486_drafts partition=0 offset=183 correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe
+2026-11-16 03:37:20.265 [reviewer] sent to topic=s9486_final partition=0 offset=81 correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe value={"correlation_id": "02b2aa16-ae45-4891-963e-6c462526edbe", "status": "approved", "answer": "Here's the step-by-step answer:\n\n1. Search the s9486_rel listings database for the specific listing LST-02056.\n\n2. Check the title of the listing to determine the type of home. The title \"Updated 1BR Con...(truncated)
+2026-11-16 03:37:20.278 [reviewer] committed offset 184 for s9486_drafts partition 0
+2026-11-16 03:38:03.341 [reviewer] received from topic=s9486_drafts partition=0 offset=184 correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc
+2026-11-16 03:38:09.502 [reviewer] sent to topic=s9486_final partition=0 offset=82 correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc value={"correlation_id": "79ce923d-ef94-421f-b6ae-e4755f435abc", "status": "approved", "answer": "Paying rent with a credit card can be a convenient option, but it's essential to consider the potential implications.\n\n**Step 1: Check the landlord's policy**\nBefore using a credit card to pay rent, confir...(truncated)
+2026-11-16 03:38:09.522 [reviewer] committed offset 185 for s9486_drafts partition 0
+2026-11-16 03:38:44.916 [reviewer] received from topic=s9486_drafts partition=0 offset=185 correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe
+2026-11-16 03:38:49.426 [reviewer] sent to topic=s9486_final partition=0 offset=83 correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe value={"correlation_id": "bed757e3-c025-4b7e-935a-c6355fe0afbe", "status": "approved", "answer": "To find the city where LST-04199 is listed, I will follow the plan step by step:\n\n1. Find the city in the address: The address is 5460 Almaden Blvd, Campbell, CA.\n2. Extract the city from the address: The ...(truncated)
+2026-11-16 03:38:49.448 [reviewer] committed offset 186 for s9486_drafts partition 0
+2026-11-16 03:39:34.436 [reviewer] received from topic=s9486_drafts partition=0 offset=186 correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4
+2026-11-16 03:39:42.403 [reviewer] sent to topic=s9486_final partition=0 offset=84 correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4 value={"correlation_id": "f82fa972-db4a-4b09-874e-5631edf82be4", "status": "approved", "answer": "To compare two apartments with different lease lengths, follow these steps:\n\n**Step 1: Calculate the Total Cost**\nMultiply the monthly rent by the number of months in each lease term to determine the total...(truncated)
+2026-11-16 03:39:42.412 [reviewer] committed offset 187 for s9486_drafts partition 0
+2026-11-16 03:40:18.927 [reviewer] received from topic=s9486_drafts partition=0 offset=187 correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1
+2026-11-16 03:40:25.727 [reviewer] sent to topic=s9486_final partition=0 offset=85 correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1 value={"correlation_id": "70695b33-3ad1-453f-8d1f-a7e8981f85d1", "status": "approved", "answer": "Here's the step-by-step solution:\n\n1. Search the s9486_rel listings database for the specified listing ID LST-01913.\n\n2. Filter the search results to show only the 'title' field:\n   ```\nTitle: Spacious ...(truncated)
+2026-11-16 03:40:25.737 [reviewer] committed offset 188 for s9486_drafts partition 0
+2026-11-16 03:41:18.715 [reviewer] received from topic=s9486_drafts partition=0 offset=188 correlation_id=fc565224-d50f-4027-a672-e454ee266980
+2026-11-16 03:41:26.622 [reviewer] sent to topic=s9486_final partition=0 offset=86 correlation_id=fc565224-d50f-4027-a672-e454ee266980 value={"correlation_id": "fc565224-d50f-4027-a672-e454ee266980", "status": "approved", "answer": "Building a rental history as a first-time renter can be challenging, but there are steps you can take to increase your chances of approval. Here's a step-by-step guide:\n\n**Step 1: Be Honest and Transparent*...(truncated)
+2026-11-16 03:41:26.627 [reviewer] committed offset 189 for s9486_drafts partition 0
+2026-11-16 03:42:13.785 [reviewer] received from topic=s9486_drafts partition=0 offset=189 correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d
+2026-11-16 03:42:21.120 [reviewer] sent to topic=s9486_final partition=0 offset=87 correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d value={"correlation_id": "6487f02b-4bc3-4bd2-a6b3-41b06956e98d", "status": "approved", "answer": "Here's a clear answer to the question:\n\nIf a student's landlord does not return calls about a leak, the student should take the following steps:\n\n**Step 1: Document the issue**\nThe student should write d...(truncated)
+2026-11-16 03:42:21.129 [reviewer] committed offset 190 for s9486_drafts partition 0
+2026-11-16 03:43:14.471 [reviewer] received from topic=s9486_drafts partition=0 offset=190 correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef
+2026-11-16 03:43:20.302 [reviewer] sent to topic=s9486_final partition=0 offset=88 correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef value={"correlation_id": "b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef", "status": "approved", "answer": "To find out if a neighborhood near campus is safe at night, follow these steps:\n\n1. **Research online**: Check websites like Google, Yelp, or Niche.com for reviews and ratings from current or former residen...(truncated)
+2026-11-16 03:43:20.316 [reviewer] committed offset 191 for s9486_drafts partition 0
+2026-11-16 03:43:56.223 [reviewer] received from topic=s9486_drafts partition=0 offset=191 correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678
+2026-11-16 03:44:00.632 [reviewer] sent to topic=s9486_final partition=0 offset=89 correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678 value={"correlation_id": "2c044e96-66a0-4c1b-a979-cdc3f7e0a678", "status": "approved", "answer": "To find the street address of listing LST-03341, I will follow the plan step by step:\n\n1. Search the s9486_rel listings database for the specified listing ID: LST-03341.\n\nSearch results show the listing w...(truncated)
+2026-11-16 03:44:00.638 [reviewer] committed offset 192 for s9486_drafts partition 0
+2026-11-16 03:44:53.536 [reviewer] received from topic=s9486_drafts partition=0 offset=192 correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9
+2026-11-16 03:45:00.418 [reviewer] sent to topic=s9486_final partition=0 offset=90 correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9 value={"correlation_id": "f4294d04-6cb1-4b1c-9946-9c48bc946ba9", "status": "approved", "answer": "Here's a step-by-step guide to obtaining a copy of your lease if you've lost it:\n\n1. **Check your email**: First, check your email for a digital copy of your lease, as it may have been sent to you by your l...(truncated)
+2026-11-16 03:45:00.428 [reviewer] committed offset 193 for s9486_drafts partition 0
+2026-11-16 03:45:51.828 [reviewer] received from topic=s9486_drafts partition=0 offset=193 correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3
+2026-11-16 03:45:59.698 [reviewer] sent to topic=s9486_final partition=0 offset=91 correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3 value={"correlation_id": "ba66fa26-d6e5-44a9-884d-4979ee8089e3", "status": "approved", "answer": "To break a lease early while studying abroad, follow these steps:\n\n1. Review your lease agreement to understand the terms and conditions of early termination. Check for any penalties, fees, or notice period...(truncated)
+2026-11-16 03:45:59.707 [reviewer] committed offset 194 for s9486_drafts partition 0
+2026-11-16 03:46:48.927 [reviewer] received from topic=s9486_drafts partition=0 offset=194 correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346
+2026-11-16 03:46:55.934 [reviewer] sent to topic=s9486_final partition=0 offset=92 correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346 value={"correlation_id": "8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346", "status": "approved", "answer": "Here's a clear answer to the question:\n\nIf your roommate stops paying their share of the rent, follow these steps:\n\n**Step 1: Review your lease agreement** to understand the terms and conditions of rent p...(truncated)
+2026-11-16 03:46:55.952 [reviewer] committed offset 195 for s9486_drafts partition 0
+2026-11-16 03:47:42.784 [reviewer] received from topic=s9486_drafts partition=0 offset=195 correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1
+2026-11-16 03:47:51.103 [reviewer] sent to topic=s9486_final partition=0 offset=93 correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1 value={"correlation_id": "10c6ebbc-6d69-48eb-a95d-aa0d58415fa1", "status": "approved", "answer": "Here's a clear answer to the question:\n\nIf you move out of a rental property without giving notice, you may face consequences. To understand what happens, let's follow the steps:\n\n1. **Check your rental a...(truncated)
+2026-11-16 03:47:51.112 [reviewer] committed offset 196 for s9486_drafts partition 0
+2026-11-16 03:48:36.661 [reviewer] received from topic=s9486_drafts partition=0 offset=196 correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb
+2026-11-16 03:48:43.451 [reviewer] sent to topic=s9486_final partition=0 offset=94 correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb value={"correlation_id": "e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb", "status": "approved", "answer": "To split a security deposit fairly between roommates, follow these steps:\n\n1. Determine the total amount of the security deposit: Check your lease agreement or contact your landlord to find out the total am...(truncated)
+2026-11-16 03:48:43.460 [reviewer] committed offset 197 for s9486_drafts partition 0
+2026-11-16 03:49:25.628 [reviewer] received from topic=s9486_drafts partition=0 offset=197 correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9
+2026-11-16 03:49:31.857 [reviewer] sent to topic=s9486_final partition=0 offset=95 correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9 value={"correlation_id": "4720ecb3-a7de-469f-a8a9-d5cefc95b2d9", "status": "approved", "answer": "To answer the question, I will follow the plan step by step:\n\n1. Find the type of home listed in LST-04071:\nAccording to the listing, LST-04071 is a \"Charming 1BR Apartment near light rail\". This indicat...(truncated)
+2026-11-16 03:49:31.877 [reviewer] committed offset 198 for s9486_drafts partition 0
+2026-11-16 03:50:23.580 [reviewer] received from topic=s9486_drafts partition=0 offset=198 correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe
+2026-11-16 03:50:31.370 [reviewer] sent to topic=s9486_final partition=0 offset=96 correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe value={"correlation_id": "2fd44bde-6fcc-44a9-8ddb-8630ce66fafe", "status": "approved", "answer": "To avoid paying an application fee for apartments you will not get, follow these steps:\n\n1. Research the apartment complex's application fee policy to see if they offer any discounts or waivers for students...(truncated)
+2026-11-16 03:50:31.376 [reviewer] committed offset 199 for s9486_drafts partition 0
+2026-11-16 03:51:10.613 [reviewer] received from topic=s9486_drafts partition=0 offset=199 correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006
+2026-11-16 03:51:18.312 [reviewer] sent to topic=s9486_final partition=0 offset=97 correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006 value={"correlation_id": "21e721c1-bed0-44c7-a70d-a393d1e02006", "status": "approved", "answer": "To find the street address of listing LST-01468, I will follow the steps:\n\n1. Search the s9486_rel listings database for the specified listing ID LST-01468.\n2. Filter the search results to show only the 't...(truncated)
+2026-11-16 03:51:18.333 [reviewer] committed offset 200 for s9486_drafts partition 0
+2026-11-16 03:52:08.224 [reviewer] received from topic=s9486_drafts partition=0 offset=200 correlation_id=b2b46075-9fea-464c-a876-554055c1285f
+2026-11-16 03:52:14.620 [reviewer] sent to topic=s9486_final partition=0 offset=98 correlation_id=b2b46075-9fea-464c-a876-554055c1285f value={"correlation_id": "b2b46075-9fea-464c-a876-554055c1285f", "status": "approved", "answer": "Here's a step-by-step answer to the question:\n\n**Is renters insurance worth it for a small studio?**\n\n1. **Cost of renting a small studio**: The cost of renting a small studio may be lower than expected, ...(truncated)
+2026-11-16 03:52:14.630 [reviewer] committed offset 201 for s9486_drafts partition 0
+2026-11-16 03:53:06.614 [reviewer] received from topic=s9486_drafts partition=0 offset=201 correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf
+2026-11-16 03:53:15.017 [reviewer] sent to topic=s9486_final partition=0 offset=99 correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf value={"correlation_id": "53498f44-7da7-4f74-8098-ca6c689735cf", "status": "approved", "answer": "Here's a clear answer to the question about how parking permits usually work for apartment complexes, following the plan step by step:\n\n**Step 1: Understand the parking policy**\nWhen searching for an apart...(truncated)
+2026-11-16 03:53:15.029 [reviewer] committed offset 202 for s9486_drafts partition 0
+2026-11-16 03:53:57.525 [reviewer] received from topic=s9486_drafts partition=0 offset=202 correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e
+2026-11-16 03:54:04.188 [reviewer] sent to topic=s9486_final partition=0 offset=100 correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e value={"correlation_id": "5097f3b6-9a7c-407c-a0b1-8e69c5f3587e", "status": "approved", "answer": "Here's a clear answer to the question:\n\nA 'month-to-month' rental agreement is a type of lease where neither the landlord nor the tenant has a fixed term. This means that the tenant can give notice to leave...(truncated)
+2026-11-16 03:54:04.198 [reviewer] committed offset 203 for s9486_drafts partition 0
+2026-11-16 03:54:57.255 [reviewer] received from topic=s9486_drafts partition=0 offset=203 correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba
+2026-11-16 03:55:03.847 [reviewer] sent to topic=s9486_final partition=0 offset=101 correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba value={"correlation_id": "ca46d031-dd09-4493-a378-b2ec526112ba", "status": "approved", "answer": "Here's a step-by-step guide to asking questions during an apartment viewing:\n\n**Step 1: Lease Terms and Renewal Policies**\nAsk the landlord or property manager about the lease terms, including the length o...(truncated)
+2026-11-16 03:55:03.855 [reviewer] committed offset 204 for s9486_drafts partition 0
+2026-11-16 03:55:53.559 [reviewer] received from topic=s9486_drafts partition=0 offset=204 correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32
+2026-11-16 03:55:59.329 [reviewer] sent to topic=s9486_final partition=0 offset=102 correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32 value={"correlation_id": "f8e70018-e7fe-49bb-a72b-a69eb1803d32", "status": "approved", "answer": "To document the condition of an apartment on move-in day, follow these steps:\n\n**Step 1: Take Photos and Create a Room List**\nTake clear, well-lit photos of the entire apartment, including any damages or i...(truncated)
+2026-11-16 03:55:59.336 [reviewer] committed offset 205 for s9486_drafts partition 0
+2026-11-16 03:56:47.515 [reviewer] received from topic=s9486_drafts partition=0 offset=205 correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a
+2026-11-16 03:56:54.409 [reviewer] sent to topic=s9486_final partition=0 offset=103 correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a value={"correlation_id": "cc6d3963-fa5d-42b8-b77c-85270e860f0a", "status": "approved", "answer": "Here's a step-by-step guide on how to report a broken smoke detector:\n\n**Step 1: Check your lease agreement**\nReview your lease agreement to see if it outlines the process for reporting a broken smoke dete...(truncated)
+2026-11-16 03:56:54.424 [reviewer] committed offset 206 for s9486_drafts partition 0
+2026-11-16 03:57:10.619 [reviewer] stopped

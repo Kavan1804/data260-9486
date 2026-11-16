@@ -1,0 +1,13 @@
+{
+  "run_at": "2026-11-16T05:30:54+00:00",
+  "traces": {
+    "miss": "4cafc3df-6813-4c17-9ec4-f6f59cc15f6d",
+    "hit": "a9b44429-03b3-4ddf-8d06-afa9da81b23a",
+    "failed": "127de984-5905-4281-8c4b-791cc8c3e6be"
+  },
+  "questions": {
+    "miss": "Who is the landlord for listing LST-00117, and how many units are open there?",
+    "hit": "Who is the landlord for listing LST-00117, and how many units are open there?",
+    "failed": "What are the quiet hours rules I should ask about before renting an apartment?"
+  }
+}

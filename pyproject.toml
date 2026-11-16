@@ -6,14 +6,14 @@ target-version = "py311"
 extend-exclude = [
     "Homework1", "Homework2", "Homework3", "Homework4", "Homework5", "Homework7/DATA236_DEMO7",
     "frontend", "data", "reports", "Homework8/DATA236_DEMO8", "Homework8/multi-agent-demo",
-    "Homework9/demo.py", "Homework9/caching_agents.py",
+    "Homework9/demo.py", "Homework9/caching_agents.py", "Homework10/ge-eval2.py", "Homework10/DATA236_DEMO10",
 ]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["backend", "domain_tools", "mcp_servers", "bikeshare", "agent_tools", "config", "kafka_service", "kafka_agents", "hw9"]
+known-first-party = ["backend", "domain_tools", "mcp_servers", "bikeshare", "agent_tools", "config", "kafka_service", "kafka_agents", "hw9", "hw10"]
 
 [tool.ruff.format]
 quote-style = "double"

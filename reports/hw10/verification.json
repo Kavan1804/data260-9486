@@ -1,0 +1,89 @@
+{
+  "run_at": "2026-11-16T12:06:02+00:00",
+  "commit": "51fd8472d4fa",
+  "dirty_tree": true,
+  "passed": 16,
+  "total": 16,
+  "checks": [
+    {
+      "check": "every span has trace_id, stage, start, end, status, error",
+      "ok": true,
+      "detail": "399 spans"
+    },
+    {
+      "check": "miss trace: one trace_id from cache_lookup through Kafka stages to evaluation",
+      "ok": true,
+      "detail": "cache_lookup, cache_store, evaluation, pipeline, planner, request, reviewer, writer"
+    },
+    {
+      "check": "hit trace: cache_lookup says hit and no Kafka stage ran",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed trace: failing stage and error recorded",
+      "ok": true,
+      "detail": "planner: RuntimeError: injected failure in planner (HW10 failed-trace"
+    },
+    {
+      "check": "Part 2: four criteria scored 1-5 for the end-to-end question",
+      "ok": true,
+      "detail": "plan 3, draft 4, final 4, diff +0"
+    },
+    {
+      "check": "Part 2: plan, draft, final joined by trace_id from the three topics",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 3.1: eval_cases.json committed and unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 3.1: human_labels.csv committed and unchanged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 3.1: labels committed before the judge scored them",
+      "ok": true,
+      "detail": "judge run 2026-11-16 12:04 UTC"
+    },
+    {
+      "check": "Part 3: 20 drafts, 20 human labels 1-5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 3.2: Spearman and mean absolute difference reported, raw per-case CSV saved",
+      "ok": true,
+      "detail": "Spearman 0.171, MAD 1.65"
+    },
+    {
+      "check": "Part 3.3: judge run 3 times on the same 20 drafts",
+      "ok": true,
+      "detail": "0/20 cases changed"
+    },
+    {
+      "check": "Part 4.3: 50 requests, none served from the cache",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Part 4.3: stage table recomputes from spans.jsonl",
+      "ok": true,
+      "detail": "50 complete cache-miss traces"
+    },
+    {
+      "check": "Part 4.3: cache-hit latency kept separately",
+      "ok": true,
+      "detail": "10 hits"
+    },
+    {
+      "check": "automated HW10 tests",
+      "ok": true,
+      "detail": "15/15 HW10 tests passed"
+    }
+  ]
+}

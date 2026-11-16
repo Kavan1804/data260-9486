@@ -342,3 +342,55 @@ report-hw09:
 # Screenshot helper: reprints the last logged run of a target from RUN_LOG.txt (no new run), e.g. make show-run T=sweep
 show-run:
 	@$(PYTHON) $(HW9)/show_run.py $(T)
+
+# ---------- HW10 (GEval evaluation, judge validation, tracing, Streamlit dashboard) ----------
+LOG10 := reports/hw10/RUN_LOG.txt
+STAMP10 = mkdir -p reports/hw10/raw; echo -e "\n===== $$(date '+%Y-%m-%d %H:%M:%S') $@ (Kavan Siddesh) =====" | tee -a $(LOG10)
+HW10 := Homework10/scripts
+
+.PHONY: hw10-up eval-cases label-drafts trace-demo latency-run judge-validation metrics-hw10 test-hw10 \
+        verify-hw10 dashboard report-hw10
+
+# Redis (HW9 compose) + the HW8 Kafka broker and topics
+hw10-up:
+	@$(STAMP10); (docker compose -f Homework9/docker-compose.yml up -d && docker compose up -d kafka kafka-init \
+	  && docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}') 2>&1 | tee -a $(LOG10)
+
+# Part 3.1: freeze 20 Writer drafts, then label them by hand (interactive, so not piped through tee)
+eval-cases:
+	@$(STAMP10); $(PYTHON) $(HW10)/build_eval_cases.py 2>&1 | tee -a $(LOG10)
+
+label-drafts:
+	@$(PYTHON) $(HW10)/label_drafts.py
+
+# Part 2 + 4.2: evaluated miss, hit and failed traces
+trace-demo:
+	@$(STAMP10); $(PYTHON) $(HW10)/trace_demo.py 2>&1 | tee -a $(LOG10)
+
+# Part 4.3: 50 confirmed cache misses (+ cache hits as a separate metric)
+latency-run:
+	@$(STAMP10); $(PYTHON) $(HW10)/latency_experiment.py 2>&1 | tee -a $(LOG10)
+
+# Same experiment, keeping the requests that already finished in an earlier (interrupted) session
+latency-resume:
+	@$(STAMP10); $(PYTHON) $(HW10)/latency_experiment.py --resume 2>&1 | tee -a $(LOG10)
+
+# Part 3.2-3.3: judge vs human labels, 3 repeated runs (needs the committed labels)
+judge-validation:
+	@$(STAMP10); $(PYTHON) $(HW10)/judge_validation.py 2>&1 | tee -a $(LOG10)
+
+metrics-hw10:
+	@$(STAMP10); $(PYTHON) $(HW10)/build_metrics.py 2>&1 | tee -a $(LOG10)
+
+test-hw10:
+	@$(STAMP10); $(PYTHON) Homework10/tests/run_hw10_tests.py 2>/dev/null | tee -a $(LOG10)
+
+verify-hw10:
+	@$(STAMP10); $(PYTHON) $(HW10)/verify_hw10.py 2>/dev/null | tee -a $(LOG10)
+
+# Part 1: Streamlit dashboard on http://localhost:8501
+dashboard:
+	$(PYTHON) -m streamlit run Homework10/dashboard/app.py --server.headless true
+
+report-hw10:
+	$(PYTHON) $(HW10)/render_report_hw10.py

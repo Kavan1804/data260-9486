@@ -37,3 +37,8 @@ aiokafka==0.15.0
 # HW9: Redis view counter + semantic cache (vector index), embeddings as float32 vectors
 redis==6.4.0
 numpy==2.3.3
+
+# HW10: GEval judge (deepeval, local Ollama judge), Streamlit dashboard, Spearman correlation
+deepeval==4.3.4
+streamlit==1.67.0
+scipy==1.18.1

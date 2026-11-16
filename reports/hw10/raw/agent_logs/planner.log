@@ -1,0 +1,657 @@
+2026-11-15 21:26:29.324 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-15 21:26:29.324 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:26:59.363 [planner] received from topic=s9486_inbox partition=0 offset=49 correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3
+2026-11-15 21:27:13.236 [planner] sent to topic=s9486_tasks partition=0 offset=47 correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3 value={"correlation_id": "11c147ea-f978-4692-ab75-0c02276ec6f3", "question": "Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", ad...(truncated)
+2026-11-15 21:27:13.264 [planner] committed offset 50 for s9486_inbox partition 0
+2026-11-15 21:27:41.857 [planner] stopped
+2026-11-15 21:28:02.390 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-15 21:28:02.390 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:28:04.306 [planner] received from topic=s9486_inbox partition=0 offset=50 correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d
+2026-11-15 21:28:20.478 [planner] sent to topic=s9486_tasks partition=1 offset=118 correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d value={"correlation_id": "4cafc3df-6813-4c17-9ec4-f6f59cc15f6d", "question": "Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", ad...(truncated)
+2026-11-15 21:28:20.500 [planner] committed offset 51 for s9486_inbox partition 0
+2026-11-15 21:29:23.896 [planner] received from topic=s9486_inbox partition=0 offset=51 correlation_id=127de984-5905-4281-8c4b-791cc8c3e6be
+2026-11-15 21:29:23.898 [planner] attempt 1/3 failed for offset 51: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+2026-11-15 21:29:24.399 [planner] attempt 2/3 failed for offset 51: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+2026-11-15 21:29:25.402 [planner] attempt 3/3 failed for offset 51: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+2026-11-15 21:29:25.436 [planner] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=6
+2026-11-15 21:29:25.449 [planner] committed offset 52 for s9486_inbox partition 0
+2026-11-15 21:30:53.924 [planner] stopped
+2026-11-15 21:31:48.019 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-15 21:31:48.019 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:31:48.750 [planner] received from topic=s9486_inbox partition=0 offset=52 correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe
+Got error produce response on topic-partition TopicPartition(topic='s9486_tasks', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+Got error produce response on topic-partition TopicPartition(topic='s9486_tasks', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+Got error produce response on topic-partition TopicPartition(topic='s9486_tasks', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+Got error produce response on topic-partition TopicPartition(topic='s9486_tasks', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+Got error produce response on topic-partition TopicPartition(topic='s9486_tasks', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+Got error produce response on topic-partition TopicPartition(topic='s9486_tasks', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+2026-11-15 21:32:19.394 [planner] sent to topic=s9486_tasks partition=0 offset=48 correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe value={"correlation_id": "4d8b94e8-b1cb-4026-be7b-8f013931ccbe", "question": "What does a landlord need to fix within a reasonable time?", "plan": ["A landlord is typically required to fix any damages or needed repairs within a reasonable time frame, which can vary by jurisdiction but is often 30-60 days....(truncated)
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:32:25.233 [planner] committed offset 53 for s9486_inbox partition 0
+Failed fetch messages from 1: [Error 7] RequestTimedOutError
+Error sending HeartbeatRequest to node 1 [[Error 7] RequestTimedOutError] -- marking coordinator dead
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat send request failed: [Error 7] RequestTimedOutError. Will retry.
+Heartbeat session expired - marking coordinator dead
+Unable connect to node with id 1: 
+Unable to update metadata from [1]
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:35:34.080 [planner] received from topic=s9486_inbox partition=0 offset=53 correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:36:17.415 [planner] sent to topic=s9486_tasks partition=0 offset=49 correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f value={"correlation_id": "57f1f4ac-678a-4250-87a3-e08559439b5f", "question": "What kind of home is listing LST-01040, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01040: title \"Quiet Loft with yard\", address 4322 ...(truncated)
+Marking the coordinator dead (node 1)for group s9486_planners.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node None) is either not started or not valid
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat session expired - marking coordinator dead
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:36:48.258 [planner] committed offset 54 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:38:29.357 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-15 21:38:29.358 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:38:30.862 [planner] received from topic=s9486_inbox partition=0 offset=54 correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288
+2026-11-15 21:38:47.846 [planner] sent to topic=s9486_tasks partition=0 offset=50 correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288 value={"correlation_id": "a791b5a3-399f-4f43-bfb8-48b97b212288", "question": "Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", ad...(truncated)
+2026-11-15 21:38:47.900 [planner] committed offset 55 for s9486_inbox partition 0
+2026-11-15 21:39:58.759 [planner] received from topic=s9486_inbox partition=0 offset=55 correlation_id=7df2fa3a-214e-4d0e-b1be-faa1ce3172d8
+2026-11-15 21:39:58.763 [planner] attempt 1/3 failed for offset 55: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+2026-11-15 21:39:59.264 [planner] attempt 2/3 failed for offset 55: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+2026-11-15 21:40:00.266 [planner] attempt 3/3 failed for offset 55: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+2026-11-15 21:40:00.287 [planner] gave up after 3 attempts -> moved to topic=s9486_dead_letter partition=0 offset=7
+2026-11-15 21:40:00.294 [planner] committed offset 56 for s9486_inbox partition 0
+2026-11-15 21:41:28.805 [planner] stopped
+2026-11-15 21:41:43.855 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-15 21:41:43.855 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-15 21:41:44.482 [planner] received from topic=s9486_inbox partition=0 offset=56 correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb
+2026-11-15 21:42:07.560 [planner] sent to topic=s9486_tasks partition=0 offset=51 correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb value={"correlation_id": "4718ff29-856f-496d-8abf-78ecea64d0fb", "question": "What does a landlord need to fix within a reasonable time?", "plan": ["A landlord is typically required to fix any damages or needed repairs within a reasonable time frame, which can vary by jurisdiction but is often 30-60 days....(truncated)
+2026-11-15 21:42:07.571 [planner] committed offset 57 for s9486_inbox partition 0
+2026-11-15 21:43:17.817 [planner] received from topic=s9486_inbox partition=0 offset=57 correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be
+2026-11-15 21:43:33.901 [planner] sent to topic=s9486_tasks partition=1 offset=119 correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be value={"correlation_id": "bbef106a-601c-49a8-9e5c-062c80a138be", "question": "What kind of home is listing LST-01040, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01040: title \"Quiet Loft with yard\", address 4322 ...(truncated)
+2026-11-15 21:43:34.116 [planner] committed offset 58 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:45:51.839 [planner] received from topic=s9486_inbox partition=0 offset=58 correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d
+2026-11-15 21:46:20.536 [planner] sent to topic=s9486_tasks partition=0 offset=52 correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d value={"correlation_id": "15c74ecb-249d-4dcb-96c9-7e4f28bc473d", "question": "What city is listing LST-04733 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04733: title \"Modern Studio near downtown\", address 9778 Park Ave, Sunnyvale, CA, available...(truncated)
+2026-11-15 21:46:22.875 [planner] committed offset 59 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:48:27.855 [planner] received from topic=s9486_inbox partition=0 offset=59 correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b
+2026-11-15 21:48:48.794 [planner] sent to topic=s9486_tasks partition=1 offset=120 correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b value={"correlation_id": "1a50db8f-9443-4ecd-824a-5bd07cd0b75b", "question": "How do I handle a package that was stolen from my apartment lobby?", "plan": ["Report the incident to your landlord or property manager as soon as possible", "Provide any available evidence, such as security footage or witness s...(truncated)
+2026-11-15 21:48:48.936 [planner] committed offset 60 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:50:06.500 [planner] received from topic=s9486_inbox partition=0 offset=60 correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1
+2026-11-15 21:50:17.516 [planner] sent to topic=s9486_tasks partition=0 offset=53 correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1 value={"correlation_id": "69ab6a70-c9e8-439f-9395-948dc38bb8e1", "question": "What kind of home is listing LST-04791, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04791: title \"Updated 1BR Apartment with yard\", ad...(truncated)
+2026-11-15 21:50:17.577 [planner] committed offset 61 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 21:51:45.538 [planner] received from topic=s9486_inbox partition=0 offset=61 correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee
+2026-11-15 21:51:59.014 [planner] sent to topic=s9486_tasks partition=1 offset=121 correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee value={"correlation_id": "6fa3c47b-234f-4472-9969-0c68ee022eee", "question": "What should be in a written roommate agreement?", "plan": ["1. Include basic information: Names, contact details, and addresses of all roommates and the landlord.", "2. Define roles and responsibilities: Chores, rent, utilities,...(truncated)
+2026-11-15 21:51:59.033 [planner] committed offset 62 for s9486_inbox partition 0
+2026-11-15 21:52:47.055 [planner] received from topic=s9486_inbox partition=0 offset=62 correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff
+2026-11-15 21:52:54.552 [planner] sent to topic=s9486_tasks partition=0 offset=54 correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff value={"correlation_id": "9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff", "question": "What is the street address of listing LST-01230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01230: title \"Modern 1BR Condo pet friendly\", address 4870 Taylor St, San Jos...(truncated)
+2026-11-15 21:52:54.561 [planner] committed offset 63 for s9486_inbox partition 0
+2026-11-15 21:53:33.812 [planner] received from topic=s9486_inbox partition=0 offset=63 correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa
+2026-11-15 21:53:37.658 [planner] sent to topic=s9486_tasks partition=1 offset=122 correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa value={"correlation_id": "4cded1cf-7606-47e3-b6a5-931f4737e5aa", "question": "What city is listing LST-03036 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-03036: title \"Sunny 2BR Apartment with yard\", address 8111 Park Ave, San Jose, CA, availabl...(truncated)
+2026-11-15 21:53:37.678 [planner] committed offset 64 for s9486_inbox partition 0
+2026-11-15 21:54:07.035 [planner] received from topic=s9486_inbox partition=0 offset=64 correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8
+2026-11-15 21:54:18.859 [planner] sent to topic=s9486_tasks partition=1 offset=123 correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8 value={"correlation_id": "8559473a-b70b-4e91-a6d8-e3235fd4dbd8", "question": "How can I lower my electricity bill in a small apartment?", "plan": ["1. Assess your current energy usage: Review your past electricity bills to identify areas where you can make changes.", "2. Optimize your lighting: Replace in...(truncated)
+2026-11-15 21:54:18.867 [planner] committed offset 65 for s9486_inbox partition 0
+2026-11-15 21:55:01.765 [planner] received from topic=s9486_inbox partition=0 offset=65 correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72
+2026-11-15 21:55:04.350 [planner] sent to topic=s9486_tasks partition=0 offset=55 correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72 value={"correlation_id": "2e875f71-cafd-4a34-b5e4-f0e33af1cc72", "question": "What city is listing LST-02286 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-02286: title \"Renovated 3BR House with in-unit laundry\", address 4071 San Carlos St, Campbe...(truncated)
+2026-11-15 21:55:04.361 [planner] committed offset 66 for s9486_inbox partition 0
+2026-11-15 21:55:39.681 [planner] received from topic=s9486_inbox partition=0 offset=66 correlation_id=50600325-6d45-490e-939d-b4d500f05653
+2026-11-15 21:55:48.286 [planner] sent to topic=s9486_tasks partition=1 offset=124 correlation_id=50600325-6d45-490e-939d-b4d500f05653 value={"correlation_id": "50600325-6d45-490e-939d-b4d500f05653", "question": "What are the pros and cons of living in a furnished apartment?", "plan": ["The pros of living in a furnished apartment include: reduced moving costs, convenience, and a hassle-free living experience.", "The cons of living in a f...(truncated)
+2026-11-15 21:55:48.373 [planner] committed offset 67 for s9486_inbox partition 0
+2026-11-15 21:56:42.798 [planner] received from topic=s9486_inbox partition=0 offset=67 correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2
+2026-11-15 21:56:46.360 [planner] sent to topic=s9486_tasks partition=0 offset=56 correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2 value={"correlation_id": "2f80f8df-56ae-469c-9565-11dace17bac2", "question": "What city is listing LST-04050 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04050: title \"Renovated 4BR House with parking\", address 5327 San Carlos St, Sunnyvale, CA,...(truncated)
+2026-11-15 21:56:46.367 [planner] committed offset 68 for s9486_inbox partition 0
+2026-11-15 21:57:22.410 [planner] received from topic=s9486_inbox partition=0 offset=68 correlation_id=666c0b59-ae58-4553-a098-fba60b738872
+2026-11-15 21:57:32.620 [planner] sent to topic=s9486_tasks partition=0 offset=57 correlation_id=666c0b59-ae58-4553-a098-fba60b738872 value={"correlation_id": "666c0b59-ae58-4553-a098-fba60b738872", "question": "What should I know about subletting rules in California?", "plan": ["Check the California Civil Code Section 1950.5 for the subletting rules and regulations.", "Understand the concept of 'subletting' vs. 'assigning' and how it a...(truncated)
+2026-11-15 21:57:32.629 [planner] committed offset 69 for s9486_inbox partition 0
+2026-11-15 21:58:25.984 [planner] received from topic=s9486_inbox partition=0 offset=69 correlation_id=f468a061-d468-419f-b18a-804b758bd920
+2026-11-15 21:58:34.429 [planner] sent to topic=s9486_tasks partition=0 offset=58 correlation_id=f468a061-d468-419f-b18a-804b758bd920 value={"correlation_id": "f468a061-d468-419f-b18a-804b758bd920", "question": "What is the street address of listing LST-00745?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00745: title \"Updated 2BR Townhouse near downtown\", address 3773 Market St, S...(truncated)
+2026-11-15 21:58:34.446 [planner] committed offset 70 for s9486_inbox partition 0
+2026-11-15 21:59:22.898 [planner] received from topic=s9486_inbox partition=0 offset=70 correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab
+2026-11-15 21:59:30.659 [planner] sent to topic=s9486_tasks partition=0 offset=59 correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab value={"correlation_id": "3dae79cc-e814-4118-9978-77dba40de7ab", "question": "What kind of home is listing LST-04112, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04112: title \"Cozy Loft with parking\", address 161...(truncated)
+2026-11-15 21:59:30.666 [planner] committed offset 71 for s9486_inbox partition 0
+2026-11-15 22:00:10.957 [planner] received from topic=s9486_inbox partition=0 offset=71 correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0
+2026-11-15 22:00:20.716 [planner] sent to topic=s9486_tasks partition=0 offset=60 correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0 value={"correlation_id": "b82005b1-45f4-4ef6-afbb-fa3ebf6518a0", "question": "What is a reasonable commute time from an apartment to campus?", "plan": ["A reasonable commute time from an apartment to campus can vary depending on several factors, including the distance between the apartment and campus, tra...(truncated)
+2026-11-15 22:00:20.725 [planner] committed offset 72 for s9486_inbox partition 0
+2026-11-15 22:01:14.613 [planner] received from topic=s9486_inbox partition=0 offset=72 correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7
+2026-11-15 22:01:19.402 [planner] sent to topic=s9486_tasks partition=0 offset=61 correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7 value={"correlation_id": "6cba1e0c-1366-4aef-8920-b183d8c9e6a7", "question": "What city is listing LST-01354 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01354: title \"Furnished 2BR Townhouse near light rail\", address 6247 Alameda, Sunnyvale, CA...(truncated)
+2026-11-15 22:01:19.417 [planner] committed offset 73 for s9486_inbox partition 0
+2026-11-15 22:01:50.174 [planner] received from topic=s9486_inbox partition=0 offset=73 correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f
+2026-11-15 22:01:58.272 [planner] sent to topic=s9486_tasks partition=1 offset=125 correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f value={"correlation_id": "3e5a113b-0b14-4d48-993b-50f03767dc3f", "question": "What is the street address of listing LST-02137?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-02137: title \"Quiet 1BR Apartment near downtown\", address 5615 Almaden Blvd, ...(truncated)
+2026-11-15 22:01:58.281 [planner] committed offset 74 for s9486_inbox partition 0
+2026-11-15 22:02:34.492 [planner] received from topic=s9486_inbox partition=0 offset=74 correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651
+2026-11-15 22:02:46.548 [planner] sent to topic=s9486_tasks partition=1 offset=126 correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651 value={"correlation_id": "97b832fe-d4b3-4890-b7e5-a4421f319651", "question": "Are pets usually allowed in student apartments, and what fees come with them?", "plan": ["Pets are allowed in some student apartments, but the policy varies by landlord or property manager. Check with the specific apartment comp...(truncated)
+2026-11-15 22:02:46.566 [planner] committed offset 75 for s9486_inbox partition 0
+2026-11-15 22:03:32.155 [planner] received from topic=s9486_inbox partition=0 offset=75 correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879
+2026-11-15 22:03:48.149 [planner] sent to topic=s9486_tasks partition=0 offset=62 correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879 value={"correlation_id": "6d2220d3-08b0-4c2e-9c21-16dc27568879", "question": "Can my landlord raise the rent in the middle of my lease?", "plan": ["Check your lease agreement to see if it allows for rent increases during the lease term.", "Review local laws and regulations regarding rent increases.", "Con...(truncated)
+2026-11-15 22:03:49.529 [planner] committed offset 76 for s9486_inbox partition 0
+2026-11-15 22:05:19.720 [planner] received from topic=s9486_inbox partition=0 offset=76 correlation_id=04c76d02-1fdb-4755-9c12-062f37350305
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 22:06:13.229 [planner] sent to topic=s9486_tasks partition=1 offset=127 correlation_id=04c76d02-1fdb-4755-9c12-062f37350305 value={"correlation_id": "04c76d02-1fdb-4755-9c12-062f37350305", "question": "What city is listing LST-04819 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04819: title \"Bright 2BR Townhouse near SJSU\", address 1530 Market St, Milpitas, CA, availa...(truncated)
+2026-11-15 22:06:14.281 [planner] committed offset 77 for s9486_inbox partition 0
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+Heartbeat failed for group s9486_planners: coordinator (node 1) is either not started or not valid
+Marking the coordinator dead (node 1)for group s9486_planners.
+2026-11-15 22:08:15.090 [planner] stopped
+2026-11-16 03:27:47.496 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-16 03:27:47.496 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-16 03:27:49.589 [planner] received from topic=s9486_inbox partition=0 offset=77 correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8
+2026-11-16 03:28:08.240 [planner] sent to topic=s9486_tasks partition=0 offset=63 correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8 value={"correlation_id": "92e13aac-84eb-49e1-a623-6f25e27559c8", "question": "Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title \"Bright 1BR Condo with parking\", ad...(truncated)
+2026-11-16 03:28:08.490 [planner] committed offset 78 for s9486_inbox partition 0
+2026-11-16 03:29:01.125 [planner] stopped
+2026-11-16 03:29:05.004 [planner] ready: group=s9486_planners topic=s9486_inbox assigned partitions=[0]
+2026-11-16 03:29:05.004 [planner] started: reads s9486_inbox, writes s9486_tasks, mode=llm, commit=manual, idempotency=on, poison=retry-dlq (max 3)
+2026-11-16 03:29:06.009 [planner] received from topic=s9486_inbox partition=0 offset=78 correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f
+2026-11-16 03:29:10.825 [planner] sent to topic=s9486_tasks partition=0 offset=64 correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f value={"correlation_id": "b0bb9afa-b067-4c07-b0a8-7e74079fb28f", "question": "What city is listing LST-04819 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04819: title \"Bright 2BR Townhouse near SJSU\", address 1530 Market St, Milpitas, CA, availa...(truncated)
+2026-11-16 03:29:10.835 [planner] committed offset 79 for s9486_inbox partition 0
+2026-11-16 03:29:54.357 [planner] received from topic=s9486_inbox partition=0 offset=79 correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef
+2026-11-16 03:30:12.320 [planner] sent to topic=s9486_tasks partition=0 offset=65 correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef value={"correlation_id": "46402d81-bdc6-4618-b113-1db7cd47f6ef", "question": "What is the street address of listing LST-00775?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00775: title \"Bright 3BR House near SJSU\", address 5570 San Carlos St, Sunnyv...(truncated)
+2026-11-16 03:30:12.459 [planner] committed offset 80 for s9486_inbox partition 0
+2026-11-16 03:31:00.873 [planner] received from topic=s9486_inbox partition=0 offset=80 correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536
+2026-11-16 03:31:14.888 [planner] sent to topic=s9486_tasks partition=0 offset=66 correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536 value={"correlation_id": "6d5e6837-660b-4373-9653-e2b87fb06536", "question": "What is a guarantor and when do students need one?", "plan": ["A guarantor is a person who agrees to be financially responsible for a student's rent if they fail to pay. Students may need a guarantor if they are a non-US citizen...(truncated)
+2026-11-16 03:31:14.897 [planner] committed offset 81 for s9486_inbox partition 0
+2026-11-16 03:32:15.359 [planner] received from topic=s9486_inbox partition=0 offset=81 correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4
+2026-11-16 03:32:21.034 [planner] sent to topic=s9486_tasks partition=0 offset=67 correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4 value={"correlation_id": "a6efeefd-7283-4f3b-8c9b-6c684bdf29c4", "question": "What should I do if I find mold in my bathroom?", "plan": ["Check if the mold is widespread or just a small patch", "Identify the source of the moisture that's causing the mold growth", "Take steps to fix the moisture issue and ...(truncated)
+2026-11-16 03:32:21.044 [planner] committed offset 82 for s9486_inbox partition 0
+2026-11-16 03:33:48.744 [planner] received from topic=s9486_inbox partition=0 offset=82 correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f
+2026-11-16 03:34:01.343 [planner] sent to topic=s9486_tasks partition=0 offset=68 correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f value={"correlation_id": "ec0ddacd-f08e-458b-8ca9-406bf56a571f", "question": "How do I ask for a lease renewal with the same rent?", "plan": ["Review your lease agreement to understand the renewal process and any required notice periods.", "Schedule a meeting or send a formal request to your landlord or p...(truncated)
+2026-11-16 03:34:01.422 [planner] committed offset 83 for s9486_inbox partition 0
+2026-11-16 03:34:59.233 [planner] received from topic=s9486_inbox partition=0 offset=83 correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784
+2026-11-16 03:35:09.631 [planner] sent to topic=s9486_tasks partition=1 offset=128 correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784 value={"correlation_id": "075e4adb-ea42-4ddd-9102-7a7e66f19784", "question": "How early should I start looking for an apartment before the fall semester?", "plan": ["Start researching potential apartments and neighborhoods in late winter to early spring (February-March) to get a head start on the applicat...(truncated)
+2026-11-16 03:35:09.689 [planner] committed offset 84 for s9486_inbox partition 0
+2026-11-16 03:36:09.706 [planner] received from topic=s9486_inbox partition=0 offset=84 correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8
+2026-11-16 03:36:16.660 [planner] sent to topic=s9486_tasks partition=1 offset=129 correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8 value={"correlation_id": "4b0814ab-925d-4cc7-abd8-f0fb275fc1e8", "question": "What kind of home is listing LST-01667, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01667: title \"Bright 2BR Apartment near light rail\...(truncated)
+2026-11-16 03:36:16.666 [planner] committed offset 85 for s9486_inbox partition 0
+2026-11-16 03:36:54.641 [planner] received from topic=s9486_inbox partition=0 offset=85 correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe
+2026-11-16 03:37:02.048 [planner] sent to topic=s9486_tasks partition=1 offset=130 correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe value={"correlation_id": "02b2aa16-ae45-4891-963e-6c462526edbe", "question": "What kind of home is listing LST-02056, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-02056: title \"Updated 1BR Condo with in-unit laundr...(truncated)
+2026-11-16 03:37:02.060 [planner] committed offset 86 for s9486_inbox partition 0
+2026-11-16 03:37:40.235 [planner] received from topic=s9486_inbox partition=0 offset=86 correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc
+2026-11-16 03:37:44.925 [planner] sent to topic=s9486_tasks partition=1 offset=131 correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc value={"correlation_id": "79ce923d-ef94-421f-b6ae-e4755f435abc", "question": "Is it a good idea to pay rent with a credit card?", "plan": ["Check the landlord's policy on credit card payments", "Understand the interest rates and fees associated with the credit card", "Consider the potential impact on cred...(truncated)
+2026-11-16 03:37:44.933 [planner] committed offset 87 for s9486_inbox partition 0
+2026-11-16 03:38:29.310 [planner] received from topic=s9486_inbox partition=0 offset=87 correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe
+2026-11-16 03:38:33.504 [planner] sent to topic=s9486_tasks partition=0 offset=69 correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe value={"correlation_id": "bed757e3-c025-4b7e-935a-c6355fe0afbe", "question": "What city is listing LST-04199 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04199: title \"Bright 2BR Apartment pet friendly\", address 5460 Almaden Blvd, Campbell, CA, ...(truncated)
+2026-11-16 03:38:33.518 [planner] committed offset 88 for s9486_inbox partition 0
+2026-11-16 03:39:05.794 [planner] received from topic=s9486_inbox partition=0 offset=88 correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4
+2026-11-16 03:39:17.808 [planner] sent to topic=s9486_tasks partition=0 offset=70 correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4 value={"correlation_id": "f82fa972-db4a-4b09-874e-5631edf82be4", "question": "How do I compare two apartments that have different lease lengths?", "plan": ["Step 1: Calculate the total cost of each apartment by multiplying the monthly rent by the number of months in the lease term.", "Step 2: Consider the...(truncated)
+2026-11-16 03:39:17.812 [planner] committed offset 89 for s9486_inbox partition 0
+2026-11-16 03:39:59.360 [planner] received from topic=s9486_inbox partition=0 offset=89 correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1
+2026-11-16 03:40:06.015 [planner] sent to topic=s9486_tasks partition=0 offset=71 correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1 value={"correlation_id": "70695b33-3ad1-453f-8d1f-a7e8981f85d1", "question": "What is the street address of listing LST-01913?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01913: title \"Spacious Loft near light rail\", address 1865 Lincoln Ave, Santa...(truncated)
+2026-11-16 03:40:06.021 [planner] committed offset 90 for s9486_inbox partition 0
+2026-11-16 03:40:44.722 [planner] received from topic=s9486_inbox partition=0 offset=90 correlation_id=fc565224-d50f-4027-a672-e454ee266980
+2026-11-16 03:40:57.066 [planner] sent to topic=s9486_tasks partition=1 offset=132 correlation_id=fc565224-d50f-4027-a672-e454ee266980 value={"correlation_id": "fc565224-d50f-4027-a672-e454ee266980", "question": "How can I build a rental history if this is my first apartment?", "plan": ["Step 1: Provide a landlord or property manager with your contact information and a brief statement about your rental history, such as 'I'm a first-time ...(truncated)
+2026-11-16 03:40:57.075 [planner] committed offset 91 for s9486_inbox partition 0
+2026-11-16 03:41:45.597 [planner] received from topic=s9486_inbox partition=0 offset=91 correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d
+2026-11-16 03:41:50.499 [planner] sent to topic=s9486_tasks partition=1 offset=133 correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d value={"correlation_id": "6487f02b-4bc3-4bd2-a6b3-41b06956e98d", "question": "What should a student do if the landlord does not return calls about a leak?", "plan": ["Step 1: Document the issue", "Step 2: Send a written notice to the landlord", "Step 3: Contact local housing authority or tenant organizati...(truncated)
+2026-11-16 03:41:50.508 [planner] committed offset 92 for s9486_inbox partition 0
+2026-11-16 03:42:41.656 [planner] received from topic=s9486_inbox partition=0 offset=92 correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef
+2026-11-16 03:42:52.074 [planner] sent to topic=s9486_tasks partition=0 offset=72 correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef value={"correlation_id": "b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef", "question": "How do I find out if a neighborhood near campus is safe at night?", "plan": ["· Check online reviews and ratings from reputable sources such as Google, Yelp, or Niche.com to get an idea of the neighborhood's safety.\n· Look for ...(truncated)
+2026-11-16 03:42:52.082 [planner] committed offset 93 for s9486_inbox partition 0
+2026-11-16 03:43:38.745 [planner] received from topic=s9486_inbox partition=0 offset=93 correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678
+2026-11-16 03:43:44.239 [planner] sent to topic=s9486_tasks partition=1 offset=134 correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678 value={"correlation_id": "2c044e96-66a0-4c1b-a979-cdc3f7e0a678", "question": "What is the street address of listing LST-03341?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-03341: title \"Sunny 4BR House near downtown\", address 4181 Lincoln Ave, San J...(truncated)
+2026-11-16 03:43:44.254 [planner] committed offset 94 for s9486_inbox partition 0
+2026-11-16 03:44:27.280 [planner] received from topic=s9486_inbox partition=0 offset=94 correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9
+2026-11-16 03:44:37.133 [planner] sent to topic=s9486_tasks partition=0 offset=73 correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9 value={"correlation_id": "f4294d04-6cb1-4b1c-9946-9c48bc946ba9", "question": "How do I get a copy of my lease if I lost mine?", "plan": ["Check your email for a digital copy of your lease, as it may have been sent to you by your landlord or property manager.", "Contact your landlord or property manager di...(truncated)
+2026-11-16 03:44:37.147 [planner] committed offset 95 for s9486_inbox partition 0
+2026-11-16 03:45:26.028 [planner] received from topic=s9486_inbox partition=0 offset=95 correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3
+2026-11-16 03:45:35.228 [planner] sent to topic=s9486_tasks partition=1 offset=135 correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3 value={"correlation_id": "ba66fa26-d6e5-44a9-884d-4979ee8089e3", "question": "How do I break a lease early if I am studying abroad next term?", "plan": ["Check your lease agreement to see if there are any penalties or fees associated with breaking the lease early.", "Contact your landlord or property mana...(truncated)
+2026-11-16 03:45:35.243 [planner] committed offset 96 for s9486_inbox partition 0
+2026-11-16 03:46:20.475 [planner] received from topic=s9486_inbox partition=0 offset=96 correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346
+2026-11-16 03:46:30.335 [planner] sent to topic=s9486_tasks partition=1 offset=136 correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346 value={"correlation_id": "8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346", "question": "What can I do if my roommate stops paying their share of the rent?", "plan": ["Step 1: Review your lease agreement to understand the terms and conditions of rent payment, including any late fees or penalties.", "Step 2: Communic...(truncated)
+2026-11-16 03:46:30.344 [planner] committed offset 97 for s9486_inbox partition 0
+2026-11-16 03:47:12.614 [planner] received from topic=s9486_inbox partition=0 offset=97 correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1
+2026-11-16 03:47:21.365 [planner] sent to topic=s9486_tasks partition=0 offset=74 correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1 value={"correlation_id": "10c6ebbc-6d69-48eb-a95d-aa0d58415fa1", "question": "What happens if I move out without giving notice?", "plan": ["Check your rental agreement to see if there are any specific notice requirements.", "If you fail to provide the required notice, your landlord may charge you a penalt...(truncated)
+2026-11-16 03:47:21.375 [planner] committed offset 98 for s9486_inbox partition 0
+2026-11-16 03:48:10.927 [planner] received from topic=s9486_inbox partition=0 offset=98 correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb
+2026-11-16 03:48:16.075 [planner] sent to topic=s9486_tasks partition=1 offset=137 correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb value={"correlation_id": "e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb", "question": "How do I split a security deposit fairly between roommates?", "plan": ["Determine the total amount of the security deposit", "Calculate each roommate's share by dividing the total deposit by the number of roommates", "Consider a...(truncated)
+2026-11-16 03:48:16.083 [planner] committed offset 99 for s9486_inbox partition 0
+2026-11-16 03:49:03.020 [planner] received from topic=s9486_inbox partition=0 offset=99 correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9
+2026-11-16 03:49:08.620 [planner] sent to topic=s9486_tasks partition=1 offset=138 correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9 value={"correlation_id": "4720ecb3-a7de-469f-a8a9-d5cefc95b2d9", "question": "What kind of home is listing LST-04071, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04071: title \"Charming 1BR Apartment near light rai...(truncated)
+2026-11-16 03:49:08.632 [planner] committed offset 100 for s9486_inbox partition 0
+2026-11-16 03:49:55.330 [planner] received from topic=s9486_inbox partition=0 offset=100 correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe
+2026-11-16 03:50:05.663 [planner] sent to topic=s9486_tasks partition=0 offset=75 correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe value={"correlation_id": "2fd44bde-6fcc-44a9-8ddb-8630ce66fafe", "question": "How do I avoid paying an application fee for apartments I will not get?", "plan": ["Research the apartment complex's application fee policy to see if they offer any discounts or waivers for certain groups, such as students.", "C...(truncated)
+2026-11-16 03:50:05.673 [planner] committed offset 101 for s9486_inbox partition 0
+2026-11-16 03:50:50.844 [planner] received from topic=s9486_inbox partition=0 offset=101 correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006
+2026-11-16 03:50:57.600 [planner] sent to topic=s9486_tasks partition=0 offset=76 correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006 value={"correlation_id": "21e721c1-bed0-44c7-a70d-a393d1e02006", "question": "What is the street address of listing LST-01468?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01468: title \"Quiet Loft with balcony\", address 8001 Willow St, Campbell, CA,...(truncated)
+2026-11-16 03:50:57.614 [planner] committed offset 102 for s9486_inbox partition 0
+2026-11-16 03:51:36.281 [planner] received from topic=s9486_inbox partition=0 offset=102 correlation_id=b2b46075-9fea-464c-a876-554055c1285f
+2026-11-16 03:51:47.544 [planner] sent to topic=s9486_tasks partition=0 offset=77 correlation_id=b2b46075-9fea-464c-a876-554055c1285f value={"correlation_id": "b2b46075-9fea-464c-a876-554055c1285f", "question": "Is renters insurance worth it for a small studio?", "plan": ["Consider the cost of renting a small studio, which may be lower than expected, and factor in the potential costs of replacing personal belongings or covering medical ...(truncated)
+2026-11-16 03:51:47.576 [planner] committed offset 103 for s9486_inbox partition 0
+2026-11-16 03:52:33.177 [planner] received from topic=s9486_inbox partition=0 offset=103 correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf
+2026-11-16 03:52:44.979 [planner] sent to topic=s9486_tasks partition=0 offset=78 correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf value={"correlation_id": "53498f44-7da7-4f74-8098-ca6c689735cf", "question": "How do parking permits usually work for apartment complexes?", "plan": ["Step 1: Understand the parking policy - Check the apartment complex's website or lease agreement to see if they offer parking permits, and what the require...(truncated)
+2026-11-16 03:52:44.986 [planner] committed offset 104 for s9486_inbox partition 0
+2026-11-16 03:53:33.872 [planner] received from topic=s9486_inbox partition=0 offset=104 correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e
+2026-11-16 03:53:43.928 [planner] sent to topic=s9486_tasks partition=0 offset=79 correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e value={"correlation_id": "5097f3b6-9a7c-407c-a0b1-8e69c5f3587e", "question": "What does 'month-to-month' mean in a rental agreement?", "plan": ["A 'month-to-month' rental agreement is a type of lease where neither the landlord nor the tenant has a fixed term.", "It means that the tenant can give notice to...(truncated)
+2026-11-16 03:53:43.941 [planner] committed offset 105 for s9486_inbox partition 0
+2026-11-16 03:54:22.229 [planner] received from topic=s9486_inbox partition=0 offset=105 correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba
+2026-11-16 03:54:31.162 [planner] sent to topic=s9486_tasks partition=0 offset=80 correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba value={"correlation_id": "ca46d031-dd09-4493-a378-b2ec526112ba", "question": "What questions should I ask during an apartment viewing?", "plan": ["Ask about the lease terms and renewal policies", "Inquire about the rent and any additional fees", "Check the condition and age of the appliances and plumbing ...(truncated)
+2026-11-16 03:54:31.205 [planner] committed offset 106 for s9486_inbox partition 0
+2026-11-16 03:55:24.841 [planner] received from topic=s9486_inbox partition=0 offset=106 correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32
+2026-11-16 03:55:31.605 [planner] sent to topic=s9486_tasks partition=1 offset=139 correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32 value={"correlation_id": "f8e70018-e7fe-49bb-a72b-a69eb1803d32", "question": "How should I document the condition of an apartment on move-in day?", "plan": ["Take clear, well-lit photos of the entire apartment, including any damages or issues.", "Make a list of all the rooms, their contents, and any notab...(truncated)
+2026-11-16 03:55:31.649 [planner] committed offset 107 for s9486_inbox partition 0
+2026-11-16 03:56:19.117 [planner] received from topic=s9486_inbox partition=0 offset=107 correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a
+2026-11-16 03:56:27.294 [planner] sent to topic=s9486_tasks partition=1 offset=140 correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a value={"correlation_id": "cc6d3963-fa5d-42b8-b77c-85270e860f0a", "question": "How do I report a broken smoke detector?", "plan": ["Check your lease agreement to see if it specifies the process for reporting a broken smoke detector.", "Locate the contact information for your landlord or property manager, s...(truncated)
+2026-11-16 03:56:27.302 [planner] committed offset 108 for s9486_inbox partition 0
+2026-11-16 03:57:10.311 [planner] stopped

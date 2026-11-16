@@ -1,0 +1,381 @@
+{
+  "run_at": "2026-11-16T12:04:42+00:00",
+  "frozen_commits": {
+    "Homework10/data/eval_cases.json": "51fd847 2026-11-16T03:32:30-08:00",
+    "Homework10/data/human_labels.csv": "51fd847 2026-11-16T03:32:30-08:00"
+  },
+  "judge": {
+    "model": "llama3.2:3b",
+    "temperature": 0.0,
+    "seed": null,
+    "num_ctx": 2048,
+    "num_predict": 300,
+    "timeout_s": 90.0,
+    "framework": "deepeval GEval (4.3.4), evaluation_steps + 1-5 rubric"
+  },
+  "agreement": {
+    "run1": {
+      "spearman": 0.171,
+      "p_value": 0.4722,
+      "mean_abs_diff": 1.65,
+      "exact_agreement": 1
+    },
+    "run2": {
+      "spearman": 0.171,
+      "p_value": 0.4722,
+      "mean_abs_diff": 1.65,
+      "exact_agreement": 1
+    },
+    "run3": {
+      "spearman": 0.171,
+      "p_value": 0.4722,
+      "mean_abs_diff": 1.65,
+      "exact_agreement": 1
+    },
+    "median_of_3": {
+      "spearman": 0.171,
+      "p_value": 0.4722,
+      "mean_abs_diff": 1.65,
+      "exact_agreement": 1
+    }
+  },
+  "repeatability": {
+    "cases_with_any_change": 0,
+    "cases": 20,
+    "changed_case_ids": [],
+    "pairwise_comparisons": 60,
+    "pairwise_changed": 0,
+    "mean_abs_change": 0,
+    "max_abs_change": 0
+  },
+  "runs": [
+    {
+      "c01": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but is vague and does not provide specific details about the available units count, missing the exact number."
+      },
+      "c02": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The actual output does not directly answer the question, as it provides a general plan of steps to take before signing a lease, rather than specifically addressing the question about what to check before signing a lease in San Jose."
+      },
+      "c03": {
+        "score": 1,
+        "raw": 0.0,
+        "reason": "The response does not directly answer the question, as it mentions the steps to find the landlord but does not provide the landlord's name. Additionally, it invents the contact information for Neha Nakamura, which contradicts the given facts."
+      },
+      "c04": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, instead providing a detailed plan for splitting rent and utilities with roommates. It also includes unnecessary information about discussing and agreeing on the split with roommates, which is not relevant to the question."
+      },
+      "c05": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, instead providing a detailed but unnecessary plan for finding the landlord. The actual output does not contradict the given facts and is correct, but the response is padded with unnecessary steps."
+      },
+      "c06": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question, but it is padded with unnecessary steps and lacks concision. The plan is repeated instead of providing a direct answer, and the response could be more concise and to the point."
+      },
+      "c07": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but is vague and misses a detail, as it only provides the number of units available without specifying the unit itself."
+      },
+      "c08": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, missing key details such as the importance of checking the landlord's reputation and the need to inspect the apartment before signing the lease."
+      },
+      "c09": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and includes unnecessary steps, such as reviewing the lease agreement and contacting the landlord, which are not directly related to the question. The answer could be more concise and specific."
+      },
+      "c10": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, as it provides general steps without specifying the required actions or timelines for returning a security deposit."
+      },
+      "c11": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, as it includes additional information not requested in the input. The actual output is lengthy and includes unnecessary details, such as credit reports and rental history, which are not specified in the input."
+      },
+      "c12": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, instead providing a step-by-step guide on how to ask a landlord to fix a broken heater. It also includes unnecessary details such as reviewing the lease agreement and documenting the issue, which are not directly related to the question."
+      },
+      "c13": {
+        "score": 1,
+        "raw": 0.0,
+        "reason": "The response does not directly answer the question, as it provides a detailed plan for reporting a noisy neighbor, but the input question only asks how to report a noisy neighbor, without specifying the steps."
+      },
+      "c14": {
+        "score": 4,
+        "raw": 0.75,
+        "reason": "The response directly answers the question, but it includes unnecessary details and a lengthy explanation, which could be considered padding."
+      },
+      "c15": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, as it provides a general guide rather than addressing the specific setup of internet in a new apartment. It also includes unnecessary steps and lacks specific details about the process."
+      },
+      "c16": {
+        "score": 4,
+        "raw": 0.75,
+        "reason": "The response provides a clear and concise answer to the question, but it does not directly address the comparison of furnished and unfurnished apartments near SJSU. The conclusion is based on general research, but it lacks specific details and data to support the claims."
+      },
+      "c17": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, as it provides a general guide instead of a step-by-step solution to fixing a broken heater. It also lacks specific details and instructions for the repair process."
+      },
+      "c18": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and includes unnecessary details, such as the dimensions of the car, which are not relevant to the question. It also does not directly answer the question and provides a lengthy list of points without a clear conclusion."
+      },
+      "c19": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but includes unnecessary details and padding, such as the additional information about providing documentation requested by the landlord or property manager, which is not explicitly mentioned in the input question."
+      },
+      "c20": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, as it provides a detailed explanation of how to determine the notice period, but does not state the specific amount of notice required. Additionally, the response includes unnecessary steps and does not confirm the notice period with the landlord, which may lead to incorrect information."
+      }
+    },
+    {
+      "c01": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but is vague and does not provide specific details about the available units count, missing the exact number."
+      },
+      "c02": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The actual output does not directly answer the question, as it provides a general plan of steps to take before signing a lease, rather than specifically addressing the question about what to check before signing a lease in San Jose."
+      },
+      "c03": {
+        "score": 1,
+        "raw": 0.0,
+        "reason": "The response does not directly answer the question, as it mentions the steps to find the landlord but does not provide the landlord's name. Additionally, it invents the contact information for Neha Nakamura, which contradicts the given facts."
+      },
+      "c04": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, instead providing a detailed plan for splitting rent and utilities with roommates. It also includes unnecessary information about discussing and agreeing on the split with roommates, which is not relevant to the question."
+      },
+      "c05": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, instead providing a detailed but unnecessary plan for finding the landlord. The actual output does not contradict the given facts and is correct, but the response is padded with unnecessary steps."
+      },
+      "c06": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question, but it is padded with unnecessary steps and lacks concision. The plan is repeated instead of providing a direct answer, and the response could be more concise and to the point."
+      },
+      "c07": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but is vague and misses a detail, as it only provides the number of units available without specifying the unit itself."
+      },
+      "c08": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, missing key details such as the importance of checking the landlord's reputation and the need to inspect the apartment before signing the lease."
+      },
+      "c09": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and includes unnecessary steps, such as reviewing the lease agreement and contacting the landlord, which are not directly related to the question. The answer could be more concise and specific."
+      },
+      "c10": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, as it provides general steps without specifying the required actions or timelines for returning a security deposit."
+      },
+      "c11": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, as it includes additional information not requested in the input. The actual output is lengthy and includes unnecessary details, such as credit reports and rental history, which are not specified in the input."
+      },
+      "c12": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, instead providing a step-by-step guide on how to ask a landlord to fix a broken heater. It also includes unnecessary details such as reviewing the lease agreement and documenting the issue, which are not directly related to the question."
+      },
+      "c13": {
+        "score": 1,
+        "raw": 0.0,
+        "reason": "The response does not directly answer the question, as it provides a detailed plan for reporting a noisy neighbor, but the input question only asks how to report a noisy neighbor, without specifying the steps."
+      },
+      "c14": {
+        "score": 4,
+        "raw": 0.75,
+        "reason": "The response directly answers the question, but it includes unnecessary details and a lengthy explanation, which could be considered padding."
+      },
+      "c15": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, as it provides a general guide rather than addressing the specific setup of internet in a new apartment. It also includes unnecessary steps and lacks specific details about the process."
+      },
+      "c16": {
+        "score": 4,
+        "raw": 0.75,
+        "reason": "The response provides a clear and concise answer to the question, but it does not directly address the comparison of furnished and unfurnished apartments near SJSU. The conclusion is based on general research, but it lacks specific details and data to support the claims."
+      },
+      "c17": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, as it provides a general guide instead of a step-by-step solution to fixing a broken heater. It also lacks specific details and instructions for the repair process."
+      },
+      "c18": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and includes unnecessary details, such as the dimensions of the car, which are not relevant to the question. It also does not directly answer the question and provides a lengthy list of points without a clear conclusion."
+      },
+      "c19": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but includes unnecessary details and padding, such as the additional information about providing documentation requested by the landlord or property manager, which is not explicitly mentioned in the input question."
+      },
+      "c20": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, as it provides a detailed explanation of how to determine the notice period, but does not state the specific amount of notice required. Additionally, the response includes unnecessary steps and does not confirm the notice period with the landlord, which may lead to incorrect information."
+      }
+    },
+    {
+      "c01": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but is vague and does not provide specific details about the available units count, missing the exact number."
+      },
+      "c02": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The actual output does not directly answer the question, as it provides a general plan of steps to take before signing a lease, rather than specifically addressing the question about what to check before signing a lease in San Jose."
+      },
+      "c03": {
+        "score": 1,
+        "raw": 0.0,
+        "reason": "The response does not directly answer the question, as it mentions the steps to find the landlord but does not provide the landlord's name. Additionally, it invents the contact information for Neha Nakamura, which contradicts the given facts."
+      },
+      "c04": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, instead providing a detailed plan for splitting rent and utilities with roommates. It also includes unnecessary information about discussing and agreeing on the split with roommates, which is not relevant to the question."
+      },
+      "c05": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, instead providing a detailed but unnecessary plan for finding the landlord. The actual output does not contradict the given facts and is correct, but the response is padded with unnecessary steps."
+      },
+      "c06": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question, but it is padded with unnecessary steps and lacks concision. The plan is repeated instead of providing a direct answer, and the response could be more concise and to the point."
+      },
+      "c07": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but is vague and misses a detail, as it only provides the number of units available without specifying the unit itself."
+      },
+      "c08": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, missing key details such as the importance of checking the landlord's reputation and the need to inspect the apartment before signing the lease."
+      },
+      "c09": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and includes unnecessary steps, such as reviewing the lease agreement and contacting the landlord, which are not directly related to the question. The answer could be more concise and specific."
+      },
+      "c10": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and does not directly answer the question, as it provides general steps without specifying the required actions or timelines for returning a security deposit."
+      },
+      "c11": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, as it includes additional information not requested in the input. The actual output is lengthy and includes unnecessary details, such as credit reports and rental history, which are not specified in the input."
+      },
+      "c12": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, instead providing a step-by-step guide on how to ask a landlord to fix a broken heater. It also includes unnecessary details such as reviewing the lease agreement and documenting the issue, which are not directly related to the question."
+      },
+      "c13": {
+        "score": 1,
+        "raw": 0.0,
+        "reason": "The response does not directly answer the question, as it provides a detailed plan for reporting a noisy neighbor, but the input question only asks how to report a noisy neighbor, without specifying the steps."
+      },
+      "c14": {
+        "score": 4,
+        "raw": 0.75,
+        "reason": "The response directly answers the question, but it includes unnecessary details and a lengthy explanation, which could be considered padding."
+      },
+      "c15": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, as it provides a general guide rather than addressing the specific setup of internet in a new apartment. It also includes unnecessary steps and lacks specific details about the process."
+      },
+      "c16": {
+        "score": 4,
+        "raw": 0.75,
+        "reason": "The response provides a clear and concise answer to the question, but it does not directly address the comparison of furnished and unfurnished apartments near SJSU. The conclusion is based on general research, but it lacks specific details and data to support the claims."
+      },
+      "c17": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response does not directly answer the question, as it provides a general guide instead of a step-by-step solution to fixing a broken heater. It also lacks specific details and instructions for the repair process."
+      },
+      "c18": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response is vague and includes unnecessary details, such as the dimensions of the car, which are not relevant to the question. It also does not directly answer the question and provides a lengthy list of points without a clear conclusion."
+      },
+      "c19": {
+        "score": 3,
+        "raw": 0.5,
+        "reason": "The response directly answers the question but includes unnecessary details and padding, such as the additional information about providing documentation requested by the landlord or property manager, which is not explicitly mentioned in the input question."
+      },
+      "c20": {
+        "score": 2,
+        "raw": 0.25,
+        "reason": "The response does not directly answer the question, as it provides a detailed explanation of how to determine the notice period, but does not state the specific amount of notice required. Additionally, the response includes unnecessary steps and does not confirm the notice period with the landlord, which may lead to incorrect information."
+      }
+    }
+  ],
+  "human": {
+    "c01": 5,
+    "c02": 5,
+    "c03": 4,
+    "c04": 4,
+    "c05": 4,
+    "c06": 3,
+    "c07": 4,
+    "c08": 5,
+    "c09": 5,
+    "c10": 5,
+    "c11": 5,
+    "c12": 4,
+    "c13": 4,
+    "c14": 5,
+    "c15": 5,
+    "c16": 3,
+    "c17": 4,
+    "c18": 5,
+    "c19": 4,
+    "c20": 3
+  }
+}

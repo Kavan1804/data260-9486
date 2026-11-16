@@ -1,0 +1,878 @@
+{
+  "run_at": "2026-11-16T11:57:10+00:00",
+  "resumed": true,
+  "misses": [
+    {
+      "n": 1,
+      "query": "What does a landlord need to fix within a reasonable time?",
+      "trace_id": "4718ff29-856f-496d-8abf-78ecea64d0fb",
+      "is_cached": false,
+      "similarity": 0.3684,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 92614.4,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 2,
+      "query": "What kind of home is listing LST-01040, and how many bedrooms does it have?",
+      "trace_id": "bbef106a-601c-49a8-9e5c-062c80a138be",
+      "is_cached": false,
+      "similarity": 0.735,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 151040.5,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 3,
+      "query": "What city is listing LST-04733 in?",
+      "trace_id": "15c74ecb-249d-4dcb-96c9-7e4f28bc473d",
+      "is_cached": false,
+      "similarity": 0.6786,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 155553.2,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 4,
+      "query": "How do I handle a package that was stolen from my apartment lobby?",
+      "trace_id": "1a50db8f-9443-4ecd-824a-5bd07cd0b75b",
+      "is_cached": false,
+      "similarity": 0.1872,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 101977.7,
+      "scores": {
+        "plan_quality": 2,
+        "writer_helpfulness": 1,
+        "final_helpfulness": 1
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 5,
+      "query": "What kind of home is listing LST-04791, and how many bedrooms does it have?",
+      "trace_id": "69ab6a70-c9e8-439f-9395-948dc38bb8e1",
+      "is_cached": false,
+      "similarity": 0.7038,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 99507.6,
+      "scores": {
+        "plan_quality": 2,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 6,
+      "query": "What should be in a written roommate agreement?",
+      "trace_id": "6fa3c47b-234f-4472-9969-0c68ee022eee",
+      "is_cached": false,
+      "similarity": 0.223,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 61546.6,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 7,
+      "query": "What is the street address of listing LST-01230?",
+      "trace_id": "9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff",
+      "is_cached": false,
+      "similarity": 0.7216,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 46802.1,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 4,
+        "final_helpfulness": 4
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 8,
+      "query": "What city is listing LST-03036 in?",
+      "trace_id": "4cded1cf-7606-47e3-b6a5-931f4737e5aa",
+      "is_cached": false,
+      "similarity": 0.7082,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 33274.3,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 9,
+      "query": "How can I lower my electricity bill in a small apartment?",
+      "trace_id": "8559473a-b70b-4e91-a6d8-e3235fd4dbd8",
+      "is_cached": false,
+      "similarity": 0.2275,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 54686.8,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 10,
+      "query": "What city is listing LST-02286 in?",
+      "trace_id": "2e875f71-cafd-4a34-b5e4-f0e33af1cc72",
+      "is_cached": false,
+      "similarity": 0.7025,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 37862.8,
+      "scores": {
+        "plan_quality": 1,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 11,
+      "query": "What are the pros and cons of living in a furnished apartment?",
+      "trace_id": "50600325-6d45-490e-939d-b4d500f05653",
+      "is_cached": false,
+      "similarity": 0.2322,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 63108.3,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 4,
+        "final_helpfulness": 4
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 12,
+      "query": "What city is listing LST-04050 in?",
+      "trace_id": "2f80f8df-56ae-469c-9565-11dace17bac2",
+      "is_cached": false,
+      "similarity": 0.6783,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 39699.8,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 13,
+      "query": "What should I know about subletting rules in California?",
+      "trace_id": "666c0b59-ae58-4553-a098-fba60b738872",
+      "is_cached": false,
+      "similarity": 0.2387,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 63286.3,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 2,
+        "final_helpfulness": 2
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 14,
+      "query": "What is the street address of listing LST-00745?",
+      "trace_id": "f468a061-d468-419f-b18a-804b758bd920",
+      "is_cached": false,
+      "similarity": 0.6914,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 57011.8,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 15,
+      "query": "What kind of home is listing LST-04112, and how many bedrooms does it have?",
+      "trace_id": "3dae79cc-e814-4118-9978-77dba40de7ab",
+      "is_cached": false,
+      "similarity": 0.7117,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 48262.7,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 16,
+      "query": "What is a reasonable commute time from an apartment to campus?",
+      "trace_id": "b82005b1-45f4-4ef6-afbb-fa3ebf6518a0",
+      "is_cached": false,
+      "similarity": 0.2535,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 63138.8,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 17,
+      "query": "What city is listing LST-01354 in?",
+      "trace_id": "6cba1e0c-1366-4aef-8920-b183d8c9e6a7",
+      "is_cached": false,
+      "similarity": 0.7252,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 35974.7,
+      "scores": {
+        "plan_quality": 2,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 18,
+      "query": "What is the street address of listing LST-02137?",
+      "trace_id": "3e5a113b-0b14-4d48-993b-50f03767dc3f",
+      "is_cached": false,
+      "similarity": 0.7045,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 44408.2,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 19,
+      "query": "Are pets usually allowed in student apartments, and what fees come with them?",
+      "trace_id": "97b832fe-d4b3-4890-b7e5-a4421f319651",
+      "is_cached": false,
+      "similarity": 0.2861,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 55989.2,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 20,
+      "query": "Can my landlord raise the rent in the middle of my lease?",
+      "trace_id": "6d2220d3-08b0-4c2e-9c21-16dc27568879",
+      "is_cached": false,
+      "similarity": 0.2506,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 108487.9,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "earlier (resumed)"
+    },
+    {
+      "n": 21,
+      "query": "What city is listing LST-04819 in?",
+      "trace_id": "b0bb9afa-b067-4c07-b0a8-7e74079fb28f",
+      "is_cached": false,
+      "similarity": 0.6844,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 43102.1,
+      "scores": {
+        "plan_quality": 1,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 22,
+      "query": "What is the street address of listing LST-00775?",
+      "trace_id": "46402d81-bdc6-4618-b113-1db7cd47f6ef",
+      "is_cached": false,
+      "similarity": 0.691,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 71714.7,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 23,
+      "query": "What is a guarantor and when do students need one?",
+      "trace_id": "6d5e6837-660b-4373-9653-e2b87fb06536",
+      "is_cached": false,
+      "similarity": 0.0834,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 74647.7,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 24,
+      "query": "What should I do if I find mold in my bathroom?",
+      "trace_id": "a6efeefd-7283-4f3b-8c9b-6c684bdf29c4",
+      "is_cached": false,
+      "similarity": 0.15,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 91763.9,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 2,
+        "final_helpfulness": 2
+      },
+      "session": "this run"
+    },
+    {
+      "n": 25,
+      "query": "How do I ask for a lease renewal with the same rent?",
+      "trace_id": "ec0ddacd-f08e-458b-8ca9-406bf56a571f",
+      "is_cached": false,
+      "similarity": 0.3384,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 71989.0,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 26,
+      "query": "How early should I start looking for an apartment before the fall semester?",
+      "trace_id": "075e4adb-ea42-4ddd-9102-7a7e66f19784",
+      "is_cached": false,
+      "similarity": 0.363,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 70388.4,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 27,
+      "query": "What kind of home is listing LST-01667, and how many bedrooms does it have?",
+      "trace_id": "4b0814ab-925d-4cc7-abd8-f0fb275fc1e8",
+      "is_cached": false,
+      "similarity": 0.724,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 45079.6,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 2,
+        "final_helpfulness": 2
+      },
+      "session": "this run"
+    },
+    {
+      "n": 28,
+      "query": "What kind of home is listing LST-02056, and how many bedrooms does it have?",
+      "trace_id": "02b2aa16-ae45-4891-963e-6c462526edbe",
+      "is_cached": false,
+      "similarity": 0.7281,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 45553.3,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "this run"
+    },
+    {
+      "n": 29,
+      "query": "Is it a good idea to pay rent with a credit card?",
+      "trace_id": "79ce923d-ef94-421f-b6ae-e4755f435abc",
+      "is_cached": false,
+      "similarity": 0.1522,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 48835.6,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 2,
+        "final_helpfulness": 2
+      },
+      "session": "this run"
+    },
+    {
+      "n": 30,
+      "query": "What city is listing LST-04199 in?",
+      "trace_id": "bed757e3-c025-4b7e-935a-c6355fe0afbe",
+      "is_cached": false,
+      "similarity": 0.6681,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 36792.9,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 31,
+      "query": "How do I compare two apartments that have different lease lengths?",
+      "trace_id": "f82fa972-db4a-4b09-874e-5631edf82be4",
+      "is_cached": false,
+      "similarity": 0.3686,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 53123.2,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 32,
+      "query": "What is the street address of listing LST-01913?",
+      "trace_id": "70695b33-3ad1-453f-8d1f-a7e8981f85d1",
+      "is_cached": false,
+      "similarity": 0.7096,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 45823.4,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 4,
+        "final_helpfulness": 4
+      },
+      "session": "this run"
+    },
+    {
+      "n": 33,
+      "query": "How can I build a rental history if this is my first apartment?",
+      "trace_id": "fc565224-d50f-4027-a672-e454ee266980",
+      "is_cached": false,
+      "similarity": 0.3831,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 60862.1,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 34,
+      "query": "What should a student do if the landlord does not return calls about a leak?",
+      "trace_id": "6487f02b-4bc3-4bd2-a6b3-41b06956e98d",
+      "is_cached": false,
+      "similarity": 0.2931,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 56049.1,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 1,
+        "final_helpfulness": 1
+      },
+      "session": "this run"
+    },
+    {
+      "n": 35,
+      "query": "How do I find out if a neighborhood near campus is safe at night?",
+      "trace_id": "b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef",
+      "is_cached": false,
+      "similarity": 0.3648,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 56977.0,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 36,
+      "query": "What is the street address of listing LST-03341?",
+      "trace_id": "2c044e96-66a0-4c1b-a979-cdc3f7e0a678",
+      "is_cached": false,
+      "similarity": 0.704,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 48660.0,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "this run"
+    },
+    {
+      "n": 37,
+      "query": "How do I get a copy of my lease if I lost mine?",
+      "trace_id": "f4294d04-6cb1-4b1c-9946-9c48bc946ba9",
+      "is_cached": false,
+      "similarity": 0.2946,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 58745.4,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 2,
+        "final_helpfulness": 2
+      },
+      "session": "this run"
+    },
+    {
+      "n": 38,
+      "query": "How do I break a lease early if I am studying abroad next term?",
+      "trace_id": "ba66fa26-d6e5-44a9-884d-4979ee8089e3",
+      "is_cached": false,
+      "similarity": 0.219,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 54453.1,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 1,
+        "final_helpfulness": 1
+      },
+      "session": "this run"
+    },
+    {
+      "n": 39,
+      "query": "What can I do if my roommate stops paying their share of the rent?",
+      "trace_id": "8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346",
+      "is_cached": false,
+      "similarity": 0.2121,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 52106.7,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 40,
+      "query": "What happens if I move out without giving notice?",
+      "trace_id": "10c6ebbc-6d69-48eb-a95d-aa0d58415fa1",
+      "is_cached": false,
+      "similarity": 0.1841,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 58315.2,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 41,
+      "query": "How do I split a security deposit fairly between roommates?",
+      "trace_id": "e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb",
+      "is_cached": false,
+      "similarity": 0.2457,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 52012.7,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 42,
+      "query": "What kind of home is listing LST-04071, and how many bedrooms does it have?",
+      "trace_id": "4720ecb3-a7de-469f-a8a9-d5cefc95b2d9",
+      "is_cached": false,
+      "similarity": 0.7105,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 52383.3,
+      "scores": {
+        "plan_quality": 2,
+        "writer_helpfulness": 5,
+        "final_helpfulness": 5
+      },
+      "session": "this run"
+    },
+    {
+      "n": 43,
+      "query": "How do I avoid paying an application fee for apartments I will not get?",
+      "trace_id": "2fd44bde-6fcc-44a9-8ddb-8630ce66fafe",
+      "is_cached": false,
+      "similarity": 0.3196,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 55462.5,
+      "scores": {
+        "plan_quality": 1,
+        "writer_helpfulness": 1,
+        "final_helpfulness": 1
+      },
+      "session": "this run"
+    },
+    {
+      "n": 44,
+      "query": "What is the street address of listing LST-01468?",
+      "trace_id": "21e721c1-bed0-44c7-a70d-a393d1e02006",
+      "is_cached": false,
+      "similarity": 0.7031,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 45383.8,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 4,
+        "final_helpfulness": 4
+      },
+      "session": "this run"
+    },
+    {
+      "n": 45,
+      "query": "Is renters insurance worth it for a small studio?",
+      "trace_id": "b2b46075-9fea-464c-a876-554055c1285f",
+      "is_cached": false,
+      "similarity": 0.2404,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 56938.7,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 4,
+        "final_helpfulness": 4
+      },
+      "session": "this run"
+    },
+    {
+      "n": 46,
+      "query": "How do parking permits usually work for apartment complexes?",
+      "trace_id": "53498f44-7da7-4f74-8098-ca6c689735cf",
+      "is_cached": false,
+      "similarity": 0.3649,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 60780.2,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 1,
+        "final_helpfulness": 1
+      },
+      "session": "this run"
+    },
+    {
+      "n": 47,
+      "query": "What does 'month-to-month' mean in a rental agreement?",
+      "trace_id": "5097f3b6-9a7c-407c-a0b1-8e69c5f3587e",
+      "is_cached": false,
+      "similarity": 0.3271,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 48208.7,
+      "scores": {
+        "plan_quality": 2,
+        "writer_helpfulness": 4,
+        "final_helpfulness": 4
+      },
+      "session": "this run"
+    },
+    {
+      "n": 48,
+      "query": "What questions should I ask during an apartment viewing?",
+      "trace_id": "ca46d031-dd09-4493-a378-b2ec526112ba",
+      "is_cached": false,
+      "similarity": 0.2827,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 62747.2,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 2,
+        "final_helpfulness": 2
+      },
+      "session": "this run"
+    },
+    {
+      "n": 49,
+      "query": "How should I document the condition of an apartment on move-in day?",
+      "trace_id": "f8e70018-e7fe-49bb-a72b-a69eb1803d32",
+      "is_cached": false,
+      "similarity": 0.3611,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 54224.7,
+      "scores": {
+        "plan_quality": 4,
+        "writer_helpfulness": 3,
+        "final_helpfulness": 3
+      },
+      "session": "this run"
+    },
+    {
+      "n": 50,
+      "query": "How do I report a broken smoke detector?",
+      "trace_id": "cc6d3963-fa5d-42b8-b77c-85270e860f0a",
+      "is_cached": false,
+      "similarity": 0.179,
+      "status": "ok",
+      "error": null,
+      "latency_ms": 51207.3,
+      "scores": {
+        "plan_quality": 3,
+        "writer_helpfulness": 1,
+        "final_helpfulness": 1
+      },
+      "session": "this run"
+    }
+  ],
+  "hits": [
+    {
+      "query": "Who is the landlord for listing LST-00117, and how many units are open there?",
+      "trace_id": "ddb74cc3-0d67-4619-a35f-cf19b33efdf4",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 248.1
+    },
+    {
+      "query": "Which landlord manages listing LST-00117, and how many units are available?",
+      "trace_id": "00bdf4ef-339a-4783-a98c-fd657b1e57f7",
+      "is_cached": true,
+      "similarity": 0.9499,
+      "latency_ms": 50.7
+    },
+    {
+      "query": "Who is the landlord for listing LST-00117, and how many units are open there?",
+      "trace_id": "171e2f1e-9956-4424-9e90-fbd56a6584b4",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 39.4
+    },
+    {
+      "query": "Which landlord manages listing LST-00117, and how many units are available?",
+      "trace_id": "87ac251e-be5b-4b48-a087-d9d6d5a383fb",
+      "is_cached": true,
+      "similarity": 0.9499,
+      "latency_ms": 40.0
+    },
+    {
+      "query": "Who is the landlord for listing LST-00117, and how many units are open there?",
+      "trace_id": "c15444c6-284a-4867-bf26-d35b781ac1ab",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 39.5
+    },
+    {
+      "query": "Which landlord manages listing LST-00117, and how many units are available?",
+      "trace_id": "ba1b7a40-7200-4bf8-82c3-8d4e80955b44",
+      "is_cached": true,
+      "similarity": 0.9499,
+      "latency_ms": 43.6
+    },
+    {
+      "query": "Who is the landlord for listing LST-00117, and how many units are open there?",
+      "trace_id": "8866ce0c-ba20-45cf-96f3-e75accabe902",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 36.9
+    },
+    {
+      "query": "Which landlord manages listing LST-00117, and how many units are available?",
+      "trace_id": "67f6f1a0-db48-4e11-86fe-a79de5db8c49",
+      "is_cached": true,
+      "similarity": 0.9499,
+      "latency_ms": 38.8
+    },
+    {
+      "query": "Who is the landlord for listing LST-00117, and how many units are open there?",
+      "trace_id": "ef157707-2c4c-4b22-851f-7d18965edad0",
+      "is_cached": true,
+      "similarity": 1.0,
+      "latency_ms": 45.1
+    },
+    {
+      "query": "Which landlord manages listing LST-00117, and how many units are available?",
+      "trace_id": "c5e86edb-bcb9-43a9-8b20-a318c2450bdc",
+      "is_cached": true,
+      "similarity": 0.9499,
+      "latency_ms": 42.0
+    }
+  ]
+}

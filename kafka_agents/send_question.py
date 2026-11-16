@@ -27,7 +27,11 @@ DEFAULT_QUESTION = "I am a student moving to San Jose. What should I check befor
 RAW = config.HW8_REPORT_DIR / "raw"
 
 
-async def send_and_wait(question: str, timeout_s: float, wait: bool = True) -> dict | None:
+async def send_and_wait(
+    question: str, timeout_s: float, wait: bool = True, correlation_id: str | None = None, test: dict | None = None
+) -> dict | None:
+    """HW10: pass correlation_id to reuse the trace_id made at the cache lookup; test={"fail_stage": ...} is only
+    for the failed-trace demo."""
     producer = AIOKafkaProducer(bootstrap_servers=bootstrap())
     consumer = AIOKafkaConsumer(bootstrap_servers=bootstrap(), group_id=None, enable_auto_commit=False)
     await producer.start()
@@ -41,13 +45,15 @@ async def send_and_wait(question: str, timeout_s: float, wait: bool = True) -> d
         for tp in tps:
             await consumer.position(tp)
 
-        cid = str(uuid.uuid4())
+        cid = correlation_id or str(uuid.uuid4())
         msg = {
             "correlation_id": cid,
             "question": question,
             "sent_at": now_iso(),
             "trace": [{"agent": "send_question", "wrote": config.TOPIC_INBOX, "sent_at": now_iso()}],
         }
+        if test:
+            msg["test"] = test
         sent = await producer.send_and_wait(config.TOPIC_INBOX, to_bytes(msg), key=cid.encode())
         log("send_question", f"sent question to {where(sent)} correlation_id={cid}")
         log("send_question", f"question = {question!r}")

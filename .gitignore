@@ -23,6 +23,9 @@ Homework8/DATA236_DEMO8/
 Homework8/multi-agent-demo/
 Homework8/*.pdf
 Homework9/*.pdf
+Homework10/DATA236_DEMO10/
+Homework10/ge-eval2.py
+Homework10/*.pdf
 
 # Tool caches
 .ruff_cache/
@@ -41,3 +44,4 @@ reports/hw06/screenshots/
 reports/hw07/screenshots/
 reports/hw08/screenshots/
 reports/hw09/screenshots/
+reports/hw10/screenshots/

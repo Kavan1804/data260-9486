@@ -1,0 +1,878 @@
+
+===== 2026-11-15 21:26:26 trace-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 2 + 4.2 evaluated run and the three traces (miss, hit, failed)
+run at 2026-11-15T21:26:26 | VERIFY_SEED 269486
+==============================================================================
+cleared 0 old entries under s9486:hw10:entry:*
+2026-11-15 21:26:29.384 [agents] planner, writer, reviewer ready in 0.3s (spans -> raw/spans.jsonl)
+2026-11-15 21:26:58.345 [agents] warm-up: embedding model loaded in 28.96s (not timed)
+
+[1] cache MISS: Who is the landlord for listing LST-00117, and how many units are open there?
+2026-11-15 21:26:59.361 [send_question] sent question to topic=s9486_inbox partition=0 offset=49 correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3
+2026-11-15 21:26:59.361 [send_question] question = 'Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-15 21:26:59.361 [send_question] waiting up to 400s for correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3 on s9486_final
+2026-11-15 21:27:41.661 [send_question] received final from topic=s9486_final partition=0 offset=47 correlation_id=11c147ea-f978-4692-ab75-0c02276ec6f3
+2026-11-15 21:27:42.167 [agents] stopped
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/scripts/trace_demo.py", line 98, in <module>
+    code = main()
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/scripts/trace_demo.py", line 48, in main
+    miss = qa.ask(DEMO_QUESTION)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/hw10/traced_ingress.py", line 121, in ask
+    collected = collect(trace_id, {t: start_offsets[t] for t in TOPICS.values()})
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/hw10/evaluator.py", line 90, in collect
+    return asyncio.run(_collect(trace_id, start, timeout_s))
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/anaconda3/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/hw10/evaluator.py", line 64, in _collect
+    while any(await c.position(tp) < ends[tp] for tp in tps):
+          ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'async_generator' object is not iterable
+
+===== 2026-11-15 21:27:59 trace-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 2 + 4.2 evaluated run and the three traces (miss, hit, failed)
+run at 2026-11-15T21:27:59 | VERIFY_SEED 269486
+==============================================================================
+cleared 1 old entries under s9486:hw10:entry:*
+2026-11-15 21:28:02.433 [agents] planner, writer, reviewer ready in 0.3s (spans -> raw/spans.jsonl)
+2026-11-15 21:28:03.194 [agents] warm-up: embedding model loaded in 0.76s (not timed)
+
+[1] cache MISS: Who is the landlord for listing LST-00117, and how many units are open there?
+2026-11-15 21:28:04.296 [send_question] sent question to topic=s9486_inbox partition=0 offset=50 correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d
+2026-11-15 21:28:04.296 [send_question] question = 'Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-15 21:28:04.296 [send_question] waiting up to 400s for correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d on s9486_final
+2026-11-15 21:28:46.194 [send_question] received final from topic=s9486_final partition=0 offset=48 correlation_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d
+
+
+
+  trace_id=4cafc3df-6813-4c17-9ec4-f6f59cc15f6d status=ok latency=79,617.7 ms
+    cache_lookup 05:28:03.194 -> 05:28:03.289       94.9 ms  ok    {'cache': 'miss', 'similarity': 0.0}
+    pipeline     05:28:04.254 -> 05:28:46.419   42,165.7 ms  ok    {}
+    planner      05:28:04.306 -> 05:28:20.377   16,071.4 ms  ok    {'queue_wait_ms': 13.3, 'attempts': 1}
+    writer       05:28:20.493 -> 05:28:38.126   17,633.5 ms  ok    {'queue_wait_ms': 50.0, 'attempts': 1}
+    reviewer     05:28:38.196 -> 05:28:45.045    6,849.1 ms  ok    {'queue_wait_ms': 29.7, 'attempts': 1}
+    cache_store  05:28:46.457 -> 05:28:47.692    1,235.4 ms  ok    {}
+    evaluation   05:28:47.860 -> 05:29:22.810   34,949.7 ms  ok    {}
+    request      05:28:03.194 -> 05:29:22.811   79,617.3 ms  ok    {'path': 'miss'}
+  GEval (judge llama3.2:3b, 1-5): plan quality 3, writer helpfulness 4, final helpfulness 4, final - draft = +0
+  plan reason: The response partially covers the question, but the steps are vague and repetitive, and the order is not sensible. The steps do not follow a logical flow and would make the writer guess facts, such as
+  improvement: The Reviewer approved the draft and passed it on unchanged (final answer = draft text), so the final answer cannot be better than the draft; the judge gave both the same score.
+
+[2] cache HIT: same question again
+  trace_id=a9b44429-03b3-4ddf-8d06-afa9da81b23a is_cached=True similarity=1.0000 latency=377.3 ms
+    cache_lookup 05:29:22.818 -> 05:29:23.195      377.3 ms  ok    {'cache': 'hit', 'similarity': 1.0}
+    request      05:29:22.818 -> 05:29:23.196      377.6 ms  ok    {'path': 'hit'}
+
+[3] FAILED trace (planner fails on purpose): What are the quiet hours rules I should ask about before renting an apartment?
+2026-11-15 21:29:23.841 [send_question] sent question to topic=s9486_inbox partition=0 offset=51 correlation_id=127de984-5905-4281-8c4b-791cc8c3e6be
+2026-11-15 21:29:23.841 [send_question] question = 'What are the quiet hours rules I should ask about before renting an apartment?'
+2026-11-15 21:29:23.841 [send_question] waiting up to 90s for correlation_id=127de984-5905-4281-8c4b-791cc8c3e6be on s9486_final
+  trace_id=127de984-5905-4281-8c4b-791cc8c3e6be status=error failed stage=planner
+  error: no final message within 90s; dead-letter record from planner: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+    cache_lookup 05:29:23.196 -> 05:29:23.263       66.8 ms  ok    {'cache': 'miss', 'similarity': 0.3363}
+    pipeline     05:29:23.795 -> 05:30:53.855   90,060.8 ms  error {}  ERROR: no final message within 90s; dead-letter record from planner: RuntimeError: injected failure in planner (HW10 
+    planner      05:29:23.898 -> 05:29:25.403    1,505.1 ms  error {'queue_wait_ms': 74.4, 'attempts': 3}  ERROR: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+    request      05:29:23.196 -> 05:30:53.900   90,704.2 ms  error {'path': 'miss'}  ERROR: no final message within 90s; dead-letter record from planner: RuntimeError: injected failure in planner (HW10 
+2026-11-15 21:30:54.276 [agents] stopped
+
+trace ids for the dashboard (Trace lookup page):
+  miss    4cafc3df-6813-4c17-9ec4-f6f59cc15f6d
+  hit     a9b44429-03b3-4ddf-8d06-afa9da81b23a
+  failed  127de984-5905-4281-8c4b-791cc8c3e6be
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | trace demo - done =====
+
+===== 2026-11-15 21:31:42 latency-run (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 4.3 stage latency: 50 confirmed cache misses + 10 cache hits
+run at 2026-11-15T21:31:42 | VERIFY_SEED 269486
+==============================================================================
+cache s9486:hw10:entry:* has 1 entries (from make trace-demo)
+pre-check: highest similarity of the 50 questions to anything cached = 0.7350 (What kind of home is listing LST-01040, and how many bedroom)
+2026-11-15 21:31:48.082 [agents] planner, writer, reviewer ready in 0.5s (spans -> raw/spans.jsonl)
+2026-11-15 21:31:48.156 [agents] warm-up: embedding model loaded in 0.07s (not timed)
+2026-11-15 21:31:48.747 [send_question] sent question to topic=s9486_inbox partition=0 offset=52 correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe
+2026-11-15 21:31:48.747 [send_question] question = 'What does a landlord need to fix within a reasonable time?'
+2026-11-15 21:31:48.747 [send_question] waiting up to 400s for correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe on s9486_final
+2026-11-15 21:33:06.432 [send_question] received final from topic=s9486_final partition=0 offset=49 correlation_id=4d8b94e8-b1cb-4026-be7b-8f013931ccbe
+
+
+
+   1/50 miss=True sim=0.368 ok     220.4s  scores={'plan_quality': 4, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What does a landlord need to fix within a reasonable ti
+Got error produce response on topic-partition TopicPartition(topic='s9486_inbox', partition=0), retrying. Error: <class 'aiokafka.errors.NotLeaderForPartitionError'>
+2026-11-15 21:35:34.065 [send_question] sent question to topic=s9486_inbox partition=0 offset=53 correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f
+2026-11-15 21:35:34.065 [send_question] question = 'What kind of home is listing LST-01040, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01040: title "Quiet Loft with yard", address 4322 Park Ave, Milpitas, CA, available_units=1, landlord Jasmine Kaur (Silicon Valley Property Mgmt)'
+2026-11-15 21:35:34.065 [send_question] waiting up to 400s for correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f on s9486_final
+2026-11-15 21:37:03.926 [send_question] received final from topic=s9486_final partition=0 offset=50 correlation_id=57f1f4ac-678a-4250-87a3-e08559439b5f
+
+
+
+===== 2026-11-15 21:38:26 trace-demo (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 2 + 4.2 evaluated run and the three traces (miss, hit, failed)
+run at 2026-11-15T21:38:26 | VERIFY_SEED 269486
+==============================================================================
+cleared 1 old entries under s9486:hw10:entry:*
+2026-11-15 21:38:29.380 [agents] planner, writer, reviewer ready in 0.6s (spans -> raw/spans.jsonl)
+2026-11-15 21:38:30.102 [agents] warm-up: embedding model loaded in 0.72s (not timed)
+
+[1] cache MISS: Who is the landlord for listing LST-00117, and how many units are open there?
+2026-11-15 21:38:30.860 [send_question] sent question to topic=s9486_inbox partition=0 offset=54 correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288
+2026-11-15 21:38:30.860 [send_question] question = 'Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-15 21:38:30.861 [send_question] waiting up to 400s for correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288 on s9486_final
+2026-11-15 21:39:22.945 [send_question] received final from topic=s9486_final partition=0 offset=51 correlation_id=a791b5a3-399f-4f43-bfb8-48b97b212288
+
+
+
+  trace_id=a791b5a3-399f-4f43-bfb8-48b97b212288 status=ok latency=87,352.9 ms
+    cache_lookup 05:38:30.102 -> 05:38:30.164       62.4 ms  ok    {'cache': 'miss', 'similarity': 0.0}
+    pipeline     05:38:30.821 -> 05:39:22.978   52,156.6 ms  ok    {}
+    planner      05:38:30.862 -> 05:38:47.603   16,741.1 ms  ok    {'queue_wait_ms': 11.9, 'attempts': 1}
+    writer       05:38:47.862 -> 05:39:11.071   23,208.4 ms  ok    {'queue_wait_ms': 99.6, 'attempts': 1}
+    reviewer     05:39:11.147 -> 05:39:22.827   11,680.6 ms  ok    {'queue_wait_ms': 23.1, 'attempts': 1}
+    cache_store  05:39:22.982 -> 05:39:23.155      172.8 ms  ok    {}
+    evaluation   05:39:23.176 -> 05:39:57.452   34,276.5 ms  ok    {}
+    request      05:38:30.102 -> 05:39:57.455   87,352.7 ms  ok    {'path': 'miss'}
+  GEval (judge llama3.2:3b, 1-5): plan quality 3, writer helpfulness 4, final helpfulness 4, final - draft = +0
+  plan reason: The response partially covers the question, but the steps are vague and repetitive, and the order is not sensible. The steps do not follow a logical flow and would make the writer guess facts, such as
+  improvement: The Reviewer approved the draft and passed it on unchanged (final answer = draft text), so the final answer cannot be better than the draft; the judge gave both the same score.
+
+[2] cache HIT: same question again
+  trace_id=ce1af7c1-6c4b-448e-b761-f3482d74c9e9 is_cached=True similarity=1.0000 latency=707.4 ms
+    cache_lookup 05:39:57.461 -> 05:39:58.169      707.4 ms  ok    {'cache': 'hit', 'similarity': 1.0}
+    request      05:39:57.461 -> 05:39:58.170      708.6 ms  ok    {'path': 'hit'}
+
+[3] FAILED trace (planner fails on purpose): What are the quiet hours rules I should ask about before renting an apartment?
+2026-11-15 21:39:58.742 [send_question] sent question to topic=s9486_inbox partition=0 offset=55 correlation_id=7df2fa3a-214e-4d0e-b1be-faa1ce3172d8
+2026-11-15 21:39:58.742 [send_question] question = 'What are the quiet hours rules I should ask about before renting an apartment?'
+2026-11-15 21:39:58.742 [send_question] waiting up to 90s for correlation_id=7df2fa3a-214e-4d0e-b1be-faa1ce3172d8 on s9486_final
+  trace_id=7df2fa3a-214e-4d0e-b1be-faa1ce3172d8 status=error failed stage=planner
+  error: no final message within 90s; dead-letter record from planner: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+    cache_lookup 05:39:58.171 -> 05:39:58.225       53.4 ms  ok    {'cache': 'miss', 'similarity': 0.3363}
+    pipeline     05:39:58.709 -> 05:41:28.752   90,042.7 ms  error {}  ERROR: no final message within 90s; dead-letter record from planner: RuntimeError: injected failure in planner (HW10 
+    planner      05:39:58.762 -> 05:40:00.268    1,506.3 ms  error {'queue_wait_ms': 28.4, 'attempts': 3}  ERROR: RuntimeError: injected failure in planner (HW10 failed-trace demo)
+    request      05:39:58.171 -> 05:41:28.776   90,604.2 ms  error {'path': 'miss'}  ERROR: no final message within 90s; dead-letter record from planner: RuntimeError: injected failure in planner (HW10 
+2026-11-15 21:41:29.186 [agents] stopped
+
+trace ids for the dashboard (Trace lookup page):
+  miss    a791b5a3-399f-4f43-bfb8-48b97b212288
+  hit     ce1af7c1-6c4b-448e-b761-f3482d74c9e9
+  failed  7df2fa3a-214e-4d0e-b1be-faa1ce3172d8
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | trace demo - done =====
+
+===== 2026-11-15 21:41:36 latency-run (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 4.3 stage latency: 50 confirmed cache misses + 10 cache hits
+run at 2026-11-15T21:41:36 | VERIFY_SEED 269486
+==============================================================================
+cache s9486:hw10:entry:* has 1 entries (from make trace-demo)
+pre-check: highest similarity of the 50 questions to anything cached = 0.7350 (What kind of home is listing LST-01040, and how many bedroom)
+2026-11-15 21:41:43.858 [agents] planner, writer, reviewer ready in 0.2s (spans -> raw/spans.jsonl)
+2026-11-15 21:41:43.901 [agents] warm-up: embedding model loaded in 0.04s (not timed)
+2026-11-15 21:41:44.476 [send_question] sent question to topic=s9486_inbox partition=0 offset=56 correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb
+2026-11-15 21:41:44.476 [send_question] question = 'What does a landlord need to fix within a reasonable time?'
+2026-11-15 21:41:44.476 [send_question] waiting up to 400s for correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb on s9486_final
+2026-11-15 21:42:44.008 [send_question] received final from topic=s9486_final partition=0 offset=52 correlation_id=4718ff29-856f-496d-8abf-78ecea64d0fb
+
+
+
+   1/50 miss=True sim=0.368 ok      92.6s  scores={'plan_quality': 4, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What does a landlord need to fix within a reasonable ti
+2026-11-15 21:43:17.797 [send_question] sent question to topic=s9486_inbox partition=0 offset=57 correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be
+2026-11-15 21:43:17.798 [send_question] question = 'What kind of home is listing LST-01040, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01040: title "Quiet Loft with yard", address 4322 Park Ave, Milpitas, CA, available_units=1, landlord Jasmine Kaur (Silicon Valley Property Mgmt)'
+2026-11-15 21:43:17.798 [send_question] waiting up to 400s for correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be on s9486_final
+2026-11-15 21:44:34.171 [send_question] received final from topic=s9486_final partition=0 offset=53 correlation_id=bbef106a-601c-49a8-9e5c-062c80a138be
+
+
+
+   2/50 miss=True sim=0.735 ok     151.0s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What kind of home is listing LST-01040, and how many be
+2026-11-15 21:45:51.777 [send_question] sent question to topic=s9486_inbox partition=0 offset=58 correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d
+2026-11-15 21:45:51.785 [send_question] question = 'What city is listing LST-04733 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04733: title "Modern Studio near downtown", address 9778 Park Ave, Sunnyvale, CA, available_units=1, landlord Alicia Vasquez (Bay Area Rentals LLC)'
+2026-11-15 21:45:51.785 [send_question] waiting up to 400s for correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d on s9486_final
+2026-11-15 21:47:50.649 [send_question] received final from topic=s9486_final partition=0 offset=54 correlation_id=15c74ecb-249d-4dcb-96c9-7e4f28bc473d
+
+
+
+   3/50 miss=True sim=0.679 ok     155.6s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-04733 in?
+2026-11-15 21:48:27.701 [send_question] sent question to topic=s9486_inbox partition=0 offset=59 correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b
+2026-11-15 21:48:27.703 [send_question] question = 'How do I handle a package that was stolen from my apartment lobby?'
+2026-11-15 21:48:27.703 [send_question] waiting up to 400s for correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b on s9486_final
+2026-11-15 21:49:29.419 [send_question] received final from topic=s9486_final partition=0 offset=55 correlation_id=1a50db8f-9443-4ecd-824a-5bd07cd0b75b
+
+
+
+   4/50 miss=True sim=0.187 ok     102.0s  scores={'plan_quality': 2, 'writer_helpfulness': 1, 'final_helpfulness': 1}  How do I handle a package that was stolen from my apart
+2026-11-15 21:50:06.492 [send_question] sent question to topic=s9486_inbox partition=0 offset=60 correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1
+2026-11-15 21:50:06.492 [send_question] question = 'What kind of home is listing LST-04791, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04791: title "Updated 1BR Apartment with yard", address 2015 Park Ave, Santa Clara, CA, available_units=1, landlord Brandon Bennett (Bay Area Rentals LLC)'
+2026-11-15 21:50:06.492 [send_question] waiting up to 400s for correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1 on s9486_final
+2026-11-15 21:51:13.595 [send_question] received final from topic=s9486_final partition=0 offset=56 correlation_id=69ab6a70-c9e8-439f-9395-948dc38bb8e1
+
+
+
+   5/50 miss=True sim=0.704 ok      99.5s  scores={'plan_quality': 2, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What kind of home is listing LST-04791, and how many be
+2026-11-15 21:51:45.529 [send_question] sent question to topic=s9486_inbox partition=0 offset=61 correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee
+2026-11-15 21:51:45.529 [send_question] question = 'What should be in a written roommate agreement?'
+2026-11-15 21:51:45.529 [send_question] waiting up to 400s for correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee on s9486_final
+2026-11-15 21:52:25.636 [send_question] received final from topic=s9486_final partition=0 offset=57 correlation_id=6fa3c47b-234f-4472-9969-0c68ee022eee
+
+
+
+   6/50 miss=True sim=0.223 ok      61.5s  scores={'plan_quality': 4, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What should be in a written roommate agreement?
+2026-11-15 21:52:47.048 [send_question] sent question to topic=s9486_inbox partition=0 offset=62 correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff
+2026-11-15 21:52:47.048 [send_question] question = 'What is the street address of listing LST-01230?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01230: title "Modern 1BR Condo pet friendly", address 4870 Taylor St, San Jose, CA, available_units=1, landlord Jasmine Kaur (Silicon Valley Property Mgmt)'
+2026-11-15 21:52:47.048 [send_question] waiting up to 400s for correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff on s9486_final
+2026-11-15 21:53:16.650 [send_question] received final from topic=s9486_final partition=0 offset=58 correlation_id=9cd0075f-f3e3-4e12-aa7b-aae2d3dfdcff
+
+
+
+   7/50 miss=True sim=0.722 ok      46.8s  scores={'plan_quality': 3, 'writer_helpfulness': 4, 'final_helpfulness': 4}  What is the street address of listing LST-01230?
+2026-11-15 21:53:33.808 [send_question] sent question to topic=s9486_inbox partition=0 offset=63 correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa
+2026-11-15 21:53:33.808 [send_question] question = 'What city is listing LST-03036 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-03036: title "Sunny 2BR Apartment with yard", address 8111 Park Ave, San Jose, CA, available_units=1, landlord Quinn Larsen (Santa Clara Homes)'
+2026-11-15 21:53:33.808 [send_question] waiting up to 400s for correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa on s9486_final
+2026-11-15 21:53:50.684 [send_question] received final from topic=s9486_final partition=0 offset=59 correlation_id=4cded1cf-7606-47e3-b6a5-931f4737e5aa
+
+
+
+   8/50 miss=True sim=0.708 ok      33.3s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-03036 in?
+2026-11-15 21:54:07.031 [send_question] sent question to topic=s9486_inbox partition=0 offset=64 correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8
+2026-11-15 21:54:07.031 [send_question] question = 'How can I lower my electricity bill in a small apartment?'
+2026-11-15 21:54:07.031 [send_question] waiting up to 400s for correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8 on s9486_final
+2026-11-15 21:54:42.719 [send_question] received final from topic=s9486_final partition=0 offset=60 correlation_id=8559473a-b70b-4e91-a6d8-e3235fd4dbd8
+
+
+
+   9/50 miss=True sim=0.228 ok      54.7s  scores={'plan_quality': 4, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How can I lower my electricity bill in a small apartmen
+2026-11-15 21:55:01.762 [send_question] sent question to topic=s9486_inbox partition=0 offset=65 correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72
+2026-11-15 21:55:01.762 [send_question] question = 'What city is listing LST-02286 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-02286: title "Renovated 3BR House with in-unit laundry", address 4071 San Carlos St, Campbell, CA, available_units=1, landlord Vivian Estrada (Silicon Valley Property Mgmt)'
+2026-11-15 21:55:01.762 [send_question] waiting up to 400s for correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72 on s9486_final
+2026-11-15 21:55:15.501 [send_question] received final from topic=s9486_final partition=0 offset=61 correlation_id=2e875f71-cafd-4a34-b5e4-f0e33af1cc72
+
+
+
+  10/50 miss=True sim=0.703 ok      37.9s  scores={'plan_quality': 1, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-02286 in?
+2026-11-15 21:55:39.679 [send_question] sent question to topic=s9486_inbox partition=0 offset=66 correlation_id=50600325-6d45-490e-939d-b4d500f05653
+2026-11-15 21:55:39.679 [send_question] question = 'What are the pros and cons of living in a furnished apartment?'
+2026-11-15 21:55:39.679 [send_question] waiting up to 400s for correlation_id=50600325-6d45-490e-939d-b4d500f05653 on s9486_final
+2026-11-15 21:56:21.499 [send_question] received final from topic=s9486_final partition=0 offset=62 correlation_id=50600325-6d45-490e-939d-b4d500f05653
+
+
+
+  11/50 miss=True sim=0.232 ok      63.1s  scores={'plan_quality': 4, 'writer_helpfulness': 4, 'final_helpfulness': 4}  What are the pros and cons of living in a furnished apa
+2026-11-15 21:56:42.795 [send_question] sent question to topic=s9486_inbox partition=0 offset=67 correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2
+2026-11-15 21:56:42.796 [send_question] question = 'What city is listing LST-04050 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04050: title "Renovated 4BR House with parking", address 5327 San Carlos St, Sunnyvale, CA, available_units=1, landlord Paula Park (Rose Garden Realty)'
+2026-11-15 21:56:42.796 [send_question] waiting up to 400s for correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2 on s9486_final
+2026-11-15 21:57:02.366 [send_question] received final from topic=s9486_final partition=0 offset=63 correlation_id=2f80f8df-56ae-469c-9565-11dace17bac2
+
+
+
+  12/50 miss=True sim=0.678 ok      39.7s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-04050 in?
+2026-11-15 21:57:22.407 [send_question] sent question to topic=s9486_inbox partition=0 offset=68 correlation_id=666c0b59-ae58-4553-a098-fba60b738872
+2026-11-15 21:57:22.407 [send_question] question = 'What should I know about subletting rules in California?'
+2026-11-15 21:57:22.407 [send_question] waiting up to 400s for correlation_id=666c0b59-ae58-4553-a098-fba60b738872 on s9486_final
+2026-11-15 21:58:03.913 [send_question] received final from topic=s9486_final partition=0 offset=64 correlation_id=666c0b59-ae58-4553-a098-fba60b738872
+
+
+
+  13/50 miss=True sim=0.239 ok      63.3s  scores={'plan_quality': 3, 'writer_helpfulness': 2, 'final_helpfulness': 2}  What should I know about subletting rules in California
+2026-11-15 21:58:25.968 [send_question] sent question to topic=s9486_inbox partition=0 offset=69 correlation_id=f468a061-d468-419f-b18a-804b758bd920
+2026-11-15 21:58:25.969 [send_question] question = 'What is the street address of listing LST-00745?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00745: title "Updated 2BR Townhouse near downtown", address 3773 Market St, San Jose, CA, available_units=1, landlord Neha Nakamura (Campbell Rental Group)'
+2026-11-15 21:58:25.969 [send_question] waiting up to 400s for correlation_id=f468a061-d468-419f-b18a-804b758bd920 on s9486_final
+2026-11-15 21:58:54.563 [send_question] received final from topic=s9486_final partition=0 offset=65 correlation_id=f468a061-d468-419f-b18a-804b758bd920
+
+
+
+  14/50 miss=True sim=0.691 ok      57.0s  scores={'plan_quality': 4, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What is the street address of listing LST-00745?
+2026-11-15 21:59:22.896 [send_question] sent question to topic=s9486_inbox partition=0 offset=70 correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab
+2026-11-15 21:59:22.896 [send_question] question = 'What kind of home is listing LST-04112, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04112: title "Cozy Loft with parking", address 161 Santa Clara St, Sunnyvale, CA, available_units=1, landlord Gabriel Fischer (Downtown SJ Apartments)'
+2026-11-15 21:59:22.896 [send_question] waiting up to 400s for correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab on s9486_final
+2026-11-15 21:59:50.119 [send_question] received final from topic=s9486_final partition=0 offset=66 correlation_id=3dae79cc-e814-4118-9978-77dba40de7ab
+
+
+
+  15/50 miss=True sim=0.712 ok      48.3s  scores={'plan_quality': 4, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What kind of home is listing LST-04112, and how many be
+2026-11-15 22:00:10.954 [send_question] sent question to topic=s9486_inbox partition=0 offset=71 correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0
+2026-11-15 22:00:10.954 [send_question] question = 'What is a reasonable commute time from an apartment to campus?'
+2026-11-15 22:00:10.954 [send_question] waiting up to 400s for correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0 on s9486_final
+2026-11-15 22:00:43.044 [send_question] received final from topic=s9486_final partition=0 offset=67 correlation_id=b82005b1-45f4-4ef6-afbb-fa3ebf6518a0
+
+
+
+  16/50 miss=True sim=0.254 ok      63.1s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What is a reasonable commute time from an apartment to 
+2026-11-15 22:01:14.609 [send_question] sent question to topic=s9486_inbox partition=0 offset=72 correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7
+2026-11-15 22:01:14.610 [send_question] question = 'What city is listing LST-01354 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01354: title "Furnished 2BR Townhouse near light rail", address 6247 Alameda, Sunnyvale, CA, available_units=1, landlord Elena Morales (Santa Clara Homes)'
+2026-11-15 22:01:14.610 [send_question] waiting up to 400s for correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7 on s9486_final
+2026-11-15 22:01:29.794 [send_question] received final from topic=s9486_final partition=0 offset=68 correlation_id=6cba1e0c-1366-4aef-8920-b183d8c9e6a7
+
+
+
+  17/50 miss=True sim=0.725 ok      36.0s  scores={'plan_quality': 2, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-01354 in?
+2026-11-15 22:01:50.170 [send_question] sent question to topic=s9486_inbox partition=0 offset=73 correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f
+2026-11-15 22:01:50.170 [send_question] question = 'What is the street address of listing LST-02137?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-02137: title "Quiet 1BR Apartment near downtown", address 5615 Almaden Blvd, Sunnyvale, CA, available_units=1, landlord Jasmine Kaur (Silicon Valley Property Mgmt)'
+2026-11-15 22:01:50.170 [send_question] waiting up to 400s for correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f on s9486_final
+2026-11-15 22:02:18.616 [send_question] received final from topic=s9486_final partition=0 offset=69 correlation_id=3e5a113b-0b14-4d48-993b-50f03767dc3f
+
+
+
+  18/50 miss=True sim=0.705 ok      44.4s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What is the street address of listing LST-02137?
+2026-11-15 22:02:34.491 [send_question] sent question to topic=s9486_inbox partition=0 offset=74 correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651
+2026-11-15 22:02:34.491 [send_question] question = 'Are pets usually allowed in student apartments, and what fees come with them?'
+2026-11-15 22:02:34.491 [send_question] waiting up to 400s for correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651 on s9486_final
+2026-11-15 22:03:08.273 [send_question] received final from topic=s9486_final partition=0 offset=70 correlation_id=97b832fe-d4b3-4890-b7e5-a4421f319651
+
+
+
+  19/50 miss=True sim=0.286 ok      56.0s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  Are pets usually allowed in student apartments, and wha
+2026-11-15 22:03:32.125 [send_question] sent question to topic=s9486_inbox partition=0 offset=75 correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879
+2026-11-15 22:03:32.127 [send_question] question = 'Can my landlord raise the rent in the middle of my lease?'
+2026-11-15 22:03:32.127 [send_question] waiting up to 400s for correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879 on s9486_final
+2026-11-15 22:04:40.100 [send_question] received final from topic=s9486_final partition=0 offset=71 correlation_id=6d2220d3-08b0-4c2e-9c21-16dc27568879
+
+
+
+  20/50 miss=True sim=0.251 ok     108.5s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  Can my landlord raise the rent in the middle of my leas
+2026-11-15 22:05:19.660 [send_question] sent question to topic=s9486_inbox partition=0 offset=76 correlation_id=04c76d02-1fdb-4755-9c12-062f37350305
+2026-11-15 22:05:19.661 [send_question] question = 'What city is listing LST-04819 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04819: title "Bright 2BR Townhouse near SJSU", address 1530 Market St, Milpitas, CA, available_units=1, landlord Deepak Shah (Downtown SJ Apartments)'
+2026-11-15 22:05:19.661 [send_question] waiting up to 400s for correlation_id=04c76d02-1fdb-4755-9c12-062f37350305 on s9486_final
+2026-11-15 22:07:33.392 [send_question] received final from topic=s9486_final partition=0 offset=72 correlation_id=04c76d02-1fdb-4755-9c12-062f37350305
+Unable connect to "localhost:9092": 
+  21/50 miss=True sim=0.684 error  175.2s  scores={'plan_quality': None, 'writer_helpfulness': None, 'final_helpfulness': None}  What city is listing LST-04819 in?
+2026-11-15 22:08:21.508 [agents] stopped
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 628, in can_read
+    return self._parser.can_read(timeout)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/_parsers/base.py", line 140, in can_read
+    return self._buffer and self._buffer.can_read(timeout)
+                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/_parsers/socket.py", line 95, in can_read
+    return bool(self.unread_bytes()) or self._read_from_socket(
+                                        ~~~~~~~~~~~~~~~~~~~~~~^
+        timeout=timeout, raise_on_timeout=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/_parsers/socket.py", line 65, in _read_from_socket
+    data = self._sock.recv(socket_read_size)
+ConnectionResetError: [Errno 54] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 1539, in get_connection
+    if connection.can_read() and self.cache is None:
+       ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 631, in can_read
+    raise ConnectionError(f"Error while reading from {host_error}: {e.args}")
+redis.exceptions.ConnectionError: Error while reading from localhost:6379: (54, 'Connection reset by peer')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 389, in connect_check_health
+    sock = self.retry.call_with_retry(
+        lambda: self._connect(), lambda error: self.disconnect(error)
+    )
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/retry.py", line 105, in call_with_retry
+    return do()
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 390, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 803, in _connect
+    raise err
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 787, in _connect
+    sock.connect(socket_address)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/scripts/latency_experiment.py", line 174, in <module>
+    code = main()
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/scripts/latency_experiment.py", line 106, in main
+    out = qa.ask(q, store_on_miss=False)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework10/hw10/traced_ingress.py", line 53, in ask
+    entry, sim = self.cache.nearest(vec)
+                 ~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/Homework9/hw9/semantic_cache.py", line 60, in nearest
+    res = self.r.ft(self.index_name).search(q, query_params={"vec": vec.astype(np.float32).tobytes()})
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/commands/search/commands.py", line 519, in search
+    res = self.execute_command(SEARCH_CMD, *args, **options)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/client.py", line 621, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/client.py", line 627, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/utils.py", line 195, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 1543, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 380, in connect
+    self.connect_check_health(check_health=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/kavan/Desktop/Data 260 - DS/Homework1/data260-9486/.venv/lib/python3.13/site-packages/redis/connection.py", line 397, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to localhost:6379. Connection refused.
+Unclosed AIOKafkaConsumer
+consumer: <aiokafka.consumer.consumer.AIOKafkaConsumer object at 0x123d965d0>
+
+===== 2026-11-16 03:27:43 latency-resume (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 4.3 stage latency: 50 confirmed cache misses + 10 cache hits (resumed)
+run at 2026-11-16T03:27:43 | VERIFY_SEED 269486
+==============================================================================
+resume: 20 of the 50 requests already completed in the earlier session (from spans.jsonl); running the other 30
+cache is empty (Redis restarted) - re-seeding the trace-demo entry, not counted in the 50
+2026-11-16 03:27:47.569 [agents] planner, writer, reviewer ready in 0.6s (spans -> raw/spans.jsonl)
+2026-11-16 03:27:48.675 [agents] warm-up: embedding model loaded in 1.11s (not timed)
+2026-11-16 03:27:49.587 [send_question] sent question to topic=s9486_inbox partition=0 offset=77 correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8
+2026-11-16 03:27:49.587 [send_question] question = 'Who is the landlord for listing LST-00117, and how many units are open there?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00117: title "Bright 1BR Condo with parking", address 6659 Park Ave, Mountain View, CA, available_units=1, landlord Oscar Tran (Santa Clara Homes)'
+2026-11-16 03:27:49.587 [send_question] waiting up to 400s for correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8 on s9486_final
+2026-11-16 03:28:36.657 [send_question] received final from topic=s9486_final partition=0 offset=73 correlation_id=92e13aac-84eb-49e1-a623-6f25e27559c8
+
+
+
+2026-11-16 03:29:01.525 [agents] stopped
+  seeded: trace_id=92e13aac-84eb-49e1-a623-6f25e27559c8 status=ok
+cache s9486:hw10:entry:* has 1 entries (from make trace-demo)
+pre-check: highest similarity of the 50 questions to anything cached = 0.7350 (What kind of home is listing LST-01040, and how many bedroom)
+2026-11-16 03:29:05.087 [agents] planner, writer, reviewer ready in 0.6s (spans -> raw/spans.jsonl)
+2026-11-16 03:29:05.208 [agents] warm-up: embedding model loaded in 0.12s (not timed)
+2026-11-16 03:29:06.004 [send_question] sent question to topic=s9486_inbox partition=0 offset=78 correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f
+2026-11-16 03:29:06.004 [send_question] question = 'What city is listing LST-04819 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04819: title "Bright 2BR Townhouse near SJSU", address 1530 Market St, Milpitas, CA, available_units=1, landlord Deepak Shah (Downtown SJ Apartments)'
+2026-11-16 03:29:06.004 [send_question] waiting up to 400s for correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f on s9486_final
+2026-11-16 03:29:22.148 [send_question] received final from topic=s9486_final partition=0 offset=74 correlation_id=b0bb9afa-b067-4c07-b0a8-7e74079fb28f
+
+
+
+  21/50 miss=True sim=0.684 ok      43.1s  scores={'plan_quality': 1, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-04819 in?
+2026-11-16 03:29:54.193 [send_question] sent question to topic=s9486_inbox partition=0 offset=79 correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef
+2026-11-16 03:29:54.207 [send_question] question = 'What is the street address of listing LST-00775?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-00775: title "Bright 3BR House near SJSU", address 5570 San Carlos St, Sunnyvale, CA, available_units=1, landlord Paula Park (Rose Garden Realty)'
+2026-11-16 03:29:54.208 [send_question] waiting up to 400s for correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef on s9486_final
+2026-11-16 03:30:41.347 [send_question] received final from topic=s9486_final partition=0 offset=75 correlation_id=46402d81-bdc6-4618-b113-1db7cd47f6ef
+
+
+
+  22/50 miss=True sim=0.691 ok      71.7s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What is the street address of listing LST-00775?
+2026-11-16 03:31:00.867 [send_question] sent question to topic=s9486_inbox partition=0 offset=80 correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536
+2026-11-16 03:31:00.867 [send_question] question = 'What is a guarantor and when do students need one?'
+2026-11-16 03:31:00.867 [send_question] waiting up to 400s for correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536 on s9486_final
+2026-11-16 03:31:42.855 [send_question] received final from topic=s9486_final partition=0 offset=76 correlation_id=6d5e6837-660b-4373-9653-e2b87fb06536
+
+
+
+  23/50 miss=True sim=0.083 ok      74.6s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What is a guarantor and when do students need one?
+2026-11-16 03:32:15.349 [send_question] sent question to topic=s9486_inbox partition=0 offset=81 correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4
+2026-11-16 03:32:15.350 [send_question] question = 'What should I do if I find mold in my bathroom?'
+2026-11-16 03:32:15.350 [send_question] waiting up to 400s for correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4 on s9486_final
+2026-11-16 03:33:14.267 [send_question] received final from topic=s9486_final partition=0 offset=77 correlation_id=a6efeefd-7283-4f3b-8c9b-6c684bdf29c4
+
+
+
+  24/50 miss=True sim=0.150 ok      91.8s  scores={'plan_quality': 4, 'writer_helpfulness': 2, 'final_helpfulness': 2}  What should I do if I find mold in my bathroom?
+2026-11-16 03:33:48.713 [send_question] sent question to topic=s9486_inbox partition=0 offset=82 correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f
+2026-11-16 03:33:48.714 [send_question] question = 'How do I ask for a lease renewal with the same rent?'
+2026-11-16 03:33:48.714 [send_question] waiting up to 400s for correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f on s9486_final
+2026-11-16 03:34:31.494 [send_question] received final from topic=s9486_final partition=0 offset=78 correlation_id=ec0ddacd-f08e-458b-8ca9-406bf56a571f
+
+
+
+  25/50 miss=True sim=0.338 ok      72.0s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How do I ask for a lease renewal with the same rent?
+2026-11-16 03:34:59.225 [send_question] sent question to topic=s9486_inbox partition=0 offset=83 correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784
+2026-11-16 03:34:59.226 [send_question] question = 'How early should I start looking for an apartment before the fall semester?'
+2026-11-16 03:34:59.226 [send_question] waiting up to 400s for correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784 on s9486_final
+2026-11-16 03:35:40.522 [send_question] received final from topic=s9486_final partition=0 offset=79 correlation_id=075e4adb-ea42-4ddd-9102-7a7e66f19784
+
+
+
+  26/50 miss=True sim=0.363 ok      70.4s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How early should I start looking for an apartment befor
+2026-11-16 03:36:09.696 [send_question] sent question to topic=s9486_inbox partition=0 offset=84 correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8
+2026-11-16 03:36:09.696 [send_question] question = 'What kind of home is listing LST-01667, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01667: title "Bright 2BR Apartment near light rail", address 3964 Alameda, Mountain View, CA, available_units=1, landlord Elena Morales (Santa Clara Homes)'
+2026-11-16 03:36:09.696 [send_question] waiting up to 400s for correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8 on s9486_final
+2026-11-16 03:36:30.687 [send_question] received final from topic=s9486_final partition=0 offset=80 correlation_id=4b0814ab-925d-4cc7-abd8-f0fb275fc1e8
+
+
+
+  27/50 miss=True sim=0.724 ok      45.1s  scores={'plan_quality': 3, 'writer_helpfulness': 2, 'final_helpfulness': 2}  What kind of home is listing LST-01667, and how many be
+2026-11-16 03:36:54.639 [send_question] sent question to topic=s9486_inbox partition=0 offset=85 correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe
+2026-11-16 03:36:54.639 [send_question] question = 'What kind of home is listing LST-02056, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-02056: title "Updated 1BR Condo with in-unit laundry", address 7501 Willow St, Sunnyvale, CA, available_units=1, landlord Quinn Larsen (Santa Clara Homes)'
+2026-11-16 03:36:54.640 [send_question] waiting up to 400s for correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe on s9486_final
+2026-11-16 03:37:20.269 [send_question] received final from topic=s9486_final partition=0 offset=81 correlation_id=02b2aa16-ae45-4891-963e-6c462526edbe
+
+
+
+  28/50 miss=True sim=0.728 ok      45.6s  scores={'plan_quality': 3, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What kind of home is listing LST-02056, and how many be
+2026-11-16 03:37:40.233 [send_question] sent question to topic=s9486_inbox partition=0 offset=86 correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc
+2026-11-16 03:37:40.234 [send_question] question = 'Is it a good idea to pay rent with a credit card?'
+2026-11-16 03:37:40.234 [send_question] waiting up to 400s for correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc on s9486_final
+2026-11-16 03:38:09.503 [send_question] received final from topic=s9486_final partition=0 offset=82 correlation_id=79ce923d-ef94-421f-b6ae-e4755f435abc
+
+
+
+  29/50 miss=True sim=0.152 ok      48.8s  scores={'plan_quality': 3, 'writer_helpfulness': 2, 'final_helpfulness': 2}  Is it a good idea to pay rent with a credit card?
+2026-11-16 03:38:29.309 [send_question] sent question to topic=s9486_inbox partition=0 offset=87 correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe
+2026-11-16 03:38:29.310 [send_question] question = 'What city is listing LST-04199 in?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04199: title "Bright 2BR Apartment pet friendly", address 5460 Almaden Blvd, Campbell, CA, available_units=1, landlord Brandon Bennett (Bay Area Rentals LLC)'
+2026-11-16 03:38:29.310 [send_question] waiting up to 400s for correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe on s9486_final
+2026-11-16 03:38:49.431 [send_question] received final from topic=s9486_final partition=0 offset=83 correlation_id=bed757e3-c025-4b7e-935a-c6355fe0afbe
+
+
+
+  30/50 miss=True sim=0.668 ok      36.8s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What city is listing LST-04199 in?
+2026-11-16 03:39:05.792 [send_question] sent question to topic=s9486_inbox partition=0 offset=88 correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4
+2026-11-16 03:39:05.792 [send_question] question = 'How do I compare two apartments that have different lease lengths?'
+2026-11-16 03:39:05.792 [send_question] waiting up to 400s for correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4 on s9486_final
+2026-11-16 03:39:42.406 [send_question] received final from topic=s9486_final partition=0 offset=84 correlation_id=f82fa972-db4a-4b09-874e-5631edf82be4
+
+
+
+  31/50 miss=True sim=0.369 ok      53.1s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How do I compare two apartments that have different lea
+2026-11-16 03:39:59.357 [send_question] sent question to topic=s9486_inbox partition=0 offset=89 correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1
+2026-11-16 03:39:59.358 [send_question] question = 'What is the street address of listing LST-01913?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01913: title "Spacious Loft near light rail", address 1865 Lincoln Ave, Santa Clara, CA, available_units=1, landlord Quinn Larsen (Santa Clara Homes)'
+2026-11-16 03:39:59.358 [send_question] waiting up to 400s for correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1 on s9486_final
+2026-11-16 03:40:25.730 [send_question] received final from topic=s9486_final partition=0 offset=85 correlation_id=70695b33-3ad1-453f-8d1f-a7e8981f85d1
+
+
+
+  32/50 miss=True sim=0.710 ok      45.8s  scores={'plan_quality': 3, 'writer_helpfulness': 4, 'final_helpfulness': 4}  What is the street address of listing LST-01913?
+2026-11-16 03:40:44.720 [send_question] sent question to topic=s9486_inbox partition=0 offset=90 correlation_id=fc565224-d50f-4027-a672-e454ee266980
+2026-11-16 03:40:44.720 [send_question] question = 'How can I build a rental history if this is my first apartment?'
+2026-11-16 03:40:44.720 [send_question] waiting up to 400s for correlation_id=fc565224-d50f-4027-a672-e454ee266980 on s9486_final
+2026-11-16 03:41:26.624 [send_question] received final from topic=s9486_final partition=0 offset=86 correlation_id=fc565224-d50f-4027-a672-e454ee266980
+
+
+
+  33/50 miss=True sim=0.383 ok      60.9s  scores={'plan_quality': 4, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How can I build a rental history if this is my first ap
+2026-11-16 03:41:45.594 [send_question] sent question to topic=s9486_inbox partition=0 offset=91 correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d
+2026-11-16 03:41:45.594 [send_question] question = 'What should a student do if the landlord does not return calls about a leak?'
+2026-11-16 03:41:45.594 [send_question] waiting up to 400s for correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d on s9486_final
+2026-11-16 03:42:21.123 [send_question] received final from topic=s9486_final partition=0 offset=87 correlation_id=6487f02b-4bc3-4bd2-a6b3-41b06956e98d
+
+
+
+  34/50 miss=True sim=0.293 ok      56.0s  scores={'plan_quality': 3, 'writer_helpfulness': 1, 'final_helpfulness': 1}  What should a student do if the landlord does not retur
+2026-11-16 03:42:41.654 [send_question] sent question to topic=s9486_inbox partition=0 offset=92 correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef
+2026-11-16 03:42:41.654 [send_question] question = 'How do I find out if a neighborhood near campus is safe at night?'
+2026-11-16 03:42:41.654 [send_question] waiting up to 400s for correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef on s9486_final
+2026-11-16 03:43:20.309 [send_question] received final from topic=s9486_final partition=0 offset=88 correlation_id=b50ebdd8-ba0c-41ce-8f80-a499fe2cfaef
+
+
+
+  35/50 miss=True sim=0.365 ok      57.0s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How do I find out if a neighborhood near campus is safe
+2026-11-16 03:43:38.742 [send_question] sent question to topic=s9486_inbox partition=0 offset=93 correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678
+2026-11-16 03:43:38.742 [send_question] question = 'What is the street address of listing LST-03341?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-03341: title "Sunny 4BR House near downtown", address 4181 Lincoln Ave, San Jose, CA, available_units=1, landlord Carmen Chowdhury (Rose Garden Realty)'
+2026-11-16 03:43:38.742 [send_question] waiting up to 400s for correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678 on s9486_final
+2026-11-16 03:44:00.634 [send_question] received final from topic=s9486_final partition=0 offset=89 correlation_id=2c044e96-66a0-4c1b-a979-cdc3f7e0a678
+
+
+
+  36/50 miss=True sim=0.704 ok      48.7s  scores={'plan_quality': 4, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What is the street address of listing LST-03341?
+2026-11-16 03:44:27.278 [send_question] sent question to topic=s9486_inbox partition=0 offset=94 correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9
+2026-11-16 03:44:27.278 [send_question] question = 'How do I get a copy of my lease if I lost mine?'
+2026-11-16 03:44:27.278 [send_question] waiting up to 400s for correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9 on s9486_final
+2026-11-16 03:45:00.421 [send_question] received final from topic=s9486_final partition=0 offset=90 correlation_id=f4294d04-6cb1-4b1c-9946-9c48bc946ba9
+
+
+
+  37/50 miss=True sim=0.295 ok      58.7s  scores={'plan_quality': 3, 'writer_helpfulness': 2, 'final_helpfulness': 2}  How do I get a copy of my lease if I lost mine?
+2026-11-16 03:45:26.025 [send_question] sent question to topic=s9486_inbox partition=0 offset=95 correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3
+2026-11-16 03:45:26.026 [send_question] question = 'How do I break a lease early if I am studying abroad next term?'
+2026-11-16 03:45:26.026 [send_question] waiting up to 400s for correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3 on s9486_final
+2026-11-16 03:45:59.701 [send_question] received final from topic=s9486_final partition=0 offset=91 correlation_id=ba66fa26-d6e5-44a9-884d-4979ee8089e3
+
+
+
+  38/50 miss=True sim=0.219 ok      54.5s  scores={'plan_quality': 3, 'writer_helpfulness': 1, 'final_helpfulness': 1}  How do I break a lease early if I am studying abroad ne
+2026-11-16 03:46:20.473 [send_question] sent question to topic=s9486_inbox partition=0 offset=96 correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346
+2026-11-16 03:46:20.473 [send_question] question = 'What can I do if my roommate stops paying their share of the rent?'
+2026-11-16 03:46:20.473 [send_question] waiting up to 400s for correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346 on s9486_final
+2026-11-16 03:46:55.942 [send_question] received final from topic=s9486_final partition=0 offset=92 correlation_id=8f0b1b2f-5927-4d8f-a0e4-e8f3faca0346
+
+
+
+  39/50 miss=True sim=0.212 ok      52.1s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What can I do if my roommate stops paying their share o
+2026-11-16 03:47:12.612 [send_question] sent question to topic=s9486_inbox partition=0 offset=97 correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1
+2026-11-16 03:47:12.612 [send_question] question = 'What happens if I move out without giving notice?'
+2026-11-16 03:47:12.612 [send_question] waiting up to 400s for correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1 on s9486_final
+2026-11-16 03:47:51.107 [send_question] received final from topic=s9486_final partition=0 offset=93 correlation_id=10c6ebbc-6d69-48eb-a95d-aa0d58415fa1
+
+
+
+  40/50 miss=True sim=0.184 ok      58.3s  scores={'plan_quality': 4, 'writer_helpfulness': 3, 'final_helpfulness': 3}  What happens if I move out without giving notice?
+2026-11-16 03:48:10.924 [send_question] sent question to topic=s9486_inbox partition=0 offset=98 correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb
+2026-11-16 03:48:10.924 [send_question] question = 'How do I split a security deposit fairly between roommates?'
+2026-11-16 03:48:10.924 [send_question] waiting up to 400s for correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb on s9486_final
+2026-11-16 03:48:43.454 [send_question] received final from topic=s9486_final partition=0 offset=94 correlation_id=e8d12456-c108-4f3c-9c9e-5e73ea9fc1fb
+
+
+
+  41/50 miss=True sim=0.246 ok      52.0s  scores={'plan_quality': 3, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How do I split a security deposit fairly between roomma
+2026-11-16 03:49:03.019 [send_question] sent question to topic=s9486_inbox partition=0 offset=99 correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9
+2026-11-16 03:49:03.019 [send_question] question = 'What kind of home is listing LST-04071, and how many bedrooms does it have?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-04071: title "Charming 1BR Apartment near light rail", address 6257 Lincoln Ave, Milpitas, CA, available_units=1, landlord Vivian Estrada (Silicon Valley Property Mgmt)'
+2026-11-16 03:49:03.019 [send_question] waiting up to 400s for correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9 on s9486_final
+2026-11-16 03:49:31.866 [send_question] received final from topic=s9486_final partition=0 offset=95 correlation_id=4720ecb3-a7de-469f-a8a9-d5cefc95b2d9
+
+
+
+  42/50 miss=True sim=0.711 ok      52.4s  scores={'plan_quality': 2, 'writer_helpfulness': 5, 'final_helpfulness': 5}  What kind of home is listing LST-04071, and how many be
+2026-11-16 03:49:55.328 [send_question] sent question to topic=s9486_inbox partition=0 offset=100 correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe
+2026-11-16 03:49:55.328 [send_question] question = 'How do I avoid paying an application fee for apartments I will not get?'
+2026-11-16 03:49:55.328 [send_question] waiting up to 400s for correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe on s9486_final
+2026-11-16 03:50:31.372 [send_question] received final from topic=s9486_final partition=0 offset=96 correlation_id=2fd44bde-6fcc-44a9-8ddb-8630ce66fafe
+
+
+
+  43/50 miss=True sim=0.320 ok      55.5s  scores={'plan_quality': 1, 'writer_helpfulness': 1, 'final_helpfulness': 1}  How do I avoid paying an application fee for apartments
+2026-11-16 03:50:50.841 [send_question] sent question to topic=s9486_inbox partition=0 offset=101 correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006
+2026-11-16 03:50:50.842 [send_question] question = 'What is the street address of listing LST-01468?\n\nFacts from the s9486_rel listings database (use these exact values, do not guess others):\n- LST-01468: title "Quiet Loft with balcony", address 8001 Willow St, Campbell, CA, available_units=1, landlord Paula Park (Rose Garden Realty)'
+2026-11-16 03:50:50.842 [send_question] waiting up to 400s for correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006 on s9486_final
+2026-11-16 03:51:18.322 [send_question] received final from topic=s9486_final partition=0 offset=97 correlation_id=21e721c1-bed0-44c7-a70d-a393d1e02006
+
+
+
+  44/50 miss=True sim=0.703 ok      45.4s  scores={'plan_quality': 3, 'writer_helpfulness': 4, 'final_helpfulness': 4}  What is the street address of listing LST-01468?
+2026-11-16 03:51:36.279 [send_question] sent question to topic=s9486_inbox partition=0 offset=102 correlation_id=b2b46075-9fea-464c-a876-554055c1285f
+2026-11-16 03:51:36.279 [send_question] question = 'Is renters insurance worth it for a small studio?'
+2026-11-16 03:51:36.279 [send_question] waiting up to 400s for correlation_id=b2b46075-9fea-464c-a876-554055c1285f on s9486_final
+2026-11-16 03:52:14.623 [send_question] received final from topic=s9486_final partition=0 offset=98 correlation_id=b2b46075-9fea-464c-a876-554055c1285f
+
+
+
+  45/50 miss=True sim=0.240 ok      56.9s  scores={'plan_quality': 3, 'writer_helpfulness': 4, 'final_helpfulness': 4}  Is renters insurance worth it for a small studio?
+2026-11-16 03:52:33.175 [send_question] sent question to topic=s9486_inbox partition=0 offset=103 correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf
+2026-11-16 03:52:33.175 [send_question] question = 'How do parking permits usually work for apartment complexes?'
+2026-11-16 03:52:33.175 [send_question] waiting up to 400s for correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf on s9486_final
+2026-11-16 03:53:15.021 [send_question] received final from topic=s9486_final partition=0 offset=99 correlation_id=53498f44-7da7-4f74-8098-ca6c689735cf
+
+
+
+  46/50 miss=True sim=0.365 ok      60.8s  scores={'plan_quality': 4, 'writer_helpfulness': 1, 'final_helpfulness': 1}  How do parking permits usually work for apartment compl
+2026-11-16 03:53:33.870 [send_question] sent question to topic=s9486_inbox partition=0 offset=104 correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e
+2026-11-16 03:53:33.870 [send_question] question = "What does 'month-to-month' mean in a rental agreement?"
+2026-11-16 03:53:33.870 [send_question] waiting up to 400s for correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e on s9486_final
+2026-11-16 03:54:04.191 [send_question] received final from topic=s9486_final partition=0 offset=100 correlation_id=5097f3b6-9a7c-407c-a0b1-8e69c5f3587e
+
+
+
+  47/50 miss=True sim=0.327 ok      48.2s  scores={'plan_quality': 2, 'writer_helpfulness': 4, 'final_helpfulness': 4}  What does 'month-to-month' mean in a rental agreement?
+2026-11-16 03:54:22.228 [send_question] sent question to topic=s9486_inbox partition=0 offset=105 correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba
+2026-11-16 03:54:22.228 [send_question] question = 'What questions should I ask during an apartment viewing?'
+2026-11-16 03:54:22.228 [send_question] waiting up to 400s for correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba on s9486_final
+2026-11-16 03:55:03.848 [send_question] received final from topic=s9486_final partition=0 offset=101 correlation_id=ca46d031-dd09-4493-a378-b2ec526112ba
+
+
+
+  48/50 miss=True sim=0.283 ok      62.7s  scores={'plan_quality': 4, 'writer_helpfulness': 2, 'final_helpfulness': 2}  What questions should I ask during an apartment viewing
+2026-11-16 03:55:24.838 [send_question] sent question to topic=s9486_inbox partition=0 offset=106 correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32
+2026-11-16 03:55:24.838 [send_question] question = 'How should I document the condition of an apartment on move-in day?'
+2026-11-16 03:55:24.838 [send_question] waiting up to 400s for correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32 on s9486_final
+2026-11-16 03:55:59.330 [send_question] received final from topic=s9486_final partition=0 offset=102 correlation_id=f8e70018-e7fe-49bb-a72b-a69eb1803d32
+
+
+
+  49/50 miss=True sim=0.361 ok      54.2s  scores={'plan_quality': 4, 'writer_helpfulness': 3, 'final_helpfulness': 3}  How should I document the condition of an apartment on 
+2026-11-16 03:56:19.112 [send_question] sent question to topic=s9486_inbox partition=0 offset=107 correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a
+2026-11-16 03:56:19.114 [send_question] question = 'How do I report a broken smoke detector?'
+2026-11-16 03:56:19.114 [send_question] waiting up to 400s for correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a on s9486_final
+2026-11-16 03:56:54.416 [send_question] received final from topic=s9486_final partition=0 offset=103 correlation_id=cc6d3963-fa5d-42b8-b77c-85270e860f0a
+
+
+
+  50/50 miss=True sim=0.179 ok      51.2s  scores={'plan_quality': 3, 'writer_helpfulness': 1, 'final_helpfulness': 1}  How do I report a broken smoke detector?
+  hit  is_cached=True sim=1.0000   248.1 ms  Who is the landlord for listing LST-00117, and how many units are open there?
+  hit  is_cached=True sim=0.9499    50.7 ms  Which landlord manages listing LST-00117, and how many units are available?
+  hit  is_cached=True sim=1.0000    39.4 ms  Who is the landlord for listing LST-00117, and how many units are open there?
+  hit  is_cached=True sim=0.9499    40.0 ms  Which landlord manages listing LST-00117, and how many units are available?
+  hit  is_cached=True sim=1.0000    39.5 ms  Who is the landlord for listing LST-00117, and how many units are open there?
+  hit  is_cached=True sim=0.9499    43.6 ms  Which landlord manages listing LST-00117, and how many units are available?
+  hit  is_cached=True sim=1.0000    36.9 ms  Who is the landlord for listing LST-00117, and how many units are open there?
+  hit  is_cached=True sim=0.9499    38.8 ms  Which landlord manages listing LST-00117, and how many units are available?
+  hit  is_cached=True sim=1.0000    45.1 ms  Who is the landlord for listing LST-00117, and how many units are open there?
+  hit  is_cached=True sim=0.9499    42.0 ms  Which landlord manages listing LST-00117, and how many units are available?
+2026-11-16 03:57:10.739 [agents] stopped
+
+verified: 0 of 50 requests were served from the cache (must be 0); 50 finished ok; run took 28.1 min
+
+=== Stage latency over 50 cache-miss requests (end-to-end p50 55,726 ms, p95 105,558 ms) ===
+Stage                  p50 (ms)   p95 (ms)  % of e2e
+Cache lookup              183.2    1,006.8      0.5%
+Planner                 9,019.2   18,945.5     15.7%
+Writer                 18,484.2   28,982.0     29.7%
+Reviewer                6,862.0   22,858.2     14.3%
+Queue wait (total)         96.2    3,084.0      1.4%
+Evaluation             19,967.1   33,474.7     37.0%
+(other: Kafka client setup, offsets)                            1.4%
+cache hits (separate metric): 10/10 hits, p50 42.0 ms
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | latency experiment - done =====
+
+===== 2026-11-16 03:57:23 judge-validation (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | Part 3 judge validation (20 drafts x 3 runs vs human labels)
+run at 2026-11-16T03:57:26 | VERIFY_SEED 269486
+==============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+frozen: Homework10/data/eval_cases.json first committed 51fd847 2026-11-16T03:32:30-08:00
+frozen: Homework10/data/human_labels.csv first committed 51fd847 2026-11-16T03:32:30-08:00
+judge settings: {'model': 'llama3.2:3b', 'temperature': 0.0, 'seed': None, 'num_ctx': 2048, 'num_predict': 300, 'timeout_s': 90.0, 'framework': 'deepeval GEval (4.3.4), evaluation_steps + 1-5 rubric'}
+run 1: [3, 3, 1, 2, 3, 3, 3, 3, 3, 3, 2, 3, 1, 4, 3, 4, 3, 3, 3, 2]  (149s, 20 judge calls)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+run 2: [3, 3, 1, 2, 3, 3, 3, 3, 3, 3, 2, 3, 1, 4, 3, 4, 3, 3, 3, 2]  (144s, 20 judge calls)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+run 3: [3, 3, 1, 2, 3, 3, 3, 3, 3, 3, 2, 3, 1, 4, 3, 4, 3, 3, 3, 2]  (143s, 20 judge calls)
+
+=== Agreement with human labels (1-5) ===
+judge scores    Spearman        p    MAD  exact
+run1               0.171   0.4722   1.65   1/20
+run2               0.171   0.4722   1.65   1/20
+run3               0.171   0.4722   1.65   1/20
+median_of_3        0.171   0.4722   1.65   1/20
+
+=== Repeatability (3 runs, same inputs and settings) ===
+cases whose score changed: 0/20  pairwise changes: 0/60  mean |change| 0  max |change| 0
+
+case  human  run1 run2 run3
+c01       5    3    3    3
+c02       5    3    3    3
+c03       4    1    1    1
+c04       4    2    2    2
+c05       4    3    3    3
+c06       3    3    3    3
+c07       4    3    3    3
+c08       5    3    3    3
+c09       5    3    3    3
+c10       5    3    3    3
+c11       5    2    2    2
+c12       4    3    3    3
+c13       4    1    1    1
+c14       5    4    4    4
+c15       5    3    3    3
+c16       3    4    4    4
+c17       4    3    3    3
+c18       5    3    3    3
+c19       4    3    3    3
+c20       3    2    2    2
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | judge validation - done =====
+
+===== 2026-11-16 04:05:02 metrics-hw10 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | fill METRICS.md from raw/
+run at 2026-11-16T04:05:02 | VERIFY_SEED 269486
+==============================================================================
+  filled summary
+  filled part2
+  filled stage-scores
+  filled judge
+  filled traces
+  filled latency
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | metrics - done =====
+
+===== 2026-11-16 04:05:48 test-hw10 (Kavan Siddesh) =====
+PASS  test_span_has_required_fields_and_goes_to_file
+PASS  test_no_span_file_when_tracing_is_off
+PASS  test_agent_loop_uses_correlation_id_as_trace_id
+PASS  test_queue_wait_sums_three_hops_and_final_delivery
+PASS  test_percentiles
+PASS  test_stage_table_and_share_of_end_to_end
+PASS  test_hits_and_errors_are_counted_separately
+PASS  test_missing_message_gives_error_not_crash
+PASS  test_slow_judge_is_bounded
+PASS  test_improvement_interpretation_does_not_force_a_positive_result
+PASS  test_score_scale_is_1_to_5
+PASS  test_agreement_statistics
+PASS  test_eval_cases_are_20_writer_drafts
+PASS  test_human_labels_if_present_are_1_to_5
+PASS  test_dashboard_pages_render
+
+15/15 HW10 tests passed
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | tests - done =====
+
+===== 2026-11-16 04:05:55 verify-hw10 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | verify HW10
+run at 2026-11-16T04:05:55 | VERIFY_SEED 269486
+==============================================================================
+PASS  every span has trace_id, stage, start, end, status, error  (399 spans)
+PASS  miss trace: one trace_id from cache_lookup through Kafka stages to evaluation  (cache_lookup, cache_store, evaluation, pipeline, planner, request, reviewer, writer)
+PASS  hit trace: cache_lookup says hit and no Kafka stage ran
+PASS  failed trace: failing stage and error recorded  (planner: RuntimeError: injected failure in planner (HW10 failed-trace)
+PASS  Part 2: four criteria scored 1-5 for the end-to-end question  (plan 3, draft 4, final 4, diff +0)
+PASS  Part 2: plan, draft, final joined by trace_id from the three topics
+PASS  Part 3.1: eval_cases.json committed and unchanged
+PASS  Part 3.1: human_labels.csv committed and unchanged
+PASS  Part 3.1: labels committed before the judge scored them  (judge run 2026-11-16 12:04 UTC)
+PASS  Part 3: 20 drafts, 20 human labels 1-5
+PASS  Part 3.2: Spearman and mean absolute difference reported, raw per-case CSV saved  (Spearman 0.171, MAD 1.65)
+PASS  Part 3.3: judge run 3 times on the same 20 drafts  (0/20 cases changed)
+PASS  Part 4.3: 50 requests, none served from the cache
+PASS  Part 4.3: stage table recomputes from spans.jsonl  (50 complete cache-miss traces)
+PASS  Part 4.3: cache-hit latency kept separately  (10 hits)
+PASS  automated HW10 tests  (15/15 HW10 tests passed)
+
+16/16 checks passed   commit 51fd8472d4fa (uncommitted changes)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | verify - done =====

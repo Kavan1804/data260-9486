@@ -28,6 +28,7 @@ from aiokafka import AIOKafkaConsumer, AIOKafkaProducer, ConsumerRebalanceListen
 from aiokafka.errors import CommitFailedError  # noqa: E402
 
 import config  # noqa: E402
+from kafka_agents.tracing import write_span  # noqa: E402
 from kafka_service.common import bootstrap, from_bytes, log, short, to_bytes, where  # noqa: E402
 
 
@@ -129,10 +130,16 @@ class Agent:
             return
 
         msg, out, error = None, None, None
+        span_start = time.time()
+        attempts = 0
         for attempt in range(1, a.max_retries + 1):
+            attempts = attempt
             try:
                 msg = from_bytes(record.value)
                 started = time.time()
+                if (msg.get("test") or {}).get("fail_stage") == self.name:
+                    # HW10: lets the trace demo produce one failed request on purpose
+                    raise RuntimeError(f"injected failure in {self.name} (HW10 failed-trace demo)")
                 out = await asyncio.to_thread(self.handle, msg)
                 out["trace"] = msg.get("trace", []) + [
                     {
@@ -155,6 +162,21 @@ class Agent:
                 log(self.label, f"attempt {attempt}/{a.max_retries} failed for offset {record.offset}: {error}")
                 if attempt < a.max_retries:
                     await asyncio.sleep(0.5 * attempt)
+
+        # HW10 span: queue wait = time on the input topic (producer timestamp -> this agent picked it up)
+        produced_ms = getattr(record, "timestamp", None)  # Kafka CreateTime (ms); test doubles may not have it
+        span_attrs = {
+            "agent": self.label,
+            "topic": record.topic,
+            "partition": record.partition,
+            "offset": record.offset,
+            "queue_wait_ms": round(span_start * 1000 - produced_ms, 1) if produced_ms else None,
+            "attempts": attempts,
+        }
+        if out is None:
+            write_span(cid, self.name, span_start, time.time(), "error", error, dead_letter=True, **span_attrs)
+        else:
+            write_span(cid, self.name, span_start, time.time(), "ok", None, **span_attrs)
 
         if out is None:
             dead = {

@@ -876,3 +876,28 @@ PASS  automated HW10 tests  (15/15 HW10 tests passed)
 
 16/16 checks passed   commit 51fd8472d4fa (uncommitted changes)
 ===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | verify - done =====
+
+===== 2026-11-16 11:04:35 verify-hw10 (Kavan Siddesh) =====
+==============================================================================
+Kavan Siddesh | SID4 9486 | s9486 | HW10 | verify HW10
+run at 2026-11-16T11:04:35 | VERIFY_SEED 269486
+==============================================================================
+PASS  every span has trace_id, stage, start, end, status, error  (399 spans)
+PASS  miss trace: one trace_id from cache_lookup through Kafka stages to evaluation  (cache_lookup, cache_store, evaluation, pipeline, planner, request, reviewer, writer)
+PASS  hit trace: cache_lookup says hit and no Kafka stage ran
+PASS  failed trace: failing stage and error recorded  (planner: RuntimeError: injected failure in planner (HW10 failed-trace)
+PASS  Part 2: four criteria scored 1-5 for the end-to-end question  (plan 3, draft 4, final 4, diff +0)
+PASS  Part 2: plan, draft, final joined by trace_id from the three topics
+PASS  Part 3.1: eval_cases.json committed and unchanged
+PASS  Part 3.1: human_labels.csv committed and unchanged
+PASS  Part 3.1: labels committed before the judge scored them  (judge run 2026-11-16 12:04 UTC)
+PASS  Part 3: 20 drafts, 20 human labels 1-5
+PASS  Part 3.2: Spearman and mean absolute difference reported, raw per-case CSV saved  (Spearman 0.171, MAD 1.65)
+PASS  Part 3.3: judge run 3 times on the same 20 drafts  (0/20 cases changed)
+PASS  Part 4.3: 50 requests, none served from the cache
+PASS  Part 4.3: stage table recomputes from spans.jsonl  (50 complete cache-miss traces)
+PASS  Part 4.3: cache-hit latency kept separately  (10 hits)
+PASS  automated HW10 tests  (15/15 HW10 tests passed)
+
+16/16 checks passed   commit a88f41328d9f (uncommitted changes)
+===== Kavan Siddesh | SID4 9486 | s9486 | HW10 | verify - done =====

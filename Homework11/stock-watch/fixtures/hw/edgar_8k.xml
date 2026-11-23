@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- HW11 FIXTURE. All companies and filings are fictional. -->
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>EDGAR 8-K filings (HW fixture)</title>
+  <entry>
+    <id>urn:tag:sec.gov,2008:accession-number=0009999912-26-000201</id>
+    <updated>2026-11-20T16:10:00-05:00</updated>
+    <title>HBVZ: 8-K - Current report, third-quarter results</title>
+    <summary>(HW fixture, fictional company.) Harborvane Energy Inc. Item 2.02 Results of Operations. Q3 revenue $640M, down 4% year over year; full-year guidance unchanged.</summary>
+    <link href="https://www.sec.gov/Archives/edgar/data/9999912/000999991226000201/0009999912-26-000201-index.htm" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:tag:sec.gov,2008:accession-number=0009999914-26-000088</id>
+    <updated>2026-11-20T08:30:00-05:00</updated>
+    <title>MSRZ: 8-K - Current report, shipment pause</title>
+    <summary>(HW fixture, fictional company.) Mistral Ridge Bio Inc. Item 8.01 Other Events. The company voluntarily paused shipments of its main product, about 40% of revenue, after a quality review.</summary>
+    <link href="https://www.sec.gov/Archives/edgar/data/9999914/000999991426000088/0009999914-26-000088-index.htm" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:tag:sec.gov,2008:accession-number=0009999913-26-000051</id>
+    <updated>2026-11-19T17:05:00-05:00</updated>
+    <title>QLSZ: 8-K - Current report, supply agreement</title>
+    <summary>(HW fixture, fictional company.) Quillstone Semis Inc. Item 1.01 Entry into a Material Definitive Agreement. Four-year supply agreement valued at $900M.</summary>
+    <link href="https://www.sec.gov/Archives/edgar/data/9999913/000999991326000051/0009999913-26-000051-index.htm" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:tag:sec.gov,2008:accession-number=0009999912-26-000202</id>
+    <updated>2026-11-20T18:00:00-05:00</updated>
+    <title>HBVZ: 8-K/A - Current report, amendment</title>
+    <summary>(HW fixture, fictional company.) Harborvane Energy Inc. Amendment No. 1 corrects the phone number on the cover page. No other changes.</summary>
+    <link href="https://www.sec.gov/Archives/edgar/data/9999912/000999991226000202/0009999912-26-000202-index.htm" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:tag:sec.gov,2008:accession-number=0009999915-26-000017</id>
+    <updated>2026-11-20T09:00:00-05:00</updated>
+    <title>PNLZ: 8-K - Current report, executive change</title>
+    <summary>(HW fixture, fictional company.) Penlark Retail Inc. Item 5.02. The chief executive officer resigned effective immediately; the chair will serve as interim CEO.</summary>
+    <link href="https://www.sec.gov/Archives/edgar/data/9999915/000999991526000017/0009999915-26-000017-index.htm" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:tag:sec.gov,2008:accession-number=0009999916-26-000009</id>
+    <updated>2026-11-20T07:45:00-05:00</updated>
+    <title>TESZ: 8-K - Current report, listing notice</title>
+    <summary>(HW fixture, fictional company.) Tessaly Works Inc. Item 3.01 Notice of Delisting. The exchange notified the company that trading will be suspended.</summary>
+    <link href="https://www.sec.gov/Archives/edgar/data/9999916/000999991626000009/0009999916-26-000009-index.htm" rel="alternate"/>
+  </entry>
+</feed>

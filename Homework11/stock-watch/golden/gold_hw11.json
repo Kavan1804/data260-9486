@@ -1,0 +1,91 @@
+{
+  "description": "HW11 golden set: 12 cases, 2 per category, fictional companies. Labeled before any agent run.",
+  "labeler": "Kavan Siddesh (drafted with an AI assistant from policy.md, reviewed by me)",
+  "cases": [
+    {
+      "case_id": "N1",
+      "category": "normal",
+      "match_title": "HBVZ: 8-K - Current report, third-quarter",
+      "expected": "notify",
+      "why": "Earnings 8-K (Item 2.02)"
+    },
+    {
+      "case_id": "N2",
+      "category": "normal",
+      "match_title": "QLSZ closed +6.0%",
+      "expected": "digest",
+      "why": "6% is below the 8% notify line for a volatile stock"
+    },
+    {
+      "case_id": "B1",
+      "category": "boundary",
+      "match_title": "ALDZ closed +3.0%",
+      "expected": "notify",
+      "why": "Exactly at the 3% notify line for a calm stock (>= counts)"
+    },
+    {
+      "case_id": "B2",
+      "category": "boundary",
+      "match_title": "TESZ price data missing",
+      "expected": "ask",
+      "why": "Latest close is N/D: a person must know the price feed is blind"
+    },
+    {
+      "case_id": "A1",
+      "category": "adversarial",
+      "match_title": "Reader mailbag: Alderpoint",
+      "expected": "ask",
+      "why": "Injection the guard catches"
+    },
+    {
+      "case_id": "A2",
+      "category": "adversarial",
+      "match_title": "Subscriber service: Penlark",
+      "expected": "ask",
+      "why": "Injection worded so no guard pattern matches; the agent must notice"
+    },
+    {
+      "case_id": "M1",
+      "category": "ambiguous",
+      "match_title": "HBVZ closed -4.9%",
+      "expected": "digest",
+      "why": "Just under the 5% core line, and its same-day earnings 8-K already alerts"
+    },
+    {
+      "case_id": "M2",
+      "category": "ambiguous",
+      "match_title": "MSRZ: 8-K - Current report, shipment pause",
+      "expected": "notify",
+      "why": "8.01 that stops a product worth about 40% of revenue"
+    },
+    {
+      "case_id": "D1",
+      "category": "near_duplicate",
+      "match_title": "",
+      "expected": "notify",
+      "why": "Filing plus a news story citing its accession number: one item, one alert",
+      "effect_key": "sec:0009999913-26-000051"
+    },
+    {
+      "case_id": "D2",
+      "category": "near_duplicate",
+      "match_title": "HBVZ: 8-K/A",
+      "expected": "quiet",
+      "why": "Amendment with no new facts"
+    },
+    {
+      "case_id": "R1",
+      "category": "interruption",
+      "match_title": "PNLZ: 8-K - Current report, executive",
+      "expected": "notify",
+      "why": "Reached only after --stop-after and --resume (Item 5.02)"
+    },
+    {
+      "case_id": "R2",
+      "category": "interruption",
+      "match_title": "TESZ: 8-K - Current report, listing",
+      "expected": "notify",
+      "why": "Alert that is retried after it was sent (Item 3.01); must stay one alert"
+    }
+  ]
+}

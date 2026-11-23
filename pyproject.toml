@@ -7,6 +7,7 @@ extend-exclude = [
     "Homework1", "Homework2", "Homework3", "Homework4", "Homework5", "Homework7/DATA236_DEMO7",
     "frontend", "data", "reports", "Homework8/DATA236_DEMO8", "Homework8/multi-agent-demo",
     "Homework9/demo.py", "Homework9/caching_agents.py", "Homework10/ge-eval2.py", "Homework10/DATA236_DEMO10",
+    "Homework11/stock-watch",
 ]
 
 [tool.ruff.lint]

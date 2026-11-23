@@ -26,6 +26,10 @@ Homework9/*.pdf
 Homework10/DATA236_DEMO10/
 Homework10/ge-eval2.py
 Homework10/*.pdf
+Homework11/*.pdf
+Homework11/*.zip
+Homework11/stock-watch/state/
+Homework11/stock-watch/digests/
 
 # Tool caches
 .ruff_cache/
@@ -45,3 +49,4 @@ reports/hw07/screenshots/
 reports/hw08/screenshots/
 reports/hw09/screenshots/
 reports/hw10/screenshots/
+reports/hw11/screenshots/

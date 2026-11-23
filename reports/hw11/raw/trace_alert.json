@@ -1,0 +1,52 @@
+[
+  {
+    "ts": "2026-11-23T20:18:51+00:00",
+    "run_id": "20261123-121811-2f3f",
+    "effect_id": "24bbe5900f1e",
+    "step": "retrieved",
+    "detail": {
+      "source": "edgar_demo",
+      "url": "https://www.sec.gov/Archives/edgar/data/9999913/000999991326000051/0009999913-26-000051-index.htm",
+      "key": "sec:0009999913-26-000051"
+    }
+  },
+  {
+    "ts": "2026-11-23T20:18:51+00:00",
+    "run_id": "20261123-121811-2f3f",
+    "effect_id": "24bbe5900f1e",
+    "step": "dedup_merge",
+    "detail": {
+      "source": "newswire_demo",
+      "why": "same item already found in this run from another source"
+    }
+  },
+  {
+    "ts": "2026-11-23T20:19:13+00:00",
+    "run_id": "20261123-121811-2f3f",
+    "effect_id": "24bbe5900f1e",
+    "step": "importance_scored",
+    "detail": {
+      "score": 0.85,
+      "reason": "Item 1.01 material agreement: four-year $900M supply agreement"
+    }
+  },
+  {
+    "ts": "2026-11-23T20:19:13+00:00",
+    "run_id": "20261123-121811-2f3f",
+    "effect_id": "24bbe5900f1e",
+    "step": "decision",
+    "detail": {
+      "decision": "notify"
+    }
+  },
+  {
+    "ts": "2026-11-23T20:19:13+00:00",
+    "run_id": "20261123-121811-2f3f",
+    "effect_id": "24bbe5900f1e",
+    "step": "effect",
+    "detail": {
+      "type": "SendToUser",
+      "effect_id": "24bbe5900f1e"
+    }
+  }
+]

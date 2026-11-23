@@ -1,0 +1,13 @@
+[
+  {
+    "run_id": "20261123-121811-2f3f",
+    "started": "2026-11-23T20:18:11+00:00",
+    "finished": "2026-11-23T20:19:13+00:00",
+    "mode": "fixtures",
+    "status": "complete",
+    "sources_total": 4,
+    "sources_done": 4,
+    "note": "resumed",
+    "latency_s": 62.0
+  }
+]

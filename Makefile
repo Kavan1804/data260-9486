@@ -394,3 +394,15 @@ dashboard:
 
 report-hw10:
 	$(PYTHON) $(HW10)/render_report_hw10.py
+
+# ---------- HW11 (stock-watch on Meta Muse) ----------
+.PHONY: import-hw11 verify-hw11 report-hw11
+
+import-hw11:
+	$(PYTHON) Homework11/scripts/import_muse_run.py reports/hw11/raw/snapshot.json
+
+verify-hw11:
+	$(PYTHON) Homework11/scripts/verify_hw11.py
+
+report-hw11:
+	$(PYTHON) Homework11/scripts/render_report_hw11.py

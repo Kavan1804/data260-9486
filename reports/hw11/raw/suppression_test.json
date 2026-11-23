@@ -1,0 +1,9 @@
+{"day1_decide_as_notify": {
+  "ok": true,
+  "status": "RECORDED",
+  "decision": "ask",
+  "send_notification": false,
+  "effect_id": "24bbe5900f1e",
+  "message": "Do not act on this item. List it under 'Needs your review' in the digest."
+},
+"day2_filing_is_candidate": false ,"day2_pending": 9 }
